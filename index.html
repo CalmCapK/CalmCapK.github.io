@@ -200,6 +200,18 @@
 <li>修改主题 _config.yml<br> theme: yilia</li>
 <li>hexo clean<br>hexo g<br>hexo s<br>hexo d</li>
 </ol>
+<h2 id="more-安装动漫小人"><a href="#more-安装动漫小人" class="headerlink" title="(more)安装动漫小人"></a>(more)安装动漫小人</h2><ol>
+<li><p>安装模块 npm 或者 cnpm install –save hexo-helper-live2d</p>
+</li>
+<li><p>样式选择<br><a href="https://github.com/xiazeyu/live2d-widget-models" target="_blank" rel="noopener">https://github.com/xiazeyu/live2d-widget-models</a><br>样式浏览 <a href="https://huaji8.top/post/live2d-plugin-2.0/" target="_blank" rel="noopener">https://huaji8.top/post/live2d-plugin-2.0/</a><br>(问题) npm ERR! Unexpected end of JSON input while parsing near ‘…nes”:{“node”:”&gt;=0.10.’<br>（解决方法）npm cache clean –force</p>
+</li>
+<li><p>样式下载<br>npm 或者 cnpm install live2d-widget-model-haru<br>（可以在工作目录/node_modules看到）</p>
+</li>
+<li><p>修改配置 _config<br>(注意)<br>在使用的时候，live2d-widget-model-haru有两个模型，所以在使用的时候，是这样的：<br> use: live2d-widget-model-haru/01 或者<br> use: live2d-widget-model-haru/02<br> 01和02的json文件是空的，所以需要把live2d-widget-model-haru文件夹下的json文件复制进去</p>
+</li>
+<li><p>hexo clean hexo g hexo s hexo d</p>
+</li>
+</ol>
 
       
 
@@ -563,5 +575,5 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/haru02.model.json"},"display":{"position":"right","width":300,"height":600,"hOffset":100,"vOffset":-100},"mobile":{"show":true},"log":false});</script></body>
 </html>
