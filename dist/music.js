@@ -13,6 +13,12 @@ const ap = new APlayer({
     fixed: false, //吸底模式（fixed:true），迷你模式（mini:true），普通模式（注释此行或者设置fixed:false）
     audio: [
       {
+        name: 'いつも何度でも千与千寻',
+        artist: '木村弓',
+        url: 'http://m10.music.126.net/20190803024114/af2913ee8eab67bc66c129846d890309/ymusic/8786/ddc4/17a2/3884ffebfbe5fab07c8a795924e44566.mp3',
+        cover: 'http://p2.music.126.net/Job7uTX8IWi3huhpJbuljQ==/109951163345986508.jpg?param=300x300',
+      },
+      {
         name: 'レイトン教授のテーマ',
         artist: '西浦智仁',
         url: 'http://m10.music.126.net/20190803022752/eb7a8411a4d000476c4aa18b00cf4dab/ymusic/555c/5559/555e/b6b985a625b3808ccbbdb4ea41713a3f.mp3',
@@ -23,12 +29,6 @@ const ap = new APlayer({
         artist: '西浦智仁',
         url: 'http://m10.music.126.net/20190803021409/2f8541264a0309caa81fb1e7d2279f13/ymusic/91cf/90ce/319a/a30bed81f31b3a2a6ffa9eef4988a30d.mp3',
         cover: 'http://p2.music.126.net/E5h9E0HInwOun35o74qQKQ==/774056185966233.jpg?param=300x300',
-      },
-      {
-        name: 'いつも何度でも千与千寻',
-        artist: '木村弓',
-        url: 'http://m10.music.126.net/20190803024114/af2913ee8eab67bc66c129846d890309/ymusic/8786/ddc4/17a2/3884ffebfbe5fab07c8a795924e44566.mp3',
-        cover: 'http://p2.music.126.net/Job7uTX8IWi3huhpJbuljQ==/109951163345986508.jpg?param=300x300',
       },
       {
         name: '只要有你的地方',
