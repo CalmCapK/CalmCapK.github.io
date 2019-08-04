@@ -172,6 +172,117 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-基于windows10-hexo-github搭建个人博客-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/04/基于windows10-hexo-github搭建个人博客-2/">基于windows10+hexo+github搭建个人博客(2)</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/04/基于windows10-hexo-github搭建个人博客-2/" class="archive-article-date">
+  	<time datetime="2019-08-04T10:34:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="安装动漫小人"><a href="#安装动漫小人" class="headerlink" title="安装动漫小人"></a>安装动漫小人</h2><ol>
+<li><p>安装插件  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm 或者 cnpm install --save hexo-helper-live2d</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>样式选择<br><a href="https://github.com/xiazeyu/live2d-widget-models" target="_blank" rel="noopener">https://github.com/xiazeyu/live2d-widget-models</a><br>样式浏览<br><a href="https://huaji8.top/post/live2d-plugin-2.0/" target="_blank" rel="noopener">https://huaji8.top/post/live2d-plugin-2.0/</a>  </p>
+</li>
+<li><p>样式下载  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm 或者 cnpm install live2d-widget-model-haru</span><br><span class="line">``` </span><br><span class="line">*(可以在工作目录/node_modules看到)*  </span><br><span class="line">*(问题) npm ERR! Unexpected end of JSON input <span class="keyword">while</span> parsing near <span class="string">'...nes":&#123;"node":"&gt;=0.10.'</span>  </span><br><span class="line">(解决方法)*</span><br></pre></td></tr></table></figure>
+
+<p>npm cache clean –force</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">4. 修改根目录_config.yml的配置 </span><br><span class="line">   ``` yml</span><br><span class="line">   #二次元</span><br><span class="line">   live2d:</span><br><span class="line">      enable: true</span><br><span class="line">      scriptFrom: local</span><br><span class="line">      pluginRootPath: live2dw/</span><br><span class="line">      pluginJsPath: lib/</span><br><span class="line">      pluginModelPath: assets/</span><br><span class="line">      tagMode: false</span><br><span class="line">      debug: false</span><br><span class="line">      model:</span><br><span class="line">        use: live2d-widget-model-haru/02 #这个是你要修改的</span><br><span class="line">      display:</span><br><span class="line">        position: right #在屏幕上的显示位置</span><br><span class="line">        width: 300 #显示宽度</span><br><span class="line">        height: 600 #显示高度</span><br><span class="line">        hOffset: 100</span><br><span class="line">        wOffset: -50</span><br><span class="line">      mobile:</span><br><span class="line">        show: true #手机端是否显示</span><br><span class="line">   ```  </span><br><span class="line">   *(注意1) live2d-widget-model-haru有两个模型，所以在使用的时候:</span><br><span class="line">   ``` vim</span><br><span class="line">   use: live2d-widget-model-haru/01</span><br><span class="line">   或者</span><br><span class="line">   use: live2d-widget-model-haru/02</span><br><span class="line">   ```  </span><br><span class="line">   (注意2) 01和02的json文件是空的，所以需要把live2d-widget-model-haru文件夹下的json文件复制进去*</span><br><span class="line"></span><br><span class="line">5. 运行  </span><br><span class="line">   ``` bash</span><br><span class="line">      hexo clean </span><br><span class="line">      hexo g </span><br><span class="line">      hexo s </span><br><span class="line">      hexo d</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>关闭和卸载<br>关闭: _config.yml 设置为 <code>enable: false</code><br>卸载：<code>npm uninstall hexo-helper-live2d</code></p>
+</li>
+<li><p>参考<br><a href="https://blog.csdn.net/wugenqiang/article/details/88375517" target="_blank" rel="noopener">https://blog.csdn.net/wugenqiang/article/details/88375517</a><br><a href="https://blog.csdn.net/wang_123_zy/article/details/87181892#live2dwidgetmodelunitychan_50" target="_blank" rel="noopener">https://blog.csdn.net/wang_123_zy/article/details/87181892#live2dwidgetmodelunitychan_50</a><br><a href="https://www.jianshu.com/p/5b5c61323772" target="_blank" rel="noopener">https://www.jianshu.com/p/5b5c61323772</a></p>
+</li>
+</ol>
+<h2 id="头像"><a href="#头像" class="headerlink" title="头像"></a>头像</h2><ol>
+<li>添加图像资源文件夹<br>themes/yilia/source/assets</li>
+<li>修改themes/yilia/_config.yml配置文件  </li>
+<li>参考<br><a href="https://blog.csdn.net/lynnbest/article/details/79845944" target="_blank" rel="noopener">https://blog.csdn.net/lynnbest/article/details/79845944</a></li>
+</ol>
+<h2 id="全文显示"><a href="#全文显示" class="headerlink" title="全文显示"></a>全文显示</h2><ol>
+<li><p>在博客MD文件插入
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/教程//" class="article-tag-list-link color3">教程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/04/基于windows10-hexo-github搭建个人博客-2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
     <article id="post-我的博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -179,12 +290,214 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/31/我的博客/">基于windows10+hexo+github搭建个人博客</a>
+      <a class="article-title" href="/2019/07/31/我的博客/">基于windows10+hexo+github搭建个人博客(1)</a>
     </h1>
   
 
         
         <a href="/2019/07/31/我的博客/" class="archive-article-date">
+  	<time datetime="2019-07-31T14:12:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span>
+        <h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol>
+<li>安装git</li>
+<li>安装node.js官网地址 <a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a> (安装自带node和npm)</li>
+<li>安装cnpm(加速)</li>
+<li>安装hexo</li>
+<li>通过<code>node -v, npm -v, cnpm -v,hexo -v</code>查看是否安装成功</li>
+<li>新建工作目录后初始化</li>
+</ol>
+<h2 id="安装步骤-1"><a href="#安装步骤-1" class="headerlink" title="安装步骤"></a>安装步骤</h2><ul>
+<li><p>安装git</p>
+</li>
+<li><p>安装node.js<br> 官网地址 <a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a> (安装自带node和npm) </p>
+</li>
+<li><p>安装cnpm(加速)</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobap.org</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装hexo  </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过<code>node -v, npm -v, cnpm -v,hexo -v</code>查看是否安装成功</p>
+</li>
+<li><p>新建工作目录后初始化</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+
+<p> <em>(若出现问题)：ERROR Try running: ‘npm install hexo –save’<br> (原因) .gitignore文件里面忽略了node_modules文件夹，所以这个文件夹没有更新上去。所以用npm重新安装即可。<br> (方法)</em></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="使用步骤-在工作目录下"><a href="#使用步骤-在工作目录下" class="headerlink" title="使用步骤(在工作目录下)"></a>使用步骤(在工作目录下)</h2><ol>
+<li>hexo n “XXX”或者 hexo new “XXX” 编辑新文章</li>
+<li>hexo clean</li>
+<li>hexo g 或者 hexo generate</li>
+<li>hexo s 或者 hexo server启动本地服务器<br>hexo server -p 5000<br>可以通过 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 访问, /public文件夹相当于网站的根目录</li>
+<li>hexo d 或者 hexo deploy  </li>
+</ol>
+<h2 id="部署步骤"><a href="#部署步骤" class="headerlink" title="部署步骤"></a>部署步骤</h2><ol>
+<li><p>新建仓库 XXX(github用户名).github.io</p>
+</li>
+<li><p>安装部署插件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置根目录下的_config.yml文件</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="attr">https://github.com/XXX/XXX.github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
+<p>如果配置了ssh，可以配置为如下代码，这样可以每次不用输入账号密码</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">repo:</span> <span class="string">git@github.com:XXX/XXX.github.io.git</span></span><br></pre></td></tr></table></figure>
+
+<p>配置ssh参考：<a href="http://blog.haoji.me/build-blog-website-by-hexo-github.html?from=xa" target="_blank" rel="noopener">http://blog.haoji.me/build-blog-website-by-hexo-github.html?from=xa</a></p>
+</li>
+<li><p>部署 <code>hexo d</code> 可以通过 <a href="https://XXX.github.io" target="_blank" rel="noopener">https://XXX.github.io</a> 查看</p>
+</li>
+</ol>
+<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><ol>
+<li><p>浏览主题 <a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a><br>yilia主题 <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">https://github.com/litten/hexo-theme-yilia</a></p>
+</li>
+<li><p>下载主题(根目录下) </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure>
+
+<p>或者  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改主题<br>在根目录下/_config.yml修改为 <code>theme: yilia</code></p>
+</li>
+<li><p><code>hexo clean 
+hexo g
+hexo s
+hexo d</code><br><em>(注意)yilia主题缺少模块，还要按照”所有文章”步骤来完善</em></p>
+</li>
+</ol>
+<h2 id="添加分类页面-bug"><a href="#添加分类页面-bug" class="headerlink" title="添加分类页面(bug)"></a>添加分类页面(bug)</h2><ol>
+<li><p>生成页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑/source/categories/index.md文件</p>
+<figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: categories</span><br><span class="line">date: <span class="number">2019</span>-<span class="number">08</span>-<span class="number">02</span> <span class="number">20</span>:<span class="number">25</span>:<span class="number">28</span></span><br><span class="line"><span class="keyword">type</span>: <span class="string">"categories"</span></span><br><span class="line">comments: <span class="built_in">true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置/theme/XXX/_config.yml</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">menus:</span></span><br><span class="line"><span class="attr">  home:</span> <span class="string">/</span></span><br><span class="line"><span class="attr">  categories:</span> <span class="string">/categories</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在文章md添加分类</p>
+<figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">title: XXX</span><br><span class="line">categories: 教程</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>参考<br><a href="https://blog.csdn.net/Wonz5130/article/details/84666519" target="_blank" rel="noopener">https://blog.csdn.net/Wonz5130/article/details/84666519</a><br>next主题直接可以，yilia不行，yilia具体看：<br><a href="https://www.voidking.com/2018/06/11/deve-hexo-categories/" target="_blank" rel="noopener">https://www.voidking.com/2018/06/11/deve-hexo-categories/</a></p>
+</li>
+</ol>
+<h2 id="添加标签页面"><a href="#添加标签页面" class="headerlink" title="添加标签页面"></a>添加标签页面</h2><ol>
+<li><p>生成标签页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑/source/tags/index.md文件</p>
+<figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: tags</span><br><span class="line">date: <span class="number">2019</span>-<span class="number">08</span>-<span class="number">02</span> <span class="number">20</span>:<span class="number">25</span>:<span class="number">28</span></span><br><span class="line"><span class="keyword">type</span>: <span class="string">"tags"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置/theme/XXX/_config.yml</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">menus:</span></span><br><span class="line"><span class="attr">  home:</span> <span class="string">/</span></span><br><span class="line"><span class="attr">  categories:</span> <span class="string">/categories</span></span><br><span class="line"><span class="attr">  tags:</span> <span class="string">/tags</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在文章md添加标签（yilia自带，前面步骤可以不用）</p>
+<figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">title: XXX</span><br><span class="line">categories: 教程</span><br><span class="line">tags:</span><br><span class="line">- hexo</span><br><span class="line">- 博客</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="归档页面"><a href="#归档页面" class="headerlink" title="归档页面"></a>归档页面</h2><ol>
+<li><p>生成归档页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;archives&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑/source/archvies/index.md文件</p>
+<figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span>: <span class="string">"archives"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置/theme/XXX/_config.yml</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">menus:</span></span><br><span class="line"><span class="attr">  home:</span> <span class="string">/</span></span><br><span class="line"><span class="attr">  categories:</span> <span class="string">/categories</span></span><br><span class="line"><span class="attr">  tags:</span> <span class="string">/tags</span> </span><br><span class="line"><span class="attr">  archives:</span><span class="string">/</span> <span class="string">archives</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/qq_37210523/article/details/80909983" target="_blank" rel="noopener">https://blog.csdn.net/qq_37210523/article/details/80909983</a><br><a href="https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html" target="_blank" rel="noopener">https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html</a><br><a href="https://www.jianshu.com/p/2afac1bc0af8" target="_blank" rel="noopener">https://www.jianshu.com/p/2afac1bc0af8</a><br><a href="http://blog.haoji.me/build-blog-website-by-hexo-github.html?from=xa" target="_blank" rel="noopener">http://blog.haoji.me/build-blog-website-by-hexo-github.html?from=xa</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/教程//" class="article-tag-list-link color3">教程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/31/我的博客/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-基于windows10-hexo-github搭建个人博客-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/31/基于windows10-hexo-github搭建个人博客-1/">基于windows10+hexo+github搭建个人博客</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/31/基于windows10-hexo-github搭建个人博客-1/" class="archive-article-date">
   	<time datetime="2019-07-31T14:12:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-31</time>
 </a>
         
@@ -231,7 +544,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/31/我的博客/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/07/31/基于windows10-hexo-github搭建个人博客-1/">展开全文 >></a>
         </p>
       
 
