@@ -8,21 +8,22 @@
   <link rel="dns-prefetch" href="https://CalmCapK.github.io">
   <title>基于windows10+hexo+github搭建个人博客(1) | CalmCapK&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="科普https://hexo.io/zh-cn/docs/helpers.html#list-categories 安装步骤 安装git  安装node.js">
+  <meta name="description" content="科普https://hexo.io/zh-cn/docs/helpers.html#list-categories">
 <meta name="keywords" content="博客,hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于windows10+hexo+github搭建个人博客(1)">
 <meta property="og:url" content="https://CalmCapK.github.io/2019/08/04/基于windows10-hexo-github搭建个人博客-1/index.html">
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
-<meta property="og:description" content="科普https://hexo.io/zh-cn/docs/helpers.html#list-categories 安装步骤 安装git  安装node.js">
+<meta property="og:description" content="科普https://hexo.io/zh-cn/docs/helpers.html#list-categories">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://calmcapk.github.io/assets/img/categories_style1.jpg">
 <meta property="og:image" content="https://calmcapk.github.io/assets/img/categories_style2.jpg">
 <meta property="og:image" content="https://calmcapk.github.io/assets/img/categories_style3.jpg">
-<meta property="og:updated_time" content="2019-08-05T11:06:50.706Z">
+<meta property="og:image" content="https://calmcapk.github.io/assets/img/tags_style1.jpg">
+<meta property="og:updated_time" content="2019-08-05T15:20:29.245Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于windows10+hexo+github搭建个人博客(1)">
-<meta name="twitter:description" content="科普https://hexo.io/zh-cn/docs/helpers.html#list-categories 安装步骤 安装git  安装node.js">
+<meta name="twitter:description" content="科普https://hexo.io/zh-cn/docs/helpers.html#list-categories">
 <meta name="twitter:image" content="https://calmcapk.github.io/assets/img/categories_style1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="CalmCapK&#39;s Blog" type="application/atom+xml">
@@ -77,15 +78,15 @@
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">search</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">links</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于</a>
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">about</a>
     			
             
 		</nav>
@@ -197,11 +198,11 @@
       
         <span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span>
         <h2 id="科普"><a href="#科普" class="headerlink" title="科普"></a>科普</h2><p><a href="https://hexo.io/zh-cn/docs/helpers.html#list-categories" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/helpers.html#list-categories</a></p>
+<a id="more"></a>  
 <h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol>
 <li><p>安装git</p>
 </li>
 <li><p>安装node.js</p>
-<a id="more"></a>  
 <p>官网地址 <a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a> (安装自带node和npm) </p>
 </li>
 <li><p>安装cnpm(加速)</p>
@@ -307,6 +308,12 @@ hexo d</code><br><em>(注意)yilia主题缺少模块，还要按照”所有文�
 </li>
 <li><p>在文章md添加标签（yilia自带，前面步骤可以不用）</p>
 <figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">title: XXX</span><br><span class="line">categories: 教程</span><br><span class="line">tags:</span><br><span class="line">- hexo</span><br><span class="line">- 博客</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可视化需要編写/themes/yilia/layout/tags.ejs和   main.0cf68a.css<br><img src="/assets/img/tags_style1.jpg" alt="tags风格"><br>新建tags.ejs，具体代码如下</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"tag-container"</span>&gt;</span><br><span class="line">&lt;section <span class="class"><span class="keyword">class</span></span>=<span class="string">"archives-wrap"</span>&gt;</span><br><span class="line"> &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-year-wrap"</span>&gt;</span><br><span class="line">     &lt;a href=<span class="string">"#"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-year"</span>&gt;</span><br><span class="line">         &lt;%= page.title %&gt;</span><br><span class="line">     &lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp"> &lt;/</span>div&gt;</span><br><span class="line"> &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"archives"</span>&gt;</span><br><span class="line">     &lt;article <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-article archive-type-category"</span>&gt;</span><br><span class="line">         &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-article-inner"</span>&gt;</span><br><span class="line">             &lt;header <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-article-header"</span>&gt;</span><br><span class="line">             &lt;<span class="regexp">/header&gt;</span></span><br><span class="line"><span class="regexp">         &lt;/</span>div&gt;</span><br><span class="line">     &lt;<span class="regexp">/article&gt;</span></span><br><span class="line"><span class="regexp"> &lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/section&gt;</span></span><br><span class="line"><span class="regexp">&lt;section class="archives-wrap"&gt;</span></span><br><span class="line"><span class="regexp"> &lt;div class="archive-year-wrap"&gt;</span></span><br><span class="line"><span class="regexp">     &lt;a href="#" class="archive-year"&gt;共计&lt;%= site.categories.length %&gt;个&lt;/</span>a&gt;</span><br><span class="line"> &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp"> &lt;div class="archives"&gt;</span></span><br><span class="line"><span class="regexp">     &lt;article class="archive-article archive-type-category"&gt;</span></span><br><span class="line"><span class="regexp">         &lt;div class="archive-article-inner"&gt;</span></span><br><span class="line"><span class="regexp">             &lt;header class="archive-article-header"&gt;</span></span><br><span class="line"><span class="regexp">                 &lt;div class="category-tagcloud"&gt;</span></span><br><span class="line"><span class="regexp">                 &lt;div class="article-category tagcloud"&gt;</span></span><br><span class="line"><span class="regexp">                     &lt;ul class="article-tag-list"&gt;</span></span><br><span class="line"><span class="regexp">                         &lt;% site.tags.each(function(tag, i) &#123; %&gt; </span></span><br><span class="line"><span class="regexp">                           &lt;li class="article-tag-list-item"&gt;</span></span><br><span class="line"><span class="regexp">                             &lt;a href="&lt;%= config.root %&gt;&lt;%= tag.path %&gt;/</span><span class="string">" class="</span>article-tag-list-link color&lt;%= tag.name.length % <span class="number">5</span> + <span class="number">1</span> %&gt;<span class="string">"&gt;&lt;%- tag.name %&gt;[&lt;%= tag.posts.length %&gt;]&lt;/a&gt;</span></span><br><span class="line"><span class="string">                           &lt;/li&gt;</span></span><br><span class="line"><span class="string">                         &lt;% &#125;) %&gt;</span></span><br><span class="line"><span class="string">                     &lt;/ul&gt;        </span></span><br><span class="line"><span class="string">                 &lt;/div&gt;</span></span><br><span class="line"><span class="string">                 &lt;/div&gt;</span></span><br><span class="line"><span class="string">             &lt;/header&gt;</span></span><br><span class="line"><span class="string">         &lt;/div&gt;</span></span><br><span class="line"><span class="string">     &lt;/article&gt;</span></span><br><span class="line"><span class="string">   &lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;/section&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在main.0cf68a.css文件最后添加如下代码</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.tag-container</span> <span class="selector-class">.archives-wrap</span>&#123;</span><br><span class="line"> <span class="attribute">border-bottom</span>: <span class="number">0px</span> solid <span class="number">#eee</span>;</span><br><span class="line"> <span class="attribute">background</span>: <span class="number">#eaeaea</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
@@ -571,15 +578,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">search</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">links</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">about</a></li>
       
         
     </ul>
@@ -716,11 +723,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+              <a href="https://w.url.cn/s/Ah7ZlZs#wechat_redirect" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>微信表情包短链接</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
+              <a href="https://sticker.weixin.qq.com/cgi-bin/mmemoticon-bin/emoticonview?oper=single&t=recommend&productid=aL2PCfwK/89qO7sF6/+I+UDhfwEjhec2ZNvdnLLJRd/NVjZ+9BQFY95nVobVcRCrk61NXxaFzIZWJqZfSlEYuQrTQ74RGrQji+qMsRMPRcv8=" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>微信表情包推广页面</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>localhost</a>
             </li>
           
         </ul>
@@ -805,6 +816,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
-  <script onmobile=false type="text/javascript" src="/dist/canvas_nest/canvas-nest.js"></script>
+  <script color="254,169,50" opacity=0.7 count=150 pointColor="151,73,26" type="text/javascript" src="/dist/canvas_nest/canvas-nest.js"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"jsonPath":"/live2dw/assets/haru02.model.json"},"display":{"superSample":2,"position":"right","width":300,"height":600,"hOffset":100,"vOffset":-50},"mobile":{"show":true,"scale":0.5},"react":{"opacity":0.5},"dialog":{"enable":false},"log":false});</script></body>
 </html>
