@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
 <meta property="og:description" content="安装动漫小人">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-30T11:50:07.605Z">
+<meta property="og:updated_time" content="2019-08-30T13:00:51.469Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于windows10+hexo+github搭建个人博客(2)">
 <meta name="twitter:description" content="安装动漫小人">
@@ -265,6 +265,15 @@
 </li>
 <li><p>参考<br><a href="https://www.techgrow.cn/posts/cfdad023.html" target="_blank" rel="noopener">https://www.techgrow.cn/posts/cfdad023.html</a></p>
 <p><em>(注意) 注意样式和位置</em></p>
+</li>
+</ol>
+<h2 id="文章目录点击跳转"><a href="#文章目录点击跳转" class="headerlink" title="文章目录点击跳转"></a>文章目录点击跳转</h2><ol>
+<li><p>在\themes\yilia_config.yml配置文件设置toc: 2</p>
+</li>
+<li><p>安装Aplayer播放器后目录不能跳转<br>原因：编码问题<br>解决方案：<br>a. 找到\themes\yilia\source\dist路径下的APlayer.min.js文件<br>b. ctrl+f搜索defaultPrevented定位到要修改的地方，替换成以下代码(decodeURIComponent处理)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!e.defaultPrevented) &#123;</span><br><span class="line">                         e.preventDefault(), <span class="built_in">decodeURIComponent</span>(location.hash) !== <span class="built_in">decodeURIComponent</span>(<span class="keyword">this</span>.hash) &amp;&amp; <span class="built_in">window</span>.history.pushState(<span class="literal">null</span>, <span class="literal">null</span>, <span class="built_in">decodeURIComponent</span>(<span class="keyword">this</span>.hash));</span><br><span class="line">                         <span class="keyword">var</span> n = <span class="built_in">document</span>.getElementById(<span class="built_in">decodeURIComponent</span>(<span class="keyword">this</span>.hash).substring(<span class="number">1</span>));</span><br><span class="line">                         <span class="keyword">if</span> (!n) <span class="keyword">return</span>;</span><br><span class="line">                         t(n, <span class="number">500</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">                             location.replace(<span class="string">"#"</span> + e.id)</span><br><span class="line">                         &#125;)</span><br><span class="line">                     &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>参考<br><a href="http://ds666.fun/2019/08/07/Hexo%E4%BD%BF%E7%94%A8Aplayer%E5%90%8E%E7%9B%AE%E5%BD%95%E8%B7%B3%E8%BD%AC%E7%9A%84bug/" target="_blank" rel="noopener">http://ds666.fun/2019/08/07/Hexo%E4%BD%BF%E7%94%A8Aplayer%E5%90%8E%E7%9B%AE%E5%BD%95%E8%B7%B3%E8%BD%AC%E7%9A%84bug/</a></p>
 </li>
 </ol>
 <h2 id="修改头像"><a href="#修改头像" class="headerlink" title="修改头像"></a>修改头像</h2><ol>
@@ -558,7 +567,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装动漫小人"><span class="toc-number">1.</span> <span class="toc-text">安装动漫小人</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加全局音乐"><span class="toc-number">2.</span> <span class="toc-text">添加全局音乐</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改头像"><span class="toc-number">3.</span> <span class="toc-text">修改头像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全文显示"><span class="toc-number">4.</span> <span class="toc-text">全文显示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#统计访问数-yilia主题"><span class="toc-number">5.</span> <span class="toc-text">统计访问数(yilia主题)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上传图像"><span class="toc-number">6.</span> <span class="toc-text">上传图像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上传视频"><span class="toc-number">7.</span> <span class="toc-text">上传视频</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加动态线条背景效果"><span class="toc-number">8.</span> <span class="toc-text">添加动态线条背景效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Google收录"><span class="toc-number">9.</span> <span class="toc-text">Google收录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">10.</span> <span class="toc-text">其他</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装动漫小人"><span class="toc-number">1.</span> <span class="toc-text">安装动漫小人</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加全局音乐"><span class="toc-number">2.</span> <span class="toc-text">添加全局音乐</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文章目录点击跳转"><span class="toc-number">3.</span> <span class="toc-text">文章目录点击跳转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改头像"><span class="toc-number">4.</span> <span class="toc-text">修改头像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全文显示"><span class="toc-number">5.</span> <span class="toc-text">全文显示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#统计访问数-yilia主题"><span class="toc-number">6.</span> <span class="toc-text">统计访问数(yilia主题)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上传图像"><span class="toc-number">7.</span> <span class="toc-text">上传图像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上传视频"><span class="toc-number">8.</span> <span class="toc-text">上传视频</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加动态线条背景效果"><span class="toc-number">9.</span> <span class="toc-text">添加动态线条背景效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Google收录"><span class="toc-number">10.</span> <span class="toc-text">Google收录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">11.</span> <span class="toc-text">其他</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -604,7 +613,7 @@
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
-		toc_hide_index: true,
+		toc_hide_index: false,
 		root: "/",
 		innerArchive: true,
 		showTags: true
@@ -906,5 +915,5 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 </div>
   </div>
   <script color="254,169,50" opacity=0.7 count=150 pointColor="151,73,26" type="text/javascript" src="/dist/canvas_nest/canvas-nest.js"></script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"jsonPath":"live2d-widget-model-haru/02"},"display":{"superSample":2,"position":"right","width":300,"height":600,"hOffset":100,"vOffset":-50},"mobile":{"show":true,"scale":0.5},"react":{"opacity":0.5},"dialog":{"enable":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"jsonPath":"/live2dw/assets/haru02.model.json"},"display":{"superSample":2,"position":"right","width":300,"height":600,"hOffset":100,"vOffset":-50},"mobile":{"show":true,"scale":0.5},"react":{"opacity":0.5},"dialog":{"enable":false},"log":false});</script></body>
 </html>
