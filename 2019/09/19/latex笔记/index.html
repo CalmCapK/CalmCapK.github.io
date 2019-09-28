@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://calmcapK.github.io">
-  <title>CalmCapK&#39;s Blog</title>
+  <title>latex笔记 | CalmCapK&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是CalmCapK的个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CalmCapK&#39;s Blog">
-<meta property="og:url" content="https://calmcapK.github.io/index.html">
+  <meta name="description" content="去掉默认显示日期时间将\date的内容设置为空 1\date&amp;#123;&amp;#125;  空格参考https://blog.csdn.net/hfut_jf/article/details/45390309 综合参考https://blog.csdn.net/qingdujun/article/details/80805613">
+<meta name="keywords" content="latex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="latex笔记">
+<meta property="og:url" content="https://calmcapK.github.io/2019/09/19/latex笔记/index.html">
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
-<meta property="og:description" content="这是CalmCapK的个人博客">
+<meta property="og:description" content="去掉默认显示日期时间将\date的内容设置为空 1\date&amp;#123;&amp;#125;  空格参考https://blog.csdn.net/hfut_jf/article/details/45390309 综合参考https://blog.csdn.net/qingdujun/article/details/80805613">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-09-19T11:47:40.265Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CalmCapK&#39;s Blog">
-<meta name="twitter:description" content="这是CalmCapK的个人博客">
+<meta name="twitter:title" content="latex笔记">
+<meta name="twitter:description" content="去掉默认显示日期时间将\date的内容设置为空 1\date&amp;#123;&amp;#125;  空格参考https://blog.csdn.net/hfut_jf/article/details/45390309 综合参考https://blog.csdn.net/qingdujun/article/details/80805613">
   
     <link rel="alternative" href="/atom.xml" title="CalmCapK&#39;s Blog" type="application/atom+xml">
   
@@ -175,131 +177,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-linux笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-latex笔记" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/27/linux笔记/">linux笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/27/linux笔记/" class="archive-article-date">
-  	<time datetime="2019-09-27T12:44:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-27</time>
-</a>
-
-	<a href="javascript:;" class="archive-article-date">
-		<i class="icon-smile icon"></i> 阅读数:<span id="/2019/09/27/linux笔记/" class="pageViews">0</span>次
-	</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-        <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
-        <a id="more"></a>
-<h2 id="查看端口情况"><a href="#查看端口情况" class="headerlink" title="查看端口情况"></a>查看端口情况</h2>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">netstat -tln</span><br><span class="line">netstat -tln | grep 8080</span><br><span class="line">lsof -i:8080 #查看属于哪个程序</span><br><span class="line">kill -9 进程id</span><br></pre></td></tr></table></figure>
-
-<h2 id="ssh远程看文本和开启GUI"><a href="#ssh远程看文本和开启GUI" class="headerlink" title="ssh远程看文本和开启GUI"></a>ssh远程看文本和开启GUI</h2><ol>
-<li><p>配置服务器端(ubuntu16.0好像已经配置好了)<br>在”/etc/ssh/ssh_config”文件配置如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">X11Forwarding yes</span><br><span class="line">X11DisplayOffset 10</span><br><span class="line">PrintMotd no</span><br><span class="line">PrintLastLog yes</span><br><span class="line">TCPKeepAlive yes</span><br></pre></td></tr></table></figure>
-
-<p>开启服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># trusty</span><br><span class="line">sudo service ssh restart</span><br><span class="line"># xenial and systemd</span><br><span class="line">sudo systemctl restart ssh</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用gvim远程看文本<br>在服务器端安装gvim</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install vim-gtk</span><br></pre></td></tr></table></figure>
-
-<p>客户端测试gvim</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh -X &lt;user&gt;@&lt;Xclient&gt;</span><br><span class="line">gvim test.txt</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用gnome远程开启GUI<br>在服务器端安装gnome依赖包</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libgnome2-0</span><br></pre></td></tr></table></figure>
-
-<p>客户端测试gnome-open</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh -X &lt;user&gt;@&lt;Xclient&gt;</span><br><span class="line">hnome-open .</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>参考<br><a href="https://fabianlee.org/2018/10/14/ubuntu-x11-forwarding-to-view-gui-applications-running-on-server-hosts/" target="_blank" rel="noopener">https://fabianlee.org/2018/10/14/ubuntu-x11-forwarding-to-view-gui-applications-running-on-server-hosts/</a><br><a href="https://blog.csdn.net/Mooner_guo/article/details/44197025" target="_blank" rel="noopener">https://blog.csdn.net/Mooner_guo/article/details/44197025</a></p>
-</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/教程//" class="article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/27/linux笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-latex笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/19/latex笔记/">latex笔记</a>
+    <h1 class="article-title" itemprop="name">
+      latex笔记
     </h1>
   
 
@@ -328,6 +213,32 @@
 
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin_pay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -358,16 +269,84 @@
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/19/latex笔记/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://calmcapK.github.io/2019/09/19/latex笔记/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/09/27/linux笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          linux笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/19/图像处理笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">图像处理笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -382,500 +361,19 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-图像处理笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/19/图像处理笔记/">图像处理笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/19/图像处理笔记/" class="archive-article-date">
-  	<time datetime="2019-09-19T11:02:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-19</time>
-</a>
-
-	<a href="javascript:;" class="archive-article-date">
-		<i class="icon-smile icon"></i> 阅读数:<span id="/2019/09/19/图像处理笔记/" class="pageViews">0</span>次
-	</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-        <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
-        <a id="more"></a>
-<h2 id="将plot后的图像保存到本地-matkab"><a href="#将plot后的图像保存到本地-matkab" class="headerlink" title="将plot后的图像保存到本地(matkab)"></a>将plot后的图像保存到本地(matkab)</h2><p>参考<br><a href="https://blog.csdn.net/qq_16775293/article/details/95319054" target="_blank" rel="noopener">https://blog.csdn.net/qq_16775293/article/details/95319054</a></p>
-<h2 id="黑白图像灰度扫描"><a href="#黑白图像灰度扫描" class="headerlink" title="黑白图像灰度扫描"></a>黑白图像灰度扫描</h2><p>要求：提取某一行或者某一列的像素矢量，并呈现扫描结果<br>process.m 代码：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">foldername = <span class="string">'assignment01_images\';</span></span><br><span class="line"><span class="string">filename = '</span>cameraman.tif';</span><br><span class="line">[a,b,c] = fileparts([foldername,filename]);</span><br><span class="line">img = imread([foldername,filename]);</span><br><span class="line">[dm, dn] = <span class="built_in">size</span>(img);</span><br><span class="line">sr = scanLine4e(img, <span class="built_in">fix</span>((dm+<span class="number">1</span>)/<span class="number">2</span>), <span class="string">'row'</span>);</span><br><span class="line">sc = scanLine4e(img, <span class="built_in">fix</span>((dn+<span class="number">1</span>)/<span class="number">2</span>), <span class="string">'column'</span>); </span><br><span class="line">h=<span class="built_in">figure</span>(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">plot</span>(sr, <span class="string">'r'</span>)</span><br><span class="line">title([b, <span class="string">'图像灰度扫描'</span>]);</span><br><span class="line"><span class="built_in">legend</span>(<span class="string">'中心行的像素矢量'</span>);</span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line">h2 = <span class="built_in">figure</span>(<span class="number">2</span>);</span><br><span class="line"><span class="built_in">plot</span>(sc, <span class="string">'b'</span>)</span><br><span class="line">title([b, <span class="string">'图像灰度扫描'</span>]);</span><br><span class="line"><span class="built_in">legend</span>(<span class="string">'中心列的像素矢量'</span>);</span><br><span class="line">print(h,<span class="string">'-djpeg'</span>,[b, <span class="string">'_row.jpg'</span>]);</span><br><span class="line">print(h2,<span class="string">'-djpeg'</span>,[b, <span class="string">'_col.jpg'</span>]);</span><br></pre></td></tr></table></figure>
-
-<p>scanLine4e.m 代码</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">s</span> = <span class="title">scanLine4e</span><span class="params">(f, I, loc)</span></span></span><br><span class="line"><span class="keyword">if</span>(nargin&lt;<span class="number">3</span>)</span><br><span class="line">   loc = <span class="string">'row'</span>;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">if</span> strcmp(loc,<span class="string">'row'</span>)</span><br><span class="line">    s = f(I, :);</span><br><span class="line"><span class="keyword">end</span> </span><br><span class="line"><span class="keyword">if</span> strcmp(loc,<span class="string">'column'</span>)</span><br><span class="line">    s = f(:, I);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="彩色图像转换为黑白图"><a href="#彩色图像转换为黑白图" class="headerlink" title="彩色图像转换为黑白图"></a>彩色图像转换为黑白图</h2><ol>
-<li><p>基础  </p>
-<ul>
-<li>最大值法：使R,G,B的值等于3值中最大的一个，R=G=B=max（R,G,B），最大值法会形成亮度很高的灰度图像  </li>
-<li>平均最突出和最不突出的部分：Y=(max(R,G,B)+min(R,G,B))/2  </li>
-<li>平均值法：Y=(R+G+B)/3，会形成较为柔和的灰度图像  </li>
-<li>加权平均法： 人对绿色最敏感，Y=0.2989∗R+0.5870∗G+0.1140∗B，会得到最合理的灰度图像</li>
-</ul>
-</li>
-<li><p>代码<br>process.m 代码</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"> foldername = <span class="string">'assignment01_images\';</span></span><br><span class="line"><span class="string"> filename = '</span>mandril_color.tif';</span><br><span class="line"> [a,b,c] = fileparts([foldername,filename]);</span><br><span class="line"> img = imread([foldername,filename]);</span><br><span class="line"> <span class="comment">%R=img;R(:,:,[2 3])=0;</span></span><br><span class="line"> <span class="comment">%G=img;G(:,:,[1 3])=0;</span></span><br><span class="line"> <span class="comment">%B=img;B(:,:,[1 2])=0;</span></span><br><span class="line"> <span class="comment">%figure,imshow(R,[]), title('R分量'); </span></span><br><span class="line"> <span class="comment">%figure,imshow(G,[] ), title('G分量'); </span></span><br><span class="line"> <span class="comment">%figure,imshow(B,[]), title('B分量'); </span></span><br><span class="line"> g1 = rgb1gray(img, <span class="string">'average'</span>);</span><br><span class="line"> <span class="built_in">figure</span>,imshow(g1,[]), title([b,<span class="string">' average'</span>],<span class="string">'Interpreter'</span>,<span class="string">'none'</span>);</span><br><span class="line"> g2 = rgb1gray(img, <span class="string">'NTSC'</span>);</span><br><span class="line"> <span class="built_in">figure</span>,imshow(g2,[]), title([b,<span class="string">' NTSC'</span>],<span class="string">'Interpreter'</span>,<span class="string">'none'</span>);</span><br><span class="line"> imwrite(g1,strcat(b,<span class="string">'_average.jpg'</span>));</span><br><span class="line"> imwrite(g2,strcat(b,<span class="string">'_NTSC.jpg'</span>));</span><br><span class="line">```  </span><br><span class="line">rgb1gray.m 代码</span><br><span class="line">``` matlab</span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">g</span> = <span class="title">rgb1gray</span><span class="params">(f, method)</span></span></span><br><span class="line"> <span class="keyword">if</span>(nargin&lt;<span class="number">2</span>)</span><br><span class="line">     method = <span class="string">'NTSC'</span>;</span><br><span class="line"> <span class="keyword">end</span></span><br><span class="line"> R=f(:,:,<span class="number">1</span>);</span><br><span class="line"> G=f(:,:,<span class="number">2</span>);</span><br><span class="line"> B=f(:,:,<span class="number">3</span>);</span><br><span class="line"> <span class="keyword">if</span> strcmp(method,<span class="string">'average'</span>)</span><br><span class="line">     g = R/<span class="number">3</span>+G/<span class="number">3</span>+B/<span class="number">3</span>;</span><br><span class="line"> <span class="keyword">end</span> </span><br><span class="line"> <span class="keyword">if</span> strcmp(method, <span class="string">'NTSC'</span>)</span><br><span class="line">     g = R*<span class="number">0.2989</span>+ G*<span class="number">0.5870</span>+ B*<span class="number">0.1140</span>;</span><br><span class="line"> <span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>参考<br><a href="https://blog.csdn.net/weixin_41645983/article/details/90641408" target="_blank" rel="noopener">https://blog.csdn.net/weixin_41645983/article/details/90641408</a><br><a href="https://blog.csdn.net/giantpoplar/article/details/47295979" target="_blank" rel="noopener">https://blog.csdn.net/giantpoplar/article/details/47295979</a><br><a href="https://blog.csdn.net/caomin1hao/article/details/81876683" target="_blank" rel="noopener">https://blog.csdn.net/caomin1hao/article/details/81876683</a><br><a href="https://blog.csdn.net/lihe4151021/article/details/89366425" target="_blank" rel="noopener">https://blog.csdn.net/lihe4151021/article/details/89366425</a><br><a href="http://www.luyixian.cn/news_show_3756.aspx" target="_blank" rel="noopener">http://www.luyixian.cn/news_show_3756.aspx</a></p>
-</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">图像处理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/19/图像处理笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#去掉默认显示日期时间"><span class="toc-number">1.</span> <span class="toc-text">去掉默认显示日期时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#空格"><span class="toc-number">2.</span> <span class="toc-text">空格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#综合"><span class="toc-number">3.</span> <span class="toc-text">综合</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-基于阿里云-linux-frp实现内网穿透" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/13/基于阿里云-linux-frp实现内网穿透/">基于阿里云-linux-frp实现内网穿透</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/13/基于阿里云-linux-frp实现内网穿透/" class="archive-article-date">
-  	<time datetime="2019-09-13T15:44:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-13</time>
-</a>
-
-	<a href="javascript:;" class="archive-article-date">
-		<i class="icon-smile icon"></i> 阅读数:<span id="/2019/09/13/基于阿里云-linux-frp实现内网穿透/" class="pageViews">0</span>次
-	</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol>
-<li><p>购买阿里云<br>学生云服务器购买网站 <a href="https://promotion.aliyun.com/ntms/act/campus2018.html" target="_blank" rel="noopener">https://promotion.aliyun.com/ntms/act/campus2018.html</a><br>得到公网ip,如:1.2.3.4</p></li></ol>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">frp</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">内网穿透</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/教程//" class="article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/13/基于阿里云-linux-frp实现内网穿透/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-明日方舟-procreate-ipad-板绘" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/04/明日方舟-procreate-ipad-板绘/">明日方舟+procreate+ipad+板绘</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/04/明日方舟-procreate-ipad-板绘/" class="archive-article-date">
-  	<time datetime="2019-08-04T14:47:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-
-	<a href="javascript:;" class="archive-article-date">
-		<i class="icon-smile icon"></i> 阅读数:<span id="/2019/08/04/明日方舟-procreate-ipad-板绘/" class="pageViews">0</span>次
-	</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-        <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
-        <p>用procreate+ipad画了明日方舟的阿米娅~</p>
-<!-- <img src="/2019/08/04/明日方舟-procreate-ipad-板绘/阿米娅.jpg" title="由于hexo会把代码解析，所以此处用图片展示">  -->
-<p><img src="/.io//img/%E9%98%BF%E7%B1%B3%E5%A8%85.jpg" alt="阿米娅"><br>视频如下<br><video width="100%" height="350" controls="controls" preload="none"><br>    <source id="mp4" src="/assets/video/procreate_ipad_明日方舟.mp4" type="video/mp4"><br>    the tag is not supported by your browser<br></video></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">procreate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ipad</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">明日方舟</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/板绘//" class="article-tag-list-link color3">板绘</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/04/明日方舟-procreate-ipad-板绘/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-基于windows10-hexo-github搭建个人博客-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/04/基于windows10-hexo-github搭建个人博客-1/">基于windows10+hexo+github搭建个人博客(1)</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/04/基于windows10-hexo-github搭建个人博客-1/" class="archive-article-date">
-  	<time datetime="2019-08-04T10:34:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-
-	<a href="javascript:;" class="archive-article-date">
-		<i class="icon-smile icon"></i> 阅读数:<span id="/2019/08/04/基于windows10-hexo-github搭建个人博客-1/" class="pageViews">0</span>次
-	</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="科普"><a href="#科普" class="headerlink" title="科普"></a>科普</h2><p><a href="https://hexo.io/zh-cn/docs/helpers.html#list-categories" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/helpers.html#list-categories</a></p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/教程//" class="article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/04/基于windows10-hexo-github搭建个人博客-1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-基于windows10-hexo-github搭建个人博客-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/04/基于windows10-hexo-github搭建个人博客-2/">基于windows10+hexo+github搭建个人博客(2)</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/04/基于windows10-hexo-github搭建个人博客-2/" class="archive-article-date">
-  	<time datetime="2019-08-04T10:34:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-
-	<a href="javascript:;" class="archive-article-date">
-		<i class="icon-smile icon"></i> 阅读数:<span id="/2019/08/04/基于windows10-hexo-github搭建个人博客-2/" class="pageViews">0</span>次
-	</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="安装动漫小人"><a href="#安装动漫小人" class="headerlink" title="安装动漫小人"></a>安装动漫小人</h2>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/教程//" class="article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/04/基于windows10-hexo-github搭建个人博客-2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
     </div>
 </aside>
 
@@ -883,7 +381,13 @@
 
   
   
+  
 
+  
+
+  
+
+  
 
           </div>
         </div>
@@ -904,8 +408,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
