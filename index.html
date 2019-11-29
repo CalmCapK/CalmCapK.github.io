@@ -177,6 +177,163 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-windows10-vultr-ssr-ipv6搭建校园网免流量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/28/windows10-vultr-ssr-ipv6搭建校园网免流量/">windows10+vultr+ssr+ipv6搭建校园网免流量</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/28/windows10-vultr-ssr-ipv6搭建校园网免流量/" class="archive-article-date">
+  	<time datetime="2019-11-28T10:33:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
+</a>
+
+	<a href="javascript:;" class="archive-article-date">
+		<i class="icon-smile icon"></i> 阅读数:<span id="/2019/11/28/windows10-vultr-ssr-ipv6搭建校园网免流量/" class="pageViews">0</span>次
+	</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
+        <h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol>
+<li><p>购买vps,这里使用vultr<br><a href="https://my.vultr.com/" target="_blank" rel="noopener">https://my.vultr.com/</a><br>计费规则：摧毁之后不计费，其他时间都计费</p>
+<!-- moe --></li>
+<li><p>配置vultr服务器<br>安装pip</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get install build-essential</span><br><span class="line">apt-get install python-pip</span><br><span class="line">pip install --upgrade pip</span><br></pre></td></tr></table></figure>
+
+<p>(问题) 更新后可能报ImportError: cannot import name main<br>(解决方法) hash -d pip</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">由于python2要没了，换成pip3</span><br><span class="line">apt-get install python3-pip</span><br><span class="line">pip3 install --upgrade pip</span><br><span class="line">hash -d pip3</span><br></pre></td></tr></table></figure>
+
+<p>(问题)ImportError: No module named setuptools<br>(解决方法如下)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://pypi.python.org/packages/source/s/setuptools/setuptools-0.6c11.tar.gz</span><br><span class="line">tar zxvf    setuptools-0.6c11.tar.gz</span><br><span class="line">cd setuptools-0.6c11</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装ss(方法一)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install shadowsocks 安装</span><br><span class="line">pip uninstall shadowsocks  删除</span><br></pre></td></tr></table></figure>
+
+<p>新建但端口配置vim /etc/shadowsocks.json</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"server"</span>:<span class="string">"::"</span>,</span><br><span class="line">    <span class="string">"server_port"</span>: <span class="number">1234</span>,</span><br><span class="line">    <span class="string">"local_port"</span>: <span class="number">1080</span>,</span><br><span class="line">    <span class="string">"timeout"</span>:<span class="number">300</span>,</span><br><span class="line">    <span class="string">"password"</span>: <span class="string">"yourpassword"</span>,<span class="string">"method"</span>:<span class="string">"aes-256-cfb"</span>,</span><br><span class="line">    <span class="string">"fast_open"</span>:true,</span><br><span class="line">    <span class="string">"workers"</span>:<span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>新建多端口配置vim /etc/shadowsocks.json</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
+
+<p>开启</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json -d start</span><br><span class="line">ssserver -d stop</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装ssr(方法二) 傻瓜式搭建(亲测有效)  </p>
+</li>
+</ol>
+<ul>
+<li><p>傻瓜式安装，这个方便修改</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</span><br></pre></td></tr></table></figure>
+
+<p> 以后可以随时修改</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash ssr.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置<br>依次选择密码，端口、加密方式(aes-256-cfb)、协议(auth_shal_v4)、混淆(plain)，然后回车即可搭建<br>(注意截屏和复制ssr链接！！！)</p>
+</li>
+<li><p>测试<br>a. 手机和电脑端安装ssr软件，使用ssr链接即可配置<br>b. 然后打开火狐和谷歌浏览器查自己的ip地址, 选择代理规则<br>&nbsp;&nbsp;代理规则是全局的话，火狐和谷歌都是VPS的地址<br>&nbsp;&nbsp;代理规则是绕开大陆的话，火狐是本地的ip地址和谷歌是VPS的地址</p>
+</li>
+<li><p>加速VPS服务器(谷歌BBR加速)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh</span><br><span class="line">chmod +x bbr.sh</span><br><span class="line">./bbr.sh</span><br><span class="line">``` </span><br><span class="line">一路回车，重启即可，即使重启了ssr也不会关闭</span><br><span class="line">``` bash</span><br><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>
+
+<p>输入上面代码可以检测是否安装成功</p>
+</li>
+<li><p>参考<br> <a href="https://github.com/yshunda/Notes/issues/2" target="_blank" rel="noopener">https://github.com/yshunda/Notes/issues/2</a><br> <a href="https://github.com/yinghuocho/firefly-proxy/issues/172" target="_blank" rel="noopener">https://github.com/yinghuocho/firefly-proxy/issues/172</a></p>
+</li>
+</ul>
+<ol start="5">
+<li><p>其他ssr链接(待测试)  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate https://softs.fun/Bash/ssr.sh &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh</span><br><span class="line">chmod +x shadowsocksR.sh</span><br><span class="line">./shadowsocksR.sh 2&gt;&amp;1 | tee shadowsocksR.log</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://freed.ga/github/shadowsocksR.sh; bash shadowsocksR.sh</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash ./shadowsocksR.sh uninstall 删除</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>参考<br><a href="http://ipv6.la/159.html" target="_blank" rel="noopener">http://ipv6.la/159.html</a><br><a href="https://watsonyanghx.github.io/2016/10/05/Shadowsocks-Vultr-IPV6%E6%90%AD%E5%BB%BA%E6%A0%A1%E5%9B%AD%E7%BD%91%E5%85%8D%E6%B5%81%E9%87%8F%E7%8E%AF%E5%A2%83/" target="_blank" rel="noopener">https://watsonyanghx.github.io/2016/10/05/Shadowsocks-Vultr-IPV6%E6%90%AD%E5%BB%BA%E6%A0%A1%E5%9B%AD%E7%BD%91%E5%85%8D%E6%B5%81%E9%87%8F%E7%8E%AF%E5%A2%83/</a>  <a href="https://www.baishitou.cn/1524.html" target="_blank" rel="noopener">https://www.baishitou.cn/1524.html</a>  </p>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ipv6</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vps</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vultr</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/教程//" class="article-tag-list-link color3">教程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/28/windows10-vultr-ssr-ipv6搭建校园网免流量/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
     <article id="post-linux笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1130,11 +1287,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">latex</a>
+                <a href="javascript:void(0)" class="js-tag color5">ipv6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">vps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">vultr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1143,6 +1308,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
