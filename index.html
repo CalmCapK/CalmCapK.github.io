@@ -209,20 +209,19 @@
 
 </li>
 </ol>
-<h2 id="无root安装vitualenv"><a href="#无root安装vitualenv" class="headerlink" title="无root安装vitualenv"></a>无root安装vitualenv</h2><ol>
-<li>安装(视情况而定)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   pip3 install virtualenv</span><br><span class="line">   pip install virtualenv</span><br><span class="line">   pip3 install --user virtualenv</span><br><span class="line">   pip install --user virtualenv</span><br><span class="line">   ``` </span><br><span class="line">2. 查看位置<span class="built_in">which</span> virtualenv</span><br><span class="line">   ``` bash</span><br><span class="line">   /home/XXX/.<span class="built_in">local</span>/bin/virtualenv</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
 <!-- moe -->
-<ol start="3">
-<li>使用vitualenv<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">新建环境 virtualenv --no-site-packages env（新版本默认--no-site-packages）</span><br><span class="line">新建环境 virtualenv env </span><br><span class="line">激活环境 <span class="built_in">source</span> env/bin/activate</span><br><span class="line">删除环境 rm -rf env</span><br></pre></td></tr></table></figure>
+<h2 id="无root安装vitualenv"><a href="#无root安装vitualenv" class="headerlink" title="无root安装vitualenv"></a>无root安装vitualenv</h2><ol>
+<li><p>安装(视情况而定)  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   pip3 install virtualenv</span><br><span class="line">   pip install virtualenv</span><br><span class="line">   pip3 install --user virtualenv</span><br><span class="line">   pip install --user virtualenv</span><br><span class="line">   ``` </span><br><span class="line">2. 查看位置<span class="built_in">which</span> virtualenv</span><br><span class="line">   ``` bash</span><br><span class="line">   /home/XXX/.<span class="built_in">local</span>/bin/virtualenv</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用vitualenv</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">新建环境 virtualenv --no-site-packages env（新版本默认--no-site-packages）</span><br><span class="line">新建环境 virtualenv env </span><br><span class="line">激活环境 <span class="built_in">source</span> env/bin/activate</span><br><span class="line">删除环境 rm -rf env</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
 <h2 id="无root安装vitualenvwrapper"><a href="#无root安装vitualenvwrapper" class="headerlink" title="无root安装vitualenvwrapper"></a>无root安装vitualenvwrapper</h2><ol>
 <li><p>安装(视情况而定，能找到.sh就行)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">   pip3 install virtualenvwrapper</span><br><span class="line">   pip install virtualenvwrapper</span><br><span class="line">   pip3 install --user virtualenvwrapper</span><br><span class="line">   pip install --user virtualenvwrapper</span><br><span class="line">   ```  </span><br><span class="line">   (用户安装位置~/.<span class="built_in">local</span>/bin/, 系统安装位置/usr/<span class="built_in">local</span>/bin/)    </span><br><span class="line">2. 查看下载位置<span class="built_in">which</span> virtualenvwrapper.sh   </span><br><span class="line">   无root的位置  </span><br><span class="line">   ``` bash</span><br><span class="line">    /home/XXX/.<span class="built_in">local</span>/bin/virtualenvwrapper.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">   pip3 install virtualenvwrapper</span><br><span class="line">   pip install virtualenvwrapper</span><br><span class="line">   pip3 install --user virtualenvwrapper</span><br><span class="line">   pip install --user virtualenvwrapper</span><br><span class="line">   ```  </span><br><span class="line">   (用户安装位置~/.<span class="built_in">local</span>/bin/, 系统安装位置/usr/<span class="built_in">local</span>/bin/)    </span><br><span class="line">2. 查看下载位置<span class="built_in">which</span> virtualenvwrapper.sh  </span><br><span class="line">   无root的位置  </span><br><span class="line">   ``` bash</span><br><span class="line">   /home/XXX/.<span class="built_in">local</span>/bin/virtualenvwrapper.sh</span><br></pre></td></tr></table></figure>
 
 <p>有root的位置一般在</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/bin/virtualenvwrapper.sh</span><br></pre></td></tr></table></figure>
@@ -1470,19 +1469,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">procreate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ipad</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1510,11 +1505,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+                <a href="javascript:void(0)" class="js-tag color5">procreate</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">ipad</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
               </li>
              
               <li class="article-tag-list-item">
