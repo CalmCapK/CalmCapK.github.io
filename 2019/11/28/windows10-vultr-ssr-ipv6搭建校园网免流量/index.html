@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
 <meta property="og:description" content="安装步骤 购买vps,这里使用vultrhttps://my.vultr.com/计费规则：摧毁之后不计费，其他时间都计费vultr使用https://zhuanlan.zhihu.com/p/34111789优惠活动https://adoncn.com/vultr.htmlhttps://www.wn789.com/33725.htmlvps列表https://www.zhujiceping.c">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-01T15:42:57.982Z">
+<meta property="og:updated_time" content="2019-12-01T18:35:29.336Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="windows10+vultr+ss&#x2F;ssr+ipv6搭建校园网免流量">
 <meta name="twitter:description" content="安装步骤 购买vps,这里使用vultrhttps://my.vultr.com/计费规则：摧毁之后不计费，其他时间都计费vultr使用https://zhuanlan.zhihu.com/p/34111789优惠活动https://adoncn.com/vultr.htmlhttps://www.wn789.com/33725.htmlvps列表https://www.zhujiceping.c">
@@ -212,11 +212,7 @@
 
 <p>(问题) 更新后可能报ImportError: cannot import name main<br>(解决方法) hash -d pip</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">由于python2要没了，换成pip3</span><br><span class="line">apt-get install python3-pip</span><br><span class="line">pip3 install --upgrade pip</span><br><span class="line">hash -d pip3</span><br></pre></td></tr></table></figure>
-
-
 </li>
-</ol>
-<ol start="3">
 <li><p>安装ss(方法一)(亲测有效)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install shadowsocks 安装</span><br><span class="line">pip uninstall shadowsocks  删除</span><br></pre></td></tr></table></figure>
 
@@ -277,6 +273,10 @@
 </li>
 <li><p>总结<br>所以只是实现翻墙只需要vultr+ss/ssr+客户端配置的是ipv4即可<br>实现校园网浏览器免流量需要vultr+ss/ssr+客户端配置的是ipv6的ip+校园网支持ipv6+连接校园网<br>实现校园网所有应用免流量需要vultr+ss/ssr+客户端配置的是ipv6的ip+校园网支持ipv6+连接校园网+proxifier<br>如果一个服务器在ssr客户端有ipv4和ipv6地址，好像无论设置哪个，都会先走ipv4的那个<br>【注意！！！由以下结果可见，ssr没有在服务器端配置/etc/network/interfaces也可使用，估计在vultr，ss也可能不需要配置】</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">电脑,ssr客户端时ipv6,ss服务器端配置了ipv4和ipv6,在不联网+校园网可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv6,ss服务器端配置了ipv4和ipv6,在联网可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv4,ss服务器端配置了ipv4和ipv6,在不联网+校园网不可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv4,ss服务器端配置了ipv4和ipv6,在联网可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv6,ssr服务器端配置了ipv4,在不联网+校园网可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv6,ssr服务器端配置了ipv4,在联网可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv4,ssr服务器端配置了ipv4,在不联网+校园网不可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv4,ssr服务器端配置了ipv4,在联网可以访问ipv4,ipv6</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>其他移动端<br> ipad端只能实现翻墙<br> 在线安装ss<br> <a href="https://shadowsockshelp.github.io/ios/" target="_blank" rel="noopener">https://shadowsockshelp.github.io/ios/</a>  </p>
+<p> 参考<br> <a href="https://github.com/itrump/ssfree/blob/master/cn/ssr_ss_tutorial_ios%E6%95%99%E7%A8%8B.md" target="_blank" rel="noopener">https://github.com/itrump/ssfree/blob/master/cn/ssr_ss_tutorial_ios%E6%95%99%E7%A8%8B.md</a><br> <a href="https://ss-ssr.gitbook.io/shadowsocks/ios" target="_blank" rel="noopener">https://ss-ssr.gitbook.io/shadowsocks/ios</a></p>
+<p> 小米手机好像无法检测ipv6</p>
 </li>
 <li><p>参考<br>ipv4-&gt;ss+vps-&gt;ipv6,ipv6,翻墙教程：<br><a href="https://www.leavesongs.com/SHARE/ipv6-via-ss.html" target="_blank" rel="noopener">https://www.leavesongs.com/SHARE/ipv6-via-ss.html</a><br><a href="https://watsonyanghx.github.io/2016/10/05/Shadowsocks-Vultr-IPV6%E6%90%AD%E5%BB%BA%E6%A0%A1%E5%9B%AD%E7%BD%91%E5%85%8D%E6%B5%81%E9%87%8F%E7%8E%AF%E5%A2%83/" target="_blank" rel="noopener">https://watsonyanghx.github.io/2016/10/05/Shadowsocks-Vultr-IPV6%E6%90%AD%E5%BB%BA%E6%A0%A1%E5%9B%AD%E7%BD%91%E5%85%8D%E6%B5%81%E9%87%8F%E7%8E%AF%E5%A2%83/</a><br>ipv6-&gt;ss+vps-&gt;ipv4,ipv6,翻墙教程：<br><a href="http://ipv6.la/159.html" target="_blank" rel="noopener">http://ipv6.la/159.html</a><br><a href="https://www.newlearner.site/2018/09/15/use-ipv6-for-free-internet.html" target="_blank" rel="noopener">https://www.newlearner.site/2018/09/15/use-ipv6-for-free-internet.html</a><br>其他：<br><a href="https://www.polarxiong.com/archives/%E6%90%AD%E5%BB%BAipv6-VPN-%E8%AE%A9ipv4%E4%B8%8Aipv6-%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%8F%90%E5%8D%87%E5%88%B0100M.html" target="_blank" rel="noopener">https://www.polarxiong.com/archives/%E6%90%AD%E5%BB%BAipv6-VPN-%E8%AE%A9ipv4%E4%B8%8Aipv6-%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%8F%90%E5%8D%87%E5%88%B0100M.html</a><br>vutlr+ss/ssr<br><a href="https://www.flyzy2005.com/fan-qiang/shadowsocks/install-shadowsocks-in-one-command/" target="_blank" rel="noopener">https://www.flyzy2005.com/fan-qiang/shadowsocks/install-shadowsocks-in-one-command/</a><br>ssr基础知识<br><a href="https://www.quchao.net/ShadowsocksR.html" target="_blank" rel="noopener">https://www.quchao.net/ShadowsocksR.html</a><br>v2ray代替ss方式<br><a href="https://since1989.org/vultr/v2ray-vmess-tcp-bbr-serverspeeder.html" target="_blank" rel="noopener">https://since1989.org/vultr/v2ray-vmess-tcp-bbr-serverspeeder.html</a><br><a href="https://www.iveyip.com/2018/10/06/%E5%9C%A8vultr-vps%E4%B8%8A%E6%90%AD%E5%BB%BA-v2ray-%E6%9C%8D%E5%8A%A1/" target="_blank" rel="noopener">https://www.iveyip.com/2018/10/06/%E5%9C%A8vultr-vps%E4%B8%8A%E6%90%AD%E5%BB%BA-v2ray-%E6%9C%8D%E5%8A%A1/</a><br><a href="https://tyloafer.github.io/posts/57533/" target="_blank" rel="noopener">https://tyloafer.github.io/posts/57533/</a></p>
 </li>
@@ -421,6 +421,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2020/02/18/virtualenv安装和使用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          virtualenv安装和使用
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/09/27/linux笔记/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">linux笔记</div>
@@ -478,7 +487,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 CalmCapK
+    		&copy; 2020 CalmCapK
     	</div>
       <div class="footer-right">
       	<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -640,6 +649,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">procreate</a>
               </li>
              
@@ -657,6 +674,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -681,22 +714,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssr</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
             
             <div class="clearfix"></div>

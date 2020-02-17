@@ -177,6 +177,134 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-virtualenv安装和使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/18/virtualenv安装和使用/">virtualenv安装和使用</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/18/virtualenv安装和使用/" class="archive-article-date">
+  	<time datetime="2020-02-17T16:45:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-18</time>
+</a>
+
+	<a href="javascript:;" class="archive-article-date">
+		<i class="icon-smile icon"></i> 阅读数:<span id="/2020/02/18/virtualenv安装和使用/" class="pageViews">0</span>次
+	</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
+        <h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol start="0">
+<li><p>无root安装pip</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wget https://bootstrap.pypa.io/get-pip.py</span><br><span class="line">python get-pip.py --user</span><br><span class="line"><span class="built_in">export</span> PATH=~/.<span class="built_in">local</span>/bin:<span class="variable">$PATH</span></span><br><span class="line">安装完成后会在家目录下生成 .<span class="built_in">local</span> 文件夹，里面有bin和lib</span><br><span class="line">``` </span><br><span class="line">查看位置<span class="built_in">which</span> pip</span><br><span class="line">``` bash</span><br><span class="line">/home/XXX/.<span class="built_in">local</span>/bin/pip</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>无root安装vitualenv<br>安装(视情况而定)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pip3 install virtualenv</span><br><span class="line">pip install virtualenv</span><br><span class="line">pip3 install --user virtualenv</span><br><span class="line">pip install --user virtualenv</span><br><span class="line">``` </span><br><span class="line">查看位置<span class="built_in">which</span> virtualenv</span><br><span class="line">``` bash</span><br><span class="line">/home/XXX/.<span class="built_in">local</span>/bin/virtualenv</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<!-- moe -->
+<ol start="2">
+<li><p>使用vitualenv</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">新建环境 virtualenv --no-site-packages env（新版本默认--no-site-packages）</span><br><span class="line">新建环境 virtualenv env </span><br><span class="line">激活环境 <span class="built_in">source</span> env/bin/activate</span><br><span class="line">删除环境 rm -rf env</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>无root安装vitualenvwrapper<br>安装(视情况而定，能找到.sh就行)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pip3 install virtualenvwrapper</span><br><span class="line">pip install virtualenvwrapper</span><br><span class="line">pip3 install --user virtualenvwrapper</span><br><span class="line">pip install --user virtualenvwrapper</span><br></pre></td></tr></table></figure>
+
+<p>(用户安装位置~/.local/bin/, 系统安装位置/usr/local/bin/)<br>查看下载位置which virtualenvwrapper.sh<br>无root的位置  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/home/XXX/.<span class="built_in">local</span>/bin/virtualenvwrapper.sh</span><br></pre></td></tr></table></figure>
+
+<p>有root的位置一般在</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/bin/virtualenvwrapper.sh</span><br></pre></td></tr></table></figure>
+
+<p>配置环境变量vim ~/.bashrc  </p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export VIRTUALENVWRAPPER_PYTHON=/usr/bin/<span class="keyword">python3</span></span><br><span class="line">export WORKON_HOME=/home/XXX/.virtualenvs (会自己创建目录)</span><br><span class="line"><span class="keyword">source</span> /home/XXX/.local/bin/virtualenvwrapper.<span class="keyword">sh</span></span><br><span class="line">#export PIP_VIRTUALENV_BASE=/home/XXX/myenv</span><br></pre></td></tr></table></figure>
+
+<p>source ~/.bashrc</p>
+</li>
+<li><p>vitualenvwrapper使用  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">查看环境lsvitualenv  </span><br><span class="line">新建环境mkvitualenv env</span><br><span class="line">mkvirtualenv -p python3 ENVNAME</span><br><span class="line">mkvirtualenv xxx --python=python3.6</span><br><span class="line"></span><br><span class="line">使用环境workon env  </span><br><span class="line">退出环境deactivate </span><br><span class="line">删除环境rmvitualenv</span><br><span class="line">复制环境cpvirtualenv ENVNAME [TARGETENVNAME]</span><br><span class="line"></span><br><span class="line"><span class="comment"># allvirtualenv 所有环境运行命令 (比如安装包)</span></span><br><span class="line">allvirtualenv <span class="built_in">command</span> with arguments</span><br><span class="line">allvirtualenv pip install -U pip</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>参考<br>安装：<br><a href="https://blog.csdn.net/watermusicyes/article/details/72909752" target="_blank" rel="noopener">https://blog.csdn.net/watermusicyes/article/details/72909752</a><br><a href="https://blog.csdn.net/sinat_34200786/article/details/79619251" target="_blank" rel="noopener">https://blog.csdn.net/sinat_34200786/article/details/79619251</a><br>配置virtualwrapper：<br><a href="https://www.codenong.com/12647266/" target="_blank" rel="noopener">https://www.codenong.com/12647266/</a><br>使用：<br><a href="https://xu3352.github.io/python/2018/08/17/Python-work-with-virtualenv-and-virtualenvwrapper" target="_blank" rel="noopener">https://xu3352.github.io/python/2018/08/17/Python-work-with-virtualenv-and-virtualenvwrapper</a><br>无root安装pip：<br><a href="https://blog.csdn.net/angus_monroe/article/details/80937647" target="_blank" rel="noopener">https://blog.csdn.net/angus_monroe/article/details/80937647</a>   </p>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">vitualenv</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">virtualenvwrapper</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/教程//" class="article-tag-list-link color3">教程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/18/virtualenv安装和使用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
     <article id="post-windows10-vultr-ssr-ipv6搭建校园网免流量" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -212,11 +340,7 @@
 
 <p>(问题) 更新后可能报ImportError: cannot import name main<br>(解决方法) hash -d pip</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">由于python2要没了，换成pip3</span><br><span class="line">apt-get install python3-pip</span><br><span class="line">pip3 install --upgrade pip</span><br><span class="line">hash -d pip3</span><br></pre></td></tr></table></figure>
-
-
 </li>
-</ol>
-<ol start="3">
 <li><p>安装ss(方法一)(亲测有效)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install shadowsocks 安装</span><br><span class="line">pip uninstall shadowsocks  删除</span><br></pre></td></tr></table></figure>
 
@@ -277,6 +401,10 @@
 </li>
 <li><p>总结<br>所以只是实现翻墙只需要vultr+ss/ssr+客户端配置的是ipv4即可<br>实现校园网浏览器免流量需要vultr+ss/ssr+客户端配置的是ipv6的ip+校园网支持ipv6+连接校园网<br>实现校园网所有应用免流量需要vultr+ss/ssr+客户端配置的是ipv6的ip+校园网支持ipv6+连接校园网+proxifier<br>如果一个服务器在ssr客户端有ipv4和ipv6地址，好像无论设置哪个，都会先走ipv4的那个<br>【注意！！！由以下结果可见，ssr没有在服务器端配置/etc/network/interfaces也可使用，估计在vultr，ss也可能不需要配置】</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">电脑,ssr客户端时ipv6,ss服务器端配置了ipv4和ipv6,在不联网+校园网可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv6,ss服务器端配置了ipv4和ipv6,在联网可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv4,ss服务器端配置了ipv4和ipv6,在不联网+校园网不可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv4,ss服务器端配置了ipv4和ipv6,在联网可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv6,ssr服务器端配置了ipv4,在不联网+校园网可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv6,ssr服务器端配置了ipv4,在联网可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv4,ssr服务器端配置了ipv4,在不联网+校园网不可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv4,ssr服务器端配置了ipv4,在联网可以访问ipv4,ipv6</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>其他移动端<br> ipad端只能实现翻墙<br> 在线安装ss<br> <a href="https://shadowsockshelp.github.io/ios/" target="_blank" rel="noopener">https://shadowsockshelp.github.io/ios/</a>  </p>
+<p> 参考<br> <a href="https://github.com/itrump/ssfree/blob/master/cn/ssr_ss_tutorial_ios%E6%95%99%E7%A8%8B.md" target="_blank" rel="noopener">https://github.com/itrump/ssfree/blob/master/cn/ssr_ss_tutorial_ios%E6%95%99%E7%A8%8B.md</a><br> <a href="https://ss-ssr.gitbook.io/shadowsocks/ios" target="_blank" rel="noopener">https://ss-ssr.gitbook.io/shadowsocks/ios</a></p>
+<p> 小米手机好像无法检测ipv6</p>
 </li>
 <li><p>参考<br>ipv4-&gt;ss+vps-&gt;ipv6,ipv6,翻墙教程：<br><a href="https://www.leavesongs.com/SHARE/ipv6-via-ss.html" target="_blank" rel="noopener">https://www.leavesongs.com/SHARE/ipv6-via-ss.html</a><br><a href="https://watsonyanghx.github.io/2016/10/05/Shadowsocks-Vultr-IPV6%E6%90%AD%E5%BB%BA%E6%A0%A1%E5%9B%AD%E7%BD%91%E5%85%8D%E6%B5%81%E9%87%8F%E7%8E%AF%E5%A2%83/" target="_blank" rel="noopener">https://watsonyanghx.github.io/2016/10/05/Shadowsocks-Vultr-IPV6%E6%90%AD%E5%BB%BA%E6%A0%A1%E5%9B%AD%E7%BD%91%E5%85%8D%E6%B5%81%E9%87%8F%E7%8E%AF%E5%A2%83/</a><br>ipv6-&gt;ss+vps-&gt;ipv4,ipv6,翻墙教程：<br><a href="http://ipv6.la/159.html" target="_blank" rel="noopener">http://ipv6.la/159.html</a><br><a href="https://www.newlearner.site/2018/09/15/use-ipv6-for-free-internet.html" target="_blank" rel="noopener">https://www.newlearner.site/2018/09/15/use-ipv6-for-free-internet.html</a><br>其他：<br><a href="https://www.polarxiong.com/archives/%E6%90%AD%E5%BB%BAipv6-VPN-%E8%AE%A9ipv4%E4%B8%8Aipv6-%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%8F%90%E5%8D%87%E5%88%B0100M.html" target="_blank" rel="noopener">https://www.polarxiong.com/archives/%E6%90%AD%E5%BB%BAipv6-VPN-%E8%AE%A9ipv4%E4%B8%8Aipv6-%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%8F%90%E5%8D%87%E5%88%B0100M.html</a><br>vutlr+ss/ssr<br><a href="https://www.flyzy2005.com/fan-qiang/shadowsocks/install-shadowsocks-in-one-command/" target="_blank" rel="noopener">https://www.flyzy2005.com/fan-qiang/shadowsocks/install-shadowsocks-in-one-command/</a><br>ssr基础知识<br><a href="https://www.quchao.net/ShadowsocksR.html" target="_blank" rel="noopener">https://www.quchao.net/ShadowsocksR.html</a><br>v2ray代替ss方式<br><a href="https://since1989.org/vultr/v2ray-vmess-tcp-bbr-serverspeeder.html" target="_blank" rel="noopener">https://since1989.org/vultr/v2ray-vmess-tcp-bbr-serverspeeder.html</a><br><a href="https://www.iveyip.com/2018/10/06/%E5%9C%A8vultr-vps%E4%B8%8A%E6%90%AD%E5%BB%BA-v2ray-%E6%9C%8D%E5%8A%A1/" target="_blank" rel="noopener">https://www.iveyip.com/2018/10/06/%E5%9C%A8vultr-vps%E4%B8%8A%E6%90%AD%E5%BB%BA-v2ray-%E6%9C%8D%E5%8A%A1/</a><br><a href="https://tyloafer.github.io/posts/57533/" target="_blank" rel="noopener">https://tyloafer.github.io/posts/57533/</a></p>
 </li>
@@ -393,19 +521,24 @@
         <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
         <a id="more"></a>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p><a href="https://pytorch.org/" target="_blank" rel="noopener">https://pytorch.org/</a></p>
-<h2 id="vim常用命令"><a href="#vim常用命令" class="headerlink" title="vim常用命令"></a>vim常用命令</h2>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:set list #显示空格tab</span><br><span class="line">:set number </span><br><span class="line">GG 首行</span><br><span class="line">shift+G 末行：去！</span><br></pre></td></tr></table></figure>
+<h2 id="vim常用命令"><a href="#vim常用命令" class="headerlink" title="vim常用命令"></a>vim常用命令</h2>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">:set list #显示空格tab</span><br><span class="line">:set number </span><br><span class="line">GG 首行</span><br><span class="line">shift+G 末行：去！</span><br><span class="line">正常模式 \单词  进行查找,n N上下</span><br></pre></td></tr></table></figure>
 
-<h2 id="tmux常用命令"><a href="#tmux常用命令" class="headerlink" title="tmux常用命令"></a>tmux常用命令</h2>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctrl+B  shift+% #左右分割窗口</span><br><span class="line">ctrl+B  shift+’ #上下分割窗</span><br><span class="line">ctrl+B pageUp #向上滑动查看 esc退出</span><br></pre></td></tr></table></figure>
+<h2 id="tmux常用命令"><a href="#tmux常用命令" class="headerlink" title="tmux常用命令"></a>tmux常用命令</h2>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ctrl+B  shift+% #左右分割窗口</span><br><span class="line">ctrl+B  shift+’ #上下分割窗</span><br><span class="line">ctrl+B pageUp #向上滑动查看 esc退出</span><br><span class="line">ctrl+B z 进入出来</span><br><span class="line">ctrl+B &amp; 关闭当前全部窗口</span><br></pre></td></tr></table></figure>
 
-<h2 id="linux常用命令"><a href="#linux常用命令" class="headerlink" title="linux常用命令"></a>linux常用命令</h2>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">ls -l | grep &quot;^-&quot; | wc -l #统计当前目录下文件的个数（不包括目录）</span><br><span class="line">ls -lR | grep &quot;^d&quot; | wc -l #统计当前目录下文件夹（目录的个数）</span><br><span class="line">ls |head -n 数字N |xargs -i mv &#123;&#125; 路径  #移动前N个文件</span><br><span class="line">watch -n 0.1 nvidia-smi #查看GPU</span><br><span class="line">查看cuda</span><br><span class="line">nvcc -V</span><br><span class="line">cat /usr/local/cuda/version.txt </span><br><span class="line">查看cudnn</span><br><span class="line">cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2</span><br><span class="line">cuda安装目录</span><br><span class="line">which nvcc</span><br><span class="line">CUDA_VISIBLE_DEVICES=1 python my_script.py</span><br><span class="line">identify 查看图像大小</span><br><span class="line">unzip -d /temp test.zip</span><br><span class="line"></span><br><span class="line">pip install tqdm </span><br><span class="line">pip install opencv-python</span><br><span class="line">pip install pyyaml</span><br></pre></td></tr></table></figure>
+<h2 id="linux常用命令"><a href="#linux常用命令" class="headerlink" title="linux常用命令"></a>linux常用命令</h2>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">ls -l | grep &quot;^-&quot; | wc -l #统计当前目录下文件的个数（不包括目录）</span><br><span class="line">ls -lR | grep &quot;^d&quot; | wc -l #统计当前目录下文件夹（目录的个数）</span><br><span class="line">ls |head -n 数字N |xargs -i mv &#123;&#125; 路径  #移动前N个文件</span><br><span class="line">watch -n 0.1 nvidia-smi #查看GPU</span><br><span class="line">查看cuda</span><br><span class="line">nvcc -V</span><br><span class="line">cat /usr/local/cuda/version.txt </span><br><span class="line">查看cudnn</span><br><span class="line">cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2</span><br><span class="line">cuda安装目录</span><br><span class="line">which nvcc</span><br><span class="line">CUDA_VISIBLE_DEVICES=1 python my_script.py</span><br><span class="line">identify 查看图像大小</span><br><span class="line">unzip -d /temp test.zip</span><br><span class="line"></span><br><span class="line">pip install tqdm </span><br><span class="line">pip install opencv-python</span><br><span class="line">pip install pyyaml</span><br><span class="line">统计当前文件夹py文件代码行数</span><br><span class="line">wc -l `find ./ -name &quot;*.py&quot;`|tail -n1</span><br><span class="line">wc -l 文件名</span><br></pre></td></tr></table></figure>
 
 <h2 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h2><pre><code>https://blog.csdn.net/geter_CS/article/details/79849386
 bce
 https://blog.csdn.net/tmk_01/article/details/80844260
 指标
-https://www.jianshu.com/p/b960305718f1</code></pre><h2 id="conda常用命令"><a href="#conda常用命令" class="headerlink" title="conda常用命令"></a>conda常用命令</h2>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda info --envs</span><br><span class="line">conda list</span><br><span class="line">conda create -n py36 python=3.6</span><br></pre></td></tr></table></figure>
+https://www.jianshu.com/p/b960305718f1
+python 用法
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line">for task in tqdm(tasks):</span><br><span class="line"></span><br><span class="line">pool = multiprocessing.Pool(args.nProc) # 调用是CPU的核数</span><br><span class="line">pool.apply_async(func=prep, args=(tr_files, trDir, True))</span><br><span class="line">pool.apply_async(func=prep, args=(ts_files, tsDir, False))</span><br><span class="line">pool.close() # close pool, no more processes added to pool</span><br><span class="line">pool.join() # wait pool to finish, required and should be after .close()</span><br><span class="line"></span><br><span class="line">if config.use_gpu and torch.cuda.is_available():</span><br><span class="line"> config.use_gpu = True</span><br><span class="line">else:</span><br><span class="line"> config.use_gpu = False</span><br><span class="line"></span><br><span class="line">为CPU设置种子用于生成随机数，使得结果确定</span><br><span class="line">torch.manual_seed(1)</span><br><span class="line">model.apply(train.weights_init)</span><br><span class="line"></span><br><span class="line">def weights_init(m):</span><br><span class="line">classname = m.__class__.__name__</span><br><span class="line">if classname.find(&apos;Conv3d&apos;) != -1:</span><br><span class="line">    nn.init.kaiming_normal_(m.weight)</span><br><span class="line">    m.bias.data.zero_()</span><br><span class="line"></span><br><span class="line">checkpoint = torch.load(args.resume_ckp)</span><br><span class="line">model = checkpoint[&apos;model&apos;]</span><br><span class="line">修改参数</span><br><span class="line">for name, m in model_old.named_modules():</span><br><span class="line">  if any(i in name for i in shared_modules):</span><br><span class="line">    if &apos;.adap&apos; not in name and isinstance(m, nn.Conv3d) and (m.kernel_size[0]==3):</span><br><span class="line">        store_weight3x3.append(m.weight.data)</span><br><span class="line">        name3x3.append(name)</span><br><span class="line">    elif &apos;.adap&apos; not in name and isinstance(m, nn.Conv3d) and (m.kernel_size[0]==1):</span><br><span class="line">        store_weight1x1.append(m.weight.data)</span><br><span class="line">        name1x1.append(name)</span><br><span class="line">     elif &apos;.adap&apos; not in name and isinstance(m, nn.InstanceNorm3d):</span><br><span class="line">        store_weightNorm.append(m.weight.data)</span><br><span class="line">        nameNorm.append(name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">train.train(args, tasks_archive, model)</span><br><span class="line"></span><br><span class="line">def train(args, tasks_archive, model):</span><br><span class="line">   torch.backends.cudnn.benchmark=True</span><br><span class="line">   model = nn.parallel.DataParallel(model)</span><br><span class="line">   sum([p.data.nelement() for p in model.parameters()]  参数大小 </span><br><span class="line">   #如 x = torch.randn(size = (4,3,5,6)) </span><br><span class="line">   # x.nelement() = 360</span><br><span class="line">   if config.use_gpu:</span><br><span class="line">    model.cuda() # required bofore optimizer?</span><br><span class="line">    #cudnn.benchmark = True</span><br><span class="line">    optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=config.weight_decay)</span><br><span class="line">    dice_loss = MulticlassDiceLoss()</span><br><span class="line">    ce_loss = nn.CrossEntropyLoss()</span><br><span class="line">    focal_loss = FocalLoss(gamma=2)</span><br><span class="line">  </span><br><span class="line">    from multiprocessing import Process, Queue</span><br><span class="line">    self.tr_dataPrep[proc] = Process(target=data_utils.trQueue, args=(self.config_task, task_archive[&apos;train&apos;], self.trainQueue, self.patch_size, self.nProc, proc))</span><br><span class="line">    self.tr_dataPrep[proc].daemon = True</span><br><span class="line">    self.tr_dataPrep[proc].start()</span><br><span class="line">    for epoch in range(start_epoch, config.max_epoch+1):</span><br><span class="line">        for step in tqdm(range(config.step_per_epoch), desc=&apos;&#123;&#125;: epoch&#123;&#125;&apos;.format(args.trainMode, epoch)):</span><br><span class="line">               batchImg = torch.from_numpy(batchImg).float()</span><br><span class="line">               if config.use_gpu:</span><br><span class="line">                       batchImg = batchImg.cuda()</span><br><span class="line">                optimizer.zero_grad()</span><br><span class="line">                if config.trainMode in [&quot;universal&quot;]:</span><br><span class="line">                      output, share_map, para_map = model(batchImg)</span><br><span class="line">                else:</span><br><span class="line">                     output = model(batchImg)</span><br><span class="line"></span><br><span class="line">                output_softmax = F.softmax(output, dim=1)</span><br><span class="line">        </span><br><span class="line">                loss = lovasz_softmax(output_softmax, batchLabel, ignore=10) + focal_loss(output, batchLabel)</span><br><span class="line"></span><br><span class="line">                loss.backward()</span><br><span class="line">                optimizer.step()</span><br><span class="line"></span><br><span class="line">                 loss_epoch += loss.item()</span><br><span class="line">                 num_batch_processed += 1</span><br><span class="line">                if epoch % config.save_epoch == 0:</span><br><span class="line">                    ckp_path = os.path.join(config.log_dir, &apos;&#123;&#125;_&#123;&#125;_epoch&#123;&#125;_&#123;&#125;.pth.tar&apos;.format(args.trainMode, &apos;_&apos;.join(args.tasks), epoch, tinies.datestr()))</span><br><span class="line">                    torch.save(&#123;</span><br><span class="line">                loss_epoch /= num_batch_processed</span><br><span class="line">                 if Eval_bool:</span><br><span class="line">                        eval(args, tasks_archive, model, epoch, iterations-1)</span><br><span class="line"></span><br><span class="line">                if len(trLoss_queue) == trLoss_queue.maxlen:</span><br><span class="line">                if last_trLoss_ma and last_trLoss_ma - trLoss_ma &lt; 1e-4: # 5e-3</span><br><span class="line">                    lr /= 2</span><br><span class="line">                    for param_group in optimizer.param_groups:</span><br><span class="line">                        param_group[&apos;lr&apos;] = lr</span><br><span class="line">                        last_trLoss_ma = trLoss_ma</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">os.getcwd() 查看当前目录</span><br><span class="line"></span><br><span class="line">data agument</span><br><span class="line">from batchgenerators.augmentations.utils import create_zero_centered_coordinate_mesh, elastic_deform_coordinates</span><br><span class="line">coords = create_zero_centered_coordinate_mesh(patch_size) # 3*d*h*w</span><br><span class="line">coords = elastic_deform_coordinates(coords, a, s)</span><br></pre></td></tr></table></figure></code></pre><h2 id="医疗图像处理"><a href="#医疗图像处理" class="headerlink" title="医疗图像处理"></a>医疗图像处理</h2><p>   sitk_image = sitk.ReadImage(im)<br>   orig_volume = sitk.GetArrayFromImage(sitk_image) # mod, z, y, x<br>   sitk_image.GetDimension()<br>   mod_num = sitk_image.GetSize()<br>   original_shape = orig_volume.shape<br>   以上两个x,y,z位置不一致<br>   sitk_image.GetOrigin() ？？？<br>   sitk_image.GetSpacing()<br>   sitk_refer.GetDirection() ？？？<br>   sitk.Resample</p>
+<h2 id="conda常用命令"><a href="#conda常用命令" class="headerlink" title="conda常用命令"></a>conda常用命令</h2><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">conda info --envs</span><br><span class="line">conda list</span><br><span class="line">conda create -n py36 python=3.6</span><br><span class="line">conda install --yes --file requirements.txt </span><br><span class="line">source activate py27</span><br><span class="line">修改源</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
 
-<h2 id="查看端口情况"><a href="#查看端口情况" class="headerlink" title="查看端口情况"></a>查看端口情况</h2>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">netstat -tln</span><br><span class="line">netstat -tln | grep 8080</span><br><span class="line">lsof -i:8080 #查看属于哪个程序</span><br><span class="line">kill -9 进程id</span><br></pre></td></tr></table></figure>
+环境迁移  
+https://zhuanlan.zhihu.com/p/87344422
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">environment.yml 方式</span><br><span class="line">conda env export &gt; environment.yml</span><br><span class="line">conda env create -f environment.yml</span><br><span class="line">安装conda-pack 方式</span><br><span class="line">conda install -c conda-forge conda-pack</span><br><span class="line">pip install conda-pack</span><br><span class="line">conda pack -n my_env</span><br><span class="line">mkdir -p my_env</span><br><span class="line">tar -xzf my_env.tar.gz -C my_env</span><br><span class="line">使用python</span><br><span class="line">source my_env/bin/activate</span><br></pre></td></tr></table></figure></code></pre><h2 id="查看端口情况"><a href="#查看端口情况" class="headerlink" title="查看端口情况"></a>查看端口情况</h2>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">netstat -tln</span><br><span class="line">netstat -tln | grep 8080</span><br><span class="line">lsof -i:8080 #查看属于哪个程序</span><br><span class="line">kill -9 进程id</span><br></pre></td></tr></table></figure>
 
 
 <h2 id="ssh远程看文本和开启GUI"><a href="#ssh远程看文本和开启GUI" class="headerlink" title="ssh远程看文本和开启GUI"></a>ssh远程看文本和开启GUI</h2><ol>
@@ -1159,7 +1292,7 @@ https://www.jianshu.com/p/b960305718f1</code></pre><h2 id="conda常用命令"><a
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 CalmCapK
+    		&copy; 2020 CalmCapK
     	</div>
       <div class="footer-right">
       	<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1321,6 +1454,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">procreate</a>
               </li>
              
@@ -1338,6 +1479,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1362,22 +1519,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssr</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
             
             <div class="clearfix"></div>
