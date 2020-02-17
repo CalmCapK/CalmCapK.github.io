@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
 <meta property="og:description" content="无root安装pip 安装 1234wget https://bootstrap.pypa.io/get-pip.pypython get-pip.py --userexport PATH=~/.local/bin:$PATH安装完成后会在家目录下生成 .local 文件夹，里面有bin和lib  查看位置which pip 1/home/XXX/.local/bin/pip     无root安">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-02-17T18:20:59.221Z">
+<meta property="og:updated_time" content="2020-02-17T18:25:20.130Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="virtualenv安装和使用">
 <meta name="twitter:description" content="无root安装pip 安装 1234wget https://bootstrap.pypa.io/get-pip.pypython get-pip.py --userexport PATH=~/.local/bin:$PATH安装完成后会在家目录下生成 .local 文件夹，里面有bin和lib  查看位置which pip 1/home/XXX/.local/bin/pip     无root安">
@@ -215,8 +215,11 @@
 </ol>
 <!-- moe -->
 <h2 id="无root安装vitualenv"><a href="#无root安装vitualenv" class="headerlink" title="无root安装vitualenv"></a>无root安装vitualenv</h2><ol>
-<li><p>安装(视情况而定)  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   pip3 install virtualenv</span><br><span class="line">   pip install virtualenv</span><br><span class="line">   pip3 install --user virtualenv</span><br><span class="line">   pip install --user virtualenv</span><br><span class="line">   ``` </span><br><span class="line">2. 查看位置<span class="built_in">which</span> virtualenv</span><br><span class="line">   ``` bash</span><br><span class="line">   /home/XXX/.<span class="built_in">local</span>/bin/virtualenv</span><br></pre></td></tr></table></figure>
+<li><p>安装(视情况而定)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pip3 install virtualenv</span><br><span class="line">pip install virtualenv</span><br><span class="line">pip3 install --user virtualenv</span><br><span class="line">pip install --user virtualenv</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看位置which virtualenv</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/home/XXX/.<span class="built_in">local</span>/bin/virtualenv</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>使用vitualenv</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">新建环境 virtualenv --no-site-packages env（新版本默认--no-site-packages）</span><br><span class="line">新建环境 virtualenv env </span><br><span class="line">激活环境 <span class="built_in">source</span> env/bin/activate</span><br><span class="line">删除环境 rm -rf env</span><br></pre></td></tr></table></figure>
@@ -224,7 +227,7 @@
 </li>
 </ol>
 <h2 id="无root安装vitualenvwrapper"><a href="#无root安装vitualenvwrapper" class="headerlink" title="无root安装vitualenvwrapper"></a>无root安装vitualenvwrapper</h2><ol>
-<li><p>安装(视情况而定，能找到.sh就行)</p>
+<li><p>安装(视情况而定，能找到.sh就行)  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">   pip3 install virtualenvwrapper</span><br><span class="line">   pip install virtualenvwrapper</span><br><span class="line">   pip3 install --user virtualenvwrapper</span><br><span class="line">   pip install --user virtualenvwrapper</span><br><span class="line">   ```  </span><br><span class="line">   (用户安装位置~/.<span class="built_in">local</span>/bin/, 系统安装位置/usr/<span class="built_in">local</span>/bin/)    </span><br><span class="line">2. 查看下载位置<span class="built_in">which</span> virtualenvwrapper.sh  </span><br><span class="line">   无root的位置  </span><br><span class="line">   ``` bash</span><br><span class="line">   /home/XXX/.<span class="built_in">local</span>/bin/virtualenvwrapper.sh</span><br></pre></td></tr></table></figure>
 
 <p>有root的位置一般在</p>
@@ -580,15 +583,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">latex</a>
               </li>
              
               <li class="article-tag-list-item">
