@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
 <meta property="og:description" content="其他https://pytorch.org/ vim常用命令   12345:set list #显示空格tab:set number GG 首行shift+G 末行：去！正常模式 \单词  进行查找,n N上下  tmux常用命令   12345ctrl+B  shift+% #左右分割窗口ctrl+B  shift+’ #上下分割窗ctrl+B pageUp #向上滑动查看 esc退出ctr">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-03-04T17:35:14.696Z">
+<meta property="og:updated_time" content="2020-11-20T07:17:58.090Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux笔记">
 <meta name="twitter:description" content="其他https://pytorch.org/ vim常用命令   12345:set list #显示空格tab:set number GG 首行shift+G 末行：去！正常模式 \单词  进行查找,n N上下  tmux常用命令   12345ctrl+B  shift+% #左右分割窗口ctrl+B  shift+’ #上下分割窗ctrl+B pageUp #向上滑动查看 esc退出ctr">
@@ -214,7 +214,7 @@
 
 <h2 id="tensorboard使用"><a href="#tensorboard使用" class="headerlink" title="tensorboard使用"></a>tensorboard使用</h2>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tensorboard --logdir=path --port=6005</span><br></pre></td></tr></table></figure>
 
-<h2 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h2><pre><code>https://blog.csdn.net/geter_CS/article/details/79849386
+<h2 id="matplotlib使用"><a href="#matplotlib使用" class="headerlink" title="matplotlib使用"></a>matplotlib使用</h2><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">matplotlib.pyplot.imshow</span><br><span class="line">参数：</span><br><span class="line">cmap:str或者colormap (RGB数据忽略此参数)</span><br><span class="line">norm:缩放到0-1</span><br><span class="line">aspect:控制轴的纵横比</span><br><span class="line">interpolation:插值 默认nearest, 还有bilinear </span><br><span class="line">alpha:透明度0-1 （RGBA数据忽略此参数）</span><br><span class="line">vmin,vmax ？？？ 如果使用vmin和vmax忽略此参数</span><br><span class="line">origin 默认upper。 放置在轴的左上角 lower左下角</span><br><span class="line">垂直轴指向上方表示“lower”，但指向下方表示“upper”</span><br><span class="line">extent 边界框 left right bottom top</span><br><span class="line">filternorm : bool, optional, default: True</span><br><span class="line">filterrad : float &gt; 0, optional, default: 4.0</span><br><span class="line">resample : bool, optional</span><br><span class="line"></span><br><span class="line">https://blog.csdn.net/ztf312/article/details/102474190</span><br><span class="line">https://blog.csdn.net/guduruyu/article/details/60868501</span><br><span class="line">https://www.cnblogs.com/HuZihu/p/9481068.html</span><br></pre></td></tr></table></figure></code></pre><h2 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h2><pre><code>https://blog.csdn.net/geter_CS/article/details/79849386
 bce
 https://blog.csdn.net/tmk_01/article/details/80844260
 指标
@@ -250,7 +250,17 @@ https://zhuanlan.zhihu.com/p/87344422
 <li><p>参考<br><a href="https://fabianlee.org/2018/10/14/ubuntu-x11-forwarding-to-view-gui-applications-running-on-server-hosts/" target="_blank" rel="noopener">https://fabianlee.org/2018/10/14/ubuntu-x11-forwarding-to-view-gui-applications-running-on-server-hosts/</a><br><a href="https://blog.csdn.net/Mooner_guo/article/details/44197025" target="_blank" rel="noopener">https://blog.csdn.net/Mooner_guo/article/details/44197025</a></p>
 </li>
 </ol>
-<p>   python -m SimpleHTTPServer<br>      python -m http.server</p>
+<h2 id="通过ssh和frp打开内网部署的网站"><a href="#通过ssh和frp打开内网部署的网站" class="headerlink" title="通过ssh和frp打开内网部署的网站"></a>通过ssh和frp打开内网部署的网站</h2><ol>
+<li><p>情况：本地机器A、内网机器B(运行frp)、内网机器C(不允许frp)、阿里云D</p>
+</li>
+<li><p>将阿里云D的端口和内网机器B绑定，使本地机器A可以访问内网机器B</p>
+</li>
+<li><p>本地机器A登录内网机器B，通过以下命令和内网机器C建立连接</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   ssh -R 内网机器B的端口（已经和阿里云D建立映射）:内网机器C的内网ip地址:内网机器C的网页端口 localhost </span><br><span class="line"></span><br><span class="line">   ssh -R BBBB:CC.CC.CC.CC:CCCC localhost</span><br><span class="line">   ```  </span><br><span class="line">4. 参考  </span><br><span class="line">  https://www.cnblogs.com/ling-yu-amen/articles/11634414.html</span><br><span class="line"></span><br><span class="line"><span class="comment">## 通过http浏览文件</span></span><br></pre></td></tr></table></figure>
+
+<p>python -m SimpleHTTPServer<br>python -m http.server<br>```</p>
+</li>
+</ol>
 
       
 
@@ -409,7 +419,7 @@ https://zhuanlan.zhihu.com/p/87344422
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">1.</span> <span class="toc-text">其他</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vim常用命令"><span class="toc-number">2.</span> <span class="toc-text">vim常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tmux常用命令"><span class="toc-number">3.</span> <span class="toc-text">tmux常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#linux常用命令"><span class="toc-number">4.</span> <span class="toc-text">linux常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tensorboard使用"><span class="toc-number">5.</span> <span class="toc-text">tensorboard使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#深度学习"><span class="toc-number">6.</span> <span class="toc-text">深度学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#医疗图像处理"><span class="toc-number">7.</span> <span class="toc-text">医疗图像处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conda常用命令"><span class="toc-number">8.</span> <span class="toc-text">conda常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看端口情况"><span class="toc-number">9.</span> <span class="toc-text">查看端口情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ssh远程看文本和开启GUI"><span class="toc-number">10.</span> <span class="toc-text">ssh远程看文本和开启GUI</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">1.</span> <span class="toc-text">其他</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vim常用命令"><span class="toc-number">2.</span> <span class="toc-text">vim常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tmux常用命令"><span class="toc-number">3.</span> <span class="toc-text">tmux常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#linux常用命令"><span class="toc-number">4.</span> <span class="toc-text">linux常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tensorboard使用"><span class="toc-number">5.</span> <span class="toc-text">tensorboard使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#matplotlib使用"><span class="toc-number">6.</span> <span class="toc-text">matplotlib使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#深度学习"><span class="toc-number">7.</span> <span class="toc-text">深度学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#医疗图像处理"><span class="toc-number">8.</span> <span class="toc-text">医疗图像处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conda常用命令"><span class="toc-number">9.</span> <span class="toc-text">conda常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看端口情况"><span class="toc-number">10.</span> <span class="toc-text">查看端口情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ssh远程看文本和开启GUI"><span class="toc-number">11.</span> <span class="toc-text">ssh远程看文本和开启GUI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过ssh和frp打开内网部署的网站"><span class="toc-number">12.</span> <span class="toc-text">通过ssh和frp打开内网部署的网站</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -628,19 +638,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">frp</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -653,6 +663,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Premiere</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -696,11 +710,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">u2net3d</a>
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+                <a href="javascript:void(0)" class="js-tag color3">u2net3d</a>
               </li>
             
             <div class="clearfix"></div>
