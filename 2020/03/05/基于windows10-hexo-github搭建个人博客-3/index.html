@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
 <meta property="og:description" content="安装livere评论系统">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2021-06-16T09:45:27.083Z">
+<meta property="og:updated_time" content="2021-06-16T10:40:37.501Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于windows10+hexo+github搭建个人博客(3)">
 <meta name="twitter:description" content="安装livere评论系统">
@@ -227,16 +227,16 @@
 </ol>
 <hr>
 <h2 id="设置加密博文"><a href="#设置加密博文" class="headerlink" title="设置加密博文"></a>设置加密博文</h2><ol>
-<li><p>安装插件<br> npm install –save hexo-blog-encrypt</p>
+<li><p>安装插件<br><br> npm install –save hexo-blog-encrypt</p>
 </li>
-<li><p>按标签加密<br> 修改文章信息头如下：</p>
+<li><p>按标签加密<br><br> 修改文章信息头如下：</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">title: Hello World</span><br><span class="line">tags:</span><br><span class="line">- 加密文章tag</span><br><span class="line">date: 2020-03-13 21:12:21</span><br><span class="line">password: muyiio</span><br><span class="line">abstract: 这里有东西被加密了，需要输入密码查看哦。</span><br><span class="line">message: 您好，这里需要密码。</span><br><span class="line">wrong_pass_message: 抱歉，这个密码看着不太对，请再试试。</span><br><span class="line">wrong_hash_message: 抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容。</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 
 <p> 对博客根目录_config添加如下字段</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 安全</span><br><span class="line">encrypt: # hexo-blog-encrypt</span><br><span class="line">abstract: 这里有东西被加密了，需要输入密码查看哦。</span><br><span class="line">message: 您好, 这里需要密码.</span><br><span class="line">tags:</span><br><span class="line">- &#123;name: tagName, password: 密码A&#125;</span><br><span class="line">- &#123;name: tagName, password: 密码B&#125;</span><br><span class="line">template: &lt;div id=&quot;hexo-blog-encrypt&quot; data-wpm=&quot;&#123;&#123;hbeWrongPassMessage&#125;&#125;&quot; data-whm=&quot;&#123;&#123;hbeWrongHashMessage&#125;&#125;&quot;&gt;&lt;div class=&quot;hbe-input-container&quot;&gt;&lt;input type=&quot;password&quot; id=&quot;hbePass&quot; placeholder=&quot;&#123;&#123;hbeMessage&#125;&#125;&quot; /&gt;&lt;label&gt;&#123;&#123;hbeMessage&#125;&#125;&lt;/label&gt;&lt;div class=&quot;bottom-line&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;script id=&quot;hbeData&quot; type=&quot;hbeData&quot; data-hmacdigest=&quot;&#123;&#123;hbeHmacDigest&#125;&#125;&quot;&gt;&#123;&#123;hbeEncryptedData&#125;&#125;&lt;/script&gt;&lt;/div&gt;</span><br><span class="line">wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.</span><br><span class="line">wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>参考<br> <a href="https://zhuanlan.zhihu.com/p/113235573" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/113235573</a></p>
-<p> test4</p>
+<p> test1</p>
 </li>
 </ol>
 
@@ -644,19 +644,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">frp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">frp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
               </li>
              
               <li class="article-tag-list-item">
