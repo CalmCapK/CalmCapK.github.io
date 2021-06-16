@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
 <meta property="og:description" content="安装livere评论系统">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-03-04T18:51:28.525Z">
+<meta property="og:updated_time" content="2021-06-16T09:03:04.996Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于windows10+hexo+github搭建个人博客(3)">
 <meta name="twitter:description" content="安装livere评论系统">
@@ -218,16 +218,22 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (!index &amp;&amp; post.comments)&#123; %&gt;</span><br></pre></td></tr></table></figure>
 
 <p>添加代码</p>
-<pre><code>&lt;% if (theme.livere_uid){ %&gt;
-&lt;%- partial(&apos;post/livere&apos;, {
-   key: post.slug,
-   title: post.title,
-   url: config.url+url_for(post.path)
- }) %&gt;
-&lt;% } %&gt;</code></pre></li>
-<li><p>重启hexo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">   &lt;% if (theme.livere_uid)&#123; %&gt;</span><br><span class="line">   &lt;%- partial(&apos;post/livere&apos;, &#123;</span><br><span class="line">      key: post.slug,</span><br><span class="line">      title: post.title,</span><br><span class="line">      url: config.url+url_for(post.path)</span><br><span class="line">    &#125;) %&gt;</span><br><span class="line">   &lt;% &#125; %&gt;</span><br><span class="line">   ``` </span><br><span class="line">5. 重启hexo</span><br><span class="line">6. 参考  </span><br><span class="line">   https://jomsou.github.io/2017/07/16/livere/  </span><br><span class="line">   https://www.githang.com/2019/05/21/hexo-yilia-livere/  </span><br><span class="line">   https://meetes.top/2018/02/12/Hexo%20+%20yilia%20%E9%83%A8%E7%BD%B2%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 设置加密博文</span><br><span class="line">1. 安装插件  </span><br><span class="line">   npm install --save hexo-blog-encrypt</span><br><span class="line">2. 按标签加密  </span><br><span class="line">   修改文章信息头如下：</span><br></pre></td></tr></table></figure>
+
+<p> title: Hello World<br> tags:</p>
+<ul>
+<li>加密文章tag<br>date: 2020-03-13 21:12:21<br>password: muyiio<br>abstract: 这里有东西被加密了，需要输入密码查看哦。<br>message: 您好，这里需要密码。<br>wrong_pass_message: 抱歉，这个密码看着不太对，请再试试。<br>wrong_hash_message: 抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容。</li>
+</ul>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对博客根目录_config添加如下字段</span><br></pre></td></tr></table></figure>
+
+<h1 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h1><p> encrypt: # hexo-blog-encrypt<br> abstract: 这里有东西被加密了，需要输入密码查看哦。<br> message: 您好, 这里需要密码.<br> tags:</p>
+<ul>
+<li>{name: tagName, password: 密码A}</li>
+<li>{name: tagName, password: 密码B}<br>template: <div id="hexo-blog-encrypt" data-wpm data-whm><div class="hbe-input-container"><input type="password" id="hbePass" placeholder><label></label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest></script></div><br>wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.<br>wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.<pre><code></code></pre></li>
+</ul>
 </li>
-<li><p>参考<br><a href="https://jomsou.github.io/2017/07/16/livere/" target="_blank" rel="noopener">https://jomsou.github.io/2017/07/16/livere/</a><br><a href="https://www.githang.com/2019/05/21/hexo-yilia-livere/" target="_blank" rel="noopener">https://www.githang.com/2019/05/21/hexo-yilia-livere/</a><br><a href="https://meetes.top/2018/02/12/Hexo%20+%20yilia%20%E9%83%A8%E7%BD%B2%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" target="_blank" rel="noopener">https://meetes.top/2018/02/12/Hexo%20+%20yilia%20%E9%83%A8%E7%BD%B2%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</a></p>
+<li><p>参考<br><a href="https://zhuanlan.zhihu.com/p/113235573" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/113235573</a></p>
 </li>
 </ol>
 
@@ -392,7 +398,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装livere评论系统"><span class="toc-number">1.</span> <span class="toc-text">安装livere评论系统</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装livere评论系统"><span class="toc-number">1.</span> <span class="toc-text">安装livere评论系统</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安全"><span class="toc-number"></span> <span class="toc-text">安全</span></a>
                     </div>
                 </span>
             </div>
@@ -441,7 +447,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 CalmCapK
+    		&copy; 2021 CalmCapK
     	</div>
       <div class="footer-right">
       	<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -599,7 +605,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">secret</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">latex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">meme_generator</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">caption</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pytorch</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -611,27 +641,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
+                <a href="javascript:void(0)" class="js-tag color4">frp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Premiere</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">表情包</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sai</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ps</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -647,15 +665,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">frp</a>
+                <a href="javascript:void(0)" class="js-tag color4">表情包</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
+                <a href="javascript:void(0)" class="js-tag color4">sai</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">ps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -680,6 +706,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -833,5 +863,5 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 </div>
   </div>
   <script color="254,169,50" opacity=0.7 count=150 pointColor="151,73,26" type="text/javascript" src="/dist/canvas_nest/canvas-nest.js"></script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"jsonPath":"/live2dw/assets/haru02.model.json"},"display":{"superSample":2,"position":"right","width":300,"height":600,"hOffset":100,"vOffset":-50},"mobile":{"show":true,"scale":0.5},"react":{"opacity":0.5},"dialog":{"enable":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"jsonPath":"live2d-widget-model-haru/02"},"display":{"superSample":2,"position":"right","width":300,"height":600,"hOffset":100,"vOffset":-50},"mobile":{"show":true,"scale":0.5},"react":{"opacity":0.5},"dialog":{"enable":false},"log":false});</script></body>
 </html>
