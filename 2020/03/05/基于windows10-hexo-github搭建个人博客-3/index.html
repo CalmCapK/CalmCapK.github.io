@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
 <meta property="og:description" content="安装livere评论系统">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2021-06-16T09:03:04.996Z">
+<meta property="og:updated_time" content="2021-06-16T09:26:50.102Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于windows10+hexo+github搭建个人博客(3)">
 <meta name="twitter:description" content="安装livere评论系统">
@@ -206,34 +206,34 @@
         <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
         <h2 id="安装livere评论系统"><a href="#安装livere评论系统" class="headerlink" title="安装livere评论系统"></a>安装livere评论系统</h2><a id="more"></a>
 <ol>
-<li><p>注册livere<br>选择City版：是一款适合所有人使用的免费版本<br><a href="https://livere.com" target="_blank" rel="noopener">https://livere.com</a>  </p>
+<li><p>注册livere<br> 选择City版：是一款适合所有人使用的免费版本<br> <a href="https://livere.com" target="_blank" rel="noopener">https://livere.com</a>  </p>
 </li>
-<li><p>在主题配置添加来必力<br>修改<code>theme/yilia/_config.yml</code>文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">livere_uid: 注册得到的id</span><br></pre></td></tr></table></figure>
+<li><p>在主题配置添加来必力<br> 修改<code>theme/yilia/_config.yml</code>文件  </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">livere_uid: 注册得到的id</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>添加livere.ejs代码<br>新增<code>theme/yilia/layout/_partial/post/livere.ejs文件</code>，添加livere得到的代码<br>【注意这里data-uid替换成了theme.livere_uid】</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">  &lt;!-- 来必力City版安装代码 --&gt;</span><br><span class="line">  &lt;div id=&quot;lv-container&quot; data-id=&quot;city&quot; data-uid=&quot;&lt;%=theme.livere_uid%&gt;&quot;&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">  (function(d, s) &#123;</span><br><span class="line">      var j, e = d.getElementsByTagName(s)[0];</span><br><span class="line"></span><br><span class="line">      if (typeof LivereTower === &apos;function&apos;) &#123; return; &#125;</span><br><span class="line"></span><br><span class="line">      j = d.createElement(s);</span><br><span class="line">      j.src = &apos;https://cdn-city.livere.com/js/embed.dist.js&apos;;</span><br><span class="line">      j.async = true;</span><br><span class="line"></span><br><span class="line">      e.parentNode.insertBefore(j, e);</span><br><span class="line">   &#125;)(document, &apos;script&apos;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">   &lt;noscript&gt; 为正常使用来必力评论功能请激活JavaScript&lt;/noscript&gt;</span><br><span class="line">   &lt;/div&gt;</span><br><span class="line">  &lt;!-- City版安装代码已完成 --&gt;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">   &lt;!-- 来必力City版安装代码 --&gt;</span><br><span class="line">   &lt;div id=&quot;lv-container&quot; data-id=&quot;city&quot; data-uid=&quot;&lt;%=theme.livere_uid%&gt;&quot;&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">   (function(d, s) &#123;</span><br><span class="line">      var j, e = d.getElementsByTagName(s)[0];</span><br><span class="line"></span><br><span class="line">      if (typeof LivereTower === &apos;function&apos;) &#123; return; &#125;</span><br><span class="line"></span><br><span class="line">      j = d.createElement(s);</span><br><span class="line">      j.src = &apos;https://cdn-city.livere.com/js/embed.dist.js&apos;;</span><br><span class="line">      j.async = true;</span><br><span class="line"></span><br><span class="line">      e.parentNode.insertBefore(j, e);</span><br><span class="line">   &#125;)(document, &apos;script&apos;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">   &lt;noscript&gt; 为正常使用来必力评论功能请激活JavaScript&lt;/noscript&gt;</span><br><span class="line">   &lt;/div&gt;</span><br><span class="line">   &lt;!-- City版安装代码已完成 --&gt;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>添加article.ejs代码<br>在<code>theme/yilia/layout/_partial/article.ejs文件</code>，如下位置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (!index &amp;&amp; post.comments)&#123; %&gt;</span><br></pre></td></tr></table></figure>
+<li><p>添加article.ejs代码<br>在<code>theme/yilia/layout/_partial/article.ejs文件</code>，如下位置  </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (!index &amp;&amp; post.comments)&#123; %&gt;</span><br></pre></td></tr></table></figure>
 
-<p>添加代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">   &lt;% if (theme.livere_uid)&#123; %&gt;</span><br><span class="line">   &lt;%- partial(&apos;post/livere&apos;, &#123;</span><br><span class="line">      key: post.slug,</span><br><span class="line">      title: post.title,</span><br><span class="line">      url: config.url+url_for(post.path)</span><br><span class="line">    &#125;) %&gt;</span><br><span class="line">   &lt;% &#125; %&gt;</span><br><span class="line">   ``` </span><br><span class="line">5. 重启hexo</span><br><span class="line">6. 参考  </span><br><span class="line">   https://jomsou.github.io/2017/07/16/livere/  </span><br><span class="line">   https://www.githang.com/2019/05/21/hexo-yilia-livere/  </span><br><span class="line">   https://meetes.top/2018/02/12/Hexo%20+%20yilia%20%E9%83%A8%E7%BD%B2%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 设置加密博文</span><br><span class="line">1. 安装插件  </span><br><span class="line">   npm install --save hexo-blog-encrypt</span><br><span class="line">2. 按标签加密  </span><br><span class="line">   修改文章信息头如下：</span><br></pre></td></tr></table></figure>
+<p> 添加代码</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">    &lt;% if (theme.livere_uid)&#123; %&gt;</span><br><span class="line">    &lt;%- partial(&apos;post/livere&apos;, &#123;</span><br><span class="line">      key: post.slug,</span><br><span class="line">      title: post.title,</span><br><span class="line">      url: config.url+url_for(post.path)</span><br><span class="line">    &#125;) %&gt;</span><br><span class="line">    &lt;% &#125; %&gt;</span><br><span class="line">    ``` </span><br><span class="line">5. 重启hexo</span><br><span class="line">6. 参考  </span><br><span class="line">    https://jomsou.github.io/2017/07/16/livere/  </span><br><span class="line">    https://www.githang.com/2019/05/21/hexo-yilia-livere/  </span><br><span class="line">    https://meetes.top/2018/02/12/Hexo%20+%20yilia%20%E9%83%A8%E7%BD%B2%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</span><br><span class="line"></span><br><span class="line">***</span><br><span class="line">## 设置加密博文</span><br><span class="line">1. 安装插件  </span><br><span class="line">    npm install --save hexo-blog-encrypt</span><br><span class="line">2. 按标签加密  </span><br><span class="line">    修改文章信息头如下：</span><br></pre></td></tr></table></figure>
 
 <p> title: Hello World<br> tags:</p>
 <ul>
 <li>加密文章tag<br>date: 2020-03-13 21:12:21<br>password: muyiio<br>abstract: 这里有东西被加密了，需要输入密码查看哦。<br>message: 您好，这里需要密码。<br>wrong_pass_message: 抱歉，这个密码看着不太对，请再试试。<br>wrong_hash_message: 抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容。</li>
 </ul>
 <hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对博客根目录_config添加如下字段</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对博客根目录_config添加如下字段</span><br></pre></td></tr></table></figure>
 
 <h1 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h1><p> encrypt: # hexo-blog-encrypt<br> abstract: 这里有东西被加密了，需要输入密码查看哦。<br> message: 您好, 这里需要密码.<br> tags:</p>
 <ul>
 <li>{name: tagName, password: 密码A}</li>
-<li>{name: tagName, password: 密码B}<br>template: <div id="hexo-blog-encrypt" data-wpm data-whm><div class="hbe-input-container"><input type="password" id="hbePass" placeholder><label></label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest></script></div><br>wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.<br>wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.<pre><code></code></pre></li>
+<li>{name: tagName, password: 密码B}<br>template: <div id="hexo-blog-encrypt" data-wpm data-whm><div class="hbe-input-container"><input type="password" id="hbePass" placeholder><label></label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest></script></div><br>wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.<br>wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.<br>```</li>
 </ul>
 </li>
-<li><p>参考<br><a href="https://zhuanlan.zhihu.com/p/113235573" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/113235573</a></p>
+<li><p>参考<br> <a href="https://zhuanlan.zhihu.com/p/113235573" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/113235573</a></p>
 </li>
 </ol>
 
@@ -621,6 +621,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">meme_generator</a>
               </li>
              
@@ -677,11 +685,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -706,14 +714,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssr</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
