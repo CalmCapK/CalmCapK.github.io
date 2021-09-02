@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://calmcapK.github.io">
   <title>深度学习笔记 | CalmCapK&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="网站https://pytorch.org/ 工具使用tensorboard使用   1tensorboard --logdir=path --port=6005  matplotlib使用介绍   1234567891011121314matplotlib.pyplot.imshow参数：cmap:str或者colormap (RGB数据忽略此参数)norm:缩放到0-1aspect:控制轴的纵">
+  <meta name="description" content="网站https://pytorch.org/   数据集https://xungejiang.com/2019/07/26/pytorch-imagenet/ 显卡V100-PICE/V100/K80 cuda安装 网站https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;amp;target_arch=x86_64&amp;amp;Dis">
 <meta name="keywords" content="deepfake,深度学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深度学习笔记">
 <meta property="og:url" content="https://calmcapK.github.io/2021/06/23/深度学习笔记/index.html">
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
-<meta property="og:description" content="网站https://pytorch.org/ 工具使用tensorboard使用   1tensorboard --logdir=path --port=6005  matplotlib使用介绍   1234567891011121314matplotlib.pyplot.imshow参数：cmap:str或者colormap (RGB数据忽略此参数)norm:缩放到0-1aspect:控制轴的纵">
+<meta property="og:description" content="网站https://pytorch.org/   数据集https://xungejiang.com/2019/07/26/pytorch-imagenet/ 显卡V100-PICE/V100/K80 cuda安装 网站https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;amp;target_arch=x86_64&amp;amp;Dis">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2021-06-23T07:32:20.381Z">
+<meta property="og:updated_time" content="2021-09-01T07:58:48.748Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深度学习笔记">
-<meta name="twitter:description" content="网站https://pytorch.org/ 工具使用tensorboard使用   1tensorboard --logdir=path --port=6005  matplotlib使用介绍   1234567891011121314matplotlib.pyplot.imshow参数：cmap:str或者colormap (RGB数据忽略此参数)norm:缩放到0-1aspect:控制轴的纵">
+<meta name="twitter:description" content="网站https://pytorch.org/   数据集https://xungejiang.com/2019/07/26/pytorch-imagenet/ 显卡V100-PICE/V100/K80 cuda安装 网站https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;amp;target_arch=x86_64&amp;amp;Dis">
   
     <link rel="alternative" href="/atom.xml" title="CalmCapK&#39;s Blog" type="application/atom+xml">
   
@@ -204,13 +204,63 @@
       
         
         <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
-        <h1 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h1><p><a href="https://pytorch.org/" target="_blank" rel="noopener">https://pytorch.org/</a></p>
-<h1 id="工具使用"><a href="#工具使用" class="headerlink" title="工具使用"></a>工具使用</h1><h2 id="tensorboard使用"><a href="#tensorboard使用" class="headerlink" title="tensorboard使用"></a>tensorboard使用</h2>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tensorboard --logdir=path --port=6005</span><br></pre></td></tr></table></figure>
+        <h1 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h1><p><a href="https://pytorch.org/" target="_blank" rel="noopener">https://pytorch.org/</a>  </p>
+<h1 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h1><p><a href="https://xungejiang.com/2019/07/26/pytorch-imagenet/" target="_blank" rel="noopener">https://xungejiang.com/2019/07/26/pytorch-imagenet/</a></p>
+<h1 id="显卡"><a href="#显卡" class="headerlink" title="显卡"></a>显卡</h1><p>V100-PICE/V100/K80</p>
+<h1 id="cuda安装"><a href="#cuda安装" class="headerlink" title="cuda安装"></a>cuda安装</h1><ol>
+<li><p>网站<br><a href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=18.04" target="_blank" rel="noopener">https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=18.04</a></p>
+</li>
+<li><p>配置环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line">export PATH=/usr/local/cuda/bin:$PATH</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH</span><br><span class="line">source  ~/.bashrc</span><br><span class="line">nvcc -V #检查</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>参考<br><a href="https://zhuanlan.zhihu.com/p/198161777" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/198161777</a></p>
+<h1 id="pytorch安装"><a href="#pytorch安装" class="headerlink" title="pytorch安装"></a>pytorch安装</h1></li>
+<li><p>网站</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://pytorch.org/get-started/previous-versions/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda install pytorch==1.7.0 torchvision==0.8.0 torchaudio==0.7.0 cudatoolkit=10.1 -c pytorch</span><br><span class="line">conda install pytorch==1.4.0 torchvision==0.5.0 cudatoolkit=10.1 -c pytorch #清华源比较快</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="python"><a href="#python" class="headerlink" title="python"></a>python</h1><h2 id="多进程处理数据"><a href="#多进程处理数据" class="headerlink" title="多进程处理数据"></a>多进程处理数据</h2><p>参考：<a href="https://blog.csdn.net/qq_18254385/article/details/90401181" target="_blank" rel="noopener">https://blog.csdn.net/qq_18254385/article/details/90401181</a></p>
+<h2 id="数据格式转换"><a href="#数据格式转换" class="headerlink" title="数据格式转换"></a>数据格式转换</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">np.random.rand(3,4) #随机生成矩阵</span><br><span class="line">torch.from_numpy(a) #numpy 转 tensor</span><br><span class="line">b = torch.stack((a,a),0) #合并</span><br></pre></td></tr></table></figure>
+
+<h2 id="图像数据处理"><a href="#图像数据处理" class="headerlink" title="图像数据处理"></a>图像数据处理</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pic = cv2.resize(pic, (400, 400), interpolation=cv2.INTER_CUBIC)</span><br></pre></td></tr></table></figure>
 
 <h2 id="matplotlib使用"><a href="#matplotlib使用" class="headerlink" title="matplotlib使用"></a>matplotlib使用</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">matplotlib.pyplot.imshow</span><br><span class="line">参数：</span><br><span class="line">cmap:str或者colormap (RGB数据忽略此参数)</span><br><span class="line">norm:缩放到0-1</span><br><span class="line">aspect:控制轴的纵横比</span><br><span class="line">interpolation:插值 默认nearest, 还有bilinear </span><br><span class="line">alpha:透明度0-1 （RGBA数据忽略此参数）</span><br><span class="line">vmin,vmax ？？？ 如果使用vmin和vmax忽略此参数</span><br><span class="line">origin 默认upper。 放置在轴的左上角 lower左下角</span><br><span class="line">垂直轴指向上方表示“lower”，但指向下方表示“upper”</span><br><span class="line">extent 边界框 left right bottom top</span><br><span class="line">filternorm : bool, optional, default: True</span><br><span class="line">filterrad : float &gt; 0, optional, default: 4.0</span><br><span class="line">resample : bool, optional</span><br></pre></td></tr></table></figure>
 
 <h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><p>   <a href="https://blog.csdn.net/ztf312/article/details/102474190" target="_blank" rel="noopener">https://blog.csdn.net/ztf312/article/details/102474190</a><br>   <a href="https://blog.csdn.net/guduruyu/article/details/60868501" target="_blank" rel="noopener">https://blog.csdn.net/guduruyu/article/details/60868501</a><br>   <a href="https://www.cnblogs.com/HuZihu/p/9481068.html" target="_blank" rel="noopener">https://www.cnblogs.com/HuZihu/p/9481068.html</a></p>
+<h1 id="工具使用"><a href="#工具使用" class="headerlink" title="工具使用"></a>工具使用</h1><h2 id="tensorboard使用"><a href="#tensorboard使用" class="headerlink" title="tensorboard使用"></a>tensorboard使用</h2>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tensorboard --logdir=path --port=6005</span><br><span class="line">tensorboard --logdir=&apos;./&apos;</span><br></pre></td></tr></table></figure>
+
 <h1 id="指标"><a href="#指标" class="headerlink" title="指标"></a>指标</h1><p>  bce<br>  <a href="https://blog.csdn.net/tmk_01/article/details/80844260" target="_blank" rel="noopener">https://blog.csdn.net/tmk_01/article/details/80844260</a><br>  指标<br>  <a href="https://www.jianshu.com/p/b960305718f1" target="_blank" rel="noopener">https://www.jianshu.com/p/b960305718f1</a><br>  <a href="https://blog.csdn.net/geter_CS/article/details/79849386" target="_blank" rel="noopener">https://blog.csdn.net/geter_CS/article/details/79849386</a></p>
+<p><a href="https://www.cnblogs.com/jiaxin359/p/8627530.html" target="_blank" rel="noopener">https://www.cnblogs.com/jiaxin359/p/8627530.html</a><br><a href="https://zhuanlan.zhihu.com/p/87768945" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/87768945</a></p>
+<p>AP：<br><a href="https://zhuanlan.zhihu.com/p/33372046" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/33372046</a><br>AUC：<br><a href="https://zhuanlan.zhihu.com/p/267901426" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/267901426</a><br>多分类混淆矩阵<br><a href="https://blog.csdn.net/m0_38061927/article/details/77198990" target="_blank" rel="noopener">https://blog.csdn.net/m0_38061927/article/details/77198990</a><br>多分类指标<br><a href="https://zhuanlan.zhihu.com/p/59862986" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/59862986</a><br><a href="https://zhuanlan.zhihu.com/p/147663370" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/147663370</a><br><a href="https://zhuanlan.zhihu.com/p/51125423" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/51125423</a><br>库<br><a href="http://d0evi1.com/sklearn/model_evaluation/" target="_blank" rel="noopener">http://d0evi1.com/sklearn/model_evaluation/</a><br><a href="https://sklearn.apachecn.org/docs/master/32.html（很有用）" target="_blank" rel="noopener">https://sklearn.apachecn.org/docs/master/32.html（很有用）</a><br><a href="https://scikit-learn.org.cn/view/93.html" target="_blank" rel="noopener">https://scikit-learn.org.cn/view/93.html</a></p>
+<h1 id="pytorch框架"><a href="#pytorch框架" class="headerlink" title="pytorch框架"></a>pytorch框架</h1><h2 id="常用代码"><a href="#常用代码" class="headerlink" title="常用代码"></a>常用代码</h2><h3 id="查看数据和模型是否在GPU上"><a href="#查看数据和模型是否在GPU上" class="headerlink" title="查看数据和模型是否在GPU上"></a>查看数据和模型是否在GPU上</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(next(model.parameters()).device)  #模型</span><br><span class="line">print(data.device) #数据</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据格式转换-1"><a href="#数据格式转换-1" class="headerlink" title="数据格式转换"></a>数据格式转换</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">cpu_imgs.cuda()</span><br><span class="line">gpu_imgs.cpu()</span><br><span class="line">torch.from_numpy(imgs) #numpy-&gt;CPU tensor, GPU tensor不能直接转numpy</span><br><span class="line">cpu_imgs.numpy()</span><br><span class="line">loss_output.item() #tensor是标量，可以用item取出来</span><br><span class="line">1.1 list 转 numpy</span><br><span class="line">ndarray = np.array(list)</span><br><span class="line"></span><br><span class="line">1.2 numpy 转 list</span><br><span class="line">list = ndarray.tolist()</span><br><span class="line"></span><br><span class="line">2.1 list 转 torch.Tensor</span><br><span class="line">tensor=torch.Tensor(list)</span><br><span class="line"></span><br><span class="line">2.2 torch.Tensor 转 list</span><br><span class="line">先转numpy，后转list</span><br><span class="line">list = tensor.numpy().tolist()</span><br><span class="line"></span><br><span class="line">3.1 torch.Tensor 转 numpy</span><br><span class="line">ndarray = tensor.numpy()</span><br><span class="line">*gpu上的tensor不能直接转为numpy</span><br><span class="line">ndarray = tensor.cpu().numpy()</span><br><span class="line"></span><br><span class="line">3.2 numpy 转 torch.Tensor</span><br><span class="line">tensor = torch.from_numpy(ndarray)</span><br></pre></td></tr></table></figure>
+
+<h2 id="随机数种子"><a href="#随机数种子" class="headerlink" title="随机数种子"></a>随机数种子</h2><p><a href="https://blog.csdn.net/weixin_43135178/article/details/118768531" target="_blank" rel="noopener">https://blog.csdn.net/weixin_43135178/article/details/118768531</a><br><a href="https://www.cnblogs.com/xiaodai0/p/10413711.html" target="_blank" rel="noopener">https://www.cnblogs.com/xiaodai0/p/10413711.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if seed == 0:</span><br><span class="line">    torch.backends.cudnn.deterministic = True #每次返回的卷积算法将是确定的</span><br><span class="line">    torch.backends.cudnn.benchmark = False #GPU，将其值设置为 True，就可以大大提升卷积神经网络的运行速度 参考：https://zhuanlan.zhihu.com/p/73711222</span><br></pre></td></tr></table></figure>
+
+<h2 id="保存模型"><a href="#保存模型" class="headerlink" title="保存模型"></a>保存模型</h2><p><a href="https://www.daimajiaoliu.com/daima/479c201301003e4" target="_blank" rel="noopener">https://www.daimajiaoliu.com/daima/479c201301003e4</a></p>
+<h2 id="并行训练的方法"><a href="#并行训练的方法" class="headerlink" title="并行训练的方法"></a>并行训练的方法</h2><ul>
+<li>torch.nn.DataParallel  </li>
+<li>torch.distributed</li>
+<li><a href="https://ptorch.com/docs/1/distributed" target="_blank" rel="noopener">https://ptorch.com/docs/1/distributed</a><br><a href="https://zhuanlan.zhihu.com/p/363755226" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/363755226</a></li>
+<li>torch.multiprocessing 使用 torch.multiprocessing 取代启动器</li>
+<li>apex <a href="https://bbs.cvmart.net/articles/2672" target="_blank" rel="noopener">https://bbs.cvmart.net/articles/2672</a></li>
+<li>horovod <ul>
+<li>安装： pip install horovod</li>
+<li><a href="https://zhuanlan.zhihu.com/p/264778072" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/264778072</a></li>
+<li><a href="https://blog.csdn.net/weixin_26712065/article/details/108915884" target="_blank" rel="noopener">https://blog.csdn.net/weixin_26712065/article/details/108915884</a></li>
+<li>api <a href="https://horovod.readthedocs.io/en/stable/api.html" target="_blank" rel="noopener">https://horovod.readthedocs.io/en/stable/api.html</a></li>
+</ul>
+</li>
+<li>torch.cuda.amp<br><a href="https://zhuanlan.zhihu.com/p/165152789" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/165152789</a></li>
+<li>slurm（没研究）</li>
+</ul>
+<p>代码：<br><a href="https://github.com/tczhangzhi/pytorch-distributed" target="_blank" rel="noopener">https://github.com/tczhangzhi/pytorch-distributed</a><br><a href="https://github.com/Xianchao-Wu/pytorch-distributed/tree/master" target="_blank" rel="noopener">https://github.com/Xianchao-Wu/pytorch-distributed/tree/master</a><br>参考<br><a href="https://zhuanlan.zhihu.com/p/98535650" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/98535650</a><br><a href="https://zhuanlan.zhihu.com/p/105755472" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/105755472</a><br><a href="https://zhuanlan.zhihu.com/p/343891349" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/343891349</a><br><a href="https://blog.csdn.net/lgzlgz3102/article/details/107054314?ivk_sa=1024320u" target="_blank" rel="noopener">https://blog.csdn.net/lgzlgz3102/article/details/107054314?ivk_sa=1024320u</a><br>参数更新<br><a href="https://zhuanlan.zhihu.com/p/350501860" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/350501860</a><br><a href="https://zhuanlan.zhihu.com/p/129912419" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/129912419</a><br><a href="https://zhuanlan.zhihu.com/p/76638962（重要）" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/76638962（重要）</a></p>
 <h1 id="框架（未整理）"><a href="#框架（未整理）" class="headerlink" title="框架（未整理）"></a>框架（未整理）</h1>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line">for task in tqdm(tasks):</span><br><span class="line">pool = multiprocessing.Pool(args.nProc) # 调用是CPU的核数</span><br><span class="line">pool.apply_async(func=prep, args=(tr_files, trDir, True)) pool.apply_async(func=prep, args=(ts_files, tsDir, False))</span><br><span class="line">pool.close() # close pool, no more processes added to pool</span><br><span class="line">pool.join() # wait pool to finish, required and should be after .close()</span><br><span class="line">if config.use_gpu and torch.cuda.is_available():</span><br><span class="line">   config.use_gpu = True</span><br><span class="line">else:</span><br><span class="line">   config.use_gpu = False</span><br><span class="line">为CPU设置种子用于生成随机数，使得结果确定</span><br><span class="line">torch.manual_seed(1)</span><br><span class="line">model.apply(train.weights_init)</span><br><span class="line">def weights_init(m):</span><br><span class="line">  classname = m.__class__.__name__</span><br><span class="line">  if classname.find(&apos;Conv3d&apos;) != -1:</span><br><span class="line">      nn.init.kaiming_normal_(m.weight)</span><br><span class="line">      m.bias.data.zero_()</span><br><span class="line">checkpoint = torch.load(args.resume_ckp)</span><br><span class="line">  model = checkpoint[&apos;model&apos;]</span><br><span class="line">  修改参数</span><br><span class="line">for name, m in model_old.named_modules():</span><br><span class="line">    if any(i in name for i in shared_modules):</span><br><span class="line">      if &apos;.adap&apos; not in name and isinstance(m, nn.Conv3d) and (m.kernel_size[0]==3):</span><br><span class="line">          store_weight3x3.append(m.weight.data)</span><br><span class="line">          name3x3.append(name)</span><br><span class="line">      elif &apos;.adap&apos; not in name and isinstance(m, nn.Conv3d) and (m.kernel_size[0]==1):</span><br><span class="line">          store_weight1x1.append(m.weight.data)</span><br><span class="line">          name1x1.append(name)</span><br><span class="line">       elif &apos;.adap&apos; not in name and isinstance(m, nn.InstanceNorm3d):</span><br><span class="line">          store_weightNorm.append(m.weight.data)</span><br><span class="line">          nameNorm.append(name)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">  train.train(args, tasks_archive, model)</span><br><span class="line"></span><br><span class="line">  def train(args, tasks_archive, model):</span><br><span class="line">     torch.backends.cudnn.benchmark=True</span><br><span class="line">     model = nn.parallel.DataParallel(model)</span><br><span class="line">     sum([p.data.nelement() for p in model.parameters()]  参数大小 </span><br><span class="line">     #如 x = torch.randn(size = (4,3,5,6)) </span><br><span class="line">     # x.nelement() = 360</span><br><span class="line">     if config.use_gpu:</span><br><span class="line">      model.cuda() # required bofore optimizer?</span><br><span class="line">      #cudnn.benchmark = True</span><br><span class="line">      optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=config.weight_decay)</span><br><span class="line">      dice_loss = MulticlassDiceLoss()</span><br><span class="line">      ce_loss = nn.CrossEntropyLoss()</span><br><span class="line">      focal_loss = FocalLoss(gamma=2)</span><br><span class="line">    </span><br><span class="line">      from multiprocessing import Process, Queue</span><br><span class="line">      self.tr_dataPrep[proc] = Process(target=data_utils.trQueue, args=(self.config_task, task_archive[&apos;train&apos;], self.trainQueue, self.patch_size, self.nProc, proc))</span><br><span class="line">      self.tr_dataPrep[proc].daemon = True</span><br><span class="line">      self.tr_dataPrep[proc].start()</span><br><span class="line">      for epoch in range(start_epoch, config.max_epoch+1):</span><br><span class="line">          for step in tqdm(range(config.step_per_epoch), desc=&apos;&#123;&#125;: epoch&#123;&#125;&apos;.format(args.trainMode, epoch)):</span><br><span class="line">                 batchImg = torch.from_numpy(batchImg).float()</span><br><span class="line">                 if config.use_gpu:</span><br><span class="line">                         batchImg = batchImg.cuda()</span><br><span class="line">                  optimizer.zero_grad()</span><br><span class="line">                  if config.trainMode in [&quot;universal&quot;]:</span><br><span class="line">                        output, share_map, para_map = model(batchImg)</span><br><span class="line">                  else:</span><br><span class="line">                       output = model(batchImg)</span><br><span class="line"></span><br><span class="line">                  output_softmax = F.softmax(output, dim=1)</span><br><span class="line">          </span><br><span class="line">                  loss = lovasz_softmax(output_softmax, batchLabel, ignore=10) + focal_loss(output, batchLabel)</span><br><span class="line"></span><br><span class="line">                  loss.backward()</span><br><span class="line">                  optimizer.step()</span><br><span class="line"></span><br><span class="line">                   loss_epoch += loss.item()</span><br><span class="line">                   num_batch_processed += 1</span><br><span class="line">                  if epoch % config.save_epoch == 0:</span><br><span class="line">                      ckp_path = os.path.join(config.log_dir, &apos;&#123;&#125;_&#123;&#125;_epoch&#123;&#125;_&#123;&#125;.pth.tar&apos;.format(args.trainMode, &apos;_&apos;.join(args.tasks), epoch, tinies.datestr()))</span><br><span class="line">                      torch.save(&#123;</span><br><span class="line">                  loss_epoch /= num_batch_processed</span><br><span class="line">                   if Eval_bool:</span><br><span class="line">                          eval(args, tasks_archive, model, epoch, iterations-1)</span><br><span class="line"></span><br><span class="line">                  if len(trLoss_queue) == trLoss_queue.maxlen:</span><br><span class="line">                  if last_trLoss_ma and last_trLoss_ma - trLoss_ma &lt; 1e-4: # 5e-3</span><br><span class="line">                      lr /= 2</span><br><span class="line">                      for param_group in optimizer.param_groups:</span><br><span class="line">                          param_group[&apos;lr&apos;] = lr</span><br><span class="line">                          last_trLoss_ma = trLoss_ma</span><br><span class="line">          </span><br><span class="line"></span><br><span class="line">      </span><br><span class="line"></span><br><span class="line">  os.getcwd() 查看当前目录</span><br><span class="line"></span><br><span class="line">  data agument</span><br><span class="line">  from batchgenerators.augmentations.utils import create_zero_centered_coordinate_mesh, elastic_deform_coordinates</span><br><span class="line">  coords = create_zero_centered_coordinate_mesh(patch_size) # 3*d*h*w</span><br><span class="line">  coords = elastic_deform_coordinates(coords, a, s)</span><br></pre></td></tr></table></figure>
 
 <h1 id="医疗图像处理"><a href="#医疗图像处理" class="headerlink" title="医疗图像处理"></a>医疗图像处理</h1><p>   sitk_image = sitk.ReadImage(im)<br>   orig_volume = sitk.GetArrayFromImage(sitk_image) # mod, z, y, x<br>   sitk_image.GetDimension()<br>   mod_num = sitk_image.GetSize()<br>   original_shape = orig_volume.shape<br>   以上两个x,y,z位置不一致<br>   sitk_image.GetOrigin() ？？？<br>   sitk_image.GetSpacing()<br>   sitk_refer.GetDirection() ？？？<br>   sitk.Resample</p>
@@ -338,6 +388,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2021/07/26/MMD笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          MMD笔记
+        
+      </div>
+    </a>
+  
   
     <a href="/2021/06/22/docker笔记/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">docker笔记</div>
@@ -367,7 +426,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#网站"><span class="toc-number">1.</span> <span class="toc-text">网站</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#工具使用"><span class="toc-number">2.</span> <span class="toc-text">工具使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#tensorboard使用"><span class="toc-number">2.1.</span> <span class="toc-text">tensorboard使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#matplotlib使用"><span class="toc-number">2.2.</span> <span class="toc-text">matplotlib使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#介绍"><span class="toc-number">2.2.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考："><span class="toc-number">2.2.2.</span> <span class="toc-text">参考：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#指标"><span class="toc-number">3.</span> <span class="toc-text">指标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#框架（未整理）"><span class="toc-number">4.</span> <span class="toc-text">框架（未整理）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#医疗图像处理"><span class="toc-number">5.</span> <span class="toc-text">医疗图像处理</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#网站"><span class="toc-number">1.</span> <span class="toc-text">网站</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据集"><span class="toc-number">2.</span> <span class="toc-text">数据集</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#显卡"><span class="toc-number">3.</span> <span class="toc-text">显卡</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cuda安装"><span class="toc-number">4.</span> <span class="toc-text">cuda安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pytorch安装"><span class="toc-number">5.</span> <span class="toc-text">pytorch安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#python"><span class="toc-number">6.</span> <span class="toc-text">python</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#多进程处理数据"><span class="toc-number">6.1.</span> <span class="toc-text">多进程处理数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据格式转换"><span class="toc-number">6.2.</span> <span class="toc-text">数据格式转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像数据处理"><span class="toc-number">6.3.</span> <span class="toc-text">图像数据处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#matplotlib使用"><span class="toc-number">6.4.</span> <span class="toc-text">matplotlib使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#介绍"><span class="toc-number">6.4.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考："><span class="toc-number">6.4.2.</span> <span class="toc-text">参考：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#工具使用"><span class="toc-number">7.</span> <span class="toc-text">工具使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#tensorboard使用"><span class="toc-number">7.1.</span> <span class="toc-text">tensorboard使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#指标"><span class="toc-number">8.</span> <span class="toc-text">指标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pytorch框架"><span class="toc-number">9.</span> <span class="toc-text">pytorch框架</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#常用代码"><span class="toc-number">9.1.</span> <span class="toc-text">常用代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看数据和模型是否在GPU上"><span class="toc-number">9.1.1.</span> <span class="toc-text">查看数据和模型是否在GPU上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据格式转换-1"><span class="toc-number">9.1.2.</span> <span class="toc-text">数据格式转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#随机数种子"><span class="toc-number">9.2.</span> <span class="toc-text">随机数种子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#保存模型"><span class="toc-number">9.3.</span> <span class="toc-text">保存模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并行训练的方法"><span class="toc-number">9.4.</span> <span class="toc-text">并行训练的方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#框架（未整理）"><span class="toc-number">10.</span> <span class="toc-text">框架（未整理）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#医疗图像处理"><span class="toc-number">11.</span> <span class="toc-text">医疗图像处理</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -574,6 +633,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
               </li>
              
@@ -586,23 +653,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+                <a href="javascript:void(0)" class="js-tag color4">MMD</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">latex</a>
+                <a href="javascript:void(0)" class="js-tag color4">MME</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tmux</a>
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -634,6 +705,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">frp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">求职</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">实习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">procreate</a>
               </li>
              
@@ -643,14 +730,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">frp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -666,23 +745,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">比赛</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+                <a href="javascript:void(0)" class="js-tag color5">tmux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -710,7 +785,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
