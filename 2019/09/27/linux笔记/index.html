@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
 <meta property="og:description" content="vim常用命令   123456789101112:set list #显示空格tab:set number 或者 :set nu GG 首行shift+G 末行：去！正常模式 \单词  进行查找,n N上下:%!python -m json.tool  用json格式打开:number 到指定位置yy单行复制number+yy多行复杂p粘贴:set ff  #在vim中查看文件的系统格式:se">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2021-09-02T13:10:55.184Z">
+<meta property="og:updated_time" content="2021-09-08T16:35:25.401Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux笔记">
 <meta name="twitter:description" content="vim常用命令   123456789101112:set list #显示空格tab:set number 或者 :set nu GG 首行shift+G 末行：去！正常模式 \单词  进行查找,n N上下:%!python -m json.tool  用json格式打开:number 到指定位置yy单行复制number+yy多行复杂p粘贴:set ff  #在vim中查看文件的系统格式:se">
@@ -213,7 +213,7 @@
 
 <h1 id="压缩解压常用命令"><a href="#压缩解压常用命令" class="headerlink" title="压缩解压常用命令"></a>压缩解压常用命令</h1>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip -d /temp test.zip</span><br></pre></td></tr></table></figure>
 
-<h1 id="git常用命令"><a href="#git常用命令" class="headerlink" title="git常用命令"></a>git常用命令</h1><h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git status </span><br><span class="line">git add .</span><br><span class="line">git git commit -m “注释”</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+<h1 id="git常用命令"><a href="#git常用命令" class="headerlink" title="git常用命令"></a>git常用命令</h1><h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git status </span><br><span class="line">git add .</span><br><span class="line">git git commit -m “注释”</span><br><span class="line">git push -u origin main</span><br><span class="line">git remote set-url origin https://&lt;your_token&gt;@github.com/&lt;USERNAME&gt;/&lt;REPO&gt;.git</span><br><span class="line"></span><br><span class="line">git remote set-url origin https://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@github.com/CalmCapK/project_pytorch.git</span><br></pre></td></tr></table></figure>
 
 <h1 id="查看GPU和CPU"><a href="#查看GPU和CPU" class="headerlink" title="查看GPU和CPU"></a>查看GPU和CPU</h1>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/cpuinfo #查看CPU</span><br><span class="line">watch -n 0.1 nvidia-smi #查看GPU</span><br><span class="line">查看cuda</span><br><span class="line">nvcc -V</span><br><span class="line">cat /usr/local/cuda/version.txt </span><br><span class="line">查看cudnn</span><br><span class="line">cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2</span><br><span class="line">cat /usr/include/cudnn.h | grep CUDNN_MAJOR -A 2 </span><br><span class="line">cuda安装目录</span><br><span class="line">which nvcc</span><br></pre></td></tr></table></figure>
 
@@ -264,7 +264,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">conda install -c conda-forge conda-pack</span><br><span class="line">pip install conda-pack</span><br><span class="line">conda pack -n my_env</span><br><span class="line">mkdir -p my_env</span><br><span class="line">tar -xzf my_env.tar.gz -C my_env</span><br><span class="line">使用python</span><br><span class="line">source my_env/bin/activate</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>参考<br><a href="https://zhuanlan.zhihu.com/p/87344422" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/87344422</a>  </p>
-<h1 id="jupyter"><a href="#jupyter" class="headerlink" title="jupyter"></a>jupyter</h1><h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">juptyer notebook</span><br></pre></td></tr></table></figure>
+<h1 id="jupyter"><a href="#jupyter" class="headerlink" title="jupyter"></a>jupyter</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>python -m pip install jupyter</p>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">juptyer notebook</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
@@ -500,7 +501,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vim常用命令"><span class="toc-number">1.</span> <span class="toc-text">vim常用命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tmux常用命令"><span class="toc-number">2.</span> <span class="toc-text">tmux常用命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#linux常用命令"><span class="toc-number">3.</span> <span class="toc-text">linux常用命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#压缩解压常用命令"><span class="toc-number">4.</span> <span class="toc-text">压缩解压常用命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#git常用命令"><span class="toc-number">5.</span> <span class="toc-text">git常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#上传"><span class="toc-number">5.1.</span> <span class="toc-text">上传</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#查看GPU和CPU"><span class="toc-number">6.</span> <span class="toc-text">查看GPU和CPU</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#conda常用命令"><span class="toc-number">7.</span> <span class="toc-text">conda常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本命令"><span class="toc-number">7.1.</span> <span class="toc-text">基本命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conda安装pytorch"><span class="toc-number">7.2.</span> <span class="toc-text">conda安装pytorch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conda换源"><span class="toc-number">7.3.</span> <span class="toc-text">conda换源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法1"><span class="toc-number">7.3.1.</span> <span class="toc-text">方法1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法2"><span class="toc-number">7.3.2.</span> <span class="toc-text">方法2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法3"><span class="toc-number">7.3.3.</span> <span class="toc-text">方法3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源"><span class="toc-number">7.3.4.</span> <span class="toc-text">源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">7.3.5.</span> <span class="toc-text">参考</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境迁移"><span class="toc-number">7.4.</span> <span class="toc-text">环境迁移</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jupyter"><span class="toc-number">8.</span> <span class="toc-text">jupyter</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#启动"><span class="toc-number">8.1.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">8.2.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#换环境"><span class="toc-number">8.3.</span> <span class="toc-text">换环境</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#查看端口情况，打开端口"><span class="toc-number">9.</span> <span class="toc-text">查看端口情况，打开端口</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ssh免密登录"><span class="toc-number">10.</span> <span class="toc-text">ssh免密登录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#本地生成公钥和私钥"><span class="toc-number">10.1.</span> <span class="toc-text">本地生成公钥和私钥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程服务器配置"><span class="toc-number">10.2.</span> <span class="toc-text">远程服务器配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用私钥连接"><span class="toc-number">10.3.</span> <span class="toc-text">用私钥连接</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ssh远程看文本和开启GUI"><span class="toc-number">11.</span> <span class="toc-text">ssh远程看文本和开启GUI</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#通过ssh和frp打开内网部署的网站"><span class="toc-number">12.</span> <span class="toc-text">通过ssh和frp打开内网部署的网站</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#方法1-1"><span class="toc-number">12.1.</span> <span class="toc-text">方法1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考-1"><span class="toc-number">12.1.1.</span> <span class="toc-text">参考</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vim常用命令"><span class="toc-number">1.</span> <span class="toc-text">vim常用命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tmux常用命令"><span class="toc-number">2.</span> <span class="toc-text">tmux常用命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#linux常用命令"><span class="toc-number">3.</span> <span class="toc-text">linux常用命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#压缩解压常用命令"><span class="toc-number">4.</span> <span class="toc-text">压缩解压常用命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#git常用命令"><span class="toc-number">5.</span> <span class="toc-text">git常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#上传"><span class="toc-number">5.1.</span> <span class="toc-text">上传</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#查看GPU和CPU"><span class="toc-number">6.</span> <span class="toc-text">查看GPU和CPU</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#conda常用命令"><span class="toc-number">7.</span> <span class="toc-text">conda常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本命令"><span class="toc-number">7.1.</span> <span class="toc-text">基本命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conda安装pytorch"><span class="toc-number">7.2.</span> <span class="toc-text">conda安装pytorch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conda换源"><span class="toc-number">7.3.</span> <span class="toc-text">conda换源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法1"><span class="toc-number">7.3.1.</span> <span class="toc-text">方法1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法2"><span class="toc-number">7.3.2.</span> <span class="toc-text">方法2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法3"><span class="toc-number">7.3.3.</span> <span class="toc-text">方法3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源"><span class="toc-number">7.3.4.</span> <span class="toc-text">源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">7.3.5.</span> <span class="toc-text">参考</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境迁移"><span class="toc-number">7.4.</span> <span class="toc-text">环境迁移</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jupyter"><span class="toc-number">8.</span> <span class="toc-text">jupyter</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">8.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动"><span class="toc-number">8.2.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">8.3.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#换环境"><span class="toc-number">8.4.</span> <span class="toc-text">换环境</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#查看端口情况，打开端口"><span class="toc-number">9.</span> <span class="toc-text">查看端口情况，打开端口</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ssh免密登录"><span class="toc-number">10.</span> <span class="toc-text">ssh免密登录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#本地生成公钥和私钥"><span class="toc-number">10.1.</span> <span class="toc-text">本地生成公钥和私钥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程服务器配置"><span class="toc-number">10.2.</span> <span class="toc-text">远程服务器配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用私钥连接"><span class="toc-number">10.3.</span> <span class="toc-text">用私钥连接</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ssh远程看文本和开启GUI"><span class="toc-number">11.</span> <span class="toc-text">ssh远程看文本和开启GUI</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#通过ssh和frp打开内网部署的网站"><span class="toc-number">12.</span> <span class="toc-text">通过ssh和frp打开内网部署的网站</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#方法1-1"><span class="toc-number">12.1.</span> <span class="toc-text">方法1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考-1"><span class="toc-number">12.1.1.</span> <span class="toc-text">参考</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -707,23 +708,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MMD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MME</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">secret</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color2">secret</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -735,11 +724,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MMD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MME</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">frp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -751,11 +760,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">frp</a>
+                <a href="javascript:void(0)" class="js-tag color5">procreate</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
+                <a href="javascript:void(0)" class="js-tag color5">ipad</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">表情包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sai</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ps</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -784,34 +809,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">voiceroid</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">procreate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ipad</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">表情包</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sai</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ps</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -852,6 +849,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
               </li>
              
               <li class="article-tag-list-item">

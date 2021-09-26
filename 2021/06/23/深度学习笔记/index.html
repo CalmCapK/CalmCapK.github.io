@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
 <meta property="og:description" content="网站https://pytorch.org/   数据集https://xungejiang.com/2019/07/26/pytorch-imagenet/ 显卡V100-PICE/V100/K80 cuda安装 网站https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;amp;target_arch=x86_64&amp;amp;Dis">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2021-09-01T07:58:48.748Z">
+<meta property="og:updated_time" content="2021-09-06T08:00:41.768Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深度学习笔记">
 <meta name="twitter:description" content="网站https://pytorch.org/   数据集https://xungejiang.com/2019/07/26/pytorch-imagenet/ 显卡V100-PICE/V100/K80 cuda安装 网站https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;amp;target_arch=x86_64&amp;amp;Dis">
@@ -223,7 +223,10 @@
 
 </li>
 </ol>
-<h1 id="python"><a href="#python" class="headerlink" title="python"></a>python</h1><h2 id="多进程处理数据"><a href="#多进程处理数据" class="headerlink" title="多进程处理数据"></a>多进程处理数据</h2><p>参考：<a href="https://blog.csdn.net/qq_18254385/article/details/90401181" target="_blank" rel="noopener">https://blog.csdn.net/qq_18254385/article/details/90401181</a></p>
+<h1 id="python"><a href="#python" class="headerlink" title="python"></a>python</h1><h2 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h2><p>pip install memory_profiler<br>python -m memory_profiler xxx.py<br>添加@profile</p>
+<p>mprof run xxx.py<br>mprof plot XXX.dat<br>export DISPLAY=”<code>tmux show-env | sed -n &#39;s/^DISPLAY=//p&#39;</code>“</p>
+<p>top -p 进程ID 查看内存占用</p>
+<h2 id="多进程处理数据"><a href="#多进程处理数据" class="headerlink" title="多进程处理数据"></a>多进程处理数据</h2><p>参考：<a href="https://blog.csdn.net/qq_18254385/article/details/90401181" target="_blank" rel="noopener">https://blog.csdn.net/qq_18254385/article/details/90401181</a></p>
 <h2 id="数据格式转换"><a href="#数据格式转换" class="headerlink" title="数据格式转换"></a>数据格式转换</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">np.random.rand(3,4) #随机生成矩阵</span><br><span class="line">torch.from_numpy(a) #numpy 转 tensor</span><br><span class="line">b = torch.stack((a,a),0) #合并</span><br></pre></td></tr></table></figure>
 
 <h2 id="图像数据处理"><a href="#图像数据处理" class="headerlink" title="图像数据处理"></a>图像数据处理</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pic = cv2.resize(pic, (400, 400), interpolation=cv2.INTER_CUBIC)</span><br></pre></td></tr></table></figure>
@@ -426,7 +429,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#网站"><span class="toc-number">1.</span> <span class="toc-text">网站</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据集"><span class="toc-number">2.</span> <span class="toc-text">数据集</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#显卡"><span class="toc-number">3.</span> <span class="toc-text">显卡</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cuda安装"><span class="toc-number">4.</span> <span class="toc-text">cuda安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pytorch安装"><span class="toc-number">5.</span> <span class="toc-text">pytorch安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#python"><span class="toc-number">6.</span> <span class="toc-text">python</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#多进程处理数据"><span class="toc-number">6.1.</span> <span class="toc-text">多进程处理数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据格式转换"><span class="toc-number">6.2.</span> <span class="toc-text">数据格式转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像数据处理"><span class="toc-number">6.3.</span> <span class="toc-text">图像数据处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#matplotlib使用"><span class="toc-number">6.4.</span> <span class="toc-text">matplotlib使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#介绍"><span class="toc-number">6.4.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考："><span class="toc-number">6.4.2.</span> <span class="toc-text">参考：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#工具使用"><span class="toc-number">7.</span> <span class="toc-text">工具使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#tensorboard使用"><span class="toc-number">7.1.</span> <span class="toc-text">tensorboard使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#指标"><span class="toc-number">8.</span> <span class="toc-text">指标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pytorch框架"><span class="toc-number">9.</span> <span class="toc-text">pytorch框架</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#常用代码"><span class="toc-number">9.1.</span> <span class="toc-text">常用代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看数据和模型是否在GPU上"><span class="toc-number">9.1.1.</span> <span class="toc-text">查看数据和模型是否在GPU上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据格式转换-1"><span class="toc-number">9.1.2.</span> <span class="toc-text">数据格式转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#随机数种子"><span class="toc-number">9.2.</span> <span class="toc-text">随机数种子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#保存模型"><span class="toc-number">9.3.</span> <span class="toc-text">保存模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并行训练的方法"><span class="toc-number">9.4.</span> <span class="toc-text">并行训练的方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#框架（未整理）"><span class="toc-number">10.</span> <span class="toc-text">框架（未整理）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#医疗图像处理"><span class="toc-number">11.</span> <span class="toc-text">医疗图像处理</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#网站"><span class="toc-number">1.</span> <span class="toc-text">网站</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据集"><span class="toc-number">2.</span> <span class="toc-text">数据集</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#显卡"><span class="toc-number">3.</span> <span class="toc-text">显卡</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cuda安装"><span class="toc-number">4.</span> <span class="toc-text">cuda安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pytorch安装"><span class="toc-number">5.</span> <span class="toc-text">pytorch安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#python"><span class="toc-number">6.</span> <span class="toc-text">python</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#内存泄漏"><span class="toc-number">6.1.</span> <span class="toc-text">内存泄漏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多进程处理数据"><span class="toc-number">6.2.</span> <span class="toc-text">多进程处理数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据格式转换"><span class="toc-number">6.3.</span> <span class="toc-text">数据格式转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像数据处理"><span class="toc-number">6.4.</span> <span class="toc-text">图像数据处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#matplotlib使用"><span class="toc-number">6.5.</span> <span class="toc-text">matplotlib使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#介绍"><span class="toc-number">6.5.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考："><span class="toc-number">6.5.2.</span> <span class="toc-text">参考：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#工具使用"><span class="toc-number">7.</span> <span class="toc-text">工具使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#tensorboard使用"><span class="toc-number">7.1.</span> <span class="toc-text">tensorboard使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#指标"><span class="toc-number">8.</span> <span class="toc-text">指标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pytorch框架"><span class="toc-number">9.</span> <span class="toc-text">pytorch框架</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#常用代码"><span class="toc-number">9.1.</span> <span class="toc-text">常用代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看数据和模型是否在GPU上"><span class="toc-number">9.1.1.</span> <span class="toc-text">查看数据和模型是否在GPU上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据格式转换-1"><span class="toc-number">9.1.2.</span> <span class="toc-text">数据格式转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#随机数种子"><span class="toc-number">9.2.</span> <span class="toc-text">随机数种子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#保存模型"><span class="toc-number">9.3.</span> <span class="toc-text">保存模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并行训练的方法"><span class="toc-number">9.4.</span> <span class="toc-text">并行训练的方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#框架（未整理）"><span class="toc-number">10.</span> <span class="toc-text">框架（未整理）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#医疗图像处理"><span class="toc-number">11.</span> <span class="toc-text">医疗图像处理</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -633,23 +636,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MMD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MME</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">secret</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color2">secret</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -661,11 +652,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MMD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MME</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">frp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -677,11 +688,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">frp</a>
+                <a href="javascript:void(0)" class="js-tag color5">procreate</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
+                <a href="javascript:void(0)" class="js-tag color5">ipad</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">表情包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sai</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ps</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -710,34 +737,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">voiceroid</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">procreate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ipad</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">表情包</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sai</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ps</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -778,6 +777,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
               </li>
              
               <li class="article-tag-list-item">
