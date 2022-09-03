@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://calmcapk.github.io/.io//img/categories_style2.jpg">
 <meta property="og:image" content="https://calmcapk.github.io/.io//img/categories_style3.jpg">
 <meta property="og:image" content="https://calmcapk.github.io/.io//img/tags_style1.jpg">
-<meta property="og:updated_time" content="2019-08-05T15:38:02.028Z">
+<meta property="og:updated_time" content="2022-09-03T16:48:17.827Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于windows10+hexo+github搭建个人博客(1)">
 <meta name="twitter:description" content="科普https://hexo.io/zh-cn/docs/helpers.html#list-categories">
@@ -211,19 +211,24 @@
         <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
         <h2 id="科普"><a href="#科普" class="headerlink" title="科普"></a>科普</h2><p><a href="https://hexo.io/zh-cn/docs/helpers.html#list-categories" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/helpers.html#list-categories</a></p>
 <a id="more"></a>  
-<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol>
+<h2 id="安装步骤-2022年9月4日更新"><a href="#安装步骤-2022年9月4日更新" class="headerlink" title="安装步骤[2022年9月4日更新]"></a>安装步骤[2022年9月4日更新]</h2><ol>
 <li><p>安装git</p>
 </li>
 <li><p>安装node.js</p>
-<p>官网地址 <a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a> (安装自带node和npm) </p>
+<p>官网地址 <a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a> (安装自带node和npm)<br>以前版本在 <a href="https://nodejs.org/en/download/releases/" target="_blank" rel="noopener">https://nodejs.org/en/download/releases/</a> 下载<br>注意：node版本不能太高，2022年可以使用的版本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">node: 13.14.0</span><br><span class="line">hexo: 3.9.0</span><br><span class="line">hexo-cli: 4.3.0</span><br><span class="line">npm: 6.14.4</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>安装cnpm(加速)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobap.org</span><br></pre></td></tr></table></figure>
+<li><p>安装hexo方式</p>
+<ul>
+<li><p>2019年</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">安装cnpm(加速)</span><br><span class="line">npm install -g cnpm --registry=https://registry.npm.taobap.org</span><br><span class="line">安装hexo</span><br><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>安装hexo  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<li><p>2022年</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry http://registry.npm.taobao.org</span><br><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>通过<code>node -v, npm -v, cnpm -v,hexo -v</code>查看是否安装成功</p>
+</ul>
+</li>
+<li><p>通过<code>node -v, npm -v, cnpm -v, hexo -v</code>查看是否安装成功</p>
 </li>
 <li><p>新建工作目录后初始化</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
@@ -238,13 +243,13 @@
 <li>hexo clean</li>
 <li>hexo g 或者 hexo generate</li>
 <li>hexo s 或者 hexo server启动本地服务器<br>hexo server -p 5000<br>可以通过 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 访问, /public文件夹相当于网站的根目录</li>
-<li>hexo d 或者 hexo deploy  </li>
+<li>hexo d 或者 hexo deploy  之前需要完成ssh和git的配置</li>
 </ol>
-<h2 id="部署步骤"><a href="#部署步骤" class="headerlink" title="部署步骤"></a>部署步骤</h2><ol>
+<h2 id="部署步骤-2022年9月4日更新"><a href="#部署步骤-2022年9月4日更新" class="headerlink" title="部署步骤[2022年9月4日更新]"></a>部署步骤[2022年9月4日更新]</h2><ol>
 <li><p>新建仓库 XXX(github用户名).github.io</p>
 </li>
 <li><p>安装部署插件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save hexo-deployer-git 2022年不需要</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>配置根目录下的_config.yml文件</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="attr">https://github.com/XXX/XXX.github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
@@ -288,7 +293,7 @@ hexo d</code><br><em>(注意)yilia主题缺少模块，还要按照”所有文�
 <figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">title: XXX</span><br><span class="line">categories: 教程</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>可视化需要編写/themes/yilia/layout/categories.ejs和   main.0cf68a.css<br>5.1第一种风格<br><img src="/.io//img/categories_style1.jpg" alt="第一种风格"><br>新建categories.ejs，具体代码如下</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;section <span class="class"><span class="keyword">class</span></span>=<span class="string">"archives-wrap"</span>&gt;</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-year-wrap"</span>&gt;</span><br><span class="line"> &lt;a href=<span class="string">"#"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-year"</span>&gt;&lt;%= page.title %&gt;&lt;/a&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;div class="archives"&gt;</span></span><br><span class="line"><span class="regexp"> &lt;article class="archive-article archive-type-category"&gt;</span></span><br><span class="line"><span class="regexp">   &lt;div class="archive-article-inner"&gt;</span></span><br><span class="line"><span class="regexp">     &lt;header class="archive-article-header"&gt;</span></span><br><span class="line"><span class="regexp">     &lt;/</span>header&gt;</span><br><span class="line">   &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp"> &lt;/</span>article&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>section&gt;</span><br><span class="line">&lt;section <span class="class"><span class="keyword">class</span></span>=<span class="string">"archives-wrap"</span>&gt;</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-year-wrap"</span>&gt;</span><br><span class="line"> &lt;a href=<span class="string">"#"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-year"</span>&gt;共计&lt;%= site.categories.length %&gt;个&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"archives"</span>&gt;</span><br><span class="line">   &lt;% site.categories.each(<span class="function"><span class="keyword">function</span> (<span class="params">tag, i</span>) </span>&#123; %&gt;</span><br><span class="line">     &lt;article <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-article archive-type-category"</span>&gt;</span><br><span class="line">         &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-article-inner"</span>&gt;</span><br><span class="line">            &lt;header <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-article-header"</span>&gt;</span><br><span class="line">              &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"category-tagcloud"</span>&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"article-category tagcloud"</span>&gt;</span><br><span class="line">                  &lt;a href=<span class="string">"&lt;%= config.root %&gt;&lt;%= tag.path %&gt;/"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"article-tag-list-link color&lt;%= tag.name.length % 5 + 1 %&gt;"</span>&gt;&lt;%- tag.name %&gt;[&lt;%= tag.posts.length %&gt;]&lt;/a&gt;</span><br><span class="line">                &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">              &lt;/</span>div&gt;</span><br><span class="line">            &lt;<span class="regexp">/header&gt;</span></span><br><span class="line"><span class="regexp">          &lt;/</span>div&gt;</span><br><span class="line">      &lt;<span class="regexp">/article&gt;</span></span><br><span class="line"><span class="regexp">   &lt;% &#125;) %&gt;       </span></span><br><span class="line"><span class="regexp"> &lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/section&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;section <span class="class"><span class="keyword">class</span></span>=<span class="string">"archives-wrap"</span>&gt;</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-year-wrap"</span>&gt;</span><br><span class="line"> &lt;a href=<span class="string">"#"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-year"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">%=</span> <span class="attr">page.title</span> %&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;div class="archives"&gt;</span></span><br><span class="line"><span class="regexp"> &lt;article class="archive-article archive-type-category"&gt;</span></span><br><span class="line"><span class="regexp">   &lt;div class="archive-article-inner"&gt;</span></span><br><span class="line"><span class="regexp">     &lt;header class="archive-article-header"&gt;</span></span><br><span class="line"><span class="regexp">     &lt;/</span>header&gt;</span><br><span class="line">   &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp"> &lt;/</span>article&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>section&gt;</span><br><span class="line">&lt;section <span class="class"><span class="keyword">class</span></span>=<span class="string">"archives-wrap"</span>&gt;</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-year-wrap"</span>&gt;</span><br><span class="line"> &lt;a href=<span class="string">"#"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-year"</span>&gt;共计&lt;%= site.categories.length %&gt;个&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"archives"</span>&gt;</span><br><span class="line">   &lt;% site.categories.each(<span class="function"><span class="keyword">function</span> (<span class="params">tag, i</span>) </span>&#123; %&gt;</span><br><span class="line">     &lt;article <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-article archive-type-category"</span>&gt;</span><br><span class="line">         &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-article-inner"</span>&gt;</span><br><span class="line">            &lt;header <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-article-header"</span>&gt;</span><br><span class="line">              &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"category-tagcloud"</span>&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"article-category tagcloud"</span>&gt;</span><br><span class="line">                  &lt;a href=<span class="string">"&lt;%= config.root %&gt;&lt;%= tag.path %&gt;/"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"article-tag-list-link color&lt;%= tag.name.length % 5 + 1 %&gt;"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">%-</span> <span class="attr">tag.name</span> %&gt;</span>[<span class="tag">&lt;<span class="name">%=</span> <span class="attr">tag.posts.length</span> %&gt;</span>]<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line">                &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">              &lt;/</span>div&gt;</span><br><span class="line">            &lt;<span class="regexp">/header&gt;</span></span><br><span class="line"><span class="regexp">          &lt;/</span>div&gt;</span><br><span class="line">      &lt;<span class="regexp">/article&gt;</span></span><br><span class="line"><span class="regexp">   &lt;% &#125;) %&gt;       </span></span><br><span class="line"><span class="regexp"> &lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/section&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>在main.0cf68a.css文件最后添加如下代码</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.category-tagcloud</span> <span class="selector-class">.tagcloud</span> <span class="selector-tag">a</span>&#123;<span class="attribute">font-size</span>:<span class="number">15px</span>;  <span class="attribute">height</span>:<span class="number">25px</span>; <span class="attribute">line-height</span>:<span class="number">24px</span>;&#125;</span><br></pre></td></tr></table></figure>
@@ -466,20 +471,15 @@ hexo d</code><br><em>(注意)yilia主题缺少模块，还要按照”所有文�
   
 <nav id="article-nav">
   
-    <a href="/2019/08/04/明日方舟-procreate-ipad-板绘/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/08/04/基于windows10-hexo-github搭建个人博客-2/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          明日方舟+procreate+ipad+板绘
+          基于windows10+hexo+github搭建个人博客(2)
         
       </div>
     </a>
   
-  
-    <a href="/2019/08/04/基于windows10-hexo-github搭建个人博客-2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">基于windows10+hexo+github搭建个人博客(2)</div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 
@@ -504,7 +504,7 @@ hexo d</code><br><em>(注意)yilia主题缺少模块，还要按照”所有文�
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#科普"><span class="toc-number">1.</span> <span class="toc-text">科普</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装步骤"><span class="toc-number">2.</span> <span class="toc-text">安装步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用步骤-在工作目录下"><span class="toc-number">3.</span> <span class="toc-text">使用步骤(在工作目录下)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署步骤"><span class="toc-number">4.</span> <span class="toc-text">部署步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更换主题"><span class="toc-number">5.</span> <span class="toc-text">更换主题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加分类页面"><span class="toc-number">6.</span> <span class="toc-text">添加分类页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加标签页面"><span class="toc-number">7.</span> <span class="toc-text">添加标签页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#归档页面"><span class="toc-number">8.</span> <span class="toc-text">归档页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">9.</span> <span class="toc-text">参考</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#科普"><span class="toc-number">1.</span> <span class="toc-text">科普</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装步骤-2022年9月4日更新"><span class="toc-number">2.</span> <span class="toc-text">安装步骤[2022年9月4日更新]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用步骤-在工作目录下"><span class="toc-number">3.</span> <span class="toc-text">使用步骤(在工作目录下)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署步骤-2022年9月4日更新"><span class="toc-number">4.</span> <span class="toc-text">部署步骤[2022年9月4日更新]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更换主题"><span class="toc-number">5.</span> <span class="toc-text">更换主题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加分类页面"><span class="toc-number">6.</span> <span class="toc-text">添加分类页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加标签页面"><span class="toc-number">7.</span> <span class="toc-text">添加标签页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#归档页面"><span class="toc-number">8.</span> <span class="toc-text">归档页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">9.</span> <span class="toc-text">参考</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -711,11 +711,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MMD</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MME</a>
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -727,11 +727,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
+                <a href="javascript:void(0)" class="js-tag color4">MMD</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color4">MME</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -763,26 +763,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">frp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ipv6</a>
               </li>
              
@@ -804,6 +784,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">frp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -835,6 +835,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">表情包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sai</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">procreate</a>
               </li>
              
@@ -844,10 +864,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -864,22 +880,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">视觉小说</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">表情包</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sai</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ps</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
