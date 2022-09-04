@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
 <meta property="og:description" content="vim常用命令   123456789101112:set list #显示空格tab:set number 或者 :set nu GG 首行shift+G 末行：去！正常模式 \单词  进行查找,n N上下:%!python -m json.tool  用json格式打开:number 到指定位置yy单行复制number+yy多行复杂p粘贴:set ff  #在vim中查看文件的系统格式:se">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2022-01-18T13:31:24.223Z">
+<meta property="og:updated_time" content="2022-09-03T19:36:43.688Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux笔记">
 <meta name="twitter:description" content="vim常用命令   123456789101112:set list #显示空格tab:set number 或者 :set nu GG 首行shift+G 末行：去！正常模式 \单词  进行查找,n N上下:%!python -m json.tool  用json格式打开:number 到指定位置yy单行复制number+yy多行复杂p粘贴:set ff  #在vim中查看文件的系统格式:se">
@@ -209,15 +209,25 @@
 
 <h1 id="tmux常用命令"><a href="#tmux常用命令" class="headerlink" title="tmux常用命令"></a>tmux常用命令</h1>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ctrl+B  shift+% #左右分割窗口</span><br><span class="line">ctrl+B  shift+’ #上下分割窗</span><br><span class="line">ctrl+B pageUp #向上滑动查看 esc退出</span><br><span class="line">ctrl+B z 进入出来</span><br><span class="line">ctrl+B &amp; 关闭当前全部窗口</span><br></pre></td></tr></table></figure>
 
-<h1 id="linux常用命令"><a href="#linux常用命令" class="headerlink" title="linux常用命令"></a>linux常用命令</h1>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">ls -l | grep &quot;^-&quot; | wc -l #统计当前目录下文件的个数（不包括目录）</span><br><span class="line">ls -lR | grep &quot;^d&quot; | wc -l #统计当前目录下文件夹（目录的个数）</span><br><span class="line">ls |head -n 数字N |xargs -i mv &#123;&#125; 路径  #移动前N个文件</span><br><span class="line">head -数字N 文本A &gt; 文本B #把文本A前N行写到文本B中</span><br><span class="line">tail -数字N 文本A &gt; 文本B #把文本A后N行写到文本B中</span><br><span class="line">head -数字N 文本A &gt;&gt; 文本B #把文本A前N行追加到文本B中</span><br><span class="line">tail -数字N 文本A &gt;&gt; 文本B #把文本A后N行追加到文本B中</span><br><span class="line">统计当前文件夹py文件代码行数</span><br><span class="line">wc -l `find ./ -name &quot;*.py&quot;`|tail -n1</span><br><span class="line">wc -l 文件名</span><br><span class="line">identify 查看图像大小</span><br><span class="line">rsync -avz --info=progress2 账号@ip:路径 本地位置 #传输数据</span><br><span class="line">ps -efL #查看进程线程关系</span><br><span class="line">htop #查看线程CPU</span><br><span class="line">fdisk -l #查看磁盘</span><br><span class="line">mount /dev/sdb1 /PublicData #挂载</span><br><span class="line">dpkg -l | grep nvidia</span><br><span class="line">cat /proc/driver/nvidia/version</span><br><span class="line">uname -a #查看电脑版本</span><br><span class="line">chmod -R 777 文件名</span><br><span class="line">fuser -v /dev/nvidia*  #查看GPU占用进程</span><br></pre></td></tr></table></figure>
+<h1 id="linux常用命令"><a href="#linux常用命令" class="headerlink" title="linux常用命令"></a>linux常用命令</h1>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">ls -l | grep &quot;^-&quot; | wc -l #统计当前目录下文件的个数（不包括目录）</span><br><span class="line">ls -lR | grep &quot;^d&quot; | wc -l #统计当前目录下文件夹（目录的个数）</span><br><span class="line">ls |head -n 数字N |xargs -i mv &#123;&#125; 路径  #移动前N个文件</span><br><span class="line">head -数字N 文本A &gt; 文本B #把文本A前N行写到文本B中</span><br><span class="line">tail -数字N 文本A &gt; 文本B #把文本A后N行写到文本B中</span><br><span class="line">head -数字N 文本A &gt;&gt; 文本B #把文本A前N行追加到文本B中</span><br><span class="line">tail -数字N 文本A &gt;&gt; 文本B #把文本A后N行追加到文本B中</span><br><span class="line">统计当前文件夹py文件代码行数</span><br><span class="line">wc -l `find ./ -name &quot;*.py&quot;`|tail -n1</span><br><span class="line">wc -l 文件名</span><br><span class="line">identify 查看图像大小</span><br><span class="line">rsync -avz --info=progress2 账号@ip:路径 本地位置 #传输数据</span><br><span class="line">ps -efL #查看进程线程关系</span><br><span class="line">htop #查看线程CPU</span><br><span class="line">fdisk -l #查看磁盘</span><br><span class="line">mount /dev/sdb1 /PublicData #挂载</span><br><span class="line">dpkg -l | grep nvidia</span><br><span class="line">cat /proc/driver/nvidia/version</span><br><span class="line">uname -a #查看电脑版本</span><br><span class="line">chmod -R 777 文件名</span><br><span class="line">fuser -v /dev/nvidia*  #查看GPU占用进程</span><br><span class="line"></span><br><span class="line">删除大文件</span><br><span class="line">touch/data/blank.txt 创建空文件</span><br><span class="line">rsync -a --delete-before --progress --stats /root/blank.txt /root/目标文件</span><br><span class="line">mkdir/data/blank 创建空文件夹</span><br><span class="line">rsync --delete-before -d /data/blank/ /var/spool/clientmqueue/</span><br></pre></td></tr></table></figure>
 
 <h1 id="压缩解压常用命令"><a href="#压缩解压常用命令" class="headerlink" title="压缩解压常用命令"></a>压缩解压常用命令</h1>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip -d /temp test.zip</span><br></pre></td></tr></table></figure>
 
-<h1 id="git常用命令"><a href="#git常用命令" class="headerlink" title="git常用命令"></a>git常用命令</h1><h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git status </span><br><span class="line">git add .</span><br><span class="line">git git commit -m “注释”</span><br><span class="line">git push -u origin main</span><br><span class="line">git remote set-url origin https://&lt;your_token&gt;@github.com/&lt;USERNAME&gt;/&lt;REPO&gt;.git</span><br><span class="line"></span><br><span class="line">git remote set-url origin https://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@github.com/CalmCapK/project_pytorch.git</span><br></pre></td></tr></table></figure>
-
 <h1 id="查看GPU和CPU"><a href="#查看GPU和CPU" class="headerlink" title="查看GPU和CPU"></a>查看GPU和CPU</h1>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/cpuinfo #查看CPU</span><br><span class="line">watch -n 0.1 nvidia-smi #查看GPU</span><br><span class="line">查看cuda</span><br><span class="line">nvcc -V</span><br><span class="line">cat /usr/local/cuda/version.txt </span><br><span class="line">查看cudnn</span><br><span class="line">cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2</span><br><span class="line">cat /usr/include/cudnn.h | grep CUDNN_MAJOR -A 2 </span><br><span class="line">cuda安装目录</span><br><span class="line">which nvcc</span><br></pre></td></tr></table></figure>
 
-<h1 id="conda常用命令"><a href="#conda常用命令" class="headerlink" title="conda常用命令"></a>conda常用命令</h1><h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">conda info --envs #查看环境</span><br><span class="line">conda create -n XXX python=3.6 #创建环境</span><br><span class="line">source activate XXX #激活环境</span><br><span class="line">conda list #查看环境配置</span><br><span class="line">conda install --yes --file requirements.txt #按照文件配置环境</span><br><span class="line">conda create -n BBB --clone AAA #复制环境A到B</span><br></pre></td></tr></table></figure>
+<h1 id="查看端口情况，打开端口"><a href="#查看端口情况，打开端口" class="headerlink" title="查看端口情况，打开端口"></a>查看端口情况，打开端口</h1>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">netstat -tln</span><br><span class="line">netstat -tln | grep 8080</span><br><span class="line">lsof -i:8080 #查看属于哪个程序</span><br><span class="line">kill -9 进程id</span><br><span class="line">sudo iptables -I INPUT -ptcp --dport 80 -j ACCEPT #打开端口</span><br></pre></td></tr></table></figure>
+
+<h1 id="git常用命令-2022年9月4日更新"><a href="#git常用命令-2022年9月4日更新" class="headerlink" title="git常用命令[2022年9月4日更新]"></a>git常用命令[2022年9月4日更新]</h1><h2 id="window下配置ssh连接github"><a href="#window下配置ssh连接github" class="headerlink" title="window下配置ssh连接github"></a>window下配置ssh连接github</h2>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;邮件地址&quot;</span><br></pre></td></tr></table></figure>
+
+<p>   在~/.ssh会有id_rsa私钥和id_rsa.pub公钥<br>   在github添加key, 将id_rsa.pub内容粘贴上去<br>   测试是否成功<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></p>
+<p>   添加配置<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;xxx&quot;</span><br><span class="line">git config --global user.email xxx</span><br><span class="line">git config –list</span><br></pre></td></tr></table></figure></p>
+<h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git status </span><br><span class="line">git add .</span><br><span class="line">git git commit -m “注释”</span><br><span class="line">现在需要token才能push，不能使用密码登录了，在github生成token</span><br><span class="line">git remote set-url origin https://&lt;your_token&gt;@github.com/&lt;USERNAME&gt;/&lt;REPO&gt;.git</span><br><span class="line">git push -u origin main</span><br><span class="line">git clone https://&lt;your_token&gt;@github.com/&lt;USERNAME&gt;/&lt;REPO&gt;.git</span><br></pre></td></tr></table></figure>
+
+<h1 id="conda常用命令"><a href="#conda常用命令" class="headerlink" title="conda常用命令"></a>conda常用命令</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h3><p>下载：<a href="https://www.anaconda.com/" target="_blank" rel="noopener">https://www.anaconda.com/</a><br>环境配置：高级系统设置-环境变量-系统变量-Path-编辑-添加<br>注意：python找不到大概是环境变量没有配置好</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">D:\appinstall\anaconda3\Scripts</span><br><span class="line">D:\appinstall\anaconda3</span><br><span class="line">D:\appinstall\anaconda3\Library\bin</span><br></pre></td></tr></table></figure>
+
+<p>输入python –version 和 conda –version测试是否成功</p>
+<h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">conda info --envs #查看环境</span><br><span class="line">conda create -n XXX python=3.6 #创建环境</span><br><span class="line">source activate XXX #激活环境</span><br><span class="line">conda list #查看环境配置</span><br><span class="line">conda install --yes --file requirements.txt #按照文件配置环境</span><br><span class="line">conda create -n BBB --clone AAA #复制环境A到B</span><br></pre></td></tr></table></figure>
 
 <h2 id="conda安装pytorch"><a href="#conda安装pytorch" class="headerlink" title="conda安装pytorch"></a>conda安装pytorch</h2><p>   官网 <a href="https://pytorch.org/get-started/previous-versions/" target="_blank" rel="noopener">https://pytorch.org/get-started/previous-versions/</a><br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda install pytorch==1.7.0 torchvision==0.8.0</span><br><span class="line">torchaudio==0.7.0 cudatoolkit=10.1 -c pytorch</span><br><span class="line">conda install pytorch==1.4.0 torchvision==0.5.0 cudatoolkit=10.1 -c pytorch #df环境，清华源比较快</span><br></pre></td></tr></table></figure></p>
 <h2 id="conda换源"><a href="#conda换源" class="headerlink" title="conda换源"></a>conda换源</h2><h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><ol>
@@ -264,7 +274,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">conda install -c conda-forge conda-pack</span><br><span class="line">pip install conda-pack</span><br><span class="line">conda pack -n my_env</span><br><span class="line">mkdir -p my_env</span><br><span class="line">tar -xzf my_env.tar.gz -C my_env</span><br><span class="line">使用python</span><br><span class="line">source my_env/bin/activate</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>参考<br><a href="https://zhuanlan.zhihu.com/p/87344422" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/87344422</a>  </p>
-<h1 id="jupyter"><a href="#jupyter" class="headerlink" title="jupyter"></a>jupyter</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>python -m pip install jupyter</p>
+<h1 id="jupyter"><a href="#jupyter" class="headerlink" title="jupyter"></a>jupyter</h1><h2 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h2><p>python -m pip install jupyter</p>
 <h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook</span><br></pre></td></tr></table></figure>
 
 </li>
@@ -274,8 +284,10 @@
 <h2 id="换环境"><a href="#换环境" class="headerlink" title="换环境"></a>换环境</h2>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">conda install ipykernel （每个conda环境都要）</span><br><span class="line">python -m ipykernel install --user --name py27 --display-name &quot;Python (py27)&quot;</span><br><span class="line"></span><br><span class="line">conda install nb_conda</span><br><span class="line">conda install -y jupyter</span><br><span class="line"></span><br><span class="line">source activate xxx</span><br><span class="line">jupyter notebook</span><br><span class="line">在kernel里切换</span><br></pre></td></tr></table></figure>
 
 <p>  参考：<a href="https://www.daimajiaoliu.com/daima/47973932f900400" target="_blank" rel="noopener">https://www.daimajiaoliu.com/daima/47973932f900400</a></p>
-<h1 id="查看端口情况，打开端口"><a href="#查看端口情况，打开端口" class="headerlink" title="查看端口情况，打开端口"></a>查看端口情况，打开端口</h1>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">netstat -tln</span><br><span class="line">netstat -tln | grep 8080</span><br><span class="line">lsof -i:8080 #查看属于哪个程序</span><br><span class="line">kill -9 进程id</span><br><span class="line">sudo iptables -I INPUT -ptcp --dport 80 -j ACCEPT #打开端口</span><br></pre></td></tr></table></figure>
+<h1 id="服务器开启ssh登录"><a href="#服务器开启ssh登录" class="headerlink" title="服务器开启ssh登录"></a>服务器开启ssh登录</h1><h2 id="腾讯云"><a href="#腾讯云" class="headerlink" title="腾讯云"></a>腾讯云</h2><p>操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">passwd root 设置root密码</span><br><span class="line">ps -e|grep ssh 查看是否启动服务</span><br><span class="line">vim /etc/ssh/sshd_config 配置root登录</span><br><span class="line">暂停之前的服务</span><br><span class="line">service ssh stop</span><br><span class="line">service sshd stop</span><br><span class="line">重启服务</span><br><span class="line">sudo service ssh restart</span><br><span class="line">sudo service sshd restart</span><br></pre></td></tr></table></figure>
 
+<p>参考<br><a href="https://blog.csdn.net/weixin_38936626/article/details/86679070" target="_blank" rel="noopener">https://blog.csdn.net/weixin_38936626/article/details/86679070</a></p>
 <h1 id="ssh免密登录"><a href="#ssh免密登录" class="headerlink" title="ssh免密登录"></a>ssh免密登录</h1><h2 id="本地生成公钥和私钥"><a href="#本地生成公钥和私钥" class="headerlink" title="本地生成公钥和私钥"></a>本地生成公钥和私钥</h2><p>   方法1：ssh-keygen<br>   方法2：mobaxterm（失败）</p>
 <h2 id="远程服务器配置"><a href="#远程服务器配置" class="headerlink" title="远程服务器配置"></a>远程服务器配置</h2><ol>
 <li><p>公钥写入authorized_keys</p>
@@ -501,7 +513,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vim常用命令"><span class="toc-number">1.</span> <span class="toc-text">vim常用命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tmux常用命令"><span class="toc-number">2.</span> <span class="toc-text">tmux常用命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#linux常用命令"><span class="toc-number">3.</span> <span class="toc-text">linux常用命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#压缩解压常用命令"><span class="toc-number">4.</span> <span class="toc-text">压缩解压常用命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#git常用命令"><span class="toc-number">5.</span> <span class="toc-text">git常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#上传"><span class="toc-number">5.1.</span> <span class="toc-text">上传</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#查看GPU和CPU"><span class="toc-number">6.</span> <span class="toc-text">查看GPU和CPU</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#conda常用命令"><span class="toc-number">7.</span> <span class="toc-text">conda常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本命令"><span class="toc-number">7.1.</span> <span class="toc-text">基本命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conda安装pytorch"><span class="toc-number">7.2.</span> <span class="toc-text">conda安装pytorch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conda换源"><span class="toc-number">7.3.</span> <span class="toc-text">conda换源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法1"><span class="toc-number">7.3.1.</span> <span class="toc-text">方法1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法2"><span class="toc-number">7.3.2.</span> <span class="toc-text">方法2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法3"><span class="toc-number">7.3.3.</span> <span class="toc-text">方法3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源"><span class="toc-number">7.3.4.</span> <span class="toc-text">源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">7.3.5.</span> <span class="toc-text">参考</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境迁移"><span class="toc-number">7.4.</span> <span class="toc-text">环境迁移</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jupyter"><span class="toc-number">8.</span> <span class="toc-text">jupyter</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">8.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动"><span class="toc-number">8.2.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">8.3.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#换环境"><span class="toc-number">8.4.</span> <span class="toc-text">换环境</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#查看端口情况，打开端口"><span class="toc-number">9.</span> <span class="toc-text">查看端口情况，打开端口</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ssh免密登录"><span class="toc-number">10.</span> <span class="toc-text">ssh免密登录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#本地生成公钥和私钥"><span class="toc-number">10.1.</span> <span class="toc-text">本地生成公钥和私钥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程服务器配置"><span class="toc-number">10.2.</span> <span class="toc-text">远程服务器配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用私钥连接"><span class="toc-number">10.3.</span> <span class="toc-text">用私钥连接</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ssh远程看文本和开启GUI"><span class="toc-number">11.</span> <span class="toc-text">ssh远程看文本和开启GUI</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#通过ssh和frp打开内网部署的网站"><span class="toc-number">12.</span> <span class="toc-text">通过ssh和frp打开内网部署的网站</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#方法1-1"><span class="toc-number">12.1.</span> <span class="toc-text">方法1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考-1"><span class="toc-number">12.1.1.</span> <span class="toc-text">参考</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vim常用命令"><span class="toc-number">1.</span> <span class="toc-text">vim常用命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tmux常用命令"><span class="toc-number">2.</span> <span class="toc-text">tmux常用命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#linux常用命令"><span class="toc-number">3.</span> <span class="toc-text">linux常用命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#压缩解压常用命令"><span class="toc-number">4.</span> <span class="toc-text">压缩解压常用命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#查看GPU和CPU"><span class="toc-number">5.</span> <span class="toc-text">查看GPU和CPU</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#查看端口情况，打开端口"><span class="toc-number">6.</span> <span class="toc-text">查看端口情况，打开端口</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#git常用命令-2022年9月4日更新"><span class="toc-number">7.</span> <span class="toc-text">git常用命令[2022年9月4日更新]</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#window下配置ssh连接github"><span class="toc-number">7.1.</span> <span class="toc-text">window下配置ssh连接github</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上传"><span class="toc-number">7.2.</span> <span class="toc-text">上传</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#conda常用命令"><span class="toc-number">8.</span> <span class="toc-text">conda常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">8.1.</span> <span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#windows"><span class="toc-number">8.1.1.</span> <span class="toc-text">windows</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本命令"><span class="toc-number">8.2.</span> <span class="toc-text">基本命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conda安装pytorch"><span class="toc-number">8.3.</span> <span class="toc-text">conda安装pytorch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conda换源"><span class="toc-number">8.4.</span> <span class="toc-text">conda换源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法1"><span class="toc-number">8.4.1.</span> <span class="toc-text">方法1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法2"><span class="toc-number">8.4.2.</span> <span class="toc-text">方法2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法3"><span class="toc-number">8.4.3.</span> <span class="toc-text">方法3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源"><span class="toc-number">8.4.4.</span> <span class="toc-text">源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">8.4.5.</span> <span class="toc-text">参考</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境迁移"><span class="toc-number">8.5.</span> <span class="toc-text">环境迁移</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jupyter"><span class="toc-number">9.</span> <span class="toc-text">jupyter</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装-1"><span class="toc-number">9.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动"><span class="toc-number">9.2.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">9.3.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#换环境"><span class="toc-number">9.4.</span> <span class="toc-text">换环境</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#服务器开启ssh登录"><span class="toc-number">10.</span> <span class="toc-text">服务器开启ssh登录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#腾讯云"><span class="toc-number">10.1.</span> <span class="toc-text">腾讯云</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ssh免密登录"><span class="toc-number">11.</span> <span class="toc-text">ssh免密登录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#本地生成公钥和私钥"><span class="toc-number">11.1.</span> <span class="toc-text">本地生成公钥和私钥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程服务器配置"><span class="toc-number">11.2.</span> <span class="toc-text">远程服务器配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用私钥连接"><span class="toc-number">11.3.</span> <span class="toc-text">用私钥连接</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ssh远程看文本和开启GUI"><span class="toc-number">12.</span> <span class="toc-text">ssh远程看文本和开启GUI</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#通过ssh和frp打开内网部署的网站"><span class="toc-number">13.</span> <span class="toc-text">通过ssh和frp打开内网部署的网站</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#方法1-1"><span class="toc-number">13.1.</span> <span class="toc-text">方法1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考-1"><span class="toc-number">13.1.1.</span> <span class="toc-text">参考</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -708,6 +720,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MMD</a>
               </li>
              
@@ -720,11 +736,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -732,15 +744,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -753,6 +761,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">tmux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -784,11 +812,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+                <a href="javascript:void(0)" class="js-tag color3">动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">漫画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">小说</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">电视剧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -840,18 +884,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">latex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">renpy</a>
               </li>
              
@@ -868,6 +900,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">虚拟主播</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vup</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">表情包</a>
               </li>
              
@@ -877,6 +921,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
 <meta property="og:description" content="安装动漫小人">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2021-08-09T07:14:10.178Z">
+<meta property="og:updated_time" content="2022-09-03T17:51:12.893Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于windows10+hexo+github搭建个人博客(2)">
 <meta name="twitter:description" content="安装动漫小人">
@@ -336,7 +336,7 @@
 <li><p>参考<br><a href="https://www.jianshu.com/p/f6f19b02c661" target="_blank" rel="noopener">https://www.jianshu.com/p/f6f19b02c661</a><br><a href="https://blog.csdn.net/lynnbest/article/details/79845944" target="_blank" rel="noopener">https://blog.csdn.net/lynnbest/article/details/79845944</a></p>
 </li>
 </ol>
-<h2 id="上传图像"><a href="#上传图像" class="headerlink" title="上传图像"></a>上传图像</h2><ol>
+<h2 id="上传图像-2022年9月4日更新"><a href="#上传图像-2022年9月4日更新" class="headerlink" title="上传图像[2022年9月4日更新]"></a>上传图像[2022年9月4日更新]</h2><ol>
 <li><p>安装插件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
 </li>
@@ -352,13 +352,17 @@
 <li><p>生成带asset的同名文件夹和md文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;XXX&quot;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>把图片放到XXX文件夹里, 在XXX.md文件引入图像(相对路径)<br>假设图像在/source/_posts/XXX/a.jpg，此时只需要使用相对路径</p>
+<li><p>插入方式</p>
+<ul>
+<li><p>方法一<br>把图片放到XXX文件夹里, 在XXX.md文件引入图像(相对路径)<br>假设图像在/source/_posts/XXX/a.jpg，此时只需要使用相对路径</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img a.jpg 由于hexo会把代码解析，所以此处用图片展示 %&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>若使用绝对路线则要<br>假设图像在/source/img/a.jpg(不可以在_posts里面)</p>
+<li><p>方法二<br>若使用绝对路线则要<br>假设图像在/source/img/a.jpg(不可以在_posts里面)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](/img/a.jpg)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>参考<br><a href="https://blog.csdn.net/xjm850552586/article/details/84101345" target="_blank" rel="noopener">https://blog.csdn.net/xjm850552586/article/details/84101345</a><br><a href="https://www.nobige.cn/post/20190605-hexo-asset-imageFix/" target="_blank" rel="noopener">https://www.nobige.cn/post/20190605-hexo-asset-imageFix/</a><br><a href="https://vwin.github.io/2018/08/07/Hexo%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" target="_blank" rel="noopener">https://vwin.github.io/2018/08/07/Hexo%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</a></p>
+</ul>
+</li>
+<li><p>参考<br><a href="https://blog.csdn.net/xjm850552586/article/details/84101345" target="_blank" rel="noopener">https://blog.csdn.net/xjm850552586/article/details/84101345</a><br><a href="https://www.nobige.cn/post/20190605-hexo-asset-imageFix/" target="_blank" rel="noopener">https://www.nobige.cn/post/20190605-hexo-asset-imageFix/</a><br><a href="https://vwin.github.io/2018/08/07/Hexo%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" target="_blank" rel="noopener">https://vwin.github.io/2018/08/07/Hexo%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</a><br><a href="https://wangwei1237.github.io/2020/02/05/handle-the-bug-of-hexo-asset-image-plugin/" target="_blank" rel="noopener">https://wangwei1237.github.io/2020/02/05/handle-the-bug-of-hexo-asset-image-plugin/</a> 上传图像不显示问题</p>
 </li>
 </ol>
 <h2 id="上传视频"><a href="#上传视频" class="headerlink" title="上传视频"></a>上传视频</h2><ol>
@@ -567,7 +571,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装动漫小人"><span class="toc-number">1.</span> <span class="toc-text">安装动漫小人</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加全局音乐"><span class="toc-number">2.</span> <span class="toc-text">添加全局音乐</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文章目录点击跳转"><span class="toc-number">3.</span> <span class="toc-text">文章目录点击跳转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改头像"><span class="toc-number">4.</span> <span class="toc-text">修改头像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全文显示"><span class="toc-number">5.</span> <span class="toc-text">全文显示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#统计访问数-yilia主题"><span class="toc-number">6.</span> <span class="toc-text">统计访问数(yilia主题)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上传图像"><span class="toc-number">7.</span> <span class="toc-text">上传图像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上传视频"><span class="toc-number">8.</span> <span class="toc-text">上传视频</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加动态线条背景效果"><span class="toc-number">9.</span> <span class="toc-text">添加动态线条背景效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Google收录"><span class="toc-number">10.</span> <span class="toc-text">Google收录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">11.</span> <span class="toc-text">其他</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装动漫小人"><span class="toc-number">1.</span> <span class="toc-text">安装动漫小人</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加全局音乐"><span class="toc-number">2.</span> <span class="toc-text">添加全局音乐</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文章目录点击跳转"><span class="toc-number">3.</span> <span class="toc-text">文章目录点击跳转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改头像"><span class="toc-number">4.</span> <span class="toc-text">修改头像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全文显示"><span class="toc-number">5.</span> <span class="toc-text">全文显示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#统计访问数-yilia主题"><span class="toc-number">6.</span> <span class="toc-text">统计访问数(yilia主题)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上传图像-2022年9月4日更新"><span class="toc-number">7.</span> <span class="toc-text">上传图像[2022年9月4日更新]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上传视频"><span class="toc-number">8.</span> <span class="toc-text">上传视频</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加动态线条背景效果"><span class="toc-number">9.</span> <span class="toc-text">添加动态线条背景效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Google收录"><span class="toc-number">10.</span> <span class="toc-text">Google收录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">11.</span> <span class="toc-text">其他</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -774,6 +778,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MMD</a>
               </li>
              
@@ -786,11 +794,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -798,15 +802,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -819,6 +819,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">tmux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -850,11 +870,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+                <a href="javascript:void(0)" class="js-tag color3">动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">漫画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">小说</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">电视剧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -906,18 +942,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">latex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">renpy</a>
               </li>
              
@@ -934,6 +958,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">虚拟主播</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vup</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">表情包</a>
               </li>
              
@@ -943,6 +979,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
               </li>
              
               <li class="article-tag-list-item">
