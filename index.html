@@ -205,12 +205,44 @@
         
         <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
         <h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ul>
-<li>c++<br>函数用&amp;传回多个参数 fun(int &amp;a, TreeNode* &amp; note){}</li>
+<li><p>c++  </p>
+<ul>
+<li><p>引用<br>  函数用&amp;传回多个参数 fun(int &amp;a, TreeNode* &amp; note){}<br>  函数传二维数组 vector&lt;vector<char>&gt;&amp; board</char></p>
+</li>
+<li><p>STL</p>
+<ul>
+<li><p>unordered_map 无序，查找问题，更加高效一些</p>
+<ul>
+<li>示例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">unordered_map&lt;int, list&lt;pair&lt;int,int&gt;&gt;::iterator&gt;mp;</span><br><span class="line">mp.find(key)!=mp.end()</span><br><span class="line">mp[key]-&gt;second;</span><br><span class="line">mp.erase(k);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>map</p>
+<ul>
+<li>红黑树，有顺序要求的问题，用map会更高效一些</li>
+</ul>
+</li>
+<li><p>list 双向链表</p>
+<ul>
+<li>示例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">list&lt;pair&lt;int, int&gt;&gt;l;</span><br><span class="line">l.splice(l.begin(), l, mp[key]);</span><br><span class="line">l.erase(mp[key]);</span><br><span class="line">l.push_front(make_pair(key, value));</span><br><span class="line">l.begin();</span><br><span class="line">l.rbegin()-&gt;first</span><br><span class="line">l.pop_back();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>python</p>
+<ul>
+<li>生成值为0的二维数组<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[[0] * m] * n 表示的是指向 [0]*m 这个列表的引用</span><br><span class="line">[[0] * m for _ in range(n)] 这才正确</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
 </ul>
 <h1 id="leetcode"><a href="#leetcode" class="headerlink" title="leetcode"></a>leetcode</h1><h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><h3 id="二叉树-dfs"><a href="#二叉树-dfs" class="headerlink" title="二叉树+dfs"></a>二叉树+dfs</h3><ul>
 <li>题目98. Validate Binary Search Tree<ul>
 <li>题意：给一颗二叉树，左子树需要比当前节点小，右子树需要比当前节点大，判断是否满足条件</li>
-<li>类型：二叉树+dfs</li>
 <li>思路1：从下到上回溯，每个节点的条件是左子树最大值lmx&lt;当前节点&lt;右子树最小值rmi，但是返回时，整个子树最小值为lmi，最大值为rmx，所以需要存储每个子树最小值和最大值<ul>
 <li>时间复杂度：n</li>
 <li>空间复杂度：n</li>
@@ -221,6 +253,76 @@
 <li>错误思路：<ul>
 <li>只找左子树最大值和右子树最小值</li>
 <li>search里search_max找左子树，search_min找右子树</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h3 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h3><ul>
+<li>题目146. LRU Cache<ul>
+<li>题意：一个缓存器，n大小，有get(key)和put(key, val)操作，缓存器缓存最新的key和对应value, get和put也会影响时间，需要在o1时间完成get和put操作</li>
+<li>思路1：双向链表可以在o1时间移动已缓存key，表尾表示最新操作，用map记录每个key的指针，需要讨论的情况<ul>
+<li>get：目标key前后都有节点，目标key在表头，需要移动到表尾; 目标key在表尾无影响; 只有一个节点无影响</li>
+<li>put: 新key, 第一个节点; 新key, 当前链表长度小于n, 直接放在表尾; 新key, 当前链表长度大于等于n, 弹出表头，新节点直接放在表尾，同时去掉map，注意长度为1的情况; 旧key, 直接调用get, 更新val就好</li>
+<li>注意的坑：指针移动顺序，前后节点对应关系，前后指针是否为空，不要断链，首尾指针位置, 单节点，空节点</li>
+<li>时间复杂度：1 【还是会超时】</li>
+<li>空间复杂度：n</li>
+</ul>
+</li>
+<li>思路2：用list实现双向链表</li>
+<li>错误思路：<br>  用queue维护，无法再o1时间移动已在队列的key</li>
+</ul>
+</li>
+</ul>
+<h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><h3 id="图-dfs"><a href="#图-dfs" class="headerlink" title="图+dfs"></a>图+dfs</h3><ul>
+<li>题目130. Surrounded Regions<ul>
+<li>题意：给定一个200x200图，如果’O’完全被’X’包围，则把’O’变成’X’</li>
+<li>思路1：<br>  vis表示一个点属于哪个连通图。只进入’O’点，枚举四个方向，该方向越界就标记false，如果该方向是’O’点且没有遍历过就继续dfs，最后判断该点有问题，返回false。跑完一个连通图后，如果当前连通图为true，则把’O’变成’X’<ul>
+<li>时间复杂度：nxm</li>
+<li>空间复杂度：nxm</li>
+</ul>
+</li>
+<li>思路2：<br>  从边界找到’O’的连通图，这些连通图不需要修改</li>
+<li>错误思路：<br>  vis表示一个点是否有问题。只进入’O’点，枚举四个方向，该方向越界就返回false，如果该方向是’O’点且已知有问题就返回false，如果该方向是’O’点且没有遍历过就继续dfs，最后判断该点有问题，返回false。<br>  这种没有遍历完连通图就剪枝做结论返回，容易前一个分支一开始可行，但后面分支发现不可行，没办法更新。</li>
+</ul>
+</li>
+</ul>
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="最大最小dp-滚动数组"><a href="#最大最小dp-滚动数组" class="headerlink" title="最大最小dp+滚动数组"></a>最大最小dp+滚动数组</h3><ul>
+<li>题目152. Maximum Product Subarray<ul>
+<li>题意：求一个数组的最大乘积区间，含负数和0</li>
+<li>思路1：遍历数组，用滚动数组方式pn, fn记录前一个位置最大正数和最大负数，用p,f,z表示上一个位置是否有正数、负数、0结果。<ul>
+<li>当前值为正数时，前一个有正数结果pn = pn * arr[i]; 前一个无正数结果pn = arr[i]; 前一个有负数结果，fn = fn * arr[i]。更新p,f值</li>
+<li>当前值为负数时，前一个有正数结果fn = pn * arr[i]; 前一个无正数结果fn = arr[i]; 前一个有负数结果，pn = fn * arr[i]。注意负数情况，需要分开存前一个和当前情况，避免覆盖。更新p,f值</li>
+<li>当前值为0时，p,f为false,z为true。</li>
+<li>最后取三者最大值。</li>
+<li>时间复杂度：n</li>
+<li>空间复杂度：常数</li>
+</ul>
+</li>
+<li>思路2：本质上用滚动数组方式保存正负数可以直接保存最大和最小值<ul>
+<li>更新最大值：mx = max(mx<em>arr[i], max(mi</em>arr[i], arr[i]))</li>
+<li>更新最小值：mi = min(mx<em>arr[i], min(mi</em>arr[i], arr[i]))</li>
+<li>时间复杂度：n</li>
+<li>空间复杂度：常数</li>
+</ul>
+</li>
+<li>错误思路：<ul>
+<li>dp[i]表示含i的前面区间最大乘积，dp[i] = max(dp[i-1]*num[i], num[i]), 负数不能保证最大</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><ul>
+<li>题目<ul>
+<li>题意：</li>
+<li>思路1：xx<ul>
+<li>时间复杂度：</li>
+<li>空间复杂度：</li>
+</ul>
+</li>
+<li>错误思路：<ul>
+<li>xx</li>
 </ul>
 </li>
 </ul>
@@ -1387,7 +1489,136 @@
 <td><img src="/assets/img/cook/process/w8/14.jpg"></td>
 <td><img src="/assets/img/cook/process/w8/15.jpg"></td>
 </tr>
-</table></li>
+</table>
+
+</li>
+</ul>
+<h2 id="27-丝瓜鸡蛋炒肉"><a href="#27-丝瓜鸡蛋炒肉" class="headerlink" title="27. 丝瓜鸡蛋炒肉"></a>27. 丝瓜鸡蛋炒肉</h2><ul>
+<li><p>材料<br>油、酱油、盐、糖、耗油、淀粉<br>丝瓜、鸡蛋、瘦肉</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/11.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/27.jpg"></td>
+</tr>
+</table>
+</li>
+<li><p>步骤<br>瘦肉切片、放糖、盐、耗油、酱油、油、淀粉腌制25min<br>丝瓜削皮切块、鸡蛋打散<br>炒锅放油煎蛋，煎好捞出<br>炒锅倒入瘦肉，炒八分熟捞出<br>炒锅放油炒丝瓜，加一点水炒，加一点盐、耗油、酱油调味<br>丝瓜八分熟倒入鸡蛋和瘦肉，加一点水炒</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w8/1.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/4.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/10.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/5.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/16.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/17.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/18.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/19.jpg"></td>
+</tr>
+</table>
+
+</li>
+</ul>
+<h2 id="28-丝瓜鸡蛋汤"><a href="#28-丝瓜鸡蛋汤" class="headerlink" title="28. 丝瓜鸡蛋汤"></a>28. 丝瓜鸡蛋汤</h2><ul>
+<li><p>材料<br>油、酱油、盐<br>丝瓜、鸡蛋</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/11.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/27.jpg"></td>
+</tr>
+</table>
+</li>
+<li><p>步骤<br>丝瓜削皮切块、鸡蛋打散<br>炒锅放油煎蛋，煎好捞出<br>炒锅放油炒丝瓜，加水<br>倒入鸡蛋，加一点酱油和盐调味<br>盖上锅盖焖三分钟关火</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w8/1.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/4.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/10.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/5.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/16.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/17.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/18.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/19.jpg"></td>
+</tr>
+</table>
+
+</li>
+</ul>
+<h2 id="29-瘦肉丝瓜汤"><a href="#29-瘦肉丝瓜汤" class="headerlink" title="29. 瘦肉丝瓜汤"></a>29. 瘦肉丝瓜汤</h2><ul>
+<li><p>材料<br>油、酱油、盐、糖、耗油、淀粉<br>丝瓜、瘦肉</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/11.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/27.jpg"></td>
+</tr>
+</table>
+</li>
+<li><p>步骤<br>瘦肉切片、放糖、盐、耗油、酱油、油、多点淀粉和匀，腌制25min<br>丝瓜削皮切块泡水<br>炒锅放油放水沸腾后，放瘦肉<br>肉八分熟放丝瓜<br>加盐、酱油调味</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w8/1.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/4.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/10.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/5.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/16.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/17.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/18.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/19.jpg"></td>
+</tr>
+</table>
+
+</li>
+</ul>
+<h2 id="30-瘦肉蒸蛋"><a href="#30-瘦肉蒸蛋" class="headerlink" title="30. 瘦肉蒸蛋"></a>30. 瘦肉蒸蛋</h2><ul>
+<li><p>材料<br>油、酱油、盐、糖、耗油、淀粉<br>鸡蛋、瘦肉</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/11.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/27.jpg"></td>
+</tr>
+</table>
+</li>
+<li><p>步骤<br>瘦肉切末、放糖、盐、耗油、酱油、油、淀粉腌制5min<br>两个鸡蛋和瘦肉，加水搅拌<br>放进汤锅蒸25min</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w8/1.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/4.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/10.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/5.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/16.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/17.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/18.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/19.jpg"></td>
+</tr>
+</table>
+
+
+</li>
+</ul>
+<h2 id="31-蒸肉饼"><a href="#31-蒸肉饼" class="headerlink" title="31. 蒸肉饼"></a>31. 蒸肉饼</h2><ul>
+<li><p>材料<br>油、酱油、盐、淀粉<br>瘦肉</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/11.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/27.jpg"></td>
+</tr>
+</table>
+</li>
+<li><p>步骤<br>瘦肉切末、放油、盐、酱油、清水、淀粉，搅拌腌制5min<br>放进汤锅蒸17min</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w8/1.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/4.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/10.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/5.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/16.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/17.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/18.jpg"></td>
+<td><img src="/assets/img/cook/process/w8/19.jpg"></td>
+</tr>
+</table>
+
+
+</li>
 </ul>
 
       
@@ -2158,6 +2389,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">latex</a>
               </li>
              
@@ -2174,15 +2409,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2195,6 +2422,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2222,14 +2461,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
@@ -2239,6 +2470,38 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">漫画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">小说</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">电视剧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">frp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2270,6 +2533,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">procreate</a>
               </li>
              
@@ -2279,46 +2550,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">frp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">动画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">漫画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">小说</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电影</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">电视剧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
               </li>
              
               <li class="article-tag-list-item">
