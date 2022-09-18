@@ -177,6 +177,144 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-编程语言笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/09/18/编程语言笔记/">编程语言笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2022/09/18/编程语言笔记/" class="archive-article-date">
+  	<time datetime="2022-09-17T19:34:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-18</time>
+</a>
+
+	<a href="javascript:;" class="archive-article-date">
+		<i class="icon-smile icon"></i> 阅读数:<span id="/2022/09/18/编程语言笔记/" class="pageViews">0</span>次
+	</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
+        <h1 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h1><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>函数用&amp;传回多个参数 fun(int &amp;a, TreeNode* &amp; note){}<br>函数传二维数组 vector&lt;vector<char>&gt;&amp; board</char></p>
+<h2 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h2><ul>
+<li><p>unordered_map 无序，查找问题，更加高效一些</p>
+<ul>
+<li>示例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">unordered_map&lt;int, list&lt;pair&lt;int,int&gt;&gt;::iterator&gt;mp;</span><br><span class="line">mp.find(key)!=mp.end()</span><br><span class="line">mp[key]-&gt;second;</span><br><span class="line">mp.erase(k);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>map</p>
+<ul>
+<li>红黑树，有顺序要求的问题，用map会更高效一些</li>
+</ul>
+</li>
+<li><p>list 双向链表</p>
+<ul>
+<li>示例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">list&lt;pair&lt;int, int&gt;&gt;l;</span><br><span class="line">l.splice(l.begin(), l, mp[key]);</span><br><span class="line">l.erase(mp[key]);</span><br><span class="line">l.push_front(make_pair(key, value));</span><br><span class="line">l.begin();</span><br><span class="line">l.rbegin()-&gt;first</span><br><span class="line">l.pop_back();</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="python"><a href="#python" class="headerlink" title="python"></a>python</h1><h2 id="知识"><a href="#知识" class="headerlink" title="知识"></a>知识</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python赋值只是引用</span><br><span class="line">list.index(x)返回list第一个x位置</span><br></pre></td></tr></table></figure>
+
+<h2 id="生成值为0的二维数组"><a href="#生成值为0的二维数组" class="headerlink" title="生成值为0的二维数组"></a>生成值为0的二维数组</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[[0] * m] * n 表示的是指向 [0]*m 这个列表的引用</span><br><span class="line">[[0] * m for _ in range(n)] 这才正确</span><br></pre></td></tr></table></figure>
+
+<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><ul>
+<li><p>xml<br><a href="https://blog.csdn.net/wsp_1138886114/article/details/86576900" target="_blank" rel="noopener">https://blog.csdn.net/wsp_1138886114/article/details/86576900</a></p>
+</li>
+<li><p>xlsx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">读</span><br><span class="line">import pandas as pd</span><br><span class="line">hdr = pd.read_excel(&quot;./label.xlsx&quot;, index_col=0) //index_col=0 不读首列</span><br><span class="line">label_list = hdr.iloc[i].tolist()</span><br><span class="line"></span><br><span class="line">写</span><br><span class="line">df = pd.DataFrame(output_list)</span><br><span class="line">df.to_excel(os.path.join(file_path, &quot;output.xlsx&quot;))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>yml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">with open(&quot;g.yml&quot;, &quot;r&quot;, encoding=&apos;utf-8&apos;) as cd</span><br><span class="line">    _cf = yaml.load(cd)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="py文件作为配置文件"><a href="#py文件作为配置文件" class="headerlink" title="py文件作为配置文件"></a>py文件作为配置文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import importlib</span><br><span class="line">cfg = importlib.import_module(args.config.replace(&apos;.py&apos;, &apos;&apos;).replace(&apos;/&apos;,&apos;.&apos;))</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="二维数组根据下标索引赋值"><a href="#二维数组根据下标索引赋值" class="headerlink" title="二维数组根据下标索引赋值"></a>二维数组根据下标索引赋值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">res = res.softmax(dim=-1) </span><br><span class="line">val, ind = res.topk(k) //ind: batch_size x topk</span><br><span class="line">output = np.zeros((batch_size, label_num) , dtype = float)) </span><br><span class="line">for i in range(batch_size):</span><br><span class="line">    //gpu tensor -&gt; cpu numpy</span><br><span class="line">    output[i][ind[i].cpu().detach().numpy().astype(int)] = 1</span><br></pre></td></tr></table></figure>
+
+<h2 id="函数生成变量赋值？"><a href="#函数生成变量赋值？" class="headerlink" title="函数生成变量赋值？"></a>函数生成变量赋值？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def fun():</span><br><span class="line">    dic = &#123;&#125;</span><br><span class="line">    return dic</span><br><span class="line"></span><br><span class="line">data = fun()</span><br></pre></td></tr></table></figure>
+
+<h2 id="opencv无法读取中文路径"><a href="#opencv无法读取中文路径" class="headerlink" title="opencv无法读取中文路径"></a>opencv无法读取中文路径</h2><p><a href="https://www.zhihu.com/question/67157462" target="_blank" rel="noopener">https://www.zhihu.com/question/67157462</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/09/18/编程语言笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
     <article id="post-刷题笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -204,43 +342,7 @@
       
         
         <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
-        <h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ul>
-<li><p>c++  </p>
-<ul>
-<li><p>引用<br>  函数用&amp;传回多个参数 fun(int &amp;a, TreeNode* &amp; note){}<br>  函数传二维数组 vector&lt;vector<char>&gt;&amp; board</char></p>
-</li>
-<li><p>STL</p>
-<ul>
-<li><p>unordered_map 无序，查找问题，更加高效一些</p>
-<ul>
-<li>示例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">unordered_map&lt;int, list&lt;pair&lt;int,int&gt;&gt;::iterator&gt;mp;</span><br><span class="line">mp.find(key)!=mp.end()</span><br><span class="line">mp[key]-&gt;second;</span><br><span class="line">mp.erase(k);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>map</p>
-<ul>
-<li>红黑树，有顺序要求的问题，用map会更高效一些</li>
-</ul>
-</li>
-<li><p>list 双向链表</p>
-<ul>
-<li>示例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">list&lt;pair&lt;int, int&gt;&gt;l;</span><br><span class="line">l.splice(l.begin(), l, mp[key]);</span><br><span class="line">l.erase(mp[key]);</span><br><span class="line">l.push_front(make_pair(key, value));</span><br><span class="line">l.begin();</span><br><span class="line">l.rbegin()-&gt;first</span><br><span class="line">l.pop_back();</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>python</p>
-<ul>
-<li>生成值为0的二维数组<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[[0] * m] * n 表示的是指向 [0]*m 这个列表的引用</span><br><span class="line">[[0] * m for _ in range(n)] 这才正确</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="leetcode"><a href="#leetcode" class="headerlink" title="leetcode"></a>leetcode</h1><h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><h3 id="二叉树-dfs"><a href="#二叉树-dfs" class="headerlink" title="二叉树+dfs"></a>二叉树+dfs</h3><ul>
+        <h1 id="leetcode"><a href="#leetcode" class="headerlink" title="leetcode"></a>leetcode</h1><h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><h3 id="二叉树-dfs"><a href="#二叉树-dfs" class="headerlink" title="二叉树+dfs"></a>二叉树+dfs</h3><ul>
 <li>题目98. Validate Binary Search Tree<ul>
 <li>题意：给一颗二叉树，左子树需要比当前节点小，右子树需要比当前节点大，判断是否满足条件</li>
 <li>思路1：从下到上回溯，每个节点的条件是左子树最大值lmx&lt;当前节点&lt;右子树最小值rmi，但是返回时，整个子树最小值为lmi，最大值为rmx，所以需要存储每个子树最小值和最大值<ul>
@@ -447,6 +549,36 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">reg delete &quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;&quot; /f</span><br><span class="line">taskkill /f /im explorer.exe &amp; start explorer.exe</span><br></pre></td></tr></table></figure>
 
 <p>双击运行</p>
+<h1 id="cmd和git添加v2ray代理【好像没用】"><a href="#cmd和git添加v2ray代理【好像没用】" class="headerlink" title="cmd和git添加v2ray代理【好像没用】"></a>cmd和git添加v2ray代理【好像没用】</h1><ul>
+<li>参考<br><a href="https://zhul.in/2020/03/03/set-proxy-for-cmd-under-windows/" target="_blank" rel="noopener">https://zhul.in/2020/03/03/set-proxy-for-cmd-under-windows/</a></li>
+</ul>
+<h1 id="vscode"><a href="#vscode" class="headerlink" title="vscode"></a>vscode</h1><h2 id="vscode快捷键"><a href="#vscode快捷键" class="headerlink" title="vscode快捷键"></a>vscode快捷键</h2><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctrl+shift P</span><br><span class="line">ctrl + [ 批量左缩进</span><br><span class="line">ctrl + ] 批量右缩进</span><br></pre></td></tr></table></figure></code></pre><h2 id="vscode-插入作者信息"><a href="#vscode-插入作者信息" class="headerlink" title="vscode 插入作者信息"></a>vscode 插入作者信息</h2><ul>
+<li>方法1 KoroFileHeader【2022/9/18亲测可行】<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">安装KoroFileHeader</span><br><span class="line">设置输入fileheader，选customMade的setting.json打开</span><br><span class="line">&quot;fileheader.customMade&quot;: &#123;</span><br><span class="line">    &quot;Descripttion&quot;:&quot;&quot;,</span><br><span class="line">    &quot;version&quot;:&quot;&quot;,</span><br><span class="line">    &quot;Author&quot;:&quot;XXX&quot;,</span><br><span class="line">    &quot;Date&quot;:&quot;Do not edit&quot;,</span><br><span class="line">    &quot;LastEditors&quot;:&quot;XXX&quot;,</span><br><span class="line">    &quot;LastEditTime&quot;:&quot;Do not Edit&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="vscode-powershell使用不了conda-activate"><a href="#vscode-powershell使用不了conda-activate" class="headerlink" title="vscode powershell使用不了conda activate"></a>vscode powershell使用不了conda activate</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入</span><br><span class="line">get-ExecutionPolicy</span><br><span class="line">set-ExecutionPolicy RemoteSigned </span><br><span class="line">Y </span><br><span class="line">get-ExecutionPolicy</span><br></pre></td></tr></table></figure>
+
+<p>参考：<a href="https://blog.csdn.net/qq_42951560/article/details/123859735" target="_blank" rel="noopener">https://blog.csdn.net/qq_42951560/article/details/123859735</a></p>
+<h2 id="vscode-windows终端设置为git-bash"><a href="#vscode-windows终端设置为git-bash" class="headerlink" title="vscode windows终端设置为git bash"></a>vscode windows终端设置为git bash</h2><p>设置输入shell:windows, 在setting.json中编辑</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&quot;terminal.integrated.profiles.windows&quot;: &#123;</span><br><span class="line">   &quot;GitBash&quot;: &#123;</span><br><span class="line">      //&quot;source&quot;: &quot;Git Bash&quot;</span><br><span class="line">      &quot;path&quot;: [&quot;D:\\appinstall\\Git\\bin\\bash.exe&quot;],</span><br><span class="line">      //gitbash是git bash软件安装位置，而不是which git或者which bash</span><br><span class="line">      &quot;args&quot;: []</span><br><span class="line">   &#125;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;terminal.integrated.defaultProfile.windows&quot;: &quot;GitBash&quot; //不要使用Git Bash，可以使用Git-Bash</span><br></pre></td></tr></table></figure>
+
+<p>重启vscode</p>
+<ul>
+<li>参考<br><a href="https://www.cnblogs.com/remixnameless/p/14826532.html" target="_blank" rel="noopener">https://www.cnblogs.com/remixnameless/p/14826532.html</a><br><a href="https://blog.csdn.net/qq_50090137/article/details/120092877" target="_blank" rel="noopener">https://blog.csdn.net/qq_50090137/article/details/120092877</a><h2 id="连接远程服务器"><a href="#连接远程服务器" class="headerlink" title="连接远程服务器"></a>连接远程服务器</h2></li>
+</ul>
+<ol>
+<li>安装插件remote-ssh</li>
+<li>点configure,选择ssh,配置和链接远程服务器<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3></li>
+</ol>
+<ul>
+<li><p>问题1</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Failed to install &apos;ms-vscode-remote.remote-ssh&apos;.</span><br></pre></td></tr></table></figure>
+
+<p> 解决：<br> 安装最新的vscode</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://zhuanlan.zhihu.com/p/141344165" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/141344165</a></p>
+</li>
+</ul>
 
       
 
@@ -759,25 +891,78 @@
         
         <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
         <h1 id="厨具"><a href="#厨具" class="headerlink" title="厨具"></a>厨具</h1><p>电磁炉：美的<br>炒锅：美的、28cm<br>汤锅：九阳、28cm</p>
-<h1 id="调味料"><a href="#调味料" class="headerlink" title="调味料"></a>调味料</h1><p>油 酱油 耗油 料酒<br>盐 白砂糖 玉米淀粉<br>生姜 蒜</p>
-<table>
+<h1 id="调味料"><a href="#调味料" class="headerlink" title="调味料"></a>调味料</h1><table>
 <tr>
-<td><img src="/assets/img/cook/tiaowei/5.jpg"></td>
-<td><img src="/assets/img/cook/tiaowei/4.jpg"></td>
-<td><img src="/assets/img/cook/tiaowei/7.jpg"></td>
-<td><img src="/assets/img/cook/tiaowei/6.jpg"></td>
+<td><img src="/assets/img/cook/tiaowei/5.jpg">油900ml 17.9</td>
+<td><img src="/assets/img/cook/tiaowei/4.jpg">酱油380ml 7.8</td>
+<td><img src="/assets/img/cook/tiaowei/7.jpg">耗油520g 6.9</td>
+<td><img src="/assets/img/cook/tiaowei/6.jpg">料酒800ml 5.5</td>
 </tr>
 <tr>
-<td><img src="/assets/img/cook/tiaowei/0.jpg"></td>
-<td><img src="/assets/img/cook/tiaowei/3.jpg"></td>
-<td><img src="/assets/img/cook/tiaowei/2.jpg"></td>
+<td><img src="/assets/img/cook/tiaowei/0.jpg">盐250g 2</td>
+<td><img src="/assets/img/cook/tiaowei/3.jpg">白砂糖400g 6.9</td>
+<td><img src="/assets/img/cook/tiaowei/2.jpg">玉米淀粉200g 3.89</td>
 </tr>
 <tr>
-<td><img src="/assets/img/cook/tiaowei/1.jpg"></td>
-<td><img src="/assets/img/cook/tiaowei/8.jpg"></td>
+<td><img src="/assets/img/cook/tiaowei/1.jpg">生姜300g 4.39</td>
+<td><img src="/assets/img/cook/tiaowei/8.jpg">蒜250g 3.99</td>
 </tr>
 </table>
 
+<h1 id="材料价格"><a href="#材料价格" class="headerlink" title="材料价格"></a>材料价格</h1><table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/0.jpg">泡面5包 15.9</td>
+<td><img src="/assets/img/cook/cailiao/14.jpg">大米5kg 29.8</td>
+</tr>
+<tr>
+<td><img src="/assets/img/cook/cailiao/2.jpg">牛奶180ml 2.49</td>
+<td><img src="/assets/img/cook/cailiao/13.jpg">酸奶250g 7.7</td>
+</tr>
+<tr>
+<td><img src="/assets/img/cook/cailiao/17.jpg">金针菇150g 1.99</td>
+<td><img src="/assets/img/cook/cailiao/26.jpg">海鲜菇200g 4.19</td>
+</tr>
+<tr>
+<td><img src="/assets/img/cook/cailiao/9.jpg">虾饺100g 4.9</td>
+<td><img src="/assets/img/cook/cailiao/12.jpg">火锅丸子400g  12.9</td>
+<td><img src="/assets/img/cook/cailiao/20.jpg">虾滑100g 9.9</td>
+<td><img src="/assets/img/cook/cailiao/22.jpg">鸡肉香肠270g 6.9</td>
+<td><img src="/assets/img/cook/cailiao/23.jpg">香肠200g 4.9</td>
+<td><img src="/assets/img/cook/cailiao/30.jpg">玉米香肠270g 8.9</td>
+</tr>
+<tr>
+<td><img src="/assets/img/cook/cailiao/27.jpg">鸡蛋26个 18.9</td>
+<td><img src="/assets/img/cook/cailiao/1.jpg">肥牛卷300g 19.9</td>
+<td><img src="/assets/img/cook/cailiao/4.jpg">鸡翅中400g 23.8</td>
+<td><img src="/assets/img/cook/cailiao/11.jpg">牛肉150g 18.8</td>
+<td><img src="/assets/img/cook/cailiao/16.jpg">培根150g 15.9</td>
+<td><img src="/assets/img/cook/cailiao/29.jpg">瘦肉250g 15.8</td>
+</tr>
+<tr>
+<td><img src="/assets/img/cook/cailiao/3.jpg">娃娃菜550g 3.59</td>
+<td><img src="/assets/img/cook/cailiao/6.jpg">冬瓜500g 2.99</td>
+<td><img src="/assets/img/cook/cailiao/7.jpg">包菜750g 3.79</td>
+<td><img src="/assets/img/cook/cailiao/15.jpg">番茄500g 4.99</td>
+<td><img src="/assets/img/cook/cailiao/18.jpg">小青菜300g 3.99</td>
+<td><img src="/assets/img/cook/cailiao/19.jpg">生菜500g 4.99</td>
+<td><img src="/assets/img/cook/cailiao/21.jpg">小白菜300g 3.99</td>
+<td><img src="/assets/img/cook/cailiao/24.jpg">黄瓜600g 5.89</td>
+<td><img src="/assets/img/cook/cailiao/28.jpg">丝瓜350g 4.59</td>
+</tr>
+<tr>
+<td><img src="/assets/img/cook/cailiao/5.jpg">豆腐380g 3.59</td>
+</tr>
+<tr>
+<td><img src="/assets/img/cook/cailiao/8.jpg">花甲500g 14.8</td>
+</tr>
+<tr>
+<td><img src="/assets/img/cook/cailiao/10.jpg">紫菜30g 9.9</td>
+</tr>
+<tr>
+<td><img src="/assets/img/cook/cailiao/25.jpg">芒果500g 12.9</td>
+</tr>
+
+</table>
 
 <h1 id="菜谱"><a href="#菜谱" class="headerlink" title="菜谱"></a>菜谱</h1><h2 id="1-蒸饺子和鸡蛋"><a href="#1-蒸饺子和鸡蛋" class="headerlink" title="1.蒸饺子和鸡蛋"></a>1.蒸饺子和鸡蛋</h2><ul>
 <li><p>材料<br>饺子、鸡蛋</p>
@@ -1493,104 +1678,209 @@
 
 </li>
 </ul>
-<h2 id="27-丝瓜鸡蛋炒肉"><a href="#27-丝瓜鸡蛋炒肉" class="headerlink" title="27. 丝瓜鸡蛋炒肉"></a>27. 丝瓜鸡蛋炒肉</h2><ul>
+<h2 id="27-丝瓜鸡蛋炒肉【推荐】"><a href="#27-丝瓜鸡蛋炒肉【推荐】" class="headerlink" title="27. 丝瓜鸡蛋炒肉【推荐】"></a>27. 丝瓜鸡蛋炒肉【推荐】</h2><ul>
 <li><p>材料<br>油、酱油、盐、糖、耗油、淀粉<br>丝瓜、鸡蛋、瘦肉</p>
 <table>
 <tr>
-<td><img src="/assets/img/cook/cailiao/11.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/28.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/29.jpg"></td>
 <td><img src="/assets/img/cook/cailiao/27.jpg"></td>
 </tr>
 </table>
 </li>
-<li><p>步骤<br>瘦肉切片、放糖、盐、耗油、酱油、油、淀粉腌制25min<br>丝瓜削皮切块、鸡蛋打散<br>炒锅放油煎蛋，煎好捞出<br>炒锅倒入瘦肉，炒八分熟捞出<br>炒锅放油炒丝瓜，加一点水炒，加一点盐、耗油、酱油调味<br>丝瓜八分熟倒入鸡蛋和瘦肉，加一点水炒</p>
+<li><p>步骤<br>瘦肉切片、放糖、盐、耗油、酱油、油、淀粉腌制25min<br>丝瓜削皮切块、鸡蛋打散<br>炒锅放油煎蛋，煎好捞出<br>炒锅倒入瘦肉，炒八分熟捞出<br>炒锅放油炒丝瓜，加一点水炒，加一点盐、耗油、酱油调味<br>丝瓜变黄倒入鸡蛋和瘦肉，加一点水炒</p>
 <table>
 <tr>
-<td><img src="/assets/img/cook/process/w8/1.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/4.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/10.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/5.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/16.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/17.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/18.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/19.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/39.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/65.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/40.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/41.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/42.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/43.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/44.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/45.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/46.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/47.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/53.jpg"></td>
 </tr>
 </table>
 
 </li>
 </ul>
-<h2 id="28-丝瓜鸡蛋汤"><a href="#28-丝瓜鸡蛋汤" class="headerlink" title="28. 丝瓜鸡蛋汤"></a>28. 丝瓜鸡蛋汤</h2><ul>
+<h3 id="变种1：丝瓜鸡蛋香肠炒肉"><a href="#变种1：丝瓜鸡蛋香肠炒肉" class="headerlink" title="变种1：丝瓜鸡蛋香肠炒肉"></a>变种1：丝瓜鸡蛋香肠炒肉</h3><ul>
+<li><p>材料<br>油、酱油、盐、糖、耗油、淀粉<br>丝瓜、鸡蛋、瘦肉、香肠</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/28.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/29.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/30.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/27.jpg"></td>
+</tr>
+</table>
+</li>
+<li><p>步骤<br>瘦肉和香肠切片、放糖、盐、耗油、酱油、油、淀粉腌制25min<br>丝瓜削皮切块、鸡蛋打散<br>炒锅放油煎蛋，煎好捞出<br>炒锅倒入瘦肉和香肠，炒八分熟捞出<br>炒锅放油炒丝瓜，加一点水炒，加一点盐、耗油、酱油调味<br>丝瓜变黄倒入鸡蛋和瘦肉和香肠，加一点水炒</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w9/17.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/18.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/19.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/20.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/21.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/22.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/23.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/24.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/25.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/26.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/37.jpg"></td>
+</tr>
+</table>
+
+</li>
+</ul>
+<h2 id="28-丝瓜鸡蛋瘦肉汤【推荐】"><a href="#28-丝瓜鸡蛋瘦肉汤【推荐】" class="headerlink" title="28. 丝瓜鸡蛋瘦肉汤【推荐】"></a>28. 丝瓜鸡蛋瘦肉汤【推荐】</h2><ul>
+<li><p>材料<br>油、酱油、盐、糖、耗油、淀粉<br>丝瓜、瘦肉、鸡蛋</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/28.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/29.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/27.jpg"></td>
+</tr>
+</table>
+</li>
+<li><p>步骤<br>瘦肉切片、放糖、盐、耗油、酱油、油、多点淀粉和匀，腌制25min<br>丝瓜削皮切块泡水、鸡蛋打散【或者煎荷包蛋也行】<br>炒锅放油煎蛋，煎好捞出<br>炒锅放油炒丝瓜，变黄加水<br>水沸腾后，放瘦肉<br>肉八分熟倒入鸡蛋<br>加一点酱油和盐调味<br>盖上锅盖焖五分钟关火</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w9/1.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/2.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/10.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/11.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/12.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/13.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/14.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/15.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/16.jpg"></td>
+</tr>
+</table>
+
+</li>
+</ul>
+<h3 id="变种1：丝瓜鸡蛋汤"><a href="#变种1：丝瓜鸡蛋汤" class="headerlink" title="变种1：丝瓜鸡蛋汤"></a>变种1：丝瓜鸡蛋汤</h3><ul>
 <li><p>材料<br>油、酱油、盐<br>丝瓜、鸡蛋</p>
 <table>
 <tr>
-<td><img src="/assets/img/cook/cailiao/11.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/28.jpg"></td>
 <td><img src="/assets/img/cook/cailiao/27.jpg"></td>
 </tr>
 </table>
 </li>
-<li><p>步骤<br>丝瓜削皮切块、鸡蛋打散<br>炒锅放油煎蛋，煎好捞出<br>炒锅放油炒丝瓜，加水<br>倒入鸡蛋，加一点酱油和盐调味<br>盖上锅盖焖三分钟关火</p>
+<li><p>步骤<br>丝瓜削皮切块、鸡蛋打散<br>炒锅放油煎蛋，煎好捞出<br>炒锅放油炒丝瓜，变黄加水<br>倒入鸡蛋，加一点酱油和盐调味<br>盖上锅盖焖三分钟关火</p>
 <table>
 <tr>
-<td><img src="/assets/img/cook/process/w8/1.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/4.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/10.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/5.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/16.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/17.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/18.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/19.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/48.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/49.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/50.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/51.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/52.jpg"></td>
 </tr>
 </table>
 
 </li>
 </ul>
-<h2 id="29-瘦肉丝瓜汤"><a href="#29-瘦肉丝瓜汤" class="headerlink" title="29. 瘦肉丝瓜汤"></a>29. 瘦肉丝瓜汤</h2><ul>
+<h3 id="变种2：丝瓜瘦肉汤"><a href="#变种2：丝瓜瘦肉汤" class="headerlink" title="变种2：丝瓜瘦肉汤"></a>变种2：丝瓜瘦肉汤</h3><ul>
 <li><p>材料<br>油、酱油、盐、糖、耗油、淀粉<br>丝瓜、瘦肉</p>
 <table>
 <tr>
-<td><img src="/assets/img/cook/cailiao/11.jpg"></td>
-<td><img src="/assets/img/cook/cailiao/27.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/28.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/29.jpg"></td>
 </tr>
 </table>
 </li>
-<li><p>步骤<br>瘦肉切片、放糖、盐、耗油、酱油、油、多点淀粉和匀，腌制25min<br>丝瓜削皮切块泡水<br>炒锅放油放水沸腾后，放瘦肉<br>肉八分熟放丝瓜<br>加盐、酱油调味</p>
+<li><p>步骤<br>瘦肉切片、放糖、盐、耗油、酱油、油、多点淀粉和匀，腌制25min<br>丝瓜削皮切块泡水<br>炒锅放油放水沸腾后，放瘦肉<br>肉八分熟放丝瓜【后放丝瓜很难熟】<br>加盐、酱油调味</p>
 <table>
 <tr>
-<td><img src="/assets/img/cook/process/w8/1.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/4.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/10.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/5.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/16.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/17.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/18.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/19.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/57.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/58.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/59.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/60.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/62.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/63.jpg"></td>
 </tr>
 </table>
 
 </li>
 </ul>
-<h2 id="30-瘦肉蒸蛋"><a href="#30-瘦肉蒸蛋" class="headerlink" title="30. 瘦肉蒸蛋"></a>30. 瘦肉蒸蛋</h2><ul>
-<li><p>材料<br>油、酱油、盐、糖、耗油、淀粉<br>鸡蛋、瘦肉</p>
+<h3 id="变种3：丝瓜鸡蛋瘦肉香肠汤"><a href="#变种3：丝瓜鸡蛋瘦肉香肠汤" class="headerlink" title="变种3：丝瓜鸡蛋瘦肉香肠汤"></a>变种3：丝瓜鸡蛋瘦肉香肠汤</h3><ul>
+<li><p>材料<br>油、酱油、盐、糖、耗油、淀粉<br>丝瓜、瘦肉、鸡蛋、香肠</p>
 <table>
 <tr>
-<td><img src="/assets/img/cook/cailiao/11.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/28.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/29.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/30.jpg"></td>
 <td><img src="/assets/img/cook/cailiao/27.jpg"></td>
 </tr>
 </table>
 </li>
-<li><p>步骤<br>瘦肉切末、放糖、盐、耗油、酱油、油、淀粉腌制5min<br>两个鸡蛋和瘦肉，加水搅拌<br>放进汤锅蒸25min</p>
+<li><p>步骤<br>瘦肉和香肠切片、放糖、盐、耗油、酱油、油、多点淀粉和匀，腌制25min<br>丝瓜削皮切块泡水、鸡蛋打散【或者煎荷包蛋也行】<br>炒锅放油煎蛋，煎好捞出<br>炒锅放油炒丝瓜，变黄加水<br>水沸腾后，放瘦肉和香肠<br>肉八分熟倒入鸡蛋<br>加一点酱油和盐调味<br>盖上锅盖焖五分钟关火</p>
 <table>
 <tr>
-<td><img src="/assets/img/cook/process/w8/1.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/4.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/10.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/5.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/16.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/17.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/18.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/19.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/17.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/18.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/27.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/28.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/29.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/30.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/31.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/33.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/36.jpg"></td>
 </tr>
 </table>
 
+</li>
+</ul>
+<h2 id="29-瘦肉蒸蛋"><a href="#29-瘦肉蒸蛋" class="headerlink" title="29. 瘦肉蒸蛋"></a>29. 瘦肉蒸蛋</h2><ul>
+<li><p>材料<br>油、酱油、盐、糖、耗油、淀粉<br>鸡蛋、瘦肉</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/29.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/27.jpg"></td>
+</tr>
+</table>
+</li>
+<li><p>步骤<br>瘦肉切沫，放糖、盐、耗油、酱油、油、淀粉腌制5min<br>两个鸡蛋和瘦肉，加水搅拌<br>放进汤锅蒸25min</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w9/54.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/55.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/56.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/61.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/64.jpg"></td>
+</tr>
+</table>
+
+</li>
+</ul>
+<h2 id="30-肉沫蒸蛋"><a href="#30-肉沫蒸蛋" class="headerlink" title="30. 肉沫蒸蛋"></a>30. 肉沫蒸蛋</h2><ul>
+<li><p>材料<br>油、酱油、盐、淀粉<br>鸡蛋、瘦肉</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/29.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/27.jpg"></td>
+</tr>
+</table>
+</li>
+<li><p>步骤<br>鸡蛋加水1:1.5和盐搅拌，放汤锅蒸25min<br>瘦肉切沫，炒锅放油，倒入肉沫（如果肉之前没有剁碎，可以微熟捞出再剁碎）<br>放酱油、一点水炒<br>放淀粉继续炒<br>把肉沫放在蒸好的鸡蛋上</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w9/0.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/8.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/3.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/4.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/5.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/6.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/7.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/9.jpg"></td>
+</tr>
+</table>
 
 </li>
 </ul>
@@ -1598,24 +1888,43 @@
 <li><p>材料<br>油、酱油、盐、淀粉<br>瘦肉</p>
 <table>
 <tr>
-<td><img src="/assets/img/cook/cailiao/11.jpg"></td>
-<td><img src="/assets/img/cook/cailiao/27.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/29.jpg"></td>
 </tr>
 </table>
 </li>
-<li><p>步骤<br>瘦肉切末、放油、盐、酱油、清水、淀粉，搅拌腌制5min<br>放进汤锅蒸17min</p>
+<li><p>步骤<br>瘦肉切沫、放油、盐、酱油、清水、淀粉，搅拌腌制5min<br>放进汤锅蒸17min</p>
 <table>
 <tr>
-<td><img src="/assets/img/cook/process/w8/1.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/4.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/10.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/5.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/16.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/17.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/18.jpg"></td>
-<td><img src="/assets/img/cook/process/w8/19.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/66.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/67.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/68.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/69.jpg"></td>
 </tr>
 </table>
+
+</li>
+</ul>
+<h2 id="32-煎瘦肉和香肠"><a href="#32-煎瘦肉和香肠" class="headerlink" title="32. 煎瘦肉和香肠"></a>32. 煎瘦肉和香肠</h2><ul>
+<li><p>材料<br>油、酱油、料酒、盐<br>瘦肉、香肠</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/29.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/30.jpg"></td>
+</tr>
+</table>
+</li>
+<li><p>步骤<br>瘦肉和香肠切片<br>炒锅放油、放瘦肉和香肠<br>加料酒、酱油、盐拌匀<br>小火炒到金黄色出锅</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w9/32.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/34.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/35.jpg"></td>
+<td><img src="/assets/img/cook/process/w9/38.jpg"></td>
+</tr>
+</table>
+
+
+
 
 
 </li>
@@ -2112,99 +2421,6 @@
 
 
   
-    <article id="post-deecamp2021笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/08/09/deecamp2021笔记/">deecamp2021笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2021/08/09/deecamp2021笔记/" class="archive-article-date">
-  	<time datetime="2021-08-09T07:09:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-09</time>
-</a>
-
-	<a href="javascript:;" class="archive-article-date">
-		<i class="icon-smile icon"></i> 阅读数:<span id="/2021/08/09/deecamp2021笔记/" class="pageViews">0</span>次
-	</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        个人秘密笔记资料
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">secret</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">deecamp2021</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/比赛//" class="article-tag-list-link color3">比赛</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/09/deecamp2021笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -2377,6 +2593,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MMD</a>
               </li>
              
@@ -2386,10 +2606,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">secret</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2409,7 +2625,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
+                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2425,15 +2641,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2461,15 +2669,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2533,11 +2749,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2550,18 +2766,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">表情包</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sai</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ps</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2578,6 +2782,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">视觉小说</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">表情包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sai</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">

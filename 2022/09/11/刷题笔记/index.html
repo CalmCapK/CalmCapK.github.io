@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://calmcapK.github.io">
   <title>刷题笔记 | CalmCapK&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="知识点 c++    引用  函数用&amp;amp;传回多个参数 fun(int &amp;amp;a, TreeNode* &amp;amp; note){}  函数传二维数组 vector&amp;lt;vector&amp;gt;&amp;amp; board  STL  unordered_map 无序，查找问题，更加高效一些  示例1234unordered_map&amp;lt;int, list&amp;lt;pair&amp;lt;int,int&amp;g">
+  <meta name="description" content="leetcode二叉树二叉树+dfs 题目98. Validate Binary Search Tree 题意：给一颗二叉树，左子树需要比当前节点小，右子树需要比当前节点大，判断是否满足条件 思路1：从下到上回溯，每个节点的条件是左子树最大值lmx&amp;lt;当前节点&amp;lt;右子树最小值rmi，但是返回时，整个子树最小值为lmi，最大值为rmx，所以需要存储每个子树最小值和最大值 时间复杂度：n 空间">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="刷题笔记">
 <meta property="og:url" content="https://calmcapK.github.io/2022/09/11/刷题笔记/index.html">
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
-<meta property="og:description" content="知识点 c++    引用  函数用&amp;amp;传回多个参数 fun(int &amp;amp;a, TreeNode* &amp;amp; note){}  函数传二维数组 vector&amp;lt;vector&amp;gt;&amp;amp; board  STL  unordered_map 无序，查找问题，更加高效一些  示例1234unordered_map&amp;lt;int, list&amp;lt;pair&amp;lt;int,int&amp;g">
+<meta property="og:description" content="leetcode二叉树二叉树+dfs 题目98. Validate Binary Search Tree 题意：给一颗二叉树，左子树需要比当前节点小，右子树需要比当前节点大，判断是否满足条件 思路1：从下到上回溯，每个节点的条件是左子树最大值lmx&amp;lt;当前节点&amp;lt;右子树最小值rmi，但是返回时，整个子树最小值为lmi，最大值为rmx，所以需要存储每个子树最小值和最大值 时间复杂度：n 空间">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2022-09-17T17:40:24.500Z">
+<meta property="og:updated_time" content="2022-09-17T19:38:44.822Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="刷题笔记">
-<meta name="twitter:description" content="知识点 c++    引用  函数用&amp;amp;传回多个参数 fun(int &amp;amp;a, TreeNode* &amp;amp; note){}  函数传二维数组 vector&amp;lt;vector&amp;gt;&amp;amp; board  STL  unordered_map 无序，查找问题，更加高效一些  示例1234unordered_map&amp;lt;int, list&amp;lt;pair&amp;lt;int,int&amp;g">
+<meta name="twitter:description" content="leetcode二叉树二叉树+dfs 题目98. Validate Binary Search Tree 题意：给一颗二叉树，左子树需要比当前节点小，右子树需要比当前节点大，判断是否满足条件 思路1：从下到上回溯，每个节点的条件是左子树最大值lmx&amp;lt;当前节点&amp;lt;右子树最小值rmi，但是返回时，整个子树最小值为lmi，最大值为rmx，所以需要存储每个子树最小值和最大值 时间复杂度：n 空间">
   
     <link rel="alternative" href="/atom.xml" title="CalmCapK&#39;s Blog" type="application/atom+xml">
   
@@ -204,43 +204,7 @@
       
         
         <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
-        <h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><ul>
-<li><p>c++  </p>
-<ul>
-<li><p>引用<br>  函数用&amp;传回多个参数 fun(int &amp;a, TreeNode* &amp; note){}<br>  函数传二维数组 vector&lt;vector<char>&gt;&amp; board</char></p>
-</li>
-<li><p>STL</p>
-<ul>
-<li><p>unordered_map 无序，查找问题，更加高效一些</p>
-<ul>
-<li>示例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">unordered_map&lt;int, list&lt;pair&lt;int,int&gt;&gt;::iterator&gt;mp;</span><br><span class="line">mp.find(key)!=mp.end()</span><br><span class="line">mp[key]-&gt;second;</span><br><span class="line">mp.erase(k);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>map</p>
-<ul>
-<li>红黑树，有顺序要求的问题，用map会更高效一些</li>
-</ul>
-</li>
-<li><p>list 双向链表</p>
-<ul>
-<li>示例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">list&lt;pair&lt;int, int&gt;&gt;l;</span><br><span class="line">l.splice(l.begin(), l, mp[key]);</span><br><span class="line">l.erase(mp[key]);</span><br><span class="line">l.push_front(make_pair(key, value));</span><br><span class="line">l.begin();</span><br><span class="line">l.rbegin()-&gt;first</span><br><span class="line">l.pop_back();</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>python</p>
-<ul>
-<li>生成值为0的二维数组<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[[0] * m] * n 表示的是指向 [0]*m 这个列表的引用</span><br><span class="line">[[0] * m for _ in range(n)] 这才正确</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="leetcode"><a href="#leetcode" class="headerlink" title="leetcode"></a>leetcode</h1><h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><h3 id="二叉树-dfs"><a href="#二叉树-dfs" class="headerlink" title="二叉树+dfs"></a>二叉树+dfs</h3><ul>
+        <h1 id="leetcode"><a href="#leetcode" class="headerlink" title="leetcode"></a>leetcode</h1><h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><h3 id="二叉树-dfs"><a href="#二叉树-dfs" class="headerlink" title="二叉树+dfs"></a>二叉树+dfs</h3><ul>
 <li>题目98. Validate Binary Search Tree<ul>
 <li>题意：给一颗二叉树，左子树需要比当前节点小，右子树需要比当前节点大，判断是否满足条件</li>
 <li>思路1：从下到上回溯，每个节点的条件是左子树最大值lmx&lt;当前节点&lt;右子树最小值rmi，但是返回时，整个子树最小值为lmi，最大值为rmx，所以需要存储每个子树最小值和最大值<ul>
@@ -448,6 +412,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2022/09/18/编程语言笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          编程语言笔记
+        
+      </div>
+    </a>
+  
   
     <a href="/2022/09/11/配置电脑笔记/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">配置电脑笔记</div>
@@ -477,7 +450,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#知识点"><span class="toc-number">1.</span> <span class="toc-text">知识点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#leetcode"><span class="toc-number">2.</span> <span class="toc-text">leetcode</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树"><span class="toc-number">2.1.</span> <span class="toc-text">二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#二叉树-dfs"><span class="toc-number">2.1.1.</span> <span class="toc-text">二叉树+dfs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链表"><span class="toc-number">2.2.</span> <span class="toc-text">链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#双向链表"><span class="toc-number">2.2.1.</span> <span class="toc-text">双向链表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图"><span class="toc-number">2.3.</span> <span class="toc-text">图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图-dfs"><span class="toc-number">2.3.1.</span> <span class="toc-text">图+dfs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态规划"><span class="toc-number">2.4.</span> <span class="toc-text">动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#最大最小dp-滚动数组"><span class="toc-number">2.4.1.</span> <span class="toc-text">最大最小dp+滚动数组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板"><span class="toc-number">2.5.</span> <span class="toc-text">模板</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#leetcode"><span class="toc-number">1.</span> <span class="toc-text">leetcode</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树"><span class="toc-number">1.1.</span> <span class="toc-text">二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#二叉树-dfs"><span class="toc-number">1.1.1.</span> <span class="toc-text">二叉树+dfs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链表"><span class="toc-number">1.2.</span> <span class="toc-text">链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#双向链表"><span class="toc-number">1.2.1.</span> <span class="toc-text">双向链表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图"><span class="toc-number">1.3.</span> <span class="toc-text">图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图-dfs"><span class="toc-number">1.3.1.</span> <span class="toc-text">图+dfs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态规划"><span class="toc-number">1.4.</span> <span class="toc-text">动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#最大最小dp-滚动数组"><span class="toc-number">1.4.1.</span> <span class="toc-text">最大最小dp+滚动数组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板"><span class="toc-number">1.5.</span> <span class="toc-text">模板</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -684,6 +657,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MMD</a>
               </li>
              
@@ -693,10 +670,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">secret</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -716,7 +689,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
+                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -732,15 +705,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -768,15 +733,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -840,11 +813,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -857,18 +830,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">表情包</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sai</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ps</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -885,6 +846,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">视觉小说</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">表情包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sai</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
 <meta property="og:description" content="软件安装日常必备qq微信chrome百度云盘电脑管家winrarformatfactoryobs studio  potplayerhttps://potplayer.daum.net/  办公必备腾讯会议umeeteasyconnect 学习必备readpaper网易有道词典：https://cidian.youdao.com/#/语雀：https://www.yuque.com/downloa">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2022-09-11T16:13:57.829Z">
+<meta property="og:updated_time" content="2022-09-17T19:41:18.814Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="配置电脑笔记">
 <meta name="twitter:description" content="软件安装日常必备qq微信chrome百度云盘电脑管家winrarformatfactoryobs studio  potplayerhttps://potplayer.daum.net/  办公必备腾讯会议umeeteasyconnect 学习必备readpaper网易有道词典：https://cidian.youdao.com/#/语雀：https://www.yuque.com/downloa">
@@ -233,6 +233,36 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">reg delete &quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;&quot; /f</span><br><span class="line">taskkill /f /im explorer.exe &amp; start explorer.exe</span><br></pre></td></tr></table></figure>
 
 <p>双击运行</p>
+<h1 id="cmd和git添加v2ray代理【好像没用】"><a href="#cmd和git添加v2ray代理【好像没用】" class="headerlink" title="cmd和git添加v2ray代理【好像没用】"></a>cmd和git添加v2ray代理【好像没用】</h1><ul>
+<li>参考<br><a href="https://zhul.in/2020/03/03/set-proxy-for-cmd-under-windows/" target="_blank" rel="noopener">https://zhul.in/2020/03/03/set-proxy-for-cmd-under-windows/</a></li>
+</ul>
+<h1 id="vscode"><a href="#vscode" class="headerlink" title="vscode"></a>vscode</h1><h2 id="vscode快捷键"><a href="#vscode快捷键" class="headerlink" title="vscode快捷键"></a>vscode快捷键</h2><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctrl+shift P</span><br><span class="line">ctrl + [ 批量左缩进</span><br><span class="line">ctrl + ] 批量右缩进</span><br></pre></td></tr></table></figure></code></pre><h2 id="vscode-插入作者信息"><a href="#vscode-插入作者信息" class="headerlink" title="vscode 插入作者信息"></a>vscode 插入作者信息</h2><ul>
+<li>方法1 KoroFileHeader【2022/9/18亲测可行】<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">安装KoroFileHeader</span><br><span class="line">设置输入fileheader，选customMade的setting.json打开</span><br><span class="line">&quot;fileheader.customMade&quot;: &#123;</span><br><span class="line">    &quot;Descripttion&quot;:&quot;&quot;,</span><br><span class="line">    &quot;version&quot;:&quot;&quot;,</span><br><span class="line">    &quot;Author&quot;:&quot;XXX&quot;,</span><br><span class="line">    &quot;Date&quot;:&quot;Do not edit&quot;,</span><br><span class="line">    &quot;LastEditors&quot;:&quot;XXX&quot;,</span><br><span class="line">    &quot;LastEditTime&quot;:&quot;Do not Edit&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="vscode-powershell使用不了conda-activate"><a href="#vscode-powershell使用不了conda-activate" class="headerlink" title="vscode powershell使用不了conda activate"></a>vscode powershell使用不了conda activate</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入</span><br><span class="line">get-ExecutionPolicy</span><br><span class="line">set-ExecutionPolicy RemoteSigned </span><br><span class="line">Y </span><br><span class="line">get-ExecutionPolicy</span><br></pre></td></tr></table></figure>
+
+<p>参考：<a href="https://blog.csdn.net/qq_42951560/article/details/123859735" target="_blank" rel="noopener">https://blog.csdn.net/qq_42951560/article/details/123859735</a></p>
+<h2 id="vscode-windows终端设置为git-bash"><a href="#vscode-windows终端设置为git-bash" class="headerlink" title="vscode windows终端设置为git bash"></a>vscode windows终端设置为git bash</h2><p>设置输入shell:windows, 在setting.json中编辑</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&quot;terminal.integrated.profiles.windows&quot;: &#123;</span><br><span class="line">   &quot;GitBash&quot;: &#123;</span><br><span class="line">      //&quot;source&quot;: &quot;Git Bash&quot;</span><br><span class="line">      &quot;path&quot;: [&quot;D:\\appinstall\\Git\\bin\\bash.exe&quot;],</span><br><span class="line">      //gitbash是git bash软件安装位置，而不是which git或者which bash</span><br><span class="line">      &quot;args&quot;: []</span><br><span class="line">   &#125;</span><br><span class="line">&#125;,</span><br><span class="line">&quot;terminal.integrated.defaultProfile.windows&quot;: &quot;GitBash&quot; //不要使用Git Bash，可以使用Git-Bash</span><br></pre></td></tr></table></figure>
+
+<p>重启vscode</p>
+<ul>
+<li>参考<br><a href="https://www.cnblogs.com/remixnameless/p/14826532.html" target="_blank" rel="noopener">https://www.cnblogs.com/remixnameless/p/14826532.html</a><br><a href="https://blog.csdn.net/qq_50090137/article/details/120092877" target="_blank" rel="noopener">https://blog.csdn.net/qq_50090137/article/details/120092877</a><h2 id="连接远程服务器"><a href="#连接远程服务器" class="headerlink" title="连接远程服务器"></a>连接远程服务器</h2></li>
+</ul>
+<ol>
+<li>安装插件remote-ssh</li>
+<li>点configure,选择ssh,配置和链接远程服务器<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3></li>
+</ol>
+<ul>
+<li><p>问题1</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Failed to install &apos;ms-vscode-remote.remote-ssh&apos;.</span><br></pre></td></tr></table></figure>
+
+<p> 解决：<br> 安装最新的vscode</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://zhuanlan.zhihu.com/p/141344165" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/141344165</a></p>
+</li>
+</ul>
 
       
 
@@ -395,7 +425,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#软件安装"><span class="toc-number">1.</span> <span class="toc-text">软件安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#日常必备"><span class="toc-number">1.1.</span> <span class="toc-text">日常必备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#办公必备"><span class="toc-number">1.2.</span> <span class="toc-text">办公必备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#学习必备"><span class="toc-number">1.3.</span> <span class="toc-text">学习必备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发必备"><span class="toc-number">1.4.</span> <span class="toc-text">开发必备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成必备"><span class="toc-number">1.5.</span> <span class="toc-text">生成必备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#游戏娱乐"><span class="toc-number">1.6.</span> <span class="toc-text">游戏娱乐</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#win11"><span class="toc-number">2.</span> <span class="toc-text">win11</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#win11右键改回win10"><span class="toc-number">2.1.</span> <span class="toc-text">win11右键改回win10</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#win10右键改回win11"><span class="toc-number">2.2.</span> <span class="toc-text">win10右键改回win11</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#软件安装"><span class="toc-number">1.</span> <span class="toc-text">软件安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#日常必备"><span class="toc-number">1.1.</span> <span class="toc-text">日常必备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#办公必备"><span class="toc-number">1.2.</span> <span class="toc-text">办公必备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#学习必备"><span class="toc-number">1.3.</span> <span class="toc-text">学习必备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发必备"><span class="toc-number">1.4.</span> <span class="toc-text">开发必备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成必备"><span class="toc-number">1.5.</span> <span class="toc-text">生成必备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#游戏娱乐"><span class="toc-number">1.6.</span> <span class="toc-text">游戏娱乐</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#win11"><span class="toc-number">2.</span> <span class="toc-text">win11</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#win11右键改回win10"><span class="toc-number">2.1.</span> <span class="toc-text">win11右键改回win10</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#win10右键改回win11"><span class="toc-number">2.2.</span> <span class="toc-text">win10右键改回win11</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cmd和git添加v2ray代理【好像没用】"><span class="toc-number">3.</span> <span class="toc-text">cmd和git添加v2ray代理【好像没用】</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vscode"><span class="toc-number">4.</span> <span class="toc-text">vscode</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#vscode快捷键"><span class="toc-number">4.1.</span> <span class="toc-text">vscode快捷键</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vscode-插入作者信息"><span class="toc-number">4.2.</span> <span class="toc-text">vscode 插入作者信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vscode-powershell使用不了conda-activate"><span class="toc-number">4.3.</span> <span class="toc-text">vscode powershell使用不了conda activate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vscode-windows终端设置为git-bash"><span class="toc-number">4.4.</span> <span class="toc-text">vscode windows终端设置为git bash</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连接远程服务器"><span class="toc-number">4.5.</span> <span class="toc-text">连接远程服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题"><span class="toc-number">4.5.1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">4.5.2.</span> <span class="toc-text">参考</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -602,6 +632,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MMD</a>
               </li>
              
@@ -611,10 +645,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">secret</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -634,7 +664,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
+                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -650,15 +680,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -686,15 +708,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -758,11 +788,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -775,18 +805,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">表情包</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sai</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ps</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -803,6 +821,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">视觉小说</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">表情包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sai</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
