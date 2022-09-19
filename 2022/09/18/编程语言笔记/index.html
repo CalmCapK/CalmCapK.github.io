@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
 <meta property="og:description" content="c++引用函数用&amp;amp;传回多个参数 fun(int &amp;amp;a, TreeNode* &amp;amp; note){}函数传二维数组 vector&amp;lt;vector&amp;gt;&amp;amp; board STL unordered_map 无序，查找问题，更加高效一些  示例1234unordered_map&amp;lt;int, list&amp;lt;pair&amp;lt;int,int&amp;gt;&amp;gt;::iterat">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2022-09-19T01:08:47.455Z">
+<meta property="og:updated_time" content="2022-09-19T17:29:06.560Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编程语言笔记">
 <meta name="twitter:description" content="c++引用函数用&amp;amp;传回多个参数 fun(int &amp;amp;a, TreeNode* &amp;amp; note){}函数传二维数组 vector&amp;lt;vector&amp;gt;&amp;amp; board STL unordered_map 无序，查找问题，更加高效一些  示例1234unordered_map&amp;lt;int, list&amp;lt;pair&amp;lt;int,int&amp;gt;&amp;gt;::iterat">
@@ -230,22 +230,13 @@
 <h2 id="生成值为0的二维数组"><a href="#生成值为0的二维数组" class="headerlink" title="生成值为0的二维数组"></a>生成值为0的二维数组</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[[0] * m] * n 表示的是指向 [0]*m 这个列表的引用</span><br><span class="line">[[0] * m for _ in range(n)] 这才正确</span><br></pre></td></tr></table></figure>
 
 <h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><ul>
-<li><p>csv</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">写</span><br><span class="line">import csv</span><br><span class="line">with open(path, &apos;a+&apos;, newline=&apos;&apos;) as csvfile:</span><br><span class="line">    spamwriter = csv.writer(csvfile)</span><br><span class="line">    spamwriter.writerow(data)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>xml<br><a href="https://blog.csdn.net/wsp_1138886114/article/details/86576900" target="_blank" rel="noopener">https://blog.csdn.net/wsp_1138886114/article/details/86576900</a></p>
-</li>
-<li><p>xlsx</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">读</span><br><span class="line">import pandas as pd</span><br><span class="line">hdr = pd.read_excel(&quot;./label.xlsx&quot;, index_col=0) //index_col=0 不读首列</span><br><span class="line">label_list = hdr.iloc[i].tolist()</span><br><span class="line"></span><br><span class="line">写</span><br><span class="line">df = pd.DataFrame(output_list)</span><br><span class="line">df.to_excel(os.path.join(file_path, &quot;output.xlsx&quot;))</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>yml</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">with open(&quot;g.yml&quot;, &quot;r&quot;, encoding=&apos;utf-8&apos;) as cd</span><br><span class="line">    _cf = yaml.load(cd)</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>xml<br><a href="https://blog.csdn.net/wsp_1138886114/article/details/86576900" target="_blank" rel="noopener">https://blog.csdn.net/wsp_1138886114/article/details/86576900</a></li>
+<li>txt</li>
+<li>csv</li>
+<li>xlsx</li>
+<li>yml</li>
+<li>py</li>
 </ul>
-<h2 id="py文件作为配置文件"><a href="#py文件作为配置文件" class="headerlink" title="py文件作为配置文件"></a>py文件作为配置文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import importlib</span><br><span class="line">cfg = importlib.import_module(args.config.replace(&apos;.py&apos;, &apos;&apos;).replace(&apos;/&apos;,&apos;.&apos;))</span><br></pre></td></tr></table></figure>
-
-
 <h2 id="二维数组根据下标索引赋值"><a href="#二维数组根据下标索引赋值" class="headerlink" title="二维数组根据下标索引赋值"></a>二维数组根据下标索引赋值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">res = res.softmax(dim=-1) </span><br><span class="line">val, ind = res.topk(k) //ind: batch_size x topk</span><br><span class="line">output = np.zeros((batch_size, label_num) , dtype = float)) </span><br><span class="line">for i in range(batch_size):</span><br><span class="line">    //gpu tensor -&gt; cpu numpy</span><br><span class="line">    output[i][ind[i].cpu().detach().numpy().astype(int)] = 1</span><br></pre></td></tr></table></figure>
 
 <h2 id="函数生成变量赋值？"><a href="#函数生成变量赋值？" class="headerlink" title="函数生成变量赋值？"></a>函数生成变量赋值？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def fun():</span><br><span class="line">    dic = &#123;&#125;</span><br><span class="line">    return dic</span><br><span class="line"></span><br><span class="line">data = fun()</span><br></pre></td></tr></table></figure>
@@ -284,7 +275,13 @@
     </div>
     <div class="article-info article-info-index">
       
-      
+      <!--
+ * @Author: CalmCapK
+ * @Date: 2022-08-12 08:39:11
+ * @LastEditors: CalmCapK
+ * @LastEditTime: 2022-09-20 02:39:05
+-->
+
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -300,7 +297,13 @@
 		</ul>
 	</div>
 
-      
+      <!--
+ * @Author: CalmCapK
+ * @Date: 2022-08-12 08:39:11
+ * @LastEditors: CalmCapK
+ * @LastEditTime: 2022-09-20 02:39:09
+-->
+
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -375,6 +378,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2022/09/20/代码笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          代码笔记
+        
+      </div>
+    </a>
+  
   
     <a href="/2022/09/11/刷题笔记/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">刷题笔记</div>
@@ -404,7 +416,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#c"><span class="toc-number">1.</span> <span class="toc-text">c++</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#引用"><span class="toc-number">1.1.</span> <span class="toc-text">引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#STL"><span class="toc-number">1.2.</span> <span class="toc-text">STL</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#python"><span class="toc-number">2.</span> <span class="toc-text">python</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#知识"><span class="toc-number">2.1.</span> <span class="toc-text">知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成值为0的二维数组"><span class="toc-number">2.2.</span> <span class="toc-text">生成值为0的二维数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件操作"><span class="toc-number">2.3.</span> <span class="toc-text">文件操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#py文件作为配置文件"><span class="toc-number">2.4.</span> <span class="toc-text">py文件作为配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二维数组根据下标索引赋值"><span class="toc-number">2.5.</span> <span class="toc-text">二维数组根据下标索引赋值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数生成变量赋值？"><span class="toc-number">2.6.</span> <span class="toc-text">函数生成变量赋值？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#opencv无法读取中文路径"><span class="toc-number">2.7.</span> <span class="toc-text">opencv无法读取中文路径</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#c"><span class="toc-number">1.</span> <span class="toc-text">c++</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#引用"><span class="toc-number">1.1.</span> <span class="toc-text">引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#STL"><span class="toc-number">1.2.</span> <span class="toc-text">STL</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#python"><span class="toc-number">2.</span> <span class="toc-text">python</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#知识"><span class="toc-number">2.1.</span> <span class="toc-text">知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成值为0的二维数组"><span class="toc-number">2.2.</span> <span class="toc-text">生成值为0的二维数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件操作"><span class="toc-number">2.3.</span> <span class="toc-text">文件操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二维数组根据下标索引赋值"><span class="toc-number">2.4.</span> <span class="toc-text">二维数组根据下标索引赋值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数生成变量赋值？"><span class="toc-number">2.5.</span> <span class="toc-text">函数生成变量赋值？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#opencv无法读取中文路径"><span class="toc-number">2.6.</span> <span class="toc-text">opencv无法读取中文路径</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -611,10 +623,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MMD</a>
               </li>
              
@@ -627,15 +635,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">latex</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
+                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -651,11 +667,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -684,14 +700,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -727,15 +735,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">frp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
+                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -767,15 +767,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">procreate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ipad</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">frp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -795,11 +815,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
+                <a href="javascript:void(0)" class="js-tag color5">虚拟主播</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">配置</a>
+                <a href="javascript:void(0)" class="js-tag color4">vup</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -815,35 +835,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">虚拟主播</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vup</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">procreate</a>
+                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ipad</a>
+                <a href="javascript:void(0)" class="js-tag color3">配置</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">代码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">论文</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
+                <a href="javascript:void(0)" class="js-tag color2">大规模预训练</a>
               </li>
              
               <li class="article-tag-list-item">
