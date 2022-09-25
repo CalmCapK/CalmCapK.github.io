@@ -224,6 +224,10 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">secret</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">clip</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -305,7 +309,9 @@
       
         
         <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
-        <h1 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h1><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>函数用&amp;传回多个参数 fun(int &amp;a, TreeNode* &amp; note){}<br>函数传二维数组 vector&lt;vector<char>&gt;&amp; board</char></p>
+        <h1 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h1><h2 id="知识"><a href="#知识" class="headerlink" title="知识"></a>知识</h2><p>sort(nums.begin(), nums.end());</p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>函数用&amp;传回多个参数 fun(int &amp;a, TreeNode* &amp; note){}<br>函数传二维数组 vector&lt;vector<char>&gt;&amp; board</char></p>
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><p>bool cmp(string a, string b){<br>    return a &gt; b;<br>}<br>按照大到小排序</p>
 <h2 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h2><ul>
 <li><p>unordered_map 无序，查找问题，更加高效一些</p>
 <ul>
@@ -321,14 +327,25 @@
 <li><p>list 双向链表</p>
 <ul>
 <li>示例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">list&lt;pair&lt;int, int&gt;&gt;l;</span><br><span class="line">l.splice(l.begin(), l, mp[key]);</span><br><span class="line">l.erase(mp[key]);</span><br><span class="line">l.push_front(make_pair(key, value));</span><br><span class="line">l.begin();</span><br><span class="line">l.rbegin()-&gt;first</span><br><span class="line">l.pop_back();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>string 字符串</p>
+<ul>
+<li>示例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reverse(s.begin(), s.end());</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
 </li>
 </ul>
-<h1 id="python"><a href="#python" class="headerlink" title="python"></a>python</h1><h2 id="知识"><a href="#知识" class="headerlink" title="知识"></a>知识</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python赋值只是引用</span><br><span class="line">list.index(x)返回list第一个x位置</span><br></pre></td></tr></table></figure>
+<h1 id="python"><a href="#python" class="headerlink" title="python"></a>python</h1><h2 id="知识-1"><a href="#知识-1" class="headerlink" title="知识"></a>知识</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python赋值只是引用, 函数从参数返回注意要把结果放在原来参数的存储位置</span><br><span class="line">list.index(x)返回list第一个x位置</span><br><span class="line">for i in range((n-1)/2, -1, -1): 从大到小计算</span><br></pre></td></tr></table></figure>
+
+<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p>下次一层调用上一层</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">方法一</span><br><span class="line">sys.path.append(os.path.join(os.path.abspath(os.path.dirname(__file__)), &apos;..&apos;))</span><br><span class="line">方法二</span><br><span class="line">export PYTHONPATH=&quot;$PYTHONPATH:$PWD&quot; 好像没用 会话没了就没了</span><br><span class="line">echo $PYTHONPATH</span><br></pre></td></tr></table></figure>
 
 <h2 id="生成值为0的二维数组"><a href="#生成值为0的二维数组" class="headerlink" title="生成值为0的二维数组"></a>生成值为0的二维数组</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[[0] * m] * n 表示的是指向 [0]*m 这个列表的引用</span><br><span class="line">[[0] * m for _ in range(n)] 这才正确</span><br></pre></td></tr></table></figure>
+
+<h2 id="排序-1"><a href="#排序-1" class="headerlink" title="排序"></a>排序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def comp(a, b):</span><br><span class="line">    an = a+b</span><br><span class="line">    bn = b+a</span><br><span class="line">    if an &gt; bn: return -1</span><br><span class="line">    elif an &lt; bn: return 1</span><br><span class="line">    else: return 0</span><br><span class="line"></span><br><span class="line">ans.sort(key=functools.cmp_to_key(comp))</span><br><span class="line">ans.sort(cmp = lambda x,y: cmp(y+x, x+y))</span><br><span class="line">ans.sort(key=functools.cmp_to_key(lambda x,y: cmp(y+x, x+y)))</span><br><span class="line"></span><br><span class="line">ans = sorted(ans) #需要赋值，只是sorted不改变存储位置</span><br></pre></td></tr></table></figure>
 
 <h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><ul>
 <li>xml<br><a href="https://blog.csdn.net/wsp_1138886114/article/details/86576900" target="_blank" rel="noopener">https://blog.csdn.net/wsp_1138886114/article/details/86576900</a></li>
@@ -336,6 +353,7 @@
 <li>csv</li>
 <li>xlsx</li>
 <li>yml</li>
+<li>json</li>
 <li>py</li>
 </ul>
 <h2 id="二维数组根据下标索引赋值"><a href="#二维数组根据下标索引赋值" class="headerlink" title="二维数组根据下标索引赋值"></a>二维数组根据下标索引赋值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">res = res.softmax(dim=-1) </span><br><span class="line">val, ind = res.topk(k) //ind: batch_size x topk</span><br><span class="line">output = np.zeros((batch_size, label_num) , dtype = float)) </span><br><span class="line">for i in range(batch_size):</span><br><span class="line">    //gpu tensor -&gt; cpu numpy</span><br><span class="line">    output[i][ind[i].cpu().detach().numpy().astype(int)] = 1</span><br></pre></td></tr></table></figure>
@@ -522,6 +540,65 @@
 </ul>
 </li>
 </ul>
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h3 id="改造排序函数-字符串比较"><a href="#改造排序函数-字符串比较" class="headerlink" title="改造排序函数+字符串比较"></a>改造排序函数+字符串比较</h3><ul>
+<li>题目179. Largest Number<ul>
+<li>题意：给一串数字，求拼起来最大值</li>
+<li>思路1：数字首字符不同时越大越早拼装，相同时需要考虑拼接后情况：3 &gt; 31, 32 &gt; 3, 35 &gt; 3 &gt; 304 ，因为两两拼接比较具有传递性，只需要两两拼接对比即可。<ul>
+<li>时间复杂度：nlognlogm</li>
+<li>空间复杂度：logn</li>
+</ul>
+</li>
+<li>错误思路：<ul>
+<li>容易忽略数字为0，拼起来为00的情况</li>
+<li>不需要按照1-9划分</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="排序-思维题"><a href="#排序-思维题" class="headerlink" title="排序+思维题"></a>排序+思维题</h3><ul>
+<li>题目324. Wiggle Sort II<ul>
+<li>题意：给一组数字，要求排列成a0 &lt; a1 &gt; a2 &lt; a3 …形式</li>
+<li>思路1：当数组相同元素个数不超过floor((n+1)/2)时存在满足的排列。先按照从小到大排序，分奇偶从左往右计算<ul>
+<li>偶数必然：a0+x &gt; a0 &lt; a1+x &gt; a1 &lt; ai+x &gt; ai，只要倒转即可</li>
+<li>奇数必然：a0 &lt; a1+x &gt; a1 &lt; a2+x &gt; a2 &lt; ai+x &gt; ai</li>
+<li>其中，ai=(n-1)/2，ai+x=n-1</li>
+<li>时间复杂度：nlogn</li>
+<li>空间复杂度：n</li>
+</ul>
+</li>
+<li>思路2：在思路1基础上，可以统一奇数和偶数，从右往左计算<ul>
+<li>偶数和偶数必然：（a0+x &gt;） a0 &lt; a1+x &gt; a1 &lt;  a2+x &gt; a2 &lt; ai+x &gt; ai</li>
+<li>其中，ai=(n-1)/2，ai+x=n-1</li>
+<li>时间复杂度：nlogn</li>
+<li>空间复杂度：n</li>
+</ul>
+</li>
+<li>错误思路：<ul>
+<li>统计比当前数字大的有多少数字，按稀缺排序，情况太复杂</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="模拟"><a href="#模拟" class="headerlink" title="模拟"></a>模拟</h2><h3 id="模拟除法"><a href="#模拟除法" class="headerlink" title="模拟除法"></a>模拟除法</h3><ul>
+<li>题目166. Fraction to Recurring Decimal<ul>
+<li>题意：给两个数做除法，输出结果，循环节用括号括起来 </li>
+<li>思路1：长除法。<ul>
+<li>先判断负号</li>
+<li>判断是否有整除, 结果是否为0</li>
+<li>用map判断余数是否相同，来判断是否循环</li>
+<li>时间复杂度：n</li>
+<li>空间复杂度：n</li>
+</ul>
+</li>
+<li>错误思路：<ul>
+<li>忘记0，0.2情况</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><ul>
 <li>题目<ul>
 <li>题意：</li>
@@ -639,15 +716,16 @@
       
         
         <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
-        <h1 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h1><h2 id="日常必备"><a href="#日常必备" class="headerlink" title="日常必备"></a>日常必备</h2><p>qq<br>微信<br>chrome<br>百度云盘<br>电脑管家<br>winrar<br>formatfactory<br>obs studio</p>
+        <h1 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h1><h2 id="日常必备"><a href="#日常必备" class="headerlink" title="日常必备"></a>日常必备</h2><p>qq<br>微信<br>chrome<br>百度云盘<br>电脑管家<br>winrar<br>bandizip<br>formatfactory<br>obs studio</p>
 <ul>
 <li>potplayer<br><a href="https://potplayer.daum.net/" target="_blank" rel="noopener">https://potplayer.daum.net/</a></li>
+<li>snipaste 【免安装】<br><a href="https://www.snipaste.com/" target="_blank" rel="noopener">https://www.snipaste.com/</a><h2 id="办公必备"><a href="#办公必备" class="headerlink" title="办公必备"></a>办公必备</h2>腾讯会议<br>umeet<br>easyconnect</li>
 </ul>
-<h2 id="办公必备"><a href="#办公必备" class="headerlink" title="办公必备"></a>办公必备</h2><p>腾讯会议<br>umeet<br>easyconnect</p>
 <h2 id="学习必备"><a href="#学习必备" class="headerlink" title="学习必备"></a>学习必备</h2><p>readpaper<br>网易有道词典：<a href="https://cidian.youdao.com/#/" target="_blank" rel="noopener">https://cidian.youdao.com/#/</a><br>语雀：<a href="https://www.yuque.com/download" target="_blank" rel="noopener">https://www.yuque.com/download</a><br>xmind: <a href="https://xmind.cn/download/" target="_blank" rel="noopener">https://xmind.cn/download/</a> 只能装在C盘</p>
 <h2 id="开发必备"><a href="#开发必备" class="headerlink" title="开发必备"></a>开发必备</h2><p>git<br>node<br>vscode<br>anaconda<br>mobaxterm<br>teamviewer</p>
 <ul>
-<li>免安装<br>Filezilla</li>
+<li>fotkun chrome插件</li>
+<li>Filezilla【免安装】</li>
 </ul>
 <h2 id="生成必备"><a href="#生成必备" class="headerlink" title="生成必备"></a>生成必备</h2><p>pr<br>ps<br>ae</p>
 <h2 id="游戏娱乐"><a href="#游戏娱乐" class="headerlink" title="游戏娱乐"></a>游戏娱乐</h2><p>原神<br>元气音频变声器<br>哔哩哔哩直播姬<br>live2d cubism</p>
@@ -1054,6 +1132,7 @@
 <td><img src="/assets/img/cook/tiaowei/6.jpg">料酒800ml 5.5</td>
 </tr>
 <tr>
+<td><img src="/assets/img/cook/tiaowei/9.jpg">黑胡椒30g 15.8</td>
 <td><img src="/assets/img/cook/tiaowei/0.jpg">盐250g 2</td>
 <td><img src="/assets/img/cook/tiaowei/3.jpg">白砂糖400g 6.9</td>
 <td><img src="/assets/img/cook/tiaowei/2.jpg">玉米淀粉200g 3.89</td>
@@ -1092,6 +1171,7 @@
 <td><img src="/assets/img/cook/cailiao/11.jpg">牛肉150g 18.8</td>
 <td><img src="/assets/img/cook/cailiao/16.jpg">培根150g 15.9</td>
 <td><img src="/assets/img/cook/cailiao/29.jpg">瘦肉250g 15.8</td>
+<td><img src="/assets/img/cook/cailiao/31.jpg">虾仁100g 9.9</td>
 </tr>
 <tr>
 <td><img src="/assets/img/cook/cailiao/3.jpg">娃娃菜550g 3.59</td>
@@ -1103,6 +1183,7 @@
 <td><img src="/assets/img/cook/cailiao/21.jpg">小白菜300g 3.99</td>
 <td><img src="/assets/img/cook/cailiao/24.jpg">黄瓜600g 5.89</td>
 <td><img src="/assets/img/cook/cailiao/28.jpg">丝瓜350g 4.59</td>
+<td><img src="/assets/img/cook/cailiao/32.jpg">西兰花500g 6.29</td>
 </tr>
 <tr>
 <td><img src="/assets/img/cook/cailiao/5.jpg">豆腐380g 3.59</td>
@@ -2078,6 +2159,228 @@
 </tr>
 </table>
 
+</li>
+</ul>
+<h2 id="33-虾仁饼"><a href="#33-虾仁饼" class="headerlink" title="33. 虾仁饼"></a>33. 虾仁饼</h2><ul>
+<li><p>材料<br>料酒、白胡椒、淀粉、盐、糖、油、黑胡椒、酱油<br>虾仁、蛋清</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/31.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/27.jpg"></td>
+</tr>
+</table>
+</li>
+<li><p>步骤<br>虾仁切碎，加料酒、白胡椒、淀粉、盐、糖、蛋清搅拌，成糊状<br>炒锅放油小火煎<br>蘸酱油、黑胡椒吃</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w10/17.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/18.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/19.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/20.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/27.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/28.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/29.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/30.jpg"></td>
+</tr>
+</table>
+
+</li>
+</ul>
+<h2 id="34-虾仁蒸蛋"><a href="#34-虾仁蒸蛋" class="headerlink" title="34. 虾仁蒸蛋"></a>34. 虾仁蒸蛋</h2><ul>
+<li><p>材料<br>料酒、白胡椒、淀粉、酱油、盐、糖<br>虾仁、鸡蛋</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/31.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/27.jpg"></td>
+</tr>
+</table>
+</li>
+<li><p>步骤<br>虾仁加料酒、白胡椒、淀粉、酱油、盐、糖腌制10分钟<br>鸡蛋加盐打散，加1.5温水，搅拌<br>放在汤锅蒸，定型放虾仁继续蒸<br>酱油调味</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w10/0.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/1.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/2.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/10.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/12.jpg"></td>
+</tr>
+</table>
+
+</li>
+</ul>
+<h2 id="35-虾仁滑蛋【虾全是腌制的味道】"><a href="#35-虾仁滑蛋【虾全是腌制的味道】" class="headerlink" title="35. 虾仁滑蛋【虾全是腌制的味道】"></a>35. 虾仁滑蛋【虾全是腌制的味道】</h2><ul>
+<li><p>材料<br>料酒、白胡椒、淀粉、酱油、盐、糖、油<br>虾仁、鸡蛋</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/31.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/27.jpg"></td>
+</tr>
+</table>
+</li>
+<li><p>步骤<br>虾仁加料酒、白胡椒、淀粉、酱油、盐、糖腌制10分钟<br>鸡蛋加盐、白胡椒、一勺清水打散<br>炒锅放油炒虾仁，变色，倒入蛋液，很快可以捞出</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w10/45.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/46.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/47.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/48.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/59.jpg"></td>
+</tr>
+</table>
+
+</li>
+</ul>
+<h2 id="36-西兰花炒虾仁【有点咸】"><a href="#36-西兰花炒虾仁【有点咸】" class="headerlink" title="36. 西兰花炒虾仁【有点咸】"></a>36. 西兰花炒虾仁【有点咸】</h2><ul>
+<li><p>材料<br>料酒、白胡椒、淀粉、酱油、盐、糖、油、耗油、蒜<br>西兰花、虾仁</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/32.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/31.jpg"></td>
+</tr>
+</table>
+</li>
+<li><p>步骤<br>虾仁加料酒、白胡椒、淀粉、酱油、盐、糖腌制10分钟<br>西兰花泡盐水10分钟清洗<br>炒锅烧开水加油，放入西兰花2-3分钟捞出<br>蒜切碎<br>炒锅放油炒蒜<br>倒入虾仁，西兰花<br>耗油、盐、水调味</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w10/31.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/33.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/39.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/40.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/41.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/42.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/44.jpg"></td>
+</tr>
+</table>
+
+</li>
+</ul>
+<h2 id="37-炒西兰花【还可以】"><a href="#37-炒西兰花【还可以】" class="headerlink" title="37. 炒西兰花【还可以】"></a>37. 炒西兰花【还可以】</h2><ul>
+<li><p>材料<br>盐、油、蒜、耗油<br>西兰花</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/32.jpg"></td>
+</tr>
+</table>
+</li>
+<li><p>步骤<br>西兰花泡盐水10分钟清洗<br>炒锅烧开水加油，放入西兰花2-3分钟捞出<br>蒜切碎<br>炒锅放油炒蒜，加耗油、清水<br>放入西兰花炒</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w10/49.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/50.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/51.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/52.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/57.jpg"></td>
+</tr>
+</table>
+
+</li>
+</ul>
+<h2 id="38-西兰花炖蛋"><a href="#38-西兰花炖蛋" class="headerlink" title="38. 西兰花炖蛋"></a>38. 西兰花炖蛋</h2><ul>
+<li><p>材料<br>油、盐、淀粉、酱油、黑胡椒<br>西兰花100g、三个鸡蛋</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/32.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/27.jpg"></td>
+</tr>
+</table>
+</li>
+<li><p>步骤<br>西兰花泡盐水10分钟清洗<br>炒锅烧开水加油，放入西兰花2-3分钟捞出<br>切碎西兰花<br>三个鸡蛋打散，加盐、淀粉搅拌，放入西兰花搅拌<br>放汤锅蒸15-20分钟<br>蘸酱油、黑胡椒吃</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w10/3.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/4.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/5.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/6.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/7.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/8.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/9.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/11.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/13.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/14.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/15.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/16.jpg"></td>
+</tr>
+</table>
+
+</li>
+</ul>
+<h2 id="39-西兰花鸡蛋饼"><a href="#39-西兰花鸡蛋饼" class="headerlink" title="39. 西兰花鸡蛋饼"></a>39. 西兰花鸡蛋饼</h2><ul>
+<li><p>材料<br>油、盐、淀粉、黑胡椒、酱油<br>西兰花100g、1-2个鸡蛋</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/32.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/27.jpg"></td>
+</tr>
+</table>
+</li>
+<li><p>步骤<br>西兰花泡盐水10分钟清洗<br>炒锅烧开水加油，放入西兰花2-3分钟捞出<br>切碎西兰花，放入碗里，打入鸡蛋、淀粉、盐搅拌，成糊状<br>炒锅放油小火煎<br>蘸酱油、黑胡椒吃</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w10/21.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/22.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/23.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/24.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/25.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/26.jpg"></td>
+</tr>
+</table>
+
+</li>
+</ul>
+<h2 id="40-西兰花火腿炒鸡蛋【有点淡】"><a href="#40-西兰花火腿炒鸡蛋【有点淡】" class="headerlink" title="40. 西兰花火腿炒鸡蛋【有点淡】"></a>40. 西兰花火腿炒鸡蛋【有点淡】</h2><ul>
+<li><p>材料<br>油、盐、淀粉、耗油<br>西兰花、火腿肠、鸡蛋</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/32.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/30.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/27.jpg"></td>
+</tr>
+</table>
+</li>
+<li><p>步骤<br>西兰花泡盐水10分钟清洗<br>炒锅烧开水加油，放入西兰花2-3分钟捞出<br>鸡蛋放淀粉、盐打散，火腿肠切片<br>炒锅放油，炒鸡蛋捞出<br>放油放入西兰花，火腿肠炒，再倒入鸡蛋<br>加耗油、盐、（水）调味</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w10/32.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/34.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/35.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/36.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/37.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/38.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/43.jpg"></td>
+</tr>
+</table>
+
+</li>
+</ul>
+<h2 id="41-西兰花火腿鸡蛋汤【味道有点奇怪，不清楚是盐还是蒜的问题】"><a href="#41-西兰花火腿鸡蛋汤【味道有点奇怪，不清楚是盐还是蒜的问题】" class="headerlink" title="41. 西兰花火腿鸡蛋汤【味道有点奇怪，不清楚是盐还是蒜的问题】"></a>41. 西兰花火腿鸡蛋汤【味道有点奇怪，不清楚是盐还是蒜的问题】</h2><ul>
+<li><p>材料<br>盐、油、蒜、淀粉<br>西兰花、火腿肠、鸡蛋</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/32.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/30.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/27.jpg"></td>
+</tr>
+</table>
+</li>
+<li><p>步骤<br>西兰花泡盐水10分钟清洗<br>炒锅烧开水加油，放入西兰花2-3分钟捞出<br>火腿肠切碎、鸡蛋加盐打散、蒜切碎<br>炒锅放油炒鸡蛋、炒好捞出<br>炒锅放油炒蒜，放火腿肠炒一会，放鸡蛋<br>最后放西兰花炒一会<br>放水煮、放盐、淀粉调味<br>盖上盖子焖5分钟</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w10/53.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/54.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/55.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/56.jpg"></td>
+<td><img src="/assets/img/cook/process/w10/58.jpg"></td>
+</tr>
+</table>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2715,10 +3018,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">latex</a>
               </li>
              
@@ -2727,15 +3026,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">tmux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2767,19 +3074,47 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tmux</a>
+                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">clip</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">漫画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">小说</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">电视剧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2791,11 +3126,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
+                <a href="javascript:void(0)" class="js-tag color4">frp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2827,42 +3162,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">动画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">漫画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">小说</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电影</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">电视剧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">frp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">procreate</a>
               </li>
              
@@ -2875,7 +3174,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2904,6 +3207,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
