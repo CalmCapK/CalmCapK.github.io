@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
 <meta property="og:description" content="安装livere评论系统">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2022-09-19T20:53:24.103Z">
+<meta property="og:updated_time" content="2022-10-18T14:31:36.691Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于windows10+hexo+github搭建个人博客(3)">
 <meta name="twitter:description" content="安装livere评论系统">
@@ -279,6 +279,14 @@
 <h2 id="资源压缩【好像需要版本升级，不做了】"><a href="#资源压缩【好像需要版本升级，不做了】" class="headerlink" title="资源压缩【好像需要版本升级，不做了】"></a>资源压缩【好像需要版本升级，不做了】</h2><ol>
 <li>安装插件<br>npm install hexo-all-minifier<br>参考<br><a href="https://keep-docs.xpoet.cn/usage-tutorial/advanced.html#%E8%B5%84%E6%BA%90%E5%8E%8B%E7%BC%A9" target="_blank" rel="noopener">https://keep-docs.xpoet.cn/usage-tutorial/advanced.html#%E8%B5%84%E6%BA%90%E5%8E%8B%E7%BC%A9</a></li>
 </ol>
+<h2 id="hexo-typora图像插入"><a href="#hexo-typora图像插入" class="headerlink" title="hexo+typora图像插入"></a>hexo+typora图像插入</h2><ol>
+<li>md文件放在source/_posts下</li>
+<li>图像文件放在source/assets/typora下</li>
+<li>typora打开偏好设置-图像-设置相对位置../assets/typora/${filename}, 选择优先使用相对位置</li>
+<li>typora打开格式-图像-设置图像根目录选择source</li>
+<li>最后md上显示从../assets/typora变成/assets/typora/</li>
+</ol>
+<h2 id="typora常用命令"><a href="#typora常用命令" class="headerlink" title="typora常用命令"></a>typora常用命令</h2><p>进入源码模式：Ctrl + /<br>快速打开：Ctrl + P<br>显示隐藏侧边栏：Ctrl + Shift + L</p>
 
       
 
@@ -453,7 +461,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装livere评论系统"><span class="toc-number">1.</span> <span class="toc-text">安装livere评论系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置加密博文"><span class="toc-number">2.</span> <span class="toc-text">设置加密博文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上传pdf"><span class="toc-number">3.</span> <span class="toc-text">上传pdf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#资源压缩【好像需要版本升级，不做了】"><span class="toc-number">4.</span> <span class="toc-text">资源压缩【好像需要版本升级，不做了】</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装livere评论系统"><span class="toc-number">1.</span> <span class="toc-text">安装livere评论系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置加密博文"><span class="toc-number">2.</span> <span class="toc-text">设置加密博文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上传pdf"><span class="toc-number">3.</span> <span class="toc-text">上传pdf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#资源压缩【好像需要版本升级，不做了】"><span class="toc-number">4.</span> <span class="toc-text">资源压缩【好像需要版本升级，不做了】</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo-typora图像插入"><span class="toc-number">5.</span> <span class="toc-text">hexo+typora图像插入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#typora常用命令"><span class="toc-number">6.</span> <span class="toc-text">typora常用命令</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -672,7 +680,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">tmux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -680,11 +700,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -697,6 +713,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">clip</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -724,30 +752,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">clip</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tmux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">厨房</a>
               </li>
              
@@ -757,6 +761,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">对比学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MIM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -781,6 +797,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">frp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">procreate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ipad</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -812,51 +848,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">frp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">procreate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ipad</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">renpy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">avg</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文字冒险</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">视觉小说</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">医学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -880,6 +876,34 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">renpy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">avg</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文字冒险</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">视觉小说</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">表情包</a>
               </li>
              
@@ -889,14 +913,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ps</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
