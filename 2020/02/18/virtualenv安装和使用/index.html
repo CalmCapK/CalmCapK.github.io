@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://calmcapK.github.io">
   <title>virtualenv安装和使用 | CalmCapK&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="无root安装pip 安装  1234wget https://bootstrap.pypa.io/get-pip.pypython get-pip.py --userexport PATH=~/.local/bin:$PATH安装完成后会在家目录下生成 .local 文件夹，里面有bin和lib  查看位置which pip  1/home/XXX/.local/bin/pip     无roo">
+  <meta name="description" content="无root安装pip  安装 1234wget https://bootstrap.pypa.io/get-pip.pypython get-pip.py --userexport PATH=~/.local/bin:$PATH安装完成后会在家目录下生成 .local 文件夹，里面有bin和lib 查看位置which pip 1/home/XXX/.local/bin/pip   无r">
 <meta name="keywords" content="vitualenv,virtualenvwrapper">
 <meta property="og:type" content="article">
 <meta property="og:title" content="virtualenv安装和使用">
 <meta property="og:url" content="https://calmcapK.github.io/2020/02/18/virtualenv安装和使用/index.html">
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
-<meta property="og:description" content="无root安装pip 安装  1234wget https://bootstrap.pypa.io/get-pip.pypython get-pip.py --userexport PATH=~/.local/bin:$PATH安装完成后会在家目录下生成 .local 文件夹，里面有bin和lib  查看位置which pip  1/home/XXX/.local/bin/pip     无roo">
+<meta property="og:description" content="无root安装pip  安装 1234wget https://bootstrap.pypa.io/get-pip.pypython get-pip.py --userexport PATH=~/.local/bin:$PATH安装完成后会在家目录下生成 .local 文件夹，里面有bin和lib 查看位置which pip 1/home/XXX/.local/bin/pip   无r">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2020-02-17T19:16:25.959Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="virtualenv安装和使用">
-<meta name="twitter:description" content="无root安装pip 安装  1234wget https://bootstrap.pypa.io/get-pip.pypython get-pip.py --userexport PATH=~/.local/bin:$PATH安装完成后会在家目录下生成 .local 文件夹，里面有bin和lib  查看位置which pip  1/home/XXX/.local/bin/pip     无roo">
+<meta name="twitter:description" content="无root安装pip  安装 1234wget https://bootstrap.pypa.io/get-pip.pypython get-pip.py --userexport PATH=~/.local/bin:$PATH安装完成后会在家目录下生成 .local 文件夹，里面有bin和lib 查看位置which pip 1/home/XXX/.local/bin/pip   无r">
   
     <link rel="alternative" href="/atom.xml" title="CalmCapK&#39;s Blog" type="application/atom+xml">
   
@@ -204,46 +204,40 @@
       
         
         <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
-        <h2 id="无root安装pip"><a href="#无root安装pip" class="headerlink" title="无root安装pip"></a>无root安装pip</h2><ol>
-<li><p>安装</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://bootstrap.pypa.io/get-pip.py</span><br><span class="line">python get-pip.py --user</span><br><span class="line"><span class="built_in">export</span> PATH=~/.<span class="built_in">local</span>/bin:<span class="variable">$PATH</span></span><br><span class="line">安装完成后会在家目录下生成 .<span class="built_in">local</span> 文件夹，里面有bin和lib</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看位置which pip</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/home/XXX/.<span class="built_in">local</span>/bin/pip</span><br></pre></td></tr></table></figure>
-
-</li>
+        <h2 id="无root安装pip">无root安装pip</h2>
+<ol type="1">
+<li><p>安装 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://bootstrap.pypa.io/get-pip.py</span><br><span class="line">python get-pip.py --user</span><br><span class="line"><span class="built_in">export</span> PATH=~/.<span class="built_in">local</span>/bin:<span class="variable">$PATH</span></span><br><span class="line">安装完成后会在家目录下生成 .<span class="built_in">local</span> 文件夹，里面有bin和lib</span><br></pre></td></tr></table></figure></p></li>
+<li><p>查看位置which pip <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/home/XXX/.<span class="built_in">local</span>/bin/pip</span><br></pre></td></tr></table></figure></p></li>
 </ol>
 <!-- moe -->
-<h2 id="无root安装vitualenv"><a href="#无root安装vitualenv" class="headerlink" title="无root安装vitualenv"></a>无root安装vitualenv</h2><ol>
-<li><p>安装(视情况而定)</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pip3 install virtualenv</span><br><span class="line">pip install virtualenv</span><br><span class="line">pip3 install --user virtualenv</span><br><span class="line">pip install --user virtualenv</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看位置which virtualenv</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/home/XXX/.<span class="built_in">local</span>/bin/virtualenv</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用vitualenv</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">新建环境 virtualenv --no-site-packages env（新版本默认--no-site-packages）</span><br><span class="line">新建环境 virtualenv env </span><br><span class="line">激活环境 <span class="built_in">source</span> env/bin/activate</span><br><span class="line">删除环境 rm -rf env</span><br></pre></td></tr></table></figure>
-
-</li>
+<h2 id="无root安装vitualenv">无root安装vitualenv</h2>
+<ol type="1">
+<li><p>安装(视情况而定) <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pip3 install virtualenv</span><br><span class="line">pip install virtualenv</span><br><span class="line">pip3 install --user virtualenv</span><br><span class="line">pip install --user virtualenv</span><br></pre></td></tr></table></figure></p></li>
+<li><p>查看位置which virtualenv <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/home/XXX/.<span class="built_in">local</span>/bin/virtualenv</span><br></pre></td></tr></table></figure></p></li>
+<li><p>使用vitualenv <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">新建环境 virtualenv --no-site-packages env（新版本默认--no-site-packages）</span><br><span class="line">新建环境 virtualenv env </span><br><span class="line">激活环境 <span class="built_in">source</span> env/bin/activate</span><br><span class="line">删除环境 rm -rf env</span><br></pre></td></tr></table></figure></p></li>
 </ol>
-<h2 id="无root安装vitualenvwrapper"><a href="#无root安装vitualenvwrapper" class="headerlink" title="无root安装vitualenvwrapper"></a>无root安装vitualenvwrapper</h2><ol>
-<li><p>安装(视情况而定，能找到.sh就行)  </p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">    pip3 install virtualenvwrapper</span><br><span class="line">    pip install virtualenvwrapper</span><br><span class="line">    pip3 install --user virtualenvwrapper</span><br><span class="line">    pip install --user virtualenvwrapper</span><br><span class="line">    ```  </span><br><span class="line">     (用户安装位置~/.<span class="built_in">local</span>/bin/, 系统安装位置/usr/<span class="built_in">local</span>/bin/) </span><br><span class="line"></span><br><span class="line">2. 查看下载位置<span class="built_in">which</span> virtualenvwrapper.sh  </span><br><span class="line">    无root的位置  </span><br><span class="line">    ``` bash</span><br><span class="line">    /home/XXX/.<span class="built_in">local</span>/bin/virtualenvwrapper.sh</span><br></pre></td></tr></table></figure>
-
-<p> 有root的位置一般在</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/bin/virtualenvwrapper.sh</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置环境变量<br>vim ~/.bashrc  </p>
- <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export VIRTUALENVWRAPPER_PYTHON=/usr/bin/<span class="keyword">python3</span></span><br><span class="line">export WORKON_HOME=/home/XXX/.virtualenvs (会自己创建目录)</span><br><span class="line"><span class="keyword">source</span> /home/XXX/.local/bin/virtualenvwrapper.<span class="keyword">sh</span></span><br><span class="line">#export PIP_VIRTUALENV_BASE=/home/XXX/myenv</span><br></pre></td></tr></table></figure>
-
-<p> source ~/.bashrc</p>
-</li>
-<li><p>vitualenvwrapper使用  </p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">查看环境lsvitualenv  </span><br><span class="line">新建环境mkvitualenv env</span><br><span class="line">mkvirtualenv -p python3 ENVNAME</span><br><span class="line">mkvirtualenv xxx --python=python3.6</span><br><span class="line">使用环境workon env  </span><br><span class="line">退出环境deactivate </span><br><span class="line">删除环境rmvitualenv</span><br><span class="line">复制环境cpvirtualenv ENVNAME [TARGETENVNAME]</span><br><span class="line"><span class="comment"># allvirtualenv 所有环境运行命令 (比如安装包)</span></span><br><span class="line">allvirtualenv <span class="built_in">command</span> with arguments</span><br><span class="line">allvirtualenv pip install -U pip</span><br></pre></td></tr></table></figure>
-
-</li>
+<h2 id="无root安装vitualenvwrapper">无root安装vitualenvwrapper</h2>
+<ol type="1">
+<li><p>安装(视情况而定，能找到.sh就行)<br>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">    pip3 install virtualenvwrapper</span><br><span class="line">    pip install virtualenvwrapper</span><br><span class="line">    pip3 install --user virtualenvwrapper</span><br><span class="line">    pip install --user virtualenvwrapper</span><br><span class="line">    ```  </span><br><span class="line">     (用户安装位置~/.<span class="built_in">local</span>/bin/, 系统安装位置/usr/<span class="built_in">local</span>/bin/) </span><br><span class="line"></span><br><span class="line">2. 查看下载位置<span class="built_in">which</span> virtualenvwrapper.sh  </span><br><span class="line">    无root的位置  </span><br><span class="line">    ``` bash</span><br><span class="line">    /home/XXX/.<span class="built_in">local</span>/bin/virtualenvwrapper.sh</span><br></pre></td></tr></table></figure></p>
+<p>有root的位置一般在 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/bin/virtualenvwrapper.sh</span><br></pre></td></tr></table></figure></p></li>
+<li><p>配置环境变量<br>
+vim ~/.bashrc<br>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export VIRTUALENVWRAPPER_PYTHON=/usr/bin/<span class="keyword">python3</span></span><br><span class="line">export WORKON_HOME=/home/XXX/.virtualenvs (会自己创建目录)</span><br><span class="line"><span class="keyword">source</span> /home/XXX/.local/bin/virtualenvwrapper.<span class="keyword">sh</span></span><br><span class="line">#export PIP_VIRTUALENV_BASE=/home/XXX/myenv</span><br></pre></td></tr></table></figure></p>
+<p>source ~/.bashrc</p></li>
+<li><p>vitualenvwrapper使用<br>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">查看环境lsvitualenv  </span><br><span class="line">新建环境mkvitualenv env</span><br><span class="line">mkvirtualenv -p python3 ENVNAME</span><br><span class="line">mkvirtualenv xxx --python=python3.6</span><br><span class="line">使用环境workon env  </span><br><span class="line">退出环境deactivate </span><br><span class="line">删除环境rmvitualenv</span><br><span class="line">复制环境cpvirtualenv ENVNAME [TARGETENVNAME]</span><br><span class="line"><span class="comment"># allvirtualenv 所有环境运行命令 (比如安装包)</span></span><br><span class="line">allvirtualenv <span class="built_in">command</span> with arguments</span><br><span class="line">allvirtualenv pip install -U pip</span><br></pre></td></tr></table></figure></p></li>
 </ol>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>安装：<br><a href="https://blog.csdn.net/watermusicyes/article/details/72909752" target="_blank" rel="noopener">https://blog.csdn.net/watermusicyes/article/details/72909752</a><br><a href="https://blog.csdn.net/sinat_34200786/article/details/79619251" target="_blank" rel="noopener">https://blog.csdn.net/sinat_34200786/article/details/79619251</a><br>配置virtualwrapper：<br><a href="https://www.codenong.com/12647266/" target="_blank" rel="noopener">https://www.codenong.com/12647266/</a><br>使用：<br><a href="https://xu3352.github.io/python/2018/08/17/Python-work-with-virtualenv-and-virtualenvwrapper" target="_blank" rel="noopener">https://xu3352.github.io/python/2018/08/17/Python-work-with-virtualenv-and-virtualenvwrapper</a><br>无root安装pip：<br><a href="https://blog.csdn.net/angus_monroe/article/details/80937647" target="_blank" rel="noopener">https://blog.csdn.net/angus_monroe/article/details/80937647</a>   </p>
+<h2 id="参考">参考</h2>
+<p>安装：<br>
+https://blog.csdn.net/watermusicyes/article/details/72909752
+https://blog.csdn.net/sinat_34200786/article/details/79619251<br>
+配置virtualwrapper：<br>
+https://www.codenong.com/12647266/<br>
+使用：<br>
+https://xu3352.github.io/python/2018/08/17/Python-work-with-virtualenv-and-virtualenvwrapper<br>
+无root安装pip：<br>
+https://blog.csdn.net/angus_monroe/article/details/80937647</p>
 
       
 
@@ -641,6 +635,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
@@ -653,11 +659,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">latex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -669,19 +671,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">clip</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -709,7 +699,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -721,39 +711,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">对比学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MIM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">动画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">漫画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">小说</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电影</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">电视剧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -765,15 +727,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">procreate</a>
+                <a href="javascript:void(0)" class="js-tag color5">对比学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ipad</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
+                <a href="javascript:void(0)" class="js-tag color4">MIM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -805,11 +763,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
+                <a href="javascript:void(0)" class="js-tag color3">漫画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">小说</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">电视剧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -817,31 +791,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">公众号</a>
+                <a href="javascript:void(0)" class="js-tag color5">procreate</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ios</a>
+                <a href="javascript:void(0)" class="js-tag color5">ipad</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+                <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -861,6 +827,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">公众号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">表情包</a>
               </li>
              
@@ -873,11 +859,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">配置</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -886,6 +872,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vup</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">配置</a>
               </li>
              
               <li class="article-tag-list-item">

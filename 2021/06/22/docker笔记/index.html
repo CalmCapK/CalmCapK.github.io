@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://calmcapK.github.io">
   <title>docker笔记 | CalmCapK&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="docker镜像获取地址：pytorch：https://hub.docker.com/r/pytorch/pytorch/tags?page=1&amp;amp;ordering=last_updatedcentos：https://hub.docker.com/_/centos?tab=tags&amp;amp;page=2&amp;amp;ordering=-last_updated下载centos7.5： 1s">
+  <meta name="description" content="docker镜像 获取地址： pytorch：https://hub.docker.com/r/pytorch/pytorch/tags?page=1&amp;amp;ordering=last_updated centos：https://hub.docker.com/_/centos?tab=tags&amp;amp;page=2&amp;amp;ordering=-last_updated 下载cent">
 <meta name="keywords" content="docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker笔记">
 <meta property="og:url" content="https://calmcapK.github.io/2021/06/22/docker笔记/index.html">
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
-<meta property="og:description" content="docker镜像获取地址：pytorch：https://hub.docker.com/r/pytorch/pytorch/tags?page=1&amp;amp;ordering=last_updatedcentos：https://hub.docker.com/_/centos?tab=tags&amp;amp;page=2&amp;amp;ordering=-last_updated下载centos7.5： 1s">
+<meta property="og:description" content="docker镜像 获取地址： pytorch：https://hub.docker.com/r/pytorch/pytorch/tags?page=1&amp;amp;ordering=last_updated centos：https://hub.docker.com/_/centos?tab=tags&amp;amp;page=2&amp;amp;ordering=-last_updated 下载cent">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2021-07-06T09:27:41.380Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker笔记">
-<meta name="twitter:description" content="docker镜像获取地址：pytorch：https://hub.docker.com/r/pytorch/pytorch/tags?page=1&amp;amp;ordering=last_updatedcentos：https://hub.docker.com/_/centos?tab=tags&amp;amp;page=2&amp;amp;ordering=-last_updated下载centos7.5： 1s">
+<meta name="twitter:description" content="docker镜像 获取地址： pytorch：https://hub.docker.com/r/pytorch/pytorch/tags?page=1&amp;amp;ordering=last_updated centos：https://hub.docker.com/_/centos?tab=tags&amp;amp;page=2&amp;amp;ordering=-last_updated 下载cent">
   
     <link rel="alternative" href="/atom.xml" title="CalmCapK&#39;s Blog" type="application/atom+xml">
   
@@ -205,73 +205,47 @@
         
         <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
         <a id="more"></a>
-<h1 id="docker镜像"><a href="#docker镜像" class="headerlink" title="docker镜像"></a>docker镜像</h1><p>获取地址：<br>pytorch：<a href="https://hub.docker.com/r/pytorch/pytorch/tags?page=1&amp;ordering=last_updated" target="_blank" rel="noopener">https://hub.docker.com/r/pytorch/pytorch/tags?page=1&amp;ordering=last_updated</a><br>centos：<a href="https://hub.docker.com/_/centos?tab=tags&amp;page=2&amp;ordering=-last_updated" target="_blank" rel="noopener">https://hub.docker.com/_/centos?tab=tags&amp;page=2&amp;ordering=-last_updated</a><br>下载centos7.5：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull centos:centos7.5.1804</span><br></pre></td></tr></table></figure>
-
-<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><p>查看docker存储路径</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker info | grep &quot;Docker Root Dir&quot;</span><br></pre></td></tr></table></figure>
-
-<p>查看镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker image ls</span><br><span class="line">docker images</span><br></pre></td></tr></table></figure>
-
-<p>查看容器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br><span class="line">docker ps -l</span><br></pre></td></tr></table></figure>
-
-<p>停止容器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop 容器ID</span><br></pre></td></tr></table></figure>
-
-<p>删除容器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm 容器ID</span><br></pre></td></tr></table></figure>
-
-<p>查看容器详细信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect 容器ID</span><br></pre></td></tr></table></figure>
-
-<h1 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h1><ol>
-<li><p>下载镜像</p>
-</li>
-<li><p>启动镜像创建容器</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-docker run -d -it -p 12000-12010:12000-12010 -p 宿主机端口:docker端口 --privileged -v 宿主机路径:/home/repos -v /data:/data -v /data_static:/data_static -v /data_activate:/data_activate --name XXX 镜像ID /bin/bash</span><br></pre></td></tr></table></figure>
-
-<p> 注意：cuda、root权限、端口、挂载、命名<br> 其他</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-itd i交互式 t终端 d后台</span><br><span class="line">--cap-add=NET_ADMIN ： 能够进行网络管理</span><br><span class="line">/usr/sbin/init 作为root用户</span><br><span class="line">--gpus all 使用GPU的另一种方式（未验证）</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>进入容器</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it --privileged XXX /bin/bash</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>打包容器到本地<br> 先停止容器</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker commit 容器ID -a &quot;XXX&quot; deepfake:pytorch1.4-cuda10.1-cudnn7-deepfake-devel</span><br><span class="line">docker commit 容器ID -a &quot;作者名字&quot; 镜像名称:镜像tag</span><br></pre></td></tr></table></figure>
-
-<p> 这时候用docker image ls可以看到新镜像</p>
-</li>
+<h1 id="docker镜像">docker镜像</h1>
+<p>获取地址：<br>
+pytorch：https://hub.docker.com/r/pytorch/pytorch/tags?page=1&amp;ordering=last_updated<br>
+centos：https://hub.docker.com/_/centos?tab=tags&amp;page=2&amp;ordering=-last_updated<br>
+下载centos7.5： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull centos:centos7.5.1804</span><br></pre></td></tr></table></figure></p>
+<h1 id="常用命令">常用命令</h1>
+<p>查看docker存储路径 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker info | grep &quot;Docker Root Dir&quot;</span><br></pre></td></tr></table></figure></p>
+<p>查看镜像 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker image ls</span><br><span class="line">docker images</span><br></pre></td></tr></table></figure></p>
+<p>查看容器 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br><span class="line">docker ps -l</span><br></pre></td></tr></table></figure></p>
+<p>停止容器 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop 容器ID</span><br></pre></td></tr></table></figure></p>
+<p>删除容器 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm 容器ID</span><br></pre></td></tr></table></figure></p>
+<p>查看容器详细信息 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect 容器ID</span><br></pre></td></tr></table></figure></p>
+<h1 id="使用步骤">使用步骤</h1>
+<ol type="1">
+<li><p>下载镜像</p></li>
+<li><p>启动镜像创建容器 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-docker run -d -it -p 12000-12010:12000-12010 -p 宿主机端口:docker端口 --privileged -v 宿主机路径:/home/repos -v /data:/data -v /data_static:/data_static -v /data_activate:/data_activate --name XXX 镜像ID /bin/bash</span><br></pre></td></tr></table></figure></p>
+<p>注意：cuda、root权限、端口、挂载、命名 其他 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-itd i交互式 t终端 d后台</span><br><span class="line">--cap-add=NET_ADMIN ： 能够进行网络管理</span><br><span class="line">/usr/sbin/init 作为root用户</span><br><span class="line">--gpus all 使用GPU的另一种方式（未验证）</span><br></pre></td></tr></table></figure></p></li>
+<li><p>进入容器 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it --privileged XXX /bin/bash</span><br></pre></td></tr></table></figure></p></li>
+<li><p>打包容器到本地<br>
+先停止容器 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker commit 容器ID -a &quot;XXX&quot; deepfake:pytorch1.4-cuda10.1-cudnn7-deepfake-devel</span><br><span class="line">docker commit 容器ID -a &quot;作者名字&quot; 镜像名称:镜像tag</span><br></pre></td></tr></table></figure></p>
+<p>这时候用docker image ls可以看到新镜像</p></li>
 </ol>
-<h1 id="端口设置"><a href="#端口设置" class="headerlink" title="端口设置"></a>端口设置</h1><p>参考：<a href="https://qastack.cn/programming/20845056/how-can-i-expose-more-than-1-port-with-docker" target="_blank" rel="noopener">https://qastack.cn/programming/20845056/how-can-i-expose-more-than-1-port-with-docker</a></p>
-<h1 id="docker使用nvidia步骤"><a href="#docker使用nvidia步骤" class="headerlink" title="docker使用nvidia步骤"></a>docker使用nvidia步骤</h1><h2 id="方式1"><a href="#方式1" class="headerlink" title="方式1"></a>方式1</h2><ol>
-<li><p>在容器里测试是否可以使用GPU</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">watch -n 0.1 nvidia-smi</span><br><span class="line">或</span><br><span class="line">python</span><br><span class="line">import torch</span><br><span class="line">torch.cuda.is_available()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装nvidia-docker<br>测试是否安装成功</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>通过nvidia-docker启动pytorch容器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-docker run XXXX</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>参考<br><a href="https://zhuanlan.zhihu.com/p/76464450" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/76464450</a></p>
-<h2 id="方式2"><a href="#方式2" class="headerlink" title="方式2"></a>方式2</h2></li>
-<li><p>同上</p>
-</li>
-<li><p>参考<br><a href="https://www.jianshu.com/p/32ad4f448fe5" target="_blank" rel="noopener">https://www.jianshu.com/p/32ad4f448fe5</a></p>
-</li>
-<li><p>通过–gpus all使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d  -it  --gpus all  XXX</span><br></pre></td></tr></table></figure>
-
-</li>
+<h1 id="端口设置">端口设置</h1>
+<p>参考：https://qastack.cn/programming/20845056/how-can-i-expose-more-than-1-port-with-docker</p>
+<h1 id="docker使用nvidia步骤">docker使用nvidia步骤</h1>
+<h2 id="方式1">方式1</h2>
+<ol type="1">
+<li><p>在容器里测试是否可以使用GPU <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">watch -n 0.1 nvidia-smi</span><br><span class="line">或</span><br><span class="line">python</span><br><span class="line">import torch</span><br><span class="line">torch.cuda.is_available()</span><br></pre></td></tr></table></figure></p></li>
+<li><p>安装nvidia-docker<br>
+测试是否安装成功 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi</span><br></pre></td></tr></table></figure></p></li>
+<li><p>通过nvidia-docker启动pytorch容器 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvidia-docker run XXXX</span><br></pre></td></tr></table></figure></p></li>
+<li><p>参考<br>
+https://zhuanlan.zhihu.com/p/76464450 ## 方式2</p></li>
+<li><p>同上</p></li>
+<li><p>参考<br>
+https://www.jianshu.com/p/32ad4f448fe5</p></li>
+<li><p>通过--gpus all使用 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d  -it  --gpus all  XXX</span><br></pre></td></tr></table></figure></p></li>
 </ol>
-<h1 id="在docker中其他工具安装"><a href="#在docker中其他工具安装" class="headerlink" title="在docker中其他工具安装"></a>在docker中其他工具安装</h1><p>安装vim</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install vim</span><br></pre></td></tr></table></figure>
-
-<p>安装ping</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install iputils-ping</span><br></pre></td></tr></table></figure>
-
+<h1 id="在docker中其他工具安装">在docker中其他工具安装</h1>
+<p>安装vim <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install vim</span><br></pre></td></tr></table></figure></p>
+<p>安装ping <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install iputils-ping</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -442,7 +416,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#docker镜像"><span class="toc-number">1.</span> <span class="toc-text">docker镜像</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常用命令"><span class="toc-number">2.</span> <span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用步骤"><span class="toc-number">3.</span> <span class="toc-text">使用步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#端口设置"><span class="toc-number">4.</span> <span class="toc-text">端口设置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#docker使用nvidia步骤"><span class="toc-number">5.</span> <span class="toc-text">docker使用nvidia步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#方式1"><span class="toc-number">5.1.</span> <span class="toc-text">方式1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方式2"><span class="toc-number">5.2.</span> <span class="toc-text">方式2</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#在docker中其他工具安装"><span class="toc-number">6.</span> <span class="toc-text">在docker中其他工具安装</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#docker镜像"><span class="toc-number">1.</span> <span class="toc-text">docker镜像</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常用命令"><span class="toc-number">2.</span> <span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用步骤"><span class="toc-number">3.</span> <span class="toc-text">使用步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#端口设置"><span class="toc-number">4.</span> <span class="toc-text">端口设置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#docker使用nvidia步骤"><span class="toc-number">5.</span> <span class="toc-text">docker使用nvidia步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#方式1"><span class="toc-number">5.1.</span> <span class="toc-text">方式1</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#在docker中其他工具安装"><span class="toc-number">6.</span> <span class="toc-text">在docker中其他工具安装</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -665,6 +639,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
@@ -677,11 +663,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">latex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -693,19 +675,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">clip</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -733,7 +703,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -745,39 +715,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">对比学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MIM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">动画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">漫画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">小说</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电影</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">电视剧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -789,15 +731,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">procreate</a>
+                <a href="javascript:void(0)" class="js-tag color5">对比学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ipad</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
+                <a href="javascript:void(0)" class="js-tag color4">MIM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -829,11 +767,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
+                <a href="javascript:void(0)" class="js-tag color3">漫画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">小说</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">电视剧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -841,31 +795,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">公众号</a>
+                <a href="javascript:void(0)" class="js-tag color5">procreate</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ios</a>
+                <a href="javascript:void(0)" class="js-tag color5">ipad</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+                <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -885,6 +831,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">公众号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">表情包</a>
               </li>
              
@@ -897,11 +863,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">配置</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -910,6 +876,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vup</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">配置</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://calmcapK.github.io">
   <title>爬取教程 | CalmCapK&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="微信公众号这是通过从个人微信公众号后台获取接口抓取的 准备 个人微信公众号，获取后台接口 python3.6  步骤 步骤1 获取公众号的cookies、token、fakeid 个人微信公众号-草稿箱-新的创作-写新的图文-超链接-选择其他公众号 输入目标公众号(先不点击)-打开浏览器F12-network界面-Fetch/XHR过滤 点击目标公众号并选择，此时会有appmsg请求 Header">
+  <meta name="description" content="微信公众号 这是通过从个人微信公众号后台获取接口抓取的 ## 准备 * 个人微信公众号，获取后台接口 * python3.6 步骤  步骤1 获取公众号的cookies、token、fakeid  个人微信公众号-草稿箱-新的创作-写新的图文-超链接-选择其他公众号 输入目标公众号(先不点击)-打开浏览器F12-network界面-Fetch/XHR过滤 点击目标公众号并选择，此">
 <meta name="keywords" content="爬虫,公众号,ios,小程序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="爬取教程">
 <meta property="og:url" content="https://calmcapK.github.io/2022/09/26/爬取教程/index.html">
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
-<meta property="og:description" content="微信公众号这是通过从个人微信公众号后台获取接口抓取的 准备 个人微信公众号，获取后台接口 python3.6  步骤 步骤1 获取公众号的cookies、token、fakeid 个人微信公众号-草稿箱-新的创作-写新的图文-超链接-选择其他公众号 输入目标公众号(先不点击)-打开浏览器F12-network界面-Fetch/XHR过滤 点击目标公众号并选择，此时会有appmsg请求 Header">
+<meta property="og:description" content="微信公众号 这是通过从个人微信公众号后台获取接口抓取的 ## 准备 * 个人微信公众号，获取后台接口 * python3.6 步骤  步骤1 获取公众号的cookies、token、fakeid  个人微信公众号-草稿箱-新的创作-写新的图文-超链接-选择其他公众号 输入目标公众号(先不点击)-打开浏览器F12-network界面-Fetch/XHR过滤 点击目标公众号并选择，此">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2022-10-01T08:01:09.222Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬取教程">
-<meta name="twitter:description" content="微信公众号这是通过从个人微信公众号后台获取接口抓取的 准备 个人微信公众号，获取后台接口 python3.6  步骤 步骤1 获取公众号的cookies、token、fakeid 个人微信公众号-草稿箱-新的创作-写新的图文-超链接-选择其他公众号 输入目标公众号(先不点击)-打开浏览器F12-network界面-Fetch/XHR过滤 点击目标公众号并选择，此时会有appmsg请求 Header">
+<meta name="twitter:description" content="微信公众号 这是通过从个人微信公众号后台获取接口抓取的 ## 准备 * 个人微信公众号，获取后台接口 * python3.6 步骤  步骤1 获取公众号的cookies、token、fakeid  个人微信公众号-草稿箱-新的创作-写新的图文-超链接-选择其他公众号 输入目标公众号(先不点击)-打开浏览器F12-network界面-Fetch/XHR过滤 点击目标公众号并选择，此">
   
     <link rel="alternative" href="/atom.xml" title="CalmCapK&#39;s Blog" type="application/atom+xml">
   
@@ -204,53 +204,62 @@
       
         
         <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
-        <h1 id="微信公众号"><a href="#微信公众号" class="headerlink" title="微信公众号"></a>微信公众号</h1><p>这是通过从个人微信公众号后台获取接口抓取的</p>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
-<li>个人微信公众号，获取后台接口</li>
-<li>python3.6</li>
-</ul>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ul>
-<li>步骤1 获取公众号的cookies、token、fakeid<ul>
+        <h1 id="微信公众号">微信公众号</h1>
+<p>这是通过从个人微信公众号后台获取接口抓取的 ## 准备 *
+个人微信公众号，获取后台接口 * python3.6</p>
+<h2 id="步骤">步骤</h2>
+<ul>
+<li>步骤1 获取公众号的cookies、token、fakeid
+<ul>
 <li>个人微信公众号-草稿箱-新的创作-写新的图文-超链接-选择其他公众号</li>
 <li>输入目标公众号(先不点击)-打开浏览器F12-network界面-Fetch/XHR过滤</li>
-<li>点击目标公众号并选择，此时会有appmsg请求<ul>
+<li>点击目标公众号并选择，此时会有appmsg请求
+<ul>
 <li>Headers: 含所需cookies</li>
 <li>Payload: 含fakeid和token</li>
-</ul>
-</li>
-</ul>
-</li>
+</ul></li>
+</ul></li>
 <li>步骤2 python写脚本请求request</li>
 </ul>
-<h1 id="小程序内容"><a href="#小程序内容" class="headerlink" title="小程序内容"></a>小程序内容</h1><p>这是基于fiddler的iphone微信小程序内容抓取</p>
-<h2 id="准备-1"><a href="#准备-1" class="headerlink" title="准备"></a>准备</h2><ul>
-<li>fiddler: <a href="https://www.telerik.com/fiddler" target="_blank" rel="noopener">https://www.telerik.com/fiddler</a></li>
-</ul>
-<h2 id="步骤-1"><a href="#步骤-1" class="headerlink" title="步骤"></a>步骤</h2><ul>
+<h1 id="小程序内容">小程序内容</h1>
+<p>这是基于fiddler的iphone微信小程序内容抓取 ## 准备 * fiddler:
+https://www.telerik.com/fiddler</p>
+<h2 id="步骤-1">步骤</h2>
+<ul>
 <li>步骤1 pc安装fiddler</li>
-<li>步骤2 配置fiddler<ul>
-<li>Tool-Options-HTTPS，勾选Capture HTTPS CONNECTs, Decrypt HTTPS traffic<br>(Ignore server不确定是否要勾, 这页除了check…都选了)</li>
-<li>Tool-Options-Connections, 勾选Allow remote computers to connect<br>(这页除了Use PAC…都选了)</li>
-</ul>
-</li>
-<li>步骤3 配置iphone<ul>
+<li>步骤2 配置fiddler
+<ul>
+<li>Tool-Options-HTTPS，勾选Capture HTTPS CONNECTs, Decrypt HTTPS
+traffic (Ignore server不确定是否要勾, 这页除了check...都选了)</li>
+<li>Tool-Options-Connections, 勾选Allow remote computers to connect
+(这页除了Use PAC...都选了)</li>
+</ul></li>
+<li>步骤3 配置iphone
+<ul>
 <li>右上角有个Online可以看到pc的ip地址，端口在Tool-Options-Connections</li>
 <li>手机的ip在wifi里面，可以使用ping检查pc和手机是否在同一个网络</li>
-<li>安装证书，在pc浏览器输入<a href="http://pc的ip地址:端口，下载FiddlerRoot" target="_blank" rel="noopener">http://pc的ip地址:端口，下载FiddlerRoot</a> certificate，发送到手机</li>
+<li>安装证书，在pc浏览器输入http://pc的ip地址:端口，下载FiddlerRoot
+certificate，发送到手机</li>
 <li>手机-设置-通用-VPN与设备管理-选择该证书进行安装</li>
 <li>手机-设置-关于本机-证书信任设置-开通</li>
 <li>手机-wifi-配置代理-手动-填电脑ip和端口</li>
-</ul>
-</li>
-<li>步骤4 如果抓不了包<ul>
+</ul></li>
+<li>步骤4 如果抓不了包
+<ul>
 <li>pc-控制面板-系统和安全-运行程序通过windows防火墙-更改设置-允许其他应用-浏览fiddler安装目录-添加</li>
 <li>重启fiddler</li>
-</ul>
-</li>
+</ul></li>
 <li>步骤5 事后手机关闭代理-不信任证书-移除证书</li>
 </ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>iphone的<br><a href="https://blog.csdn.net/weixin_40608713/article/details/114873070" target="_blank" rel="noopener">https://blog.csdn.net/weixin_40608713/article/details/114873070</a><br>pc小程序的<br><a href="https://juejin.cn/post/7134952159061213198【好像没用】" target="_blank" rel="noopener">https://juejin.cn/post/7134952159061213198【好像没用】</a>  </p>
-<h2 id="参考-1"><a href="#参考-1" class="headerlink" title="参考"></a>参考</h2><p><a href="https://juejin.cn/post/7101470609757962277" target="_blank" rel="noopener">https://juejin.cn/post/7101470609757962277</a><br><a href="https://www.jianshu.com/p/545bdd506aeb" target="_blank" rel="noopener">https://www.jianshu.com/p/545bdd506aeb</a><br><a href="https://www.cnblogs.com/leslie12956/p/16282238.html" target="_blank" rel="noopener">https://www.cnblogs.com/leslie12956/p/16282238.html</a></p>
+<h2 id="参考">参考</h2>
+<p>iphone的<br>
+https://blog.csdn.net/weixin_40608713/article/details/114873070<br>
+pc小程序的<br>
+https://juejin.cn/post/7134952159061213198【好像没用】</p>
+<h2 id="参考-1">参考</h2>
+<p>https://juejin.cn/post/7101470609757962277
+https://www.jianshu.com/p/545bdd506aeb
+https://www.cnblogs.com/leslie12956/p/16282238.html</p>
 
       
 
@@ -433,7 +442,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#微信公众号"><span class="toc-number">1.</span> <span class="toc-text">微信公众号</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#准备"><span class="toc-number">1.1.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-number">1.2.</span> <span class="toc-text">步骤</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#小程序内容"><span class="toc-number">2.</span> <span class="toc-text">小程序内容</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#准备-1"><span class="toc-number">2.1.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤-1"><span class="toc-number">2.2.</span> <span class="toc-text">步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">2.3.</span> <span class="toc-text">参考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考-1"><span class="toc-number">2.4.</span> <span class="toc-text">参考</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#微信公众号"><span class="toc-number">1.</span> <span class="toc-text">微信公众号</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-number">1.1.</span> <span class="toc-text">步骤</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#小程序内容"><span class="toc-number">2.</span> <span class="toc-text">小程序内容</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤-1"><span class="toc-number">2.1.</span> <span class="toc-text">步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">2.2.</span> <span class="toc-text">参考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考-1"><span class="toc-number">2.3.</span> <span class="toc-text">参考</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -656,6 +665,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
@@ -668,11 +689,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">latex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -684,19 +701,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">clip</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -724,7 +729,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -736,39 +741,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">对比学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MIM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">动画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">漫画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">小说</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电影</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">电视剧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -780,15 +757,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">procreate</a>
+                <a href="javascript:void(0)" class="js-tag color5">对比学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ipad</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
+                <a href="javascript:void(0)" class="js-tag color4">MIM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -820,11 +793,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
+                <a href="javascript:void(0)" class="js-tag color3">漫画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">小说</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">电视剧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -832,31 +821,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">公众号</a>
+                <a href="javascript:void(0)" class="js-tag color5">procreate</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ios</a>
+                <a href="javascript:void(0)" class="js-tag color5">ipad</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+                <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -876,6 +857,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">公众号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">表情包</a>
               </li>
              
@@ -888,11 +889,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">配置</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -901,6 +902,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vup</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">配置</a>
               </li>
              
               <li class="article-tag-list-item">

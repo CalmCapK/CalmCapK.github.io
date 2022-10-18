@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://calmcapK.github.io">
   <title>刷题笔记 | CalmCapK&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="leetcode二叉树二叉树+dfs 题目98. Validate Binary Search Tree 题意：给一颗二叉树，左子树需要比当前节点小，右子树需要比当前节点大，判断是否满足条件 思路1：从下到上回溯，每个节点的条件是左子树最大值lmx&amp;lt;当前节点&amp;lt;右子树最小值rmi，但是返回时，整个子树最小值为lmi，最大值为rmx，所以需要存储每个子树最小值和最大值 时间复杂度：n 空间">
+  <meta name="description" content="leetcode 二叉树 二叉树+dfs  题目98. Validate Binary Search Tree  题意：给一颗二叉树，左子树需要比当前节点小，右子树需要比当前节点大，判断是否满足条件 思路1：从下到上回溯，每个节点的条件是左子树最大值lmx&amp;lt;当前节点&amp;lt;右子树最小值rmi，但是返回时，整个子树最小值为lmi，最大值为rmx，所以需要存储每个子树最小值和最大值">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="刷题笔记">
 <meta property="og:url" content="https://calmcapK.github.io/2022/09/11/刷题笔记/index.html">
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
-<meta property="og:description" content="leetcode二叉树二叉树+dfs 题目98. Validate Binary Search Tree 题意：给一颗二叉树，左子树需要比当前节点小，右子树需要比当前节点大，判断是否满足条件 思路1：从下到上回溯，每个节点的条件是左子树最大值lmx&amp;lt;当前节点&amp;lt;右子树最小值rmi，但是返回时，整个子树最小值为lmi，最大值为rmx，所以需要存储每个子树最小值和最大值 时间复杂度：n 空间">
+<meta property="og:description" content="leetcode 二叉树 二叉树+dfs  题目98. Validate Binary Search Tree  题意：给一颗二叉树，左子树需要比当前节点小，右子树需要比当前节点大，判断是否满足条件 思路1：从下到上回溯，每个节点的条件是左子树最大值lmx&amp;lt;当前节点&amp;lt;右子树最小值rmi，但是返回时，整个子树最小值为lmi，最大值为rmx，所以需要存储每个子树最小值和最大值">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2022-10-13T01:03:09.739Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="刷题笔记">
-<meta name="twitter:description" content="leetcode二叉树二叉树+dfs 题目98. Validate Binary Search Tree 题意：给一颗二叉树，左子树需要比当前节点小，右子树需要比当前节点大，判断是否满足条件 思路1：从下到上回溯，每个节点的条件是左子树最大值lmx&amp;lt;当前节点&amp;lt;右子树最小值rmi，但是返回时，整个子树最小值为lmi，最大值为rmx，所以需要存储每个子树最小值和最大值 时间复杂度：n 空间">
+<meta name="twitter:description" content="leetcode 二叉树 二叉树+dfs  题目98. Validate Binary Search Tree  题意：给一颗二叉树，左子树需要比当前节点小，右子树需要比当前节点大，判断是否满足条件 思路1：从下到上回溯，每个节点的条件是左子树最大值lmx&amp;lt;当前节点&amp;lt;右子树最小值rmi，但是返回时，整个子树最小值为lmi，最大值为rmx，所以需要存储每个子树最小值和最大值">
   
     <link rel="alternative" href="/atom.xml" title="CalmCapK&#39;s Blog" type="application/atom+xml">
   
@@ -204,167 +204,203 @@
       
         
         <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
-        <h1 id="leetcode"><a href="#leetcode" class="headerlink" title="leetcode"></a>leetcode</h1><h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><h3 id="二叉树-dfs"><a href="#二叉树-dfs" class="headerlink" title="二叉树+dfs"></a>二叉树+dfs</h3><ul>
-<li>题目98. Validate Binary Search Tree<ul>
+        <h1 id="leetcode">leetcode</h1>
+<h2 id="二叉树">二叉树</h2>
+<h3 id="二叉树dfs">二叉树+dfs</h3>
+<ul>
+<li>题目98. Validate Binary Search Tree
+<ul>
 <li>题意：给一颗二叉树，左子树需要比当前节点小，右子树需要比当前节点大，判断是否满足条件</li>
-<li>思路1：从下到上回溯，每个节点的条件是左子树最大值lmx&lt;当前节点&lt;右子树最小值rmi，但是返回时，整个子树最小值为lmi，最大值为rmx，所以需要存储每个子树最小值和最大值<ul>
+<li>思路1：从下到上回溯，每个节点的条件是左子树最大值lmx&lt;当前节点&lt;右子树最小值rmi，但是返回时，整个子树最小值为lmi，最大值为rmx，所以需要存储每个子树最小值和最大值
+<ul>
 <li>时间复杂度：n</li>
 <li>空间复杂度：n</li>
-</ul>
-</li>
+</ul></li>
 <li>思路2：从下到上回溯，用指针存最大最小值，这样可以为nullptr，讨论方便点</li>
 <li>思路3：从上到下，得到每个区间最小最大值，每个区间满足当前节点大于最小值，小于最大值</li>
-<li>错误思路：<ul>
+<li>错误思路：
+<ul>
 <li>只找左子树最大值和右子树最小值</li>
 <li>search里search_max找左子树，search_min找右子树</li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h3 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h3><ul>
-<li>题目146. LRU Cache<ul>
-<li>题意：一个缓存器，n大小，有get(key)和put(key, val)操作，缓存器缓存最新的key和对应value, get和put也会影响时间，需要在o1时间完成get和put操作</li>
-<li>思路1：双向链表可以在o1时间移动已缓存key，表尾表示最新操作，用map记录每个key的指针，需要讨论的情况<ul>
-<li>get：目标key前后都有节点，目标key在表头，需要移动到表尾; 目标key在表尾无影响; 只有一个节点无影响</li>
-<li>put: 新key, 第一个节点; 新key, 当前链表长度小于n, 直接放在表尾; 新key, 当前链表长度大于等于n, 弹出表头，新节点直接放在表尾，同时去掉map，注意长度为1的情况; 旧key, 直接调用get, 更新val就好</li>
-<li>注意的坑：指针移动顺序，前后节点对应关系，前后指针是否为空，不要断链，首尾指针位置, 单节点，空节点</li>
+<h2 id="链表">链表</h2>
+<h3 id="双向链表">双向链表</h3>
+<ul>
+<li>题目146. LRU Cache
+<ul>
+<li>题意：一个缓存器，n大小，有get(key)和put(key,
+val)操作，缓存器缓存最新的key和对应value,
+get和put也会影响时间，需要在o1时间完成get和put操作</li>
+<li>思路1：双向链表可以在o1时间移动已缓存key，表尾表示最新操作，用map记录每个key的指针，需要讨论的情况
+<ul>
+<li>get：目标key前后都有节点，目标key在表头，需要移动到表尾;
+目标key在表尾无影响; 只有一个节点无影响</li>
+<li>put: 新key, 第一个节点; 新key, 当前链表长度小于n, 直接放在表尾;
+新key, 当前链表长度大于等于n,
+弹出表头，新节点直接放在表尾，同时去掉map，注意长度为1的情况; 旧key,
+直接调用get, 更新val就好</li>
+<li>注意的坑：指针移动顺序，前后节点对应关系，前后指针是否为空，不要断链，首尾指针位置,
+单节点，空节点</li>
 <li>时间复杂度：1 【还是会超时】</li>
 <li>空间复杂度：n</li>
-</ul>
-</li>
+</ul></li>
 <li>思路2：用list实现双向链表</li>
-<li>错误思路：<br>  用queue维护，无法再o1时间移动已在队列的key</li>
+<li>错误思路： 用queue维护，无法再o1时间移动已在队列的key</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><h3 id="图-dfs"><a href="#图-dfs" class="headerlink" title="图+dfs"></a>图+dfs</h3><ul>
-<li>题目130. Surrounded Regions<ul>
-<li>题意：给定一个200x200图，如果’O’完全被’X’包围，则把’O’变成’X’</li>
-<li>思路1：<br>  vis表示一个点属于哪个连通图。只进入’O’点，枚举四个方向，该方向越界就标记false，如果该方向是’O’点且没有遍历过就继续dfs，最后判断该点有问题，返回false。跑完一个连通图后，如果当前连通图为true，则把’O’变成’X’<ul>
+<h2 id="图">图</h2>
+<h3 id="图dfs">图+dfs</h3>
+<ul>
+<li>题目130. Surrounded Regions
+<ul>
+<li>题意：给定一个200x200图，如果'O'完全被'X'包围，则把'O'变成'X'</li>
+<li>思路1：
+vis表示一个点属于哪个连通图。只进入'O'点，枚举四个方向，该方向越界就标记false，如果该方向是'O'点且没有遍历过就继续dfs，最后判断该点有问题，返回false。跑完一个连通图后，如果当前连通图为true，则把'O'变成'X'
+<ul>
 <li>时间复杂度：nxm</li>
 <li>空间复杂度：nxm</li>
+</ul></li>
+<li>思路2： 从边界找到'O'的连通图，这些连通图不需要修改</li>
+<li>错误思路：
+vis表示一个点是否有问题。只进入'O'点，枚举四个方向，该方向越界就返回false，如果该方向是'O'点且已知有问题就返回false，如果该方向是'O'点且没有遍历过就继续dfs，最后判断该点有问题，返回false。
+这种没有遍历完连通图就剪枝做结论返回，容易前一个分支一开始可行，但后面分支发现不可行，没办法更新。</li>
+</ul></li>
 </ul>
-</li>
-<li>思路2：<br>  从边界找到’O’的连通图，这些连通图不需要修改</li>
-<li>错误思路：<br>  vis表示一个点是否有问题。只进入’O’点，枚举四个方向，该方向越界就返回false，如果该方向是’O’点且已知有问题就返回false，如果该方向是’O’点且没有遍历过就继续dfs，最后判断该点有问题，返回false。<br>  这种没有遍历完连通图就剪枝做结论返回，容易前一个分支一开始可行，但后面分支发现不可行，没办法更新。</li>
-</ul>
-</li>
-</ul>
-<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="最大最小dp-滚动数组"><a href="#最大最小dp-滚动数组" class="headerlink" title="最大最小dp+滚动数组"></a>最大最小dp+滚动数组</h3><ul>
-<li>题目152. Maximum Product Subarray<ul>
+<h2 id="动态规划">动态规划</h2>
+<h3 id="最大最小dp滚动数组">最大最小dp+滚动数组</h3>
+<ul>
+<li>题目152. Maximum Product Subarray
+<ul>
 <li>题意：求一个数组的最大乘积区间，含负数和0</li>
-<li>思路1：遍历数组，用滚动数组方式pn, fn记录前一个位置最大正数和最大负数，用p,f,z表示上一个位置是否有正数、负数、0结果。<ul>
-<li>当前值为正数时，前一个有正数结果pn = pn * arr[i]; 前一个无正数结果pn = arr[i]; 前一个有负数结果，fn = fn * arr[i]。更新p,f值</li>
-<li>当前值为负数时，前一个有正数结果fn = pn * arr[i]; 前一个无正数结果fn = arr[i]; 前一个有负数结果，pn = fn * arr[i]。注意负数情况，需要分开存前一个和当前情况，避免覆盖。更新p,f值</li>
+<li>思路1：遍历数组，用滚动数组方式pn,
+fn记录前一个位置最大正数和最大负数，用p,f,z表示上一个位置是否有正数、负数、0结果。
+<ul>
+<li>当前值为正数时，前一个有正数结果pn = pn * arr[i]; 前一个无正数结果pn
+= arr[i]; 前一个有负数结果，fn = fn * arr[i]。更新p,f值</li>
+<li>当前值为负数时，前一个有正数结果fn = pn * arr[i]; 前一个无正数结果fn
+= arr[i]; 前一个有负数结果，pn = fn *
+arr[i]。注意负数情况，需要分开存前一个和当前情况，避免覆盖。更新p,f值</li>
 <li>当前值为0时，p,f为false,z为true。</li>
 <li>最后取三者最大值。</li>
 <li>时间复杂度：n</li>
 <li>空间复杂度：常数</li>
-</ul>
-</li>
-<li>思路2：本质上用滚动数组方式保存正负数可以直接保存最大和最小值<ul>
+</ul></li>
+<li>思路2：本质上用滚动数组方式保存正负数可以直接保存最大和最小值
+<ul>
 <li>更新最大值：mx = max(mx<em>arr[i], max(mi</em>arr[i], arr[i]))</li>
 <li>更新最小值：mi = min(mx<em>arr[i], min(mi</em>arr[i], arr[i]))</li>
 <li>时间复杂度：n</li>
 <li>空间复杂度：常数</li>
+</ul></li>
+<li>错误思路：
+<ul>
+<li>dp[i]表示含i的前面区间最大乘积，dp[i] = max(dp[i-1]*num[i], num[i]),
+负数不能保证最大</li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-<li>错误思路：<ul>
-<li>dp[i]表示含i的前面区间最大乘积，dp[i] = max(dp[i-1]*num[i], num[i]), 负数不能保证最大</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h3 id="改造排序函数-字符串比较"><a href="#改造排序函数-字符串比较" class="headerlink" title="改造排序函数+字符串比较"></a>改造排序函数+字符串比较</h3><ul>
-<li>题目179. Largest Number<ul>
+<h2 id="排序">排序</h2>
+<h3 id="改造排序函数字符串比较">改造排序函数+字符串比较</h3>
+<ul>
+<li>题目179. Largest Number
+<ul>
 <li>题意：给一串数字，求拼起来最大值</li>
-<li>思路1：数字首字符不同时越大越早拼装，相同时需要考虑拼接后情况：3 &gt; 31, 32 &gt; 3, 35 &gt; 3 &gt; 304 ，因为两两拼接比较具有传递性，只需要两两拼接对比即可。<ul>
+<li>思路1：数字首字符不同时越大越早拼装，相同时需要考虑拼接后情况：3
+&gt; 31, 32 &gt; 3, 35 &gt; 3 &gt; 304
+，因为两两拼接比较具有传递性，只需要两两拼接对比即可。
+<ul>
 <li>时间复杂度：nlognlogm</li>
 <li>空间复杂度：logn</li>
-</ul>
-</li>
-<li>错误思路：<ul>
+</ul></li>
+<li>错误思路：
+<ul>
 <li>容易忽略数字为0，拼起来为00的情况</li>
 <li>不需要按照1-9划分</li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="排序-思维题"><a href="#排序-思维题" class="headerlink" title="排序+思维题"></a>排序+思维题</h3><ul>
-<li>题目324. Wiggle Sort II<ul>
-<li>题意：给一组数字，要求排列成a0 &lt; a1 &gt; a2 &lt; a3 …形式</li>
-<li>思路1：当数组相同元素个数不超过floor((n+1)/2)时存在满足的排列。先按照从小到大排序，分奇偶从左往右计算<ul>
-<li>偶数必然：a0+x &gt; a0 &lt; a1+x &gt; a1 &lt; ai+x &gt; ai，只要倒转即可</li>
-<li>奇数必然：a0 &lt; a1+x &gt; a1 &lt; a2+x &gt; a2 &lt; ai+x &gt; ai</li>
+<h3 id="排序思维题">排序+思维题</h3>
+<ul>
+<li>题目324. Wiggle Sort II
+<ul>
+<li>题意：给一组数字，要求排列成a0 &lt; a1 &gt; a2 &lt; a3 ...形式</li>
+<li>思路1：当数组相同元素个数不超过floor((n+1)/2)时存在满足的排列。先按照从小到大排序，分奇偶从左往右计算
+<ul>
+<li>偶数必然：a0+x &gt; a0 &lt; a1+x &gt; a1 &lt; ai+x &gt;
+ai，只要倒转即可</li>
+<li>奇数必然：a0 &lt; a1+x &gt; a1 &lt; a2+x &gt; a2 &lt; ai+x &gt;
+ai</li>
 <li>其中，ai=(n-1)/2，ai+x=n-1</li>
 <li>时间复杂度：nlogn</li>
 <li>空间复杂度：n</li>
-</ul>
-</li>
-<li>思路2：在思路1基础上，可以统一奇数和偶数，从右往左计算<ul>
-<li>偶数和偶数必然：（a0+x &gt;） a0 &lt; a1+x &gt; a1 &lt;  a2+x &gt; a2 &lt; ai+x &gt; ai</li>
+</ul></li>
+<li>思路2：在思路1基础上，可以统一奇数和偶数，从右往左计算
+<ul>
+<li>偶数和偶数必然：（a0+x &gt;） a0 &lt; a1+x &gt; a1 &lt; a2+x &gt; a2
+&lt; ai+x &gt; ai</li>
 <li>其中，ai=(n-1)/2，ai+x=n-1</li>
 <li>时间复杂度：nlogn</li>
 <li>空间复杂度：n</li>
-</ul>
-</li>
-<li>错误思路：<ul>
+</ul></li>
+<li>错误思路：
+<ul>
 <li>统计比当前数字大的有多少数字，按稀缺排序，情况太复杂</li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="模拟"><a href="#模拟" class="headerlink" title="模拟"></a>模拟</h2><h3 id="模拟除法"><a href="#模拟除法" class="headerlink" title="模拟除法"></a>模拟除法</h3><ul>
-<li>题目166. Fraction to Recurring Decimal<ul>
-<li>题意：给两个数做除法，输出结果，循环节用括号括起来 </li>
-<li>思路1：长除法。<ul>
+<h2 id="模拟">模拟</h2>
+<h3 id="模拟除法">模拟除法</h3>
+<ul>
+<li>题目166. Fraction to Recurring Decimal
+<ul>
+<li>题意：给两个数做除法，输出结果，循环节用括号括起来</li>
+<li>思路1：长除法。
+<ul>
 <li>先判断负号</li>
 <li>判断是否有整除, 结果是否为0</li>
 <li>用map判断余数是否相同，来判断是否循环</li>
 <li>时间复杂度：n</li>
 <li>空间复杂度：n</li>
-</ul>
-</li>
-<li>错误思路：<ul>
+</ul></li>
+<li>错误思路：
+<ul>
 <li>忘记0，0.2情况</li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="思维题"><a href="#思维题" class="headerlink" title="思维题"></a>思维题</h2><ul>
-<li>题目41. First Missing Positive<ul>
+<h2 id="思维题">思维题</h2>
+<ul>
+<li>题目41. First Missing Positive
+<ul>
 <li>题意：求一个数组里缺少的第一个正数，要求on时间，o1空间</li>
-<li>思路1：先把数组里的负数和0设置为N+1,然后把arr[i]=1-N时的arr[arr[i]-1]设为负数，注意绝对值，结果就是第一个不是负数的i+1<ul>
+<li>思路1：先把数组里的负数和0设置为N+1,然后把arr[i]=1-N时的arr[arr[i]-1]设为负数，注意绝对值，结果就是第一个不是负数的i+1
+<ul>
 <li>时间复杂度：n</li>
 <li>空间复杂度：1</li>
-</ul>
-</li>
-<li>错误思路：<ul>
+</ul></li>
+<li>错误思路：
+<ul>
 <li>map+扫一遍需要n空间</li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><ul>
-<li>题目<ul>
+<h2 id="模板">模板</h2>
+<ul>
+<li>题目
+<ul>
 <li>题意：</li>
-<li>思路1：xx<ul>
+<li>思路1：xx
+<ul>
 <li>时间复杂度：</li>
 <li>空间复杂度：</li>
-</ul>
-</li>
-<li>错误思路：<ul>
+</ul></li>
+<li>错误思路：
+<ul>
 <li>xx</li>
-</ul>
-</li>
-</ul>
-</li>
+</ul></li>
+</ul></li>
 </ul>
 
       
@@ -536,7 +572,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#leetcode"><span class="toc-number">1.</span> <span class="toc-text">leetcode</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树"><span class="toc-number">1.1.</span> <span class="toc-text">二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#二叉树-dfs"><span class="toc-number">1.1.1.</span> <span class="toc-text">二叉树+dfs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链表"><span class="toc-number">1.2.</span> <span class="toc-text">链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#双向链表"><span class="toc-number">1.2.1.</span> <span class="toc-text">双向链表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图"><span class="toc-number">1.3.</span> <span class="toc-text">图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图-dfs"><span class="toc-number">1.3.1.</span> <span class="toc-text">图+dfs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态规划"><span class="toc-number">1.4.</span> <span class="toc-text">动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#最大最小dp-滚动数组"><span class="toc-number">1.4.1.</span> <span class="toc-text">最大最小dp+滚动数组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排序"><span class="toc-number">1.5.</span> <span class="toc-text">排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#改造排序函数-字符串比较"><span class="toc-number">1.5.1.</span> <span class="toc-text">改造排序函数+字符串比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#排序-思维题"><span class="toc-number">1.5.2.</span> <span class="toc-text">排序+思维题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模拟"><span class="toc-number">1.6.</span> <span class="toc-text">模拟</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模拟除法"><span class="toc-number">1.6.1.</span> <span class="toc-text">模拟除法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思维题"><span class="toc-number">1.7.</span> <span class="toc-text">思维题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板"><span class="toc-number">1.8.</span> <span class="toc-text">模板</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#leetcode"><span class="toc-number">1.</span> <span class="toc-text">leetcode</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树"><span class="toc-number">1.1.</span> <span class="toc-text">二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#二叉树dfs"><span class="toc-number">1.1.1.</span> <span class="toc-text">二叉树+dfs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链表"><span class="toc-number">1.2.</span> <span class="toc-text">链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#双向链表"><span class="toc-number">1.2.1.</span> <span class="toc-text">双向链表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图"><span class="toc-number">1.3.</span> <span class="toc-text">图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图dfs"><span class="toc-number">1.3.1.</span> <span class="toc-text">图+dfs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态规划"><span class="toc-number">1.4.</span> <span class="toc-text">动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#最大最小dp滚动数组"><span class="toc-number">1.4.1.</span> <span class="toc-text">最大最小dp+滚动数组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排序"><span class="toc-number">1.5.</span> <span class="toc-text">排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#改造排序函数字符串比较"><span class="toc-number">1.5.1.</span> <span class="toc-text">改造排序函数+字符串比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#排序思维题"><span class="toc-number">1.5.2.</span> <span class="toc-text">排序+思维题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模拟"><span class="toc-number">1.6.</span> <span class="toc-text">模拟</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模拟除法"><span class="toc-number">1.6.1.</span> <span class="toc-text">模拟除法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思维题"><span class="toc-number">1.7.</span> <span class="toc-text">思维题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板"><span class="toc-number">1.8.</span> <span class="toc-text">模板</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -759,6 +795,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
@@ -771,11 +819,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">latex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -787,19 +831,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">clip</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -827,7 +859,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -839,39 +871,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">对比学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MIM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">动画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">漫画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">小说</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电影</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">电视剧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -883,15 +887,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">procreate</a>
+                <a href="javascript:void(0)" class="js-tag color5">对比学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ipad</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
+                <a href="javascript:void(0)" class="js-tag color4">MIM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -923,11 +923,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">动画</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
+                <a href="javascript:void(0)" class="js-tag color3">漫画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">小说</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">电视剧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -935,31 +951,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">公众号</a>
+                <a href="javascript:void(0)" class="js-tag color5">procreate</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ios</a>
+                <a href="javascript:void(0)" class="js-tag color5">ipad</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+                <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -979,6 +987,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">公众号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">表情包</a>
               </li>
              
@@ -991,11 +1019,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">配置</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1004,6 +1032,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vup</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">配置</a>
               </li>
              
               <li class="article-tag-list-item">
