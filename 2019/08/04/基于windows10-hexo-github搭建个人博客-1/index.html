@@ -295,7 +295,7 @@ hexo d</code><br><em>(注意)yilia主题缺少模块，还要按照”所有文�
 <figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">title: XXX</span><br><span class="line">categories: 教程</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>可视化需要編写/themes/yilia/layout/categories.ejs和   main.0cf68a.css<br>5.1第一种风格<br><img src="/assets/img/categories_style1.jpg" alt="第一种风格"><br>新建categories.ejs，具体代码如下</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;section <span class="class"><span class="keyword">class</span></span>=<span class="string">"archives-wrap"</span>&gt;</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-year-wrap"</span>&gt;</span><br><span class="line"> &lt;a href=<span class="string">"#"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-year"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">%=</span> <span class="attr">page.title</span> %&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;div class="archives"&gt;</span></span><br><span class="line"><span class="regexp"> &lt;article class="archive-article archive-type-category"&gt;</span></span><br><span class="line"><span class="regexp">   &lt;div class="archive-article-inner"&gt;</span></span><br><span class="line"><span class="regexp">     &lt;header class="archive-article-header"&gt;</span></span><br><span class="line"><span class="regexp">     &lt;/</span>header&gt;</span><br><span class="line">   &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp"> &lt;/</span>article&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>section&gt;</span><br><span class="line">&lt;section <span class="class"><span class="keyword">class</span></span>=<span class="string">"archives-wrap"</span>&gt;</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-year-wrap"</span>&gt;</span><br><span class="line"> &lt;a href=<span class="string">"#"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-year"</span>&gt;共计&lt;%= site.categories.length %&gt;个&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"archives"</span>&gt;</span><br><span class="line">   &lt;% site.categories.each(<span class="function"><span class="keyword">function</span> (<span class="params">tag, i</span>) </span>&#123; %&gt;</span><br><span class="line">     &lt;article <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-article archive-type-category"</span>&gt;</span><br><span class="line">         &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-article-inner"</span>&gt;</span><br><span class="line">            &lt;header <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-article-header"</span>&gt;</span><br><span class="line">              &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"category-tagcloud"</span>&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"article-category tagcloud"</span>&gt;</span><br><span class="line">                  &lt;a href=<span class="string">"&lt;%= config.root %&gt;&lt;%= tag.path %&gt;/"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"article-tag-list-link color&lt;%= tag.name.length % 5 + 1 %&gt;"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">%-</span> <span class="attr">tag.name</span> %&gt;</span>[<span class="tag">&lt;<span class="name">%=</span> <span class="attr">tag.posts.length</span> %&gt;</span>]<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line">                &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">              &lt;/</span>div&gt;</span><br><span class="line">            &lt;<span class="regexp">/header&gt;</span></span><br><span class="line"><span class="regexp">          &lt;/</span>div&gt;</span><br><span class="line">      &lt;<span class="regexp">/article&gt;</span></span><br><span class="line"><span class="regexp">   &lt;% &#125;) %&gt;       </span></span><br><span class="line"><span class="regexp"> &lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/section&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;section <span class="class"><span class="keyword">class</span></span>=<span class="string">"archives-wrap"</span>&gt;</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-year-wrap"</span>&gt;</span><br><span class="line"> &lt;a href=<span class="string">"#"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-year"</span>&gt;&lt;%= page.title %&gt;&lt;/a&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;div class="archives"&gt;</span></span><br><span class="line"><span class="regexp"> &lt;article class="archive-article archive-type-category"&gt;</span></span><br><span class="line"><span class="regexp">   &lt;div class="archive-article-inner"&gt;</span></span><br><span class="line"><span class="regexp">     &lt;header class="archive-article-header"&gt;</span></span><br><span class="line"><span class="regexp">     &lt;/</span>header&gt;</span><br><span class="line">   &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp"> &lt;/</span>article&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>section&gt;</span><br><span class="line">&lt;section <span class="class"><span class="keyword">class</span></span>=<span class="string">"archives-wrap"</span>&gt;</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-year-wrap"</span>&gt;</span><br><span class="line"> &lt;a href=<span class="string">"#"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-year"</span>&gt;共计&lt;%= site.categories.length %&gt;个&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"archives"</span>&gt;</span><br><span class="line">   &lt;% site.categories.each(<span class="function"><span class="keyword">function</span> (<span class="params">tag, i</span>) </span>&#123; %&gt;</span><br><span class="line">     &lt;article <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-article archive-type-category"</span>&gt;</span><br><span class="line">         &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-article-inner"</span>&gt;</span><br><span class="line">            &lt;header <span class="class"><span class="keyword">class</span></span>=<span class="string">"archive-article-header"</span>&gt;</span><br><span class="line">              &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"category-tagcloud"</span>&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"article-category tagcloud"</span>&gt;</span><br><span class="line">                  &lt;a href=<span class="string">"&lt;%= config.root %&gt;&lt;%= tag.path %&gt;/"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"article-tag-list-link color&lt;%= tag.name.length % 5 + 1 %&gt;"</span>&gt;&lt;%- tag.name %&gt;[&lt;%= tag.posts.length %&gt;]&lt;/a&gt;</span><br><span class="line">                &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">              &lt;/</span>div&gt;</span><br><span class="line">            &lt;<span class="regexp">/header&gt;</span></span><br><span class="line"><span class="regexp">          &lt;/</span>div&gt;</span><br><span class="line">      &lt;<span class="regexp">/article&gt;</span></span><br><span class="line"><span class="regexp">   &lt;% &#125;) %&gt;       </span></span><br><span class="line"><span class="regexp"> &lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/section&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>在main.0cf68a.css文件最后添加如下代码</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.category-tagcloud</span> <span class="selector-class">.tagcloud</span> <span class="selector-tag">a</span>&#123;<span class="attribute">font-size</span>:<span class="number">15px</span>;  <span class="attribute">height</span>:<span class="number">25px</span>; <span class="attribute">line-height</span>:<span class="number">24px</span>;&#125;</span><br></pre></td></tr></table></figure>
@@ -485,15 +485,20 @@ hexo d</code><br><em>(注意)yilia主题缺少模块，还要按照”所有文�
   
 <nav id="article-nav">
   
-    <a href="/2019/08/04/基于windows10-hexo-github搭建个人博客-2/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/08/04/明日方舟-procreate-ipad-板绘/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          基于windows10+hexo+github搭建个人博客(2)
+          明日方舟+procreate+ipad+板绘
         
       </div>
     </a>
   
+  
+    <a href="/2019/08/04/基于windows10-hexo-github搭建个人博客-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">基于windows10+hexo+github搭建个人博客(2)</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -737,18 +742,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
               </li>
              
@@ -757,11 +750,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -793,11 +798,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -813,19 +814,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">frp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -850,10 +851,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -885,6 +882,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">frp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">procreate</a>
               </li>
              
@@ -894,18 +903,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -925,6 +922,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
@@ -941,18 +950,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">医学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">表情包</a>
               </li>
              
@@ -965,11 +962,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">虚拟主播</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vup</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -978,6 +975,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">虚拟主播</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vup</a>
               </li>
              
               <li class="article-tag-list-item">

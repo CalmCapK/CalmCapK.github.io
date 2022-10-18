@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
 <meta property="og:description" content="leetcode二叉树二叉树+dfs 题目98. Validate Binary Search Tree 题意：给一颗二叉树，左子树需要比当前节点小，右子树需要比当前节点大，判断是否满足条件 思路1：从下到上回溯，每个节点的条件是左子树最大值lmx&amp;lt;当前节点&amp;lt;右子树最小值rmi，但是返回时，整个子树最小值为lmi，最大值为rmx，所以需要存储每个子树最小值和最大值 时间复杂度：n 空间">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2022-09-23T18:01:41.055Z">
+<meta property="og:updated_time" content="2022-10-13T01:03:09.739Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="刷题笔记">
 <meta name="twitter:description" content="leetcode二叉树二叉树+dfs 题目98. Validate Binary Search Tree 题意：给一颗二叉树，左子树需要比当前节点小，右子树需要比当前节点大，判断是否满足条件 思路1：从下到上回溯，每个节点的条件是左子树最大值lmx&amp;lt;当前节点&amp;lt;右子树最小值rmi，但是返回时，整个子树最小值为lmi，最大值为rmx，所以需要存储每个子树最小值和最大值 时间复杂度：n 空间">
@@ -336,6 +336,21 @@
 </ul>
 </li>
 </ul>
+<h2 id="思维题"><a href="#思维题" class="headerlink" title="思维题"></a>思维题</h2><ul>
+<li>题目41. First Missing Positive<ul>
+<li>题意：求一个数组里缺少的第一个正数，要求on时间，o1空间</li>
+<li>思路1：先把数组里的负数和0设置为N+1,然后把arr[i]=1-N时的arr[arr[i]-1]设为负数，注意绝对值，结果就是第一个不是负数的i+1<ul>
+<li>时间复杂度：n</li>
+<li>空间复杂度：1</li>
+</ul>
+</li>
+<li>错误思路：<ul>
+<li>map+扫一遍需要n空间</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><ul>
 <li>题目<ul>
 <li>题意：</li>
@@ -521,7 +536,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#leetcode"><span class="toc-number">1.</span> <span class="toc-text">leetcode</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树"><span class="toc-number">1.1.</span> <span class="toc-text">二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#二叉树-dfs"><span class="toc-number">1.1.1.</span> <span class="toc-text">二叉树+dfs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链表"><span class="toc-number">1.2.</span> <span class="toc-text">链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#双向链表"><span class="toc-number">1.2.1.</span> <span class="toc-text">双向链表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图"><span class="toc-number">1.3.</span> <span class="toc-text">图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图-dfs"><span class="toc-number">1.3.1.</span> <span class="toc-text">图+dfs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态规划"><span class="toc-number">1.4.</span> <span class="toc-text">动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#最大最小dp-滚动数组"><span class="toc-number">1.4.1.</span> <span class="toc-text">最大最小dp+滚动数组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排序"><span class="toc-number">1.5.</span> <span class="toc-text">排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#改造排序函数-字符串比较"><span class="toc-number">1.5.1.</span> <span class="toc-text">改造排序函数+字符串比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#排序-思维题"><span class="toc-number">1.5.2.</span> <span class="toc-text">排序+思维题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模拟"><span class="toc-number">1.6.</span> <span class="toc-text">模拟</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模拟除法"><span class="toc-number">1.6.1.</span> <span class="toc-text">模拟除法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板"><span class="toc-number">1.7.</span> <span class="toc-text">模板</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#leetcode"><span class="toc-number">1.</span> <span class="toc-text">leetcode</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树"><span class="toc-number">1.1.</span> <span class="toc-text">二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#二叉树-dfs"><span class="toc-number">1.1.1.</span> <span class="toc-text">二叉树+dfs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链表"><span class="toc-number">1.2.</span> <span class="toc-text">链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#双向链表"><span class="toc-number">1.2.1.</span> <span class="toc-text">双向链表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图"><span class="toc-number">1.3.</span> <span class="toc-text">图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图-dfs"><span class="toc-number">1.3.1.</span> <span class="toc-text">图+dfs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态规划"><span class="toc-number">1.4.</span> <span class="toc-text">动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#最大最小dp-滚动数组"><span class="toc-number">1.4.1.</span> <span class="toc-text">最大最小dp+滚动数组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排序"><span class="toc-number">1.5.</span> <span class="toc-text">排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#改造排序函数-字符串比较"><span class="toc-number">1.5.1.</span> <span class="toc-text">改造排序函数+字符串比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#排序-思维题"><span class="toc-number">1.5.2.</span> <span class="toc-text">排序+思维题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模拟"><span class="toc-number">1.6.</span> <span class="toc-text">模拟</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模拟除法"><span class="toc-number">1.6.1.</span> <span class="toc-text">模拟除法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思维题"><span class="toc-number">1.7.</span> <span class="toc-text">思维题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板"><span class="toc-number">1.8.</span> <span class="toc-text">模板</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -740,18 +755,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
               </li>
              
@@ -760,11 +763,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -796,11 +811,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -816,19 +827,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">frp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -853,10 +864,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -888,6 +895,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">frp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">procreate</a>
               </li>
              
@@ -897,18 +916,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -928,6 +935,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
@@ -944,18 +963,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">医学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">表情包</a>
               </li>
              
@@ -968,11 +975,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">虚拟主播</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vup</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -981,6 +988,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">虚拟主播</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vup</a>
               </li>
              
               <li class="article-tag-list-item">

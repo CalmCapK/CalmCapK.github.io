@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://calmcapK.github.io">
   <title>深度学习笔记 | CalmCapK&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="网站https://pytorch.org/   数据集https://xungejiang.com/2019/07/26/pytorch-imagenet/ 显卡V100-PICE/V100/K80 cuda安装 网站https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;amp;target_arch=x86_64&amp;amp;Dis">
+  <meta name="description" content="大规模预训练表征、表示、特征学习人工、PCA、矩阵分解、cluster、概率图模型预训练是一种表示学习方式，代理任务  通用性、多模态  模型越大效果越好，零样本和少样本迁移能力也提升  大规模预训练要求：数据、试错成本、算力资源、技术支持token-embeddiing-encoder-融合(单流前融合、双流后融合)  基于预测  掩码 MLM bert, roberta   LM MIM MA">
 <meta name="keywords" content="深度学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深度学习笔记">
 <meta property="og:url" content="https://calmcapK.github.io/2021/06/23/深度学习笔记/index.html">
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
-<meta property="og:description" content="网站https://pytorch.org/   数据集https://xungejiang.com/2019/07/26/pytorch-imagenet/ 显卡V100-PICE/V100/K80 cuda安装 网站https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;amp;target_arch=x86_64&amp;amp;Dis">
+<meta property="og:description" content="大规模预训练表征、表示、特征学习人工、PCA、矩阵分解、cluster、概率图模型预训练是一种表示学习方式，代理任务  通用性、多模态  模型越大效果越好，零样本和少样本迁移能力也提升  大规模预训练要求：数据、试错成本、算力资源、技术支持token-embeddiing-encoder-融合(单流前融合、双流后融合)  基于预测  掩码 MLM bert, roberta   LM MIM MA">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2022-09-19T18:53:15.831Z">
+<meta property="og:updated_time" content="2022-10-18T01:15:05.792Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深度学习笔记">
-<meta name="twitter:description" content="网站https://pytorch.org/   数据集https://xungejiang.com/2019/07/26/pytorch-imagenet/ 显卡V100-PICE/V100/K80 cuda安装 网站https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;amp;target_arch=x86_64&amp;amp;Dis">
+<meta name="twitter:description" content="大规模预训练表征、表示、特征学习人工、PCA、矩阵分解、cluster、概率图模型预训练是一种表示学习方式，代理任务  通用性、多模态  模型越大效果越好，零样本和少样本迁移能力也提升  大规模预训练要求：数据、试错成本、算力资源、技术支持token-embeddiing-encoder-融合(单流前融合、双流后融合)  基于预测  掩码 MLM bert, roberta   LM MIM MA">
   
     <link rel="alternative" href="/atom.xml" title="CalmCapK&#39;s Blog" type="application/atom+xml">
   
@@ -204,7 +204,123 @@
       
         
         <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
-        <h1 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h1><p><a href="https://pytorch.org/" target="_blank" rel="noopener">https://pytorch.org/</a>  </p>
+        <h1 id="大规模预训练"><a href="#大规模预训练" class="headerlink" title="大规模预训练"></a>大规模预训练</h1><p>表征、表示、特征学习<br>人工、PCA、矩阵分解、cluster、概率图模型<br>预训练是一种表示学习方式，代理任务</p>
+<ul>
+<li><p>通用性、多模态</p>
+</li>
+<li><p>模型越大效果越好，零样本和少样本迁移能力也提升</p>
+</li>
+<li><p>大规模预训练要求：数据、试错成本、算力资源、技术支持<br>token-embeddiing-encoder-融合(单流前融合、双流后融合)</p>
+</li>
+<li><p>基于预测</p>
+<ul>
+<li>掩码<ul>
+<li>MLM<ul>
+<li>bert, roberta</li>
+</ul>
+</li>
+<li>LM</li>
+<li>MIM<ul>
+<li>MAE simMM</li>
+</ul>
+</li>
+<li>MFM</li>
+</ul>
+</li>
+<li>数据变换预测<ul>
+<li>rotation</li>
+<li>colorization</li>
+</ul>
+</li>
+<li>RTD<ul>
+<li>其它</li>
+</ul>
+</li>
+<li>NSP</li>
+</ul>
+</li>
+<li><p>基于对比 类间差异</p>
+<ul>
+<li>CL<ul>
+<li>simCLR</li>
+<li>MOCO</li>
+<li>BYOL</li>
+<li>deepcluster</li>
+<li>simCSE</li>
+</ul>
+</li>
+<li>ITM<ul>
+<li>CLP</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h2><ul>
+<li><a href="https://www.microsoft.com/en-us/research/blog" target="_blank" rel="noopener">https://www.microsoft.com/en-us/research/blog</a></li>
+<li><a href="https://www.cnii.com.cn/gxxww/rmydb/202206/t20220616_388934.html" target="_blank" rel="noopener">https://www.cnii.com.cn/gxxww/rmydb/202206/t20220616_388934.html</a></li>
+<li><a href="https://www.cnii.com.cn/gxxww/rmydb/202206/t20220616_388934.html" target="_blank" rel="noopener">https://www.cnii.com.cn/gxxww/rmydb/202206/t20220616_388934.html</a></li>
+<li><a href="https://blog.csdn.net/c9Yv2cf9I06K2A9E/article/details/125270007" target="_blank" rel="noopener">https://blog.csdn.net/c9Yv2cf9I06K2A9E/article/details/125270007</a></li>
+<li><a href="https://jishuin.proginn.com/p/763bfbd7cbe8" target="_blank" rel="noopener">https://jishuin.proginn.com/p/763bfbd7cbe8</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/528720386" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/528720386</a></li>
+</ul>
+<h1 id="微调"><a href="#微调" class="headerlink" title="微调"></a>微调</h1><ul>
+<li><a href="https://blog.csdn.net/qq_22764813/article/details/95514636" target="_blank" rel="noopener">https://blog.csdn.net/qq_22764813/article/details/95514636</a></li>
+<li><a href="https://www.cvmart.net/community/detail/6489" target="_blank" rel="noopener">https://www.cvmart.net/community/detail/6489</a></li>
+</ul>
+<h1 id="优化器"><a href="#优化器" class="headerlink" title="优化器"></a>优化器</h1><ul>
+<li><a href="https://www.zhihu.com/question/36301367" target="_blank" rel="noopener">https://www.zhihu.com/question/36301367</a></li>
+<li><a href="https://www.zhihu.com/question/29151564" target="_blank" rel="noopener">https://www.zhihu.com/question/29151564</a></li>
+<li><a href="https://blog.csdn.net/real_ilin/article/details/108438089" target="_blank" rel="noopener">https://blog.csdn.net/real_ilin/article/details/108438089</a></li>
+<li><a href="https://www.cvmart.net/community/detail/5247" target="_blank" rel="noopener">https://www.cvmart.net/community/detail/5247</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/261695487" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/261695487</a></li>
+<li><a href="https://pytorch.zhangxiann.com/4-mo-xing-xun-lian/4.3-you-hua-qi" target="_blank" rel="noopener">https://pytorch.zhangxiann.com/4-mo-xing-xun-lian/4.3-you-hua-qi</a></li>
+<li><a href="https://www.jianshu.com/p/39dac1e24709" target="_blank" rel="noopener">https://www.jianshu.com/p/39dac1e24709</a></li>
+<li><a href="https://blog.csdn.net/wangwei19871103/article/details/90814987" target="_blank" rel="noopener">https://blog.csdn.net/wangwei19871103/article/details/90814987</a></li>
+<li><a href="https://www.cnblogs.com/bonelee/p/8392370.html" target="_blank" rel="noopener">https://www.cnblogs.com/bonelee/p/8392370.html</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/38945390" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/38945390</a></li>
+<li><a href="https://blog.csdn.net/Decennie/article/details/119222319" target="_blank" rel="noopener">https://blog.csdn.net/Decennie/article/details/119222319</a></li>
+<li><a href="https://www.cnblogs.com/tfknight/p/13425532.html" target="_blank" rel="noopener">https://www.cnblogs.com/tfknight/p/13425532.html</a></li>
+<li><a href="https://blog.csdn.net/weixin_45743001/article/details/120472616" target="_blank" rel="noopener">https://blog.csdn.net/weixin_45743001/article/details/120472616</a></li>
+</ul>
+<h1 id="姿态估计"><a href="#姿态估计" class="headerlink" title="姿态估计"></a>姿态估计</h1><p>hybrlk<br><a href="https://www.mixamo.com/#/" target="_blank" rel="noopener">https://www.mixamo.com/#/</a></p>
+<h1 id="文字生成图像"><a href="#文字生成图像" class="headerlink" title="文字生成图像"></a>文字生成图像</h1><ul>
+<li><a href="https://imagen.research.google/video/" target="_blank" rel="noopener">https://imagen.research.google/video/</a></li>
+</ul>
+<h1 id="多标签"><a href="#多标签" class="headerlink" title="多标签"></a>多标签</h1><ul>
+<li><a href="https://blog.csdn.net/TeFuirnever/article/details/100159150" target="_blank" rel="noopener">https://blog.csdn.net/TeFuirnever/article/details/100159150</a></li>
+<li><a href="https://blog.csdn.net/TeFuirnever/article/details/100180553" target="_blank" rel="noopener">https://blog.csdn.net/TeFuirnever/article/details/100180553</a></li>
+<li><a href="http://doc.codingdict.com/sklearn/13/" target="_blank" rel="noopener">http://doc.codingdict.com/sklearn/13/</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/41637556" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/41637556</a></li>
+<li><a href="https://www.zhihu.com/question/35486862/answer/462683110" target="_blank" rel="noopener">https://www.zhihu.com/question/35486862/answer/462683110</a></li>
+<li><a href="https://www.cnblogs.com/XBWer/p/13503796.html" target="_blank" rel="noopener">https://www.cnblogs.com/XBWer/p/13503796.html</a></li>
+<li><a href="https://blog.csdn.net/u011734144/article/details/79717470" target="_blank" rel="noopener">https://blog.csdn.net/u011734144/article/details/79717470</a></li>
+<li><a href="https://blog.csdn.net/Yvesx/article/details/110932595" target="_blank" rel="noopener">https://blog.csdn.net/Yvesx/article/details/110932595</a></li>
+<li><a href="https://blog.csdn.net/luanpeng825485697/article/details/79858186" target="_blank" rel="noopener">https://blog.csdn.net/luanpeng825485697/article/details/79858186</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/33372046" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/33372046</a></li>
+<li><a href="https://blog.csdn.net/qq_14845119/article/details/114121003" target="_blank" rel="noopener">https://blog.csdn.net/qq_14845119/article/details/114121003</a></li>
+</ul>
+<h1 id="数据增强"><a href="#数据增强" class="headerlink" title="数据增强"></a>数据增强</h1><ul>
+<li><a href="https://pytorch.zhangxiann.com/2-tu-pian-chu-li-yu-shu-ju-jia-zai/2.3-er-shi-er-zhong-transforms-tu-pian-shu-ju-yu-chu-li-fang-fa" target="_blank" rel="noopener">https://pytorch.zhangxiann.com/2-tu-pian-chu-li-yu-shu-ju-jia-zai/2.3-er-shi-er-zhong-transforms-tu-pian-shu-ju-yu-chu-li-fang-fa</a></li>
+<li><a href="https://blog.csdn.net/JNingWei/article/details/78218837" target="_blank" rel="noopener">https://blog.csdn.net/JNingWei/article/details/78218837</a></li>
+</ul>
+<h1 id="指标"><a href="#指标" class="headerlink" title="指标"></a>指标</h1><ul>
+<li><a href="https://www.w3cschool.cn/doc_scikit_learn/scikit_learn-auto_examples-model_selection-plot_precision_recall.html?lang=en#sphx-glr-auto-examples-model-selection-plot-precision-recall-py" target="_blank" rel="noopener">https://www.w3cschool.cn/doc_scikit_learn/scikit_learn-auto_examples-model_selection-plot_precision_recall.html?lang=en#sphx-glr-auto-examples-model-selection-plot-precision-recall-py</a></li>
+<li><a href="https://mercurixito.github.io/2021/05/22/metric-map/" target="_blank" rel="noopener">https://mercurixito.github.io/2021/05/22/metric-map/</a></li>
+<li><a href="https://blog.csdn.net/mr_muli/article/details/101616406" target="_blank" rel="noopener">https://blog.csdn.net/mr_muli/article/details/101616406</a></li>
+<li>skearn包的阈值是卡阈值，所以相同阈值取后面，</li>
+<li><a href="https://zhuanlan.zhihu.com/p/33372046" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/33372046</a></li>
+<li><a href="https://www.cnblogs.com/ywheunji/p/13376090.html" target="_blank" rel="noopener">https://www.cnblogs.com/ywheunji/p/13376090.html</a></li>
+<li><a href="https://scikit-learn.org.cn/view/496.html" target="_blank" rel="noopener">https://scikit-learn.org.cn/view/496.html</a></li>
+<li><a href="https://blog.51cto.com/liguodong/4925397" target="_blank" rel="noopener">https://blog.51cto.com/liguodong/4925397</a><br>3d图像绘制</li>
+<li><a href="https://www.geogebra.org/3d?lang=zh_CN" target="_blank" rel="noopener">https://www.geogebra.org/3d?lang=zh_CN</a><br>map计算</li>
+<li><a href="https://zhuanlan.zhihu.com/p/33372046" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/33372046</a><br>map</li>
+<li><a href="https://mercurixito.github.io/2021/05/22/metric-map/" target="_blank" rel="noopener">https://mercurixito.github.io/2021/05/22/metric-map/</a><br>有点意思</li>
+<li><a href="https://zdkswd.github.io/categories/" target="_blank" rel="noopener">https://zdkswd.github.io/categories/</a><br>roc曲线是<br>TPR召回 和 FPR</li>
+<li><a href="https://zdkswd.github.io/2018/11/20/%E7%B2%BE%E7%A1%AE%E7%8E%87%E3%80%81%E5%8F%AC%E5%9B%9E%E7%8E%87%E3%80%81%E7%9C%9F%E6%AD%A3%E7%B1%BB%E7%8E%87%EF%BC%88TPR%EF%BC%89%E3%80%81%E5%81%87%E6%AD%A3%E7%B1%BB%E7%8E%87%EF%BC%88FPR%EF%BC%89ROC%E6%9B%B2%E7%BA%BF/" target="_blank" rel="noopener">https://zdkswd.github.io/2018/11/20/%E7%B2%BE%E7%A1%AE%E7%8E%87%E3%80%81%E5%8F%AC%E5%9B%9E%E7%8E%87%E3%80%81%E7%9C%9F%E6%AD%A3%E7%B1%BB%E7%8E%87%EF%BC%88TPR%EF%BC%89%E3%80%81%E5%81%87%E6%AD%A3%E7%B1%BB%E7%8E%87%EF%BC%88FPR%EF%BC%89ROC%E6%9B%B2%E7%BA%BF/</a><br>绘制roc</li>
+<li><a href="https://blog.csdn.net/hesongzefairy/article/details/104302499" target="_blank" rel="noopener">https://blog.csdn.net/hesongzefairy/article/details/104302499</a></li>
+</ul>
+<h1 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h1><p><a href="https://pytorch.org/" target="_blank" rel="noopener">https://pytorch.org/</a>  </p>
 <h1 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h1><p><a href="https://xungejiang.com/2019/07/26/pytorch-imagenet/" target="_blank" rel="noopener">https://xungejiang.com/2019/07/26/pytorch-imagenet/</a></p>
 <h1 id="显卡"><a href="#显卡" class="headerlink" title="显卡"></a>显卡</h1><p>V100-PICE/V100/K80</p>
 <h1 id="cuda安装"><a href="#cuda安装" class="headerlink" title="cuda安装"></a>cuda安装</h1><ol>
@@ -236,7 +352,7 @@
 <h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><p>   <a href="https://blog.csdn.net/ztf312/article/details/102474190" target="_blank" rel="noopener">https://blog.csdn.net/ztf312/article/details/102474190</a><br>   <a href="https://blog.csdn.net/guduruyu/article/details/60868501" target="_blank" rel="noopener">https://blog.csdn.net/guduruyu/article/details/60868501</a><br>   <a href="https://www.cnblogs.com/HuZihu/p/9481068.html" target="_blank" rel="noopener">https://www.cnblogs.com/HuZihu/p/9481068.html</a></p>
 <h1 id="工具使用"><a href="#工具使用" class="headerlink" title="工具使用"></a>工具使用</h1><h2 id="tensorboard使用"><a href="#tensorboard使用" class="headerlink" title="tensorboard使用"></a>tensorboard使用</h2>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tensorboard --logdir=path --port=6005</span><br><span class="line">tensorboard --logdir=&apos;./&apos;</span><br></pre></td></tr></table></figure>
 
-<h1 id="指标"><a href="#指标" class="headerlink" title="指标"></a>指标</h1><p>  bce<br>  <a href="https://blog.csdn.net/tmk_01/article/details/80844260" target="_blank" rel="noopener">https://blog.csdn.net/tmk_01/article/details/80844260</a><br>  指标<br>  <a href="https://www.jianshu.com/p/b960305718f1" target="_blank" rel="noopener">https://www.jianshu.com/p/b960305718f1</a><br>  <a href="https://blog.csdn.net/geter_CS/article/details/79849386" target="_blank" rel="noopener">https://blog.csdn.net/geter_CS/article/details/79849386</a></p>
+<h1 id="指标-1"><a href="#指标-1" class="headerlink" title="指标"></a>指标</h1><p>  bce<br>  <a href="https://blog.csdn.net/tmk_01/article/details/80844260" target="_blank" rel="noopener">https://blog.csdn.net/tmk_01/article/details/80844260</a><br>  指标<br>  <a href="https://www.jianshu.com/p/b960305718f1" target="_blank" rel="noopener">https://www.jianshu.com/p/b960305718f1</a><br>  <a href="https://blog.csdn.net/geter_CS/article/details/79849386" target="_blank" rel="noopener">https://blog.csdn.net/geter_CS/article/details/79849386</a></p>
 <p><a href="https://www.cnblogs.com/jiaxin359/p/8627530.html" target="_blank" rel="noopener">https://www.cnblogs.com/jiaxin359/p/8627530.html</a><br><a href="https://zhuanlan.zhihu.com/p/87768945" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/87768945</a></p>
 <p>AP：<br><a href="https://zhuanlan.zhihu.com/p/33372046" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/33372046</a><br>AUC：<br><a href="https://zhuanlan.zhihu.com/p/267901426" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/267901426</a><br>多分类混淆矩阵<br><a href="https://blog.csdn.net/m0_38061927/article/details/77198990" target="_blank" rel="noopener">https://blog.csdn.net/m0_38061927/article/details/77198990</a><br>多分类指标<br><a href="https://zhuanlan.zhihu.com/p/59862986" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/59862986</a><br><a href="https://zhuanlan.zhihu.com/p/147663370" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/147663370</a><br><a href="https://zhuanlan.zhihu.com/p/51125423" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/51125423</a><br>库<br><a href="http://d0evi1.com/sklearn/model_evaluation/" target="_blank" rel="noopener">http://d0evi1.com/sklearn/model_evaluation/</a><br><a href="https://sklearn.apachecn.org/docs/master/32.html（很有用）" target="_blank" rel="noopener">https://sklearn.apachecn.org/docs/master/32.html（很有用）</a><br><a href="https://scikit-learn.org.cn/view/93.html" target="_blank" rel="noopener">https://scikit-learn.org.cn/view/93.html</a></p>
 <h1 id="pytorch框架"><a href="#pytorch框架" class="headerlink" title="pytorch框架"></a>pytorch框架</h1><h2 id="常用代码"><a href="#常用代码" class="headerlink" title="常用代码"></a>常用代码</h2><h3 id="查看数据和模型是否在GPU上"><a href="#查看数据和模型是否在GPU上" class="headerlink" title="查看数据和模型是否在GPU上"></a>查看数据和模型是否在GPU上</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(next(model.parameters()).device)  #模型</span><br><span class="line">print(data.device) #数据</span><br></pre></td></tr></table></figure>
@@ -364,7 +480,7 @@
 </li>
 <li>物理访问PA<ul>
 <li>27种</li>
-<li>bbbBB, cccCC, aaaAC, abcAA<br>ADD challenge 中文<h3 id="指标-1"><a href="#指标-1" class="headerlink" title="指标"></a>指标</h3>AvgEER<br>Equal error rate</li>
+<li>bbbBB, cccCC, aaaAC, abcAA<br>ADD challenge 中文<h3 id="指标-2"><a href="#指标-2" class="headerlink" title="指标"></a>指标</h3>AvgEER<br>Equal error rate</li>
 </ul>
 </li>
 </ul>
@@ -594,7 +710,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#网站"><span class="toc-number">1.</span> <span class="toc-text">网站</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据集"><span class="toc-number">2.</span> <span class="toc-text">数据集</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#显卡"><span class="toc-number">3.</span> <span class="toc-text">显卡</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cuda安装"><span class="toc-number">4.</span> <span class="toc-text">cuda安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pytorch安装"><span class="toc-number">5.</span> <span class="toc-text">pytorch安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#python"><span class="toc-number">6.</span> <span class="toc-text">python</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#内存泄漏"><span class="toc-number">6.1.</span> <span class="toc-text">内存泄漏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多进程处理数据"><span class="toc-number">6.2.</span> <span class="toc-text">多进程处理数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据格式转换"><span class="toc-number">6.3.</span> <span class="toc-text">数据格式转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像数据处理"><span class="toc-number">6.4.</span> <span class="toc-text">图像数据处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#matplotlib使用"><span class="toc-number">6.5.</span> <span class="toc-text">matplotlib使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#介绍"><span class="toc-number">6.5.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考："><span class="toc-number">6.5.2.</span> <span class="toc-text">参考：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#工具使用"><span class="toc-number">7.</span> <span class="toc-text">工具使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#tensorboard使用"><span class="toc-number">7.1.</span> <span class="toc-text">tensorboard使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#指标"><span class="toc-number">8.</span> <span class="toc-text">指标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pytorch框架"><span class="toc-number">9.</span> <span class="toc-text">pytorch框架</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#常用代码"><span class="toc-number">9.1.</span> <span class="toc-text">常用代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看数据和模型是否在GPU上"><span class="toc-number">9.1.1.</span> <span class="toc-text">查看数据和模型是否在GPU上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据格式转换-1"><span class="toc-number">9.1.2.</span> <span class="toc-text">数据格式转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#随机数种子"><span class="toc-number">9.2.</span> <span class="toc-text">随机数种子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#保存模型"><span class="toc-number">9.3.</span> <span class="toc-text">保存模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并行训练的方法"><span class="toc-number">9.4.</span> <span class="toc-text">并行训练的方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#框架（未整理）"><span class="toc-number">10.</span> <span class="toc-text">框架（未整理）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#医疗图像处理"><span class="toc-number">11.</span> <span class="toc-text">医疗图像处理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#知识点"><span class="toc-number">12.</span> <span class="toc-text">知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#感受野Receptive-Field"><span class="toc-number">12.1.</span> <span class="toc-text">感受野Receptive Field</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#可持续学习"><span class="toc-number">13.</span> <span class="toc-text">可持续学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#deepfake"><span class="toc-number">14.</span> <span class="toc-text">deepfake</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#audio"><span class="toc-number">14.1.</span> <span class="toc-text">audio</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#比赛"><span class="toc-number">14.1.1.</span> <span class="toc-text">比赛</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#指标-1"><span class="toc-number">14.1.2.</span> <span class="toc-text">指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#泛化能力不足"><span class="toc-number">14.1.3.</span> <span class="toc-text">泛化能力不足</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#大规模预训练"><span class="toc-number">1.</span> <span class="toc-text">大规模预训练</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#资料"><span class="toc-number">1.1.</span> <span class="toc-text">资料</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#微调"><span class="toc-number">2.</span> <span class="toc-text">微调</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#优化器"><span class="toc-number">3.</span> <span class="toc-text">优化器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#姿态估计"><span class="toc-number">4.</span> <span class="toc-text">姿态估计</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#文字生成图像"><span class="toc-number">5.</span> <span class="toc-text">文字生成图像</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#多标签"><span class="toc-number">6.</span> <span class="toc-text">多标签</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据增强"><span class="toc-number">7.</span> <span class="toc-text">数据增强</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#指标"><span class="toc-number">8.</span> <span class="toc-text">指标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#网站"><span class="toc-number">9.</span> <span class="toc-text">网站</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据集"><span class="toc-number">10.</span> <span class="toc-text">数据集</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#显卡"><span class="toc-number">11.</span> <span class="toc-text">显卡</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cuda安装"><span class="toc-number">12.</span> <span class="toc-text">cuda安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pytorch安装"><span class="toc-number">13.</span> <span class="toc-text">pytorch安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#python"><span class="toc-number">14.</span> <span class="toc-text">python</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#内存泄漏"><span class="toc-number">14.1.</span> <span class="toc-text">内存泄漏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多进程处理数据"><span class="toc-number">14.2.</span> <span class="toc-text">多进程处理数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据格式转换"><span class="toc-number">14.3.</span> <span class="toc-text">数据格式转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图像数据处理"><span class="toc-number">14.4.</span> <span class="toc-text">图像数据处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#matplotlib使用"><span class="toc-number">14.5.</span> <span class="toc-text">matplotlib使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#介绍"><span class="toc-number">14.5.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考："><span class="toc-number">14.5.2.</span> <span class="toc-text">参考：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#工具使用"><span class="toc-number">15.</span> <span class="toc-text">工具使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#tensorboard使用"><span class="toc-number">15.1.</span> <span class="toc-text">tensorboard使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#指标-1"><span class="toc-number">16.</span> <span class="toc-text">指标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pytorch框架"><span class="toc-number">17.</span> <span class="toc-text">pytorch框架</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#常用代码"><span class="toc-number">17.1.</span> <span class="toc-text">常用代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看数据和模型是否在GPU上"><span class="toc-number">17.1.1.</span> <span class="toc-text">查看数据和模型是否在GPU上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据格式转换-1"><span class="toc-number">17.1.2.</span> <span class="toc-text">数据格式转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#随机数种子"><span class="toc-number">17.2.</span> <span class="toc-text">随机数种子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#保存模型"><span class="toc-number">17.3.</span> <span class="toc-text">保存模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并行训练的方法"><span class="toc-number">17.4.</span> <span class="toc-text">并行训练的方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#框架（未整理）"><span class="toc-number">18.</span> <span class="toc-text">框架（未整理）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#医疗图像处理"><span class="toc-number">19.</span> <span class="toc-text">医疗图像处理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#知识点"><span class="toc-number">20.</span> <span class="toc-text">知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#感受野Receptive-Field"><span class="toc-number">20.1.</span> <span class="toc-text">感受野Receptive Field</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#可持续学习"><span class="toc-number">21.</span> <span class="toc-text">可持续学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#deepfake"><span class="toc-number">22.</span> <span class="toc-text">deepfake</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#audio"><span class="toc-number">22.1.</span> <span class="toc-text">audio</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#比赛"><span class="toc-number">22.1.1.</span> <span class="toc-text">比赛</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#指标-2"><span class="toc-number">22.1.2.</span> <span class="toc-text">指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#泛化能力不足"><span class="toc-number">22.1.3.</span> <span class="toc-text">泛化能力不足</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -813,18 +929,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
               </li>
              
@@ -833,11 +937,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -869,11 +985,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -889,19 +1001,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">frp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -926,10 +1038,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -961,6 +1069,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">frp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">procreate</a>
               </li>
              
@@ -970,18 +1090,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1001,6 +1109,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
@@ -1017,18 +1137,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">医学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">表情包</a>
               </li>
              
@@ -1041,11 +1149,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">虚拟主播</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vup</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1054,6 +1162,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">虚拟主播</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vup</a>
               </li>
              
               <li class="article-tag-list-item">
