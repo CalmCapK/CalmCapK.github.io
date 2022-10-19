@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="https://calmcapK.github.io">
   <title>大规模预训练 | CalmCapK&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="背景知识 大规模预训练就是在大规模宽泛的数据上，通过设计无监督的代理任务，训练一个foundation model(基础模型)，获得很强的backbone，通过zero-shot，few-shot，finetune等方式能适应其它下游任务。它是一种表示学习方式(表示又称表征、特征)。  表示学习以前发展：人工、PCA、矩阵分解、cluster、概率图模型、深度学习Imagenet初始化">
+  <meta name="description" content="背景知识 大规模预训练就是在大规模宽泛的数据上，通过设计无监督的代理任务，训练一个foundation model(基础模型)，获得很强的backbone，通过zero-shot，few-shot，finetune等方式能适应其它下游任务。它是一种表示学习方式(表示又称表征、特征)。  表示学习以前发展：人工、PCA、矩阵分解、cluster、概率图模型、深度学习Imagenet初始化    大">
 <meta name="keywords" content="对比学习,MIM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="大规模预训练">
 <meta property="og:url" content="https://calmcapK.github.io/2022/10/18/大规模预训练/index.html">
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
-<meta property="og:description" content="背景知识 大规模预训练就是在大规模宽泛的数据上，通过设计无监督的代理任务，训练一个foundation model(基础模型)，获得很强的backbone，通过zero-shot，few-shot，finetune等方式能适应其它下游任务。它是一种表示学习方式(表示又称表征、特征)。  表示学习以前发展：人工、PCA、矩阵分解、cluster、概率图模型、深度学习Imagenet初始化">
+<meta property="og:description" content="背景知识 大规模预训练就是在大规模宽泛的数据上，通过设计无监督的代理任务，训练一个foundation model(基础模型)，获得很强的backbone，通过zero-shot，few-shot，finetune等方式能适应其它下游任务。它是一种表示学习方式(表示又称表征、特征)。  表示学习以前发展：人工、PCA、矩阵分解、cluster、概率图模型、深度学习Imagenet初始化    大">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://calmcapk.github.io/assets/typora/大规模预训练/mae_1.png">
-<meta property="og:updated_time" content="2022-10-18T16:18:46.969Z">
+<meta property="og:image" content="https://calmcapk.github.io/assets/typora/%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/mae_1.png">
+<meta property="og:updated_time" content="2022-10-18T20:29:19.807Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大规模预训练">
-<meta name="twitter:description" content="背景知识 大规模预训练就是在大规模宽泛的数据上，通过设计无监督的代理任务，训练一个foundation model(基础模型)，获得很强的backbone，通过zero-shot，few-shot，finetune等方式能适应其它下游任务。它是一种表示学习方式(表示又称表征、特征)。  表示学习以前发展：人工、PCA、矩阵分解、cluster、概率图模型、深度学习Imagenet初始化">
-<meta name="twitter:image" content="https://calmcapk.github.io/assets/typora/大规模预训练/mae_1.png">
+<meta name="twitter:description" content="背景知识 大规模预训练就是在大规模宽泛的数据上，通过设计无监督的代理任务，训练一个foundation model(基础模型)，获得很强的backbone，通过zero-shot，few-shot，finetune等方式能适应其它下游任务。它是一种表示学习方式(表示又称表征、特征)。  表示学习以前发展：人工、PCA、矩阵分解、cluster、概率图模型、深度学习Imagenet初始化    大">
+<meta name="twitter:image" content="https://calmcapk.github.io/assets/typora/%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/mae_1.png">
   
     <link rel="alternative" href="/atom.xml" title="CalmCapK&#39;s Blog" type="application/atom+xml">
   
@@ -39,6 +39,7 @@
 
   
 
+  <link href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/KaTeX/0.10.2/katex.min.css" rel="stylesheet">
 </head>
 </html>
 <body>  
@@ -206,29 +207,51 @@
       
         
         <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
-        <h1 id="背景知识">背景知识</h1>
-<p>大规模预训练就是在大规模宽泛的数据上，通过设计无监督的代理任务，训练一个foundation
-model(基础模型)，获得很强的backbone，通过zero-shot，few-shot，finetune等方式能适应其它下游任务。它是一种表示学习方式(表示又称表征、特征)。</p>
+        <h1 id="背景知识"><a class="markdownIt-Anchor" href="#背景知识"></a> 背景知识</h1>
+<p>大规模预训练就是在大规模宽泛的数据上，通过设计无监督的代理任务，训练一个foundation model(基础模型)，获得很强的backbone，通过zero-shot，few-shot，finetune等方式能适应其它下游任务。它是一种表示学习方式(表示又称表征、特征)。</p>
 <blockquote>
 <p>表示学习以前发展：人工、PCA、矩阵分解、cluster、概率图模型、深度学习Imagenet初始化</p>
 </blockquote>
 <ul>
-<li><p>大规模预训练的优点：</p>
+<li>
+<p>大规模预训练的优点：</p>
 <ul>
-<li><p>通用性、泛化性</p></li>
-<li><p>模型越大效果越好</p></li>
-<li><p>减少微调阶段所需数据和训练时间，如零样本和少样本迁移</p></li>
-<li><p>突破传统AI模型难以泛化到其他任务上的局限性</p></li>
-<li><p>代理任务训练方式无需人工标注，降低标注成本</p></li>
-</ul></li>
-<li><p>大规模预训练的缺点：</p>
+<li>
+<p>通用性、泛化性</p>
+</li>
+<li>
+<p>模型越大效果越好</p>
+</li>
+<li>
+<p>减少微调阶段所需数据和训练时间，如零样本和少样本迁移</p>
+</li>
+<li>
+<p>突破传统AI模型难以泛化到其他任务上的局限性</p>
+</li>
+<li>
+<p>代理任务训练方式无需人工标注，降低标注成本</p>
+</li>
+</ul>
+</li>
+<li>
+<p>大规模预训练的缺点：</p>
 <ul>
-<li><p>数据</p></li>
-<li><p>试错成本</p></li>
-<li><p>算力资源</p></li>
-<li><p>技术支持</p></li>
-</ul></li>
-<li><p>根据代理任务可以分成：（绿色是NLP）</p>
+<li>
+<p>数据</p>
+</li>
+<li>
+<p>试错成本</p>
+</li>
+<li>
+<p>算力资源</p>
+</li>
+<li>
+<p>技术支持</p>
+</li>
+</ul>
+</li>
+<li>
+<p>根据代理任务可以分成：（绿色是NLP）</p>
 <ul>
 <li>基于预测Prediction
 <ul>
@@ -236,9 +259,10 @@ model(基础模型)，获得很强的backbone，通过zero-shot，few-shot，fin
 <ul>
 <li>Mask Language Modeling (MLM)
 <ul>
-<li><font color="green">BERT[2018]</font></li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathcolor="green"><mi>B</mi><mi>E</mi><mi>R</mi><mi>T</mi><mo stretchy="false">[</mo><mn>2018</mn><mo stretchy="false">]</mo></mstyle></mrow><annotation encoding="application/x-tex">\textcolor{green}{BERT[2018]}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;color:green;">B</span><span class="mord mathdefault" style="margin-right:0.05764em;color:green;">E</span><span class="mord mathdefault" style="margin-right:0.00773em;color:green;">R</span><span class="mord mathdefault" style="margin-right:0.13889em;color:green;">T</span><span class="mopen" style="color:green;">[</span><span class="mord" style="color:green;">2</span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">1</span><span class="mord" style="color:green;">8</span><span class="mclose" style="color:green;">]</span></span></span></span></li>
 <li>roberta</li>
-</ul></li>
+</ul>
+</li>
 <li>LM</li>
 <li>Mask Image Modeling (MIM)
 <ul>
@@ -247,27 +271,33 @@ model(基础模型)，获得很强的backbone，通过zero-shot，few-shot，fin
 <li>simMM</li>
 <li>MAE+层次Transformer</li>
 <li>MAE+多模态</li>
-</ul></li>
-</ul></li>
+</ul>
+</li>
+</ul>
+</li>
 <li>MFM</li>
-</ul></li>
+</ul>
+</li>
 <li>数据变换预测
 <ul>
 <li>rotation</li>
 <li>colorization</li>
-</ul></li>
+</ul>
+</li>
 <li>RTD
 <ul>
 <li>其它</li>
-</ul></li>
+</ul>
+</li>
 <li>NSP</li>
 <li>不清楚分类</li>
 <li>Jigsaw[2017]?</li>
 <li>Position[2015]?</li>
 <li>Cutout[2015]</li>
-<li><span class="math inline">\(\textcolor{green}{word2v[2013]}\)</span></li>
-<li><span class="math inline">\(\textcolor{green}{RNNLM[1997]}\)</span></li>
-</ul></li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathcolor="green"><mi>w</mi><mi>o</mi><mi>r</mi><mi>d</mi><mn>2</mn><mi>v</mi><mo stretchy="false">[</mo><mn>2013</mn><mo stretchy="false">]</mo></mstyle></mrow><annotation encoding="application/x-tex">\textcolor{green}{word2v[2013]}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;color:green;">w</span><span class="mord mathdefault" style="color:green;">o</span><span class="mord mathdefault" style="margin-right:0.02778em;color:green;">r</span><span class="mord mathdefault" style="color:green;">d</span><span class="mord" style="color:green;">2</span><span class="mord mathdefault" style="margin-right:0.03588em;color:green;">v</span><span class="mopen" style="color:green;">[</span><span class="mord" style="color:green;">2</span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">1</span><span class="mord" style="color:green;">3</span><span class="mclose" style="color:green;">]</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathcolor="green"><mi>R</mi><mi>N</mi><mi>N</mi><mi>L</mi><mi>M</mi><mo stretchy="false">[</mo><mn>1997</mn><mo stretchy="false">]</mo></mstyle></mrow><annotation encoding="application/x-tex">\textcolor{green}{RNNLM[1997]}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;color:green;">R</span><span class="mord mathdefault" style="margin-right:0.10903em;color:green;">N</span><span class="mord mathdefault" style="margin-right:0.10903em;color:green;">N</span><span class="mord mathdefault" style="color:green;">L</span><span class="mord mathdefault" style="margin-right:0.10903em;color:green;">M</span><span class="mopen" style="color:green;">[</span><span class="mord" style="color:green;">1</span><span class="mord" style="color:green;">9</span><span class="mord" style="color:green;">9</span><span class="mord" style="color:green;">7</span><span class="mclose" style="color:green;">]</span></span></span></span></li>
+</ul>
+</li>
 <li>基于对比Contrastive 类间差异
 <ul>
 <li>CL
@@ -281,29 +311,46 @@ model(基础模型)，获得很强的backbone，通过zero-shot，few-shot，fin
 <li>SimSiam[2020]</li>
 <li>deepcluster</li>
 <li>simCSE</li>
-</ul></li>
+</ul>
+</li>
 <li>ITM
 <ul>
 <li>CLP</li>
-</ul></li>
-</ul></li>
-</ul></li>
 </ul>
-<h1 id="mae">MAE</h1>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="mae"><a class="markdownIt-Anchor" href="#mae"></a> MAE</h1>
 <blockquote>
-<p>代码：https://github.com/facebookresearch/mae</p>
+<p>代码：<a href="https://github.com/facebookresearch/mae" target="_blank" rel="noopener">https://github.com/facebookresearch/mae</a></p>
 </blockquote>
-<p>受到BERT的MLM方式的启发，MAE采用非对称encoder-decoder的结构，随机mask输入图像的部分patch，对其进行重建。其中encoder仅对可见patch进行编码，轻量级decoder则同时对潜在表示和mask
-token进行解码。</p>
+<p>受到BERT的MLM方式的启发，MAE采用非对称encoder-decoder的结构，随机mask输入图像的部分patch，对其进行重建。其中encoder仅对可见patch进行编码，轻量级decoder则同时对潜在表示和mask token进行解码。</p>
 <p>特点：</p>
 <ul>
 <li>非对称encoder-decoder，减少encoder计算量，加快训练</li>
 <li>mask比例75%时，代理任务变得有意义</li>
 </ul>
-<p><img src="/assets/typora/大规模预训练/mae_1.png"></p>
-<p><span class="math display">\[
-f = \sum{asd}
-\]</span></p>
+<p><img src="/assets/typora/%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/mae_1.png" alt></p>
+\tag{1}\label{nihao}
+\begin{aligned} 
+\textcolor{green}{e=mc^2} \\ 
+f = \sum{asd} 
+\end{aligned}
+
+<p>dsad sd asasd asdasd按时鉴\eqref{nihao} 定会阿萨dsad</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mtable width="100%"><mtr><mtd width="50%"></mtd><mtd><mrow><mi>f</mi><mo>=</mo><mo>∑</mo><mrow><mi>a</mi><mi>s</mi><mi>d</mi></mrow></mrow></mtd><mtd width="50%"></mtd><mtd><mtext>(2)</mtext></mtd></mtr></mtable><annotation encoding="application/x-tex">\tag{2}
+f = \sum{asd} 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.6000100000000002em;vertical-align:-0.55001em;"></span><span class="mop op-symbol large-op" style="position:relative;top:-0.000004999999999977245em;">∑</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault">d</span></span></span><span class="tag"><span class="strut" style="height:1.6000100000000002em;vertical-align:-0.55001em;"></span><span class="mord text"><span class="mord">(</span><span class="mord"><span class="mord">2</span></span><span class="mord">)</span></span></span></span></span></span></p>
+<p>啊实打实打算</p>
+\begin{equation} \tag{3}
+e=mc^2
+\end{equation}
+
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>d</mi><mi>a</mi><mo>=</mo><mi>d</mi><mi>a</mi><mi>s</mi><mi>s</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">sda=dassd
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">d</span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault">s</span><span class="mord mathdefault">d</span></span></span></span></span></p>
 
       
 
@@ -469,7 +516,7 @@ f = \sum{asd}
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景知识"><span class="toc-number">1.</span> <span class="toc-text">背景知识</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mae"><span class="toc-number">2.</span> <span class="toc-text">MAE</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景知识"><span class="toc-number">1.</span> <span class="toc-text"> 背景知识</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mae"><span class="toc-number">2.</span> <span class="toc-text"> MAE</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -696,11 +743,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -716,7 +763,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -725,10 +772,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">clip</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -753,6 +796,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">clip</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -848,10 +895,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">procreate</a>
               </li>
              
@@ -881,6 +924,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">视觉小说</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -924,19 +971,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">虚拟主播</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vup</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电脑</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">虚拟主播</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vup</a>
               </li>
              
               <li class="article-tag-list-item">

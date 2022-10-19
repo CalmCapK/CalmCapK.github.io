@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://calmcapK.github.io">
   <title>windows10+vultr+ss/ssr+ipv6搭建校园网免流量 | CalmCapK&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="购买vps  购买vps,这里使用vultr https://my.vultr.com/ 计费规则：摧毁之后不计费，其他时间都计费 vultr使用 https://zhuanlan.zhihu.com/p/34111789 优惠活动 https://adoncn.com/vultr.html https://www.wn789.com/33725.html vps列表 htt">
+  <meta name="description" content="购买vps  购买vps,这里使用vultr https://my.vultr.com/ 计费规则：摧毁之后不计费，其他时间都计费 vultr使用 https://zhuanlan.zhihu.com/p/34111789 优惠活动 https://adoncn.com/vultr.html https://www.wn789.com/33725.html vps列表 https://www.z">
 <meta name="keywords" content="ipv6,vps,vultr,Proxifier,ss,ssr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="windows10+vultr+ss&#x2F;ssr+ipv6搭建校园网免流量">
 <meta property="og:url" content="https://calmcapK.github.io/2019/11/28/windows10-vultr-ssr-ipv6搭建校园网免流量/index.html">
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
-<meta property="og:description" content="购买vps  购买vps,这里使用vultr https://my.vultr.com/ 计费规则：摧毁之后不计费，其他时间都计费 vultr使用 https://zhuanlan.zhihu.com/p/34111789 优惠活动 https://adoncn.com/vultr.html https://www.wn789.com/33725.html vps列表 htt">
+<meta property="og:description" content="购买vps  购买vps,这里使用vultr https://my.vultr.com/ 计费规则：摧毁之后不计费，其他时间都计费 vultr使用 https://zhuanlan.zhihu.com/p/34111789 优惠活动 https://adoncn.com/vultr.html https://www.wn789.com/33725.html vps列表 https://www.z">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2021-09-02T13:47:44.700Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="windows10+vultr+ss&#x2F;ssr+ipv6搭建校园网免流量">
-<meta name="twitter:description" content="购买vps  购买vps,这里使用vultr https://my.vultr.com/ 计费规则：摧毁之后不计费，其他时间都计费 vultr使用 https://zhuanlan.zhihu.com/p/34111789 优惠活动 https://adoncn.com/vultr.html https://www.wn789.com/33725.html vps列表 htt">
+<meta name="twitter:description" content="购买vps  购买vps,这里使用vultr https://my.vultr.com/ 计费规则：摧毁之后不计费，其他时间都计费 vultr使用 https://zhuanlan.zhihu.com/p/34111789 优惠活动 https://adoncn.com/vultr.html https://www.wn789.com/33725.html vps列表 https://www.z">
   
     <link rel="alternative" href="/atom.xml" title="CalmCapK&#39;s Blog" type="application/atom+xml">
   
@@ -37,6 +37,7 @@
 
   
 
+  <link href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/KaTeX/0.10.2/katex.min.css" rel="stylesheet">
 </head>
 </html>
 <body>  
@@ -204,148 +205,193 @@
       
         
         <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
-        <h2 id="购买vps">购买vps</h2>
-<ol type="1">
-<li><p>购买vps,这里使用vultr<br>
-https://my.vultr.com/<br>
+        <h2 id="购买vps"><a class="markdownIt-Anchor" href="#购买vps"></a> 购买vps</h2>
+<ol>
+<li>购买vps,这里使用vultr<br>
+<a href="https://my.vultr.com/" target="_blank" rel="noopener">https://my.vultr.com/</a><br>
 计费规则：摧毁之后不计费，其他时间都计费<br>
 vultr使用<br>
-https://zhuanlan.zhihu.com/p/34111789<br>
+<a href="https://zhuanlan.zhihu.com/p/34111789" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/34111789</a><br>
 优惠活动<br>
-https://adoncn.com/vultr.html<br>
-https://www.wn789.com/33725.html<br>
+<a href="https://adoncn.com/vultr.html" target="_blank" rel="noopener">https://adoncn.com/vultr.html</a><br>
+<a href="https://www.wn789.com/33725.html" target="_blank" rel="noopener">https://www.wn789.com/33725.html</a><br>
 vps列表<br>
-https://www.zhujiceping.com/35106.html <!-- moe --> ##
-配置vultr服务器<br>
-</p></li>
-<li><p>安装pip <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get install build-essential</span><br><span class="line">apt-get install python-pip</span><br><span class="line">pip install --upgrade pip</span><br></pre></td></tr></table></figure></p>
-<p>(问题) 更新后可能报ImportError: cannot import name main<br>
-(解决方法) hash -d pip <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">由于python2要没了，换成pip3</span><br><span class="line">apt-get install python3-pip</span><br><span class="line">pip3 install --upgrade pip</span><br><span class="line">hash -d pip3</span><br></pre></td></tr></table></figure></p></li>
+<a href="https://www.zhujiceping.com/35106.html" target="_blank" rel="noopener">https://www.zhujiceping.com/35106.html</a></li>
 </ol>
-<h2 id="安装ss">安装ss</h2>
-<ol type="1">
-<li><p>安装ss(方法一)(亲测有效) <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install shadowsocks 安装</span><br><span class="line">pip uninstall shadowsocks  删除</span><br></pre></td></tr></table></figure></p>
+<!-- moe -->
+<h2 id="配置vultr服务器"><a class="markdownIt-Anchor" href="#配置vultr服务器"></a> 配置vultr服务器</h2>
+<ol>
+<li>
+<p>安装pip</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get install build-essential</span><br><span class="line">apt-get install python-pip</span><br><span class="line">pip install --upgrade pip</span><br></pre></td></tr></table></figure>
+<p>(问题) 更新后可能报ImportError: cannot import name main<br>
+(解决方法) hash -d pip</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">由于python2要没了，换成pip3</span><br><span class="line">apt-get install python3-pip</span><br><span class="line">pip3 install --upgrade pip</span><br><span class="line">hash -d pip3</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="安装ss"><a class="markdownIt-Anchor" href="#安装ss"></a> 安装ss</h2>
+<ol>
+<li>
+<p>安装ss(方法一)(亲测有效)</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install shadowsocks 安装</span><br><span class="line">pip uninstall shadowsocks  删除</span><br></pre></td></tr></table></figure>
 <p>(问题)ImportError: No module named setuptools<br>
-(解决方法如下) <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://pypi.python.org/packages/source/s/setuptools/setuptools-0.6c11.tar.gz</span><br><span class="line">tar zxvf    setuptools-0.6c11.tar.gz</span><br><span class="line">cd setuptools-0.6c11</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure></p>
-<p>新建但端口配置vim /etc/shadowsocks.json <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="string">"server"</span>:<span class="string">"::"</span>,</span><br><span class="line">   <span class="string">"server_port"</span>: <span class="number">1234</span>,</span><br><span class="line">   <span class="string">"local_port"</span>: <span class="number">1080</span>,</span><br><span class="line">   <span class="string">"timeout"</span>:<span class="number">300</span>,</span><br><span class="line">   <span class="string">"password"</span>: <span class="string">"yourpassword"</span>,</span><br><span class="line">   <span class="string">"method"</span>:<span class="string">"aes-256-cfb"</span>,</span><br><span class="line">   <span class="string">"fast_open"</span>:true,</span><br><span class="line">   <span class="string">"workers"</span>:<span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>新建多端口配置vim /etc/shadowsocks.json <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure></p>
-<p>开启 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json -d start</span><br><span class="line">ssserver -c /etc/shadowsocks.json -d stop 关闭</span><br></pre></td></tr></table></figure></p>
+(解决方法如下)</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://pypi.python.org/packages/source/s/setuptools/setuptools-0.6c11.tar.gz</span><br><span class="line">tar zxvf    setuptools-0.6c11.tar.gz</span><br><span class="line">cd setuptools-0.6c11</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
+<p>新建但端口配置vim /etc/shadowsocks.json</p>
+ <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="string">"server"</span>:<span class="string">"::"</span>,</span><br><span class="line">   <span class="string">"server_port"</span>: <span class="number">1234</span>,</span><br><span class="line">   <span class="string">"local_port"</span>: <span class="number">1080</span>,</span><br><span class="line">   <span class="string">"timeout"</span>:<span class="number">300</span>,</span><br><span class="line">   <span class="string">"password"</span>: <span class="string">"yourpassword"</span>,</span><br><span class="line">   <span class="string">"method"</span>:<span class="string">"aes-256-cfb"</span>,</span><br><span class="line">   <span class="string">"fast_open"</span>:true,</span><br><span class="line">   <span class="string">"workers"</span>:<span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>新建多端口配置vim /etc/shadowsocks.json</p>
+ <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
+<p>开启</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json -d start</span><br><span class="line">ssserver -c /etc/shadowsocks.json -d stop 关闭</span><br></pre></td></tr></table></figure>
 <p>客户端ssr使用<br>
 【注意！！！】由于客户端ssr多了协议和混淆，而服务器端ss没有对应配置，所以协议要选择(origin)、混淆(plain)才能连接<br>
 【测试方式同方法二】<br>
-【bbr加速方式同方法二】</p></li>
-<li><p>安装ssr(方法二) 傻瓜式搭建(亲测有效)<br>
-傻瓜式安装，这个方便修改 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</span><br></pre></td></tr></table></figure></p>
-<p>以后可以随时修改 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash ssr.sh</span><br></pre></td></tr></table></figure></p>
+【bbr加速方式同方法二】</p>
+</li>
+<li>
+<p>安装ssr(方法二) 傻瓜式搭建(亲测有效)<br>
+傻瓜式安装，这个方便修改</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</span><br></pre></td></tr></table></figure>
+<p>以后可以随时修改</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash ssr.sh</span><br></pre></td></tr></table></figure>
 <p>配置<br>
 依次选择密码，端口、加密方式(aes-256-cfb)、协议(auth_shal_v4)、混淆(plain)，然后回车即可搭建<br>
 (注意截屏和复制ssr链接！！！)</p>
-<p>测试</p>
-<ol type="a">
-<li>手机和电脑端安装ssr软件，使用ssr链接即可配置<br>
-</li>
-<li>然后打开火狐和谷歌浏览器查自己的ip地址, 选择代理规则<br>
+<p>测试<br>
+a. 手机和电脑端安装ssr软件，使用ssr链接即可配置<br>
+b. 然后打开火狐和谷歌浏览器查自己的ip地址, 选择代理规则<br>
   代理规则是全局的话，火狐和谷歌都是VPS的地址<br>
-  代理规则是绕开大陆的话，火狐是本地的ip地址和谷歌是VPS的地址</li>
-</ol></li>
+  代理规则是绕开大陆的话，火狐是本地的ip地址和谷歌是VPS的地址</p>
+</li>
 </ol>
-<h2 id="加速vps服务器谷歌bbr加速">加速VPS服务器(谷歌BBR加速)</h2>
-<ol type="1">
-<li><p>下载和安装 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh</span><br><span class="line">chmod +x bbr.sh</span><br><span class="line">./bbr.sh</span><br><span class="line">``` </span><br><span class="line">一路回车，重启即可，即使重启了ssr也不会关闭</span><br><span class="line">``` bash</span><br><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure></p>
-<p>输入上面代码可以检测是否安装成功</p></li>
-<li><p>参考<br>
-https://github.com/yshunda/Notes/issues/2<br>
-https://github.com/yinghuocho/firefly-proxy/issues/172<br>
-https://www.baishitou.cn/1524.html</p></li>
+<h2 id="加速vps服务器谷歌bbr加速"><a class="markdownIt-Anchor" href="#加速vps服务器谷歌bbr加速"></a> 加速VPS服务器(谷歌BBR加速)</h2>
+<ol>
+<li>
+<p>下载和安装</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh</span><br><span class="line">chmod +x bbr.sh</span><br><span class="line">./bbr.sh</span><br><span class="line">``` </span><br><span class="line">一路回车，重启即可，即使重启了ssr也不会关闭</span><br><span class="line">``` bash</span><br><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>
+<p>输入上面代码可以检测是否安装成功</p>
+</li>
+<li>
+<p>参考<br>
+<a href="https://github.com/yshunda/Notes/issues/2" target="_blank" rel="noopener">https://github.com/yshunda/Notes/issues/2</a><br>
+<a href="https://github.com/yinghuocho/firefly-proxy/issues/172" target="_blank" rel="noopener">https://github.com/yinghuocho/firefly-proxy/issues/172</a><br>
+<a href="https://www.baishitou.cn/1524.html" target="_blank" rel="noopener">https://www.baishitou.cn/1524.html</a></p>
+</li>
 </ol>
-<h2 id="其他ssr链接待测试">其他ssr链接(待测试)</h2>
-<ol type="1">
-<li><p>其他 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate https://softs.fun/Bash/ssr.sh &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</span><br></pre></td></tr></table></figure></p>
-<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh</span><br><span class="line">chmod +x shadowsocksR.sh</span><br><span class="line">./shadowsocksR.sh 2&gt;&amp;1 | tee shadowsocksR.log</span><br></pre></td></tr></table></figure></p>
-<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://freed.ga/github/shadowsocksR.sh; bash shadowsocksR.sh</span><br></pre></td></tr></table></figure></p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash ./shadowsocksR.sh uninstall 删除</span><br></pre></td></tr></table></figure></p></li>
+<h2 id="其他ssr链接待测试"><a class="markdownIt-Anchor" href="#其他ssr链接待测试"></a> 其他ssr链接(待测试)</h2>
+<ol>
+<li>
+<p>其他</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate https://softs.fun/Bash/ssr.sh &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh</span><br><span class="line">chmod +x shadowsocksR.sh</span><br><span class="line">./shadowsocksR.sh 2&gt;&amp;1 | tee shadowsocksR.log</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://freed.ga/github/shadowsocksR.sh; bash shadowsocksR.sh</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash ./shadowsocksR.sh uninstall 删除</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h2 id="ipv6ss实现校园网浏览器免流量">ipv6+ss实现校园网浏览器免流量</h2>
-<ol type="1">
-<li><p>检查所在环境是否可以使用ipv6(插网线不登录)<br>
-https://ipv6-test.com/<br>
-https://test-ipv6.com/<br>
-https://bt.byr.cn/login.php</p></li>
-<li><p>ss使用ipv6【亲测ssr好像不需要配置就可以打通】<br>
+<h2 id="ipv6ss实现校园网浏览器免流量"><a class="markdownIt-Anchor" href="#ipv6ss实现校园网浏览器免流量"></a> ipv6+ss实现校园网浏览器免流量</h2>
+<ol>
+<li>
+<p>检查所在环境是否可以使用ipv6(插网线不登录)<br>
+<a href="https://ipv6-test.com/" target="_blank" rel="noopener">https://ipv6-test.com/</a><br>
+<a href="https://test-ipv6.com/" target="_blank" rel="noopener">https://test-ipv6.com/</a><br>
+<a href="https://bt.byr.cn/login.php" target="_blank" rel="noopener">https://bt.byr.cn/login.php</a></p>
+</li>
+<li>
+<p>ss使用ipv6【亲测ssr好像不需要配置就可以打通】<br>
 在vultr服务器的setting找到ipv6的configuration examples<br>
-找到对应的系统类型修改服务器端的配置 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/network/interfaces</span><br></pre></td></tr></table></figure></p>
-<p>启动服务器ss <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ifup ens3</span><br><span class="line">ssserver -c /etc/shadowsocks.json -d stop 先把原有的关闭</span><br><span class="line">ssserver -c /etc/shadowsocks.json -d start</span><br></pre></td></tr></table></figure></p></li>
-<li><p>在客户端ssr里如同ipv4那样配置，只是ip地址换成ipv6的地址，如
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">****:****:****:****:****:****:****:****</span><br></pre></td></tr></table></figure></p>
+找到对应的系统类型修改服务器端的配置</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/network/interfaces</span><br></pre></td></tr></table></figure>
+<p>启动服务器ss</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ifup ens3</span><br><span class="line">ssserver -c /etc/shadowsocks.json -d stop 先把原有的关闭</span><br><span class="line">ssserver -c /etc/shadowsocks.json -d start</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>在客户端ssr里如同ipv4那样配置，只是ip地址换成ipv6的地址，如</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">****:****:****:****:****:****:****:****</span><br></pre></td></tr></table></figure>
 <p>切换到校园网，切换代理为全局模式，即可白嫖上网<br>
-【注意！！！】只是这种方式只能上网白嫖，不能使用应用</p></li>
+【注意！！！】只是这种方式只能上网白嫖，不能使用应用</p>
+</li>
 </ol>
-<h2 id="proxifier">Proxifier</h2>
+<h2 id="proxifier"><a class="markdownIt-Anchor" href="#proxifier"></a> Proxifier</h2>
 <ul>
-<li>使用ss或者用v2ray只能代理浏览器.用proxifier来做全局代理从而实现所有软件都能用上科学上网。<br>
+<li>使用ss或者用v2ray只能代理浏览器.用proxifier来做全局代理从而实现所有软件都能用上科学上网。</li>
+</ul>
+<ol>
+<li>
+<p>下载<br>
+Proxifiler下载地址：<a href="https://www.proxifier.com/download.htm" target="_blank" rel="noopener">https://www.proxifier.com/download.htm</a><br>
+下载标准版即可，Proxifier Standard Edition<br>
+标准版激活码</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">5EZ8G-C3WL5-B56YG-SCXM9-6QZAP</span><br><span class="line">G3ZC7-7YGPY-FZD3A-FMNF9-ENTJB</span><br><span class="line">YTZGN-FYT53-J253L-ZQZS4-YLBN9</span><br><span class="line">P427L-9Y552-5433E-8DSR3-58Z68</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>配置<br>
+step1.新建一个代理服务器proxy servers,填127.0.0.1, 1080, socks version 5, 然后确认和check测试<br>
+step2(方式一,亲测有bug).打开proxifier rules,在localhost那条,application填shadowsocksr-dotnet4. 0.exe，action选direct<br>
+【注意！！！方式一会导致浏览器无法正常访问网页，但其他应用可以用】<br>
+step2(方式二).打开proxifier rules,在localhost那条, Target hosts（目标主机）处添加你的SSR代理服务器的IP地址，action选direct<br>
+【step2是为了防止循环代理】<br>
+step3.打开Name Resolution，选择Resolve hostnames through proxy（通过代理服务器解析域名）</p>
+</li>
+<li>
+<p>参考<br>
+<a href="http://www.safe6.cn/article/121" target="_blank" rel="noopener">http://www.safe6.cn/article/121</a><br>
+<a href="http://www.leesven.com/5028.html" target="_blank" rel="noopener">http://www.leesven.com/5028.html</a><br>
+<a href="https://blog.csdn.net/u013066730/article/details/88788191" target="_blank" rel="noopener">https://blog.csdn.net/u013066730/article/details/88788191</a><br>
+<a href="https://www.mcbbs.net/thread-872467-1-1.html" target="_blank" rel="noopener">https://www.mcbbs.net/thread-872467-1-1.html</a></p>
+</li>
+</ol>
+<h2 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h2>
+<ul>
+<li>
+<p>所以只是实现翻墙只需要vultr+ss/ssr+客户端配置的是ipv4即可</p>
+</li>
+<li>
+<p>实现校园网浏览器免流量需要vultr+ss/ssr+客户端配置的是ipv6的ip+校园网支持ipv6+连接校园网</p>
+</li>
+<li>
+<p>实现校园网所有应用免流量需要vultr+ss/ssr+客户端配置的是ipv6的ip+校园网支持ipv6+连接校园网+proxifier</p>
+</li>
+<li>
+<p>如果一个服务器在ssr客户端有ipv4和ipv6地址，好像无论设置哪个，都会先走ipv4的那个</p>
+</li>
+<li>
+<p>【注意！！！由以下结果可见，ssr没有在服务器端配置/etc/network/interfaces也可使用，估计在vultr，ss也可能不需要配置】</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">电脑,ssr客户端时ipv6,ss服务器端配置了ipv4和ipv6,在不联网+校园网可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv6,ss服务器端配置了ipv4和ipv6,在联网可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv4,ss服务器端配置了ipv4和ipv6,在不联网+校园网不可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv4,ss服务器端配置了ipv4和ipv6,在联网可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv6,ssr服务器端配置了ipv4,在不联网+校园网可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv6,ssr服务器端配置了ipv4,在联网可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv4,ssr服务器端配置了ipv4,在不联网+校园网不可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv4,ssr服务器端配置了ipv4,在联 网可以访问ipv4,ipv6</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<ol type="1">
-<li><p>下载<br>
-Proxifiler下载地址：https://www.proxifier.com/download.htm<br>
-下载标准版即可，Proxifier Standard Edition<br>
-标准版激活码 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">5EZ8G-C3WL5-B56YG-SCXM9-6QZAP</span><br><span class="line">G3ZC7-7YGPY-FZD3A-FMNF9-ENTJB</span><br><span class="line">YTZGN-FYT53-J253L-ZQZS4-YLBN9</span><br><span class="line">P427L-9Y552-5433E-8DSR3-58Z68</span><br></pre></td></tr></table></figure></p></li>
-<li><p>配置<br>
-step1.新建一个代理服务器proxy servers,填127.0.0.1, 1080, socks version
-5, 然后确认和check测试<br>
-step2(方式一,亲测有bug).打开proxifier
-rules,在localhost那条,application填shadowsocksr-dotnet4.
-0.exe，action选direct<br>
-【注意！！！方式一会导致浏览器无法正常访问网页，但其他应用可以用】
-step2(方式二).打开proxifier rules,在localhost那条, Target
-hosts（目标主机）处添加你的SSR代理服务器的IP地址，action选direct
-【step2是为了防止循环代理】 step3.打开Name Resolution，选择Resolve
-hostnames through proxy（通过代理服务器解析域名）</p></li>
-<li><p>参考<br>
-http://www.safe6.cn/article/121<br>
-http://www.leesven.com/5028.html<br>
-https://blog.csdn.net/u013066730/article/details/88788191<br>
-https://www.mcbbs.net/thread-872467-1-1.html</p></li>
+<h2 id="其他移动端"><a class="markdownIt-Anchor" href="#其他移动端"></a> 其他移动端</h2>
+<ol>
+<li>
+<p>ipad端只能实现翻墙<br>
+在线安装ss<br>
+<a href="https://shadowsockshelp.github.io/ios/" target="_blank" rel="noopener">https://shadowsockshelp.github.io/ios/</a></p>
+</li>
+<li>
+<p>参考<br>
+<a href="https://github.com/itrump/ssfree/blob/master/cn/ssr_ss_tutorial_ios%E6%95%99%E7%A8%8B.md" target="_blank" rel="noopener">https://github.com/itrump/ssfree/blob/master/cn/ssr_ss_tutorial_ios教程.md</a><br>
+<a href="https://ss-ssr.gitbook.io/shadowsocks/ios" target="_blank" rel="noopener">https://ss-ssr.gitbook.io/shadowsocks/ios</a></p>
+</li>
+<li>
+<p>小米手机好像无法检测ipv6</p>
+</li>
 </ol>
-<h2 id="总结">总结</h2>
-<ul>
-<li><p>所以只是实现翻墙只需要vultr+ss/ssr+客户端配置的是ipv4即可<br>
-</p></li>
-<li><p>实现校园网浏览器免流量需要vultr+ss/ssr+客户端配置的是ipv6的ip+校园网支持ipv6+连接校园网<br>
-</p></li>
-<li><p>实现校园网所有应用免流量需要vultr+ss/ssr+客户端配置的是ipv6的ip+校园网支持ipv6+连接校园网+proxifier<br>
-</p></li>
-<li><p>如果一个服务器在ssr客户端有ipv4和ipv6地址，好像无论设置哪个，都会先走ipv4的那个<br>
-</p></li>
-<li><p>【注意！！！由以下结果可见，ssr没有在服务器端配置/etc/network/interfaces也可使用，估计在vultr，ss也可能不需要配置】</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">电脑,ssr客户端时ipv6,ss服务器端配置了ipv4和ipv6,在不联网+校园网可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv6,ss服务器端配置了ipv4和ipv6,在联网可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv4,ss服务器端配置了ipv4和ipv6,在不联网+校园网不可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv4,ss服务器端配置了ipv4和ipv6,在联网可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv6,ssr服务器端配置了ipv4,在不联网+校园网可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv6,ssr服务器端配置了ipv4,在联网可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv4,ssr服务器端配置了ipv4,在不联网+校园网不可以访问ipv4,ipv6</span><br><span class="line">电脑,ssr客户端时ipv4,ssr服务器端配置了ipv4,在联 网可以访问ipv4,ipv6</span><br></pre></td></tr></table></figure></p></li>
-</ul>
-<h2 id="其他移动端">其他移动端</h2>
-<ol type="1">
-<li><p>ipad端只能实现翻墙<br>
-在线安装ss https://shadowsockshelp.github.io/ios/</p></li>
-<li><p>参考<br>
-https://github.com/itrump/ssfree/blob/master/cn/ssr_ss_tutorial_ios%E6%95%99%E7%A8%8B.md<br>
-https://ss-ssr.gitbook.io/shadowsocks/ios</p></li>
-<li><p>小米手机好像无法检测ipv6</p></li>
-</ol>
-<h2 id="参考">参考</h2>
+<h2 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h2>
 <p>ipv4-&gt;ss+vps-&gt;ipv6,ipv6,翻墙教程：<br>
-https://www.leavesongs.com/SHARE/ipv6-via-ss.html<br>
-https://watsonyanghx.github.io/2016/10/05/Shadowsocks-Vultr-IPV6%E6%90%AD%E5%BB%BA%E6%A0%A1%E5%9B%AD%E7%BD%91%E5%85%8D%E6%B5%81%E9%87%8F%E7%8E%AF%E5%A2%83/
+<a href="https://www.leavesongs.com/SHARE/ipv6-via-ss.html" target="_blank" rel="noopener">https://www.leavesongs.com/SHARE/ipv6-via-ss.html</a><br>
+<a href="https://watsonyanghx.github.io/2016/10/05/Shadowsocks-Vultr-IPV6%E6%90%AD%E5%BB%BA%E6%A0%A1%E5%9B%AD%E7%BD%91%E5%85%8D%E6%B5%81%E9%87%8F%E7%8E%AF%E5%A2%83/" target="_blank" rel="noopener">https://watsonyanghx.github.io/2016/10/05/Shadowsocks-Vultr-IPV6搭建校园网免流量环境/</a><br>
 ipv6-&gt;ss+vps-&gt;ipv4,ipv6,翻墙教程：<br>
-http://ipv6.la/159.html<br>
-https://www.newlearner.site/2018/09/15/use-ipv6-for-free-internet.html<br>
+<a href="http://ipv6.la/159.html" target="_blank" rel="noopener">http://ipv6.la/159.html</a><br>
+<a href="https://www.newlearner.site/2018/09/15/use-ipv6-for-free-internet.html" target="_blank" rel="noopener">https://www.newlearner.site/2018/09/15/use-ipv6-for-free-internet.html</a><br>
 其他：<br>
-https://www.polarxiong.com/archives/%E6%90%AD%E5%BB%BAipv6-VPN-%E8%AE%A9ipv4%E4%B8%8Aipv6-%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%8F%90%E5%8D%87%E5%88%B0100M.html<br>
+<a href="https://www.polarxiong.com/archives/%E6%90%AD%E5%BB%BAipv6-VPN-%E8%AE%A9ipv4%E4%B8%8Aipv6-%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%8F%90%E5%8D%87%E5%88%B0100M.html" target="_blank" rel="noopener">https://www.polarxiong.com/archives/搭建ipv6-VPN-让ipv4上ipv6-下载速度提升到100M.html</a><br>
 vutlr+ss/ssr<br>
-https://www.flyzy2005.com/fan-qiang/shadowsocks/install-shadowsocks-in-one-command/<br>
+<a href="https://www.flyzy2005.com/fan-qiang/shadowsocks/install-shadowsocks-in-one-command/" target="_blank" rel="noopener">https://www.flyzy2005.com/fan-qiang/shadowsocks/install-shadowsocks-in-one-command/</a><br>
 ssr基础知识<br>
-https://www.quchao.net/ShadowsocksR.html<br>
+<a href="https://www.quchao.net/ShadowsocksR.html" target="_blank" rel="noopener">https://www.quchao.net/ShadowsocksR.html</a><br>
 v2ray代替ss方式<br>
-https://since1989.org/vultr/v2ray-vmess-tcp-bbr-serverspeeder.html<br>
-https://www.iveyip.com/2018/10/06/%E5%9C%A8vultr-vps%E4%B8%8A%E6%90%AD%E5%BB%BA-v2ray-%E6%9C%8D%E5%8A%A1/<br>
-https://tyloafer.github.io/posts/57533/</p>
+<a href="https://since1989.org/vultr/v2ray-vmess-tcp-bbr-serverspeeder.html" target="_blank" rel="noopener">https://since1989.org/vultr/v2ray-vmess-tcp-bbr-serverspeeder.html</a><br>
+<a href="https://www.iveyip.com/2018/10/06/%E5%9C%A8vultr-vps%E4%B8%8A%E6%90%AD%E5%BB%BA-v2ray-%E6%9C%8D%E5%8A%A1/" target="_blank" rel="noopener">https://www.iveyip.com/2018/10/06/在vultr-vps上搭建-v2ray-服务/</a><br>
+<a href="https://tyloafer.github.io/posts/57533/" target="_blank" rel="noopener">https://tyloafer.github.io/posts/57533/</a></p>
 
       
 
@@ -536,7 +582,7 @@ https://tyloafer.github.io/posts/57533/</p>
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#购买vps"><span class="toc-number">1.</span> <span class="toc-text">购买vps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装ss"><span class="toc-number">2.</span> <span class="toc-text">安装ss</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#加速vps服务器谷歌bbr加速"><span class="toc-number">3.</span> <span class="toc-text">加速VPS服务器(谷歌BBR加速)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他ssr链接待测试"><span class="toc-number">4.</span> <span class="toc-text">其他ssr链接(待测试)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ipv6ss实现校园网浏览器免流量"><span class="toc-number">5.</span> <span class="toc-text">ipv6+ss实现校园网浏览器免流量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#proxifier"><span class="toc-number">6.</span> <span class="toc-text">Proxifier</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">7.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他移动端"><span class="toc-number">8.</span> <span class="toc-text">其他移动端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">9.</span> <span class="toc-text">参考</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#购买vps"><span class="toc-number">1.</span> <span class="toc-text"> 购买vps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置vultr服务器"><span class="toc-number">2.</span> <span class="toc-text"> 配置vultr服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装ss"><span class="toc-number">3.</span> <span class="toc-text"> 安装ss</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#加速vps服务器谷歌bbr加速"><span class="toc-number">4.</span> <span class="toc-text"> 加速VPS服务器(谷歌BBR加速)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他ssr链接待测试"><span class="toc-number">5.</span> <span class="toc-text"> 其他ssr链接(待测试)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ipv6ss实现校园网浏览器免流量"><span class="toc-number">6.</span> <span class="toc-text"> ipv6+ss实现校园网浏览器免流量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#proxifier"><span class="toc-number">7.</span> <span class="toc-text"> Proxifier</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">8.</span> <span class="toc-text"> 总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他移动端"><span class="toc-number">9.</span> <span class="toc-text"> 其他移动端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">10.</span> <span class="toc-text"> 参考</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -763,11 +809,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -783,7 +829,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -792,10 +838,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">clip</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -820,6 +862,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">clip</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -915,10 +961,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">procreate</a>
               </li>
              
@@ -948,6 +990,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">视觉小说</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -991,19 +1037,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">虚拟主播</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vup</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电脑</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">虚拟主播</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vup</a>
               </li>
              
               <li class="article-tag-list-item">

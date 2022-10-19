@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
 <meta property="og:description" content="安装livere评论系统">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2022-10-18T14:31:36.691Z">
+<meta property="og:updated_time" content="2022-10-18T20:30:32.997Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于windows10+hexo+github搭建个人博客(3)">
 <meta name="twitter:description" content="安装livere评论系统">
@@ -37,6 +37,7 @@
 
   
 
+  <link href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/KaTeX/0.10.2/katex.min.css" rel="stylesheet">
 </head>
 </html>
 <body>  
@@ -204,85 +205,232 @@
       
         
         <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
-        <h2 id="安装livere评论系统">安装livere评论系统</h2>
+        <h2 id="安装livere评论系统"><a class="markdownIt-Anchor" href="#安装livere评论系统"></a> 安装livere评论系统</h2>
 <a id="more"></a>
-<ol type="1">
-<li><p>注册livere<br>
+<ol>
+<li>
+<p>注册livere<br>
 选择City版：是一款适合所有人使用的免费版本<br>
-https://livere.com<br>
-</p></li>
-<li><p>在主题配置添加来必力<br>
-修改<code>theme/yilia/_config.yml</code>文件<br>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">livere_uid: 注册得到的id</span><br></pre></td></tr></table></figure></p></li>
-<li><p>添加livere.ejs代码<br>
+<a href="https://livere.com" target="_blank" rel="noopener">https://livere.com</a></p>
+</li>
+<li>
+<p>在主题配置添加来必力<br>
+修改<code>theme/yilia/_config.yml</code>文件</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">livere_uid: 注册得到的id</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>添加livere.ejs代码<br>
 新增<code>theme/yilia/layout/_partial/post/livere.ejs文件</code>，添加livere得到的代码<br>
-【注意这里data-uid替换成了theme.livere_uid】 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">   &lt;!-- 来必力City版安装代码 --&gt;</span><br><span class="line">   &lt;div id=&quot;lv-container&quot; data-id=&quot;city&quot; data-uid=&quot;&lt;%=theme.livere_uid%&gt;&quot;&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">   (function(d, s) &#123;</span><br><span class="line">      var j, e = d.getElementsByTagName(s)[0];</span><br><span class="line"></span><br><span class="line">      if (typeof LivereTower === &apos;function&apos;) &#123; return; &#125;</span><br><span class="line"></span><br><span class="line">      j = d.createElement(s);</span><br><span class="line">      j.src = &apos;https://cdn-city.livere.com/js/embed.dist.js&apos;;</span><br><span class="line">      j.async = true;</span><br><span class="line"></span><br><span class="line">      e.parentNode.insertBefore(j, e);</span><br><span class="line">   &#125;)(document, &apos;script&apos;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">   &lt;noscript&gt; 为正常使用来必力评论功能请激活JavaScript&lt;/noscript&gt;</span><br><span class="line">   &lt;/div&gt;</span><br><span class="line">   &lt;!-- City版安装代码已完成 --&gt;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>添加article.ejs代码<br>
-在<code>theme/yilia/layout/_partial/article.ejs文件</code>，如下位置<br>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (!index &amp;&amp; post.comments)&#123; %&gt;</span><br></pre></td></tr></table></figure></p>
-<p>添加代码 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.livere_uid)&#123; %&gt;</span><br><span class="line">&lt;%- partial(&apos;post/livere&apos;, &#123;</span><br><span class="line">  key: post.slug,</span><br><span class="line">  title: post.title,</span><br><span class="line">  url: config.url+url_for(post.path)</span><br><span class="line">&#125;) %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>重启hexo</p></li>
-<li><p>参考<br>
-https://jomsou.github.io/2017/07/16/livere/<br>
-https://www.githang.com/2019/05/21/hexo-yilia-livere/<br>
-https://meetes.top/2018/02/12/Hexo%20+%20yilia%20%E9%83%A8%E7%BD%B2%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</p></li>
+【注意这里data-uid替换成了theme.livere_uid】</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">   &lt;!-- 来必力City版安装代码 --&gt;</span><br><span class="line">   &lt;div id=&quot;lv-container&quot; data-id=&quot;city&quot; data-uid=&quot;&lt;%=theme.livere_uid%&gt;&quot;&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">   (function(d, s) &#123;</span><br><span class="line">      var j, e = d.getElementsByTagName(s)[0];</span><br><span class="line"></span><br><span class="line">      if (typeof LivereTower === &apos;function&apos;) &#123; return; &#125;</span><br><span class="line"></span><br><span class="line">      j = d.createElement(s);</span><br><span class="line">      j.src = &apos;https://cdn-city.livere.com/js/embed.dist.js&apos;;</span><br><span class="line">      j.async = true;</span><br><span class="line"></span><br><span class="line">      e.parentNode.insertBefore(j, e);</span><br><span class="line">   &#125;)(document, &apos;script&apos;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">   &lt;noscript&gt; 为正常使用来必力评论功能请激活JavaScript&lt;/noscript&gt;</span><br><span class="line">   &lt;/div&gt;</span><br><span class="line">   &lt;!-- City版安装代码已完成 --&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>添加article.ejs代码<br>
+在<code>theme/yilia/layout/_partial/article.ejs文件</code>，如下位置</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (!index &amp;&amp; post.comments)&#123; %&gt;</span><br></pre></td></tr></table></figure>
+<p>添加代码</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.livere_uid)&#123; %&gt;</span><br><span class="line">&lt;%- partial(&apos;post/livere&apos;, &#123;</span><br><span class="line">  key: post.slug,</span><br><span class="line">  title: post.title,</span><br><span class="line">  url: config.url+url_for(post.path)</span><br><span class="line">&#125;) %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>重启hexo</p>
+</li>
+<li>
+<p>参考<br>
+<a href="https://jomsou.github.io/2017/07/16/livere/" target="_blank" rel="noopener">https://jomsou.github.io/2017/07/16/livere/</a><br>
+<a href="https://www.githang.com/2019/05/21/hexo-yilia-livere/" target="_blank" rel="noopener">https://www.githang.com/2019/05/21/hexo-yilia-livere/</a><br>
+<a href="https://meetes.top/2018/02/12/Hexo%20+%20yilia%20%E9%83%A8%E7%BD%B2%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" target="_blank" rel="noopener">https://meetes.top/2018/02/12/Hexo + yilia 部署评论系统/</a></p>
+</li>
 </ol>
 <hr>
-<h2 id="设置加密博文">设置加密博文</h2>
-<ol type="1">
-<li><p>安装插件<br>npm install --save hexo-blog-encrypt</p></li>
-<li><p>安装插件<br>npm install --save hexo-blog-encrypt<br>
-as</p></li>
-<li><p>安装插件<br>npm install --save hexo-blog-encrypt<br>sad</p></li>
-<li><p>按标签加密<br>修改文章信息头如下： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">title: Hello World</span><br><span class="line">tags:</span><br><span class="line">- 加密文章tag</span><br><span class="line">date: 2020-03-13 21:12:21</span><br><span class="line">password: muyiio</span><br><span class="line">abstract: 这里有东西被加密了，需要输入密码查看哦。</span><br><span class="line">message: 您好，这里需要密码。</span><br><span class="line">wrong_pass_message: 抱歉，这个密码看着不太对，请再试试。</span><br><span class="line">wrong_hash_message: 抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容。</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
-<p>对博客根目录_config添加如下字段 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 安全</span><br><span class="line">encrypt: # hexo-blog-encrypt</span><br><span class="line">abstract: 这里有东西被加密了，需要输入密码查看哦。</span><br><span class="line">message: 您好, 这里需要密码.</span><br><span class="line">tags:</span><br><span class="line">- &#123;name: tagName, password: 密码A&#125;</span><br><span class="line">- &#123;name: tagName, password: 密码B&#125;</span><br><span class="line">template: &lt;div id=&quot;hexo-blog-encrypt&quot; data-wpm=&quot;&#123;&#123;hbeWrongPassMessage&#125;&#125;&quot; data-whm=&quot;&#123;&#123;hbeWrongHashMessage&#125;&#125;&quot;&gt;&lt;div class=&quot;hbe-input-container&quot;&gt;&lt;input type=&quot;password&quot; id=&quot;hbePass&quot; placeholder=&quot;&#123;&#123;hbeMessage&#125;&#125;&quot; /&gt;&lt;label&gt;&#123;&#123;hbeMessage&#125;&#125;&lt;/label&gt;&lt;div class=&quot;bottom-line&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;script id=&quot;hbeData&quot; type=&quot;hbeData&quot; data-hmacdigest=&quot;&#123;&#123;hbeHmacDigest&#125;&#125;&quot;&gt;&#123;&#123;hbeEncryptedData&#125;&#125;&lt;/script&gt;&lt;/div&gt;</span><br><span class="line">wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.</span><br><span class="line">wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.</span><br></pre></td></tr></table></figure></p></li>
-<li><p>参考<br>
-https://zhuanlan.zhihu.com/p/113235573</p></li>
+<h2 id="设置加密博文"><a class="markdownIt-Anchor" href="#设置加密博文"></a> 设置加密博文</h2>
+<ol>
+<li>
+<p>安装插件<br>npm install --save hexo-blog-encrypt</p>
+</li>
+<li>
+<p>安装插件<br>npm install --save hexo-blog-encrypt<br>
+as</p>
+</li>
+<li>
+<p>安装插件<br>npm install --save hexo-blog-encrypt<br>sad</p>
+</li>
+<li>
+<p>按标签加密<br>修改文章信息头如下：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">title: Hello World</span><br><span class="line">tags:</span><br><span class="line">- 加密文章tag</span><br><span class="line">date: 2020-03-13 21:12:21</span><br><span class="line">password: muyiio</span><br><span class="line">abstract: 这里有东西被加密了，需要输入密码查看哦。</span><br><span class="line">message: 您好，这里需要密码。</span><br><span class="line">wrong_pass_message: 抱歉，这个密码看着不太对，请再试试。</span><br><span class="line">wrong_hash_message: 抱歉，这个文章不能被纠正，不过您还是能看看解密后的内容。</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>对博客根目录_config添加如下字段</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 安全</span><br><span class="line">encrypt: # hexo-blog-encrypt</span><br><span class="line">abstract: 这里有东西被加密了，需要输入密码查看哦。</span><br><span class="line">message: 您好, 这里需要密码.</span><br><span class="line">tags:</span><br><span class="line">- &#123;name: tagName, password: 密码A&#125;</span><br><span class="line">- &#123;name: tagName, password: 密码B&#125;</span><br><span class="line">template: &lt;div id=&quot;hexo-blog-encrypt&quot; data-wpm=&quot;&#123;&#123;hbeWrongPassMessage&#125;&#125;&quot; data-whm=&quot;&#123;&#123;hbeWrongHashMessage&#125;&#125;&quot;&gt;&lt;div class=&quot;hbe-input-container&quot;&gt;&lt;input type=&quot;password&quot; id=&quot;hbePass&quot; placeholder=&quot;&#123;&#123;hbeMessage&#125;&#125;&quot; /&gt;&lt;label&gt;&#123;&#123;hbeMessage&#125;&#125;&lt;/label&gt;&lt;div class=&quot;bottom-line&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;script id=&quot;hbeData&quot; type=&quot;hbeData&quot; data-hmacdigest=&quot;&#123;&#123;hbeHmacDigest&#125;&#125;&quot;&gt;&#123;&#123;hbeEncryptedData&#125;&#125;&lt;/script&gt;&lt;/div&gt;</span><br><span class="line">wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.</span><br><span class="line">wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>参考<br>
+<a href="https://zhuanlan.zhihu.com/p/113235573" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/113235573</a></p>
+</li>
 </ol>
 <hr>
-<h2 id="上传pdf">上传pdf</h2>
-<ol type="1">
-<li><p>安装插件 npm install --save hexo-pdf</p></li>
-<li><p>新建目录source</p></li>
-<li><p>使用以下方式插入 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% pdf /assets/pdf/xxx.pdf %&#125;</span><br></pre></td></tr></table></figure></p>
-<p>或者 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;object data=&quot;/assets/pdf/xxx.pdf&quot; type=&quot;application/pdf&quot; width=&quot;100%&quot; height=&quot;877px&quot;&gt;&lt;/object&gt;</span><br><span class="line"></span><br><span class="line">&lt;iframe src=&apos;/assets/pdf/xxx.pdf&apos; width=&quot;100%&quot; height=&quot;877px&quot;&gt;&lt;/iframe&gt;</span><br><span class="line"></span><br><span class="line">&lt;iframe src=&apos;/assets/pdf/xxx.pdf&apos; style=&apos;width:100%;height:877px&apos;&gt;&lt;/iframe&gt;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>安装pdf.js, 实现手机端浏览<br>
-【注意：1-3步骤只能实现pc端浏览！！！】<br>
-</p></li>
+<h2 id="上传pdf"><a class="markdownIt-Anchor" href="#上传pdf"></a> 上传pdf</h2>
+<ol>
+<li>
+<p>安装插件<br>
+npm install --save hexo-pdf</p>
+</li>
+<li>
+<p>新建目录source\assets\pdf</p>
+</li>
+<li>
+<p>使用以下方式插入</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% pdf /assets/pdf/xxx.pdf %&#125;</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;object data=&quot;/assets/pdf/xxx.pdf&quot; type=&quot;application/pdf&quot; width=&quot;100%&quot; height=&quot;877px&quot;&gt;&lt;/object&gt;</span><br><span class="line"></span><br><span class="line">&lt;iframe src=&apos;/assets/pdf/xxx.pdf&apos; width=&quot;100%&quot; height=&quot;877px&quot;&gt;&lt;/iframe&gt;</span><br><span class="line"></span><br><span class="line">&lt;iframe src=&apos;/assets/pdf/xxx.pdf&apos; style=&apos;width:100%;height:877px&apos;&gt;&lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>安装pdf.js, 实现手机端浏览<br>
+【注意：1-3步骤只能实现pc端浏览！！！】</p>
+</li>
 </ol>
 <ul>
-<li><p>pdfjs下载地址：https://mozilla.github.io/pdf.js/getting_started/#download<br>
-</p></li>
-<li><p>下载Prebuilt (for older browsers)的stable包</p></li>
-<li><p>解压后放在/source/pdfjs目录下</p></li>
-<li><p>在_config.yml添加如下代码，取消对pdfjs的渲染 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">skip_render:</span><br><span class="line">- &apos;pdfjs/*&apos;</span><br><span class="line">- &apos;pdfjs/**&apos;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>记得hexo clean和g</p></li>
-<li><p>使用以下方式插入 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe src=&apos;/pdfjs/web/viewer.html?file=/assets/pdf/xxx.pdf&apos; width=&quot;100%&quot; height=&quot;877px&quot;&gt;&lt;/iframe&gt;</span><br></pre></td></tr></table></figure></p></li>
+<li>
+<p>pdfjs下载地址：<a href="https://mozilla.github.io/pdf.js/getting_started/#download" target="_blank" rel="noopener">https://mozilla.github.io/pdf.js/getting_started/#download</a></p>
+</li>
+<li>
+<p>下载Prebuilt (for older browsers)的stable包</p>
+</li>
+<li>
+<p>解压后放在/source/pdfjs目录下</p>
+</li>
+<li>
+<p>在_config.yml添加如下代码，取消对pdfjs的渲染</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">skip_render:</span><br><span class="line">- &apos;pdfjs/*&apos;</span><br><span class="line">- &apos;pdfjs/**&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>记得hexo clean和g</p>
+</li>
+<li>
+<p>使用以下方式插入</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe src=&apos;/pdfjs/web/viewer.html?file=/assets/pdf/xxx.pdf&apos; width=&quot;100%&quot; height=&quot;877px&quot;&gt;&lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <p>参考<br>
-https://www.jianshu.com/p/111452a36e94<br>
-https://juejin.cn/post/7084037580756353038<br>
-https://www.cnblogs.com/bingshanyishu/p/15979137.html</p>
+<a href="https://www.jianshu.com/p/111452a36e94" target="_blank" rel="noopener">https://www.jianshu.com/p/111452a36e94</a><br>
+<a href="https://juejin.cn/post/7084037580756353038" target="_blank" rel="noopener">https://juejin.cn/post/7084037580756353038</a><br>
+<a href="https://www.cnblogs.com/bingshanyishu/p/15979137.html" target="_blank" rel="noopener">https://www.cnblogs.com/bingshanyishu/p/15979137.html</a></p>
 <hr>
-<h2 id="资源压缩好像需要版本升级不做了">资源压缩【好像需要版本升级，不做了】</h2>
-<ol type="1">
+<h2 id="资源压缩好像需要版本升级不做了"><a class="markdownIt-Anchor" href="#资源压缩好像需要版本升级不做了"></a> 资源压缩【好像需要版本升级，不做了】</h2>
+<ol>
 <li>安装插件<br>
 npm install hexo-all-minifier<br>
-参考
-https://keep-docs.xpoet.cn/usage-tutorial/advanced.html#%E8%B5%84%E6%BA%90%E5%8E%8B%E7%BC%A9</li>
+参考<br>
+<a href="https://keep-docs.xpoet.cn/usage-tutorial/advanced.html#%E8%B5%84%E6%BA%90%E5%8E%8B%E7%BC%A9" target="_blank" rel="noopener">https://keep-docs.xpoet.cn/usage-tutorial/advanced.html#资源压缩</a></li>
 </ol>
-<h2 id="hexotypora图像插入">hexo+typora图像插入</h2>
-<ol type="1">
+<h2 id="hexotypora图像插入"><a class="markdownIt-Anchor" href="#hexotypora图像插入"></a> hexo+typora图像插入</h2>
+<ol>
 <li>md文件放在source/_posts下</li>
 <li>图像文件放在source/assets/typora下</li>
-<li>typora打开偏好设置-图像-设置相对位置../assets/typora/${filename},
-选择优先使用相对位置</li>
+<li>typora打开偏好设置-图像-设置相对位置…/assets/typora/${filename}, 选择优先使用相对位置</li>
 <li>typora打开格式-图像-设置图像根目录选择source</li>
-<li>最后md上显示从../assets/typora变成/assets/typora/</li>
+<li>最后md上显示从…/assets/typora变成/assets/typora/</li>
 </ol>
-<h2 id="typora常用命令">typora常用命令</h2>
-<p>进入源码模式：Ctrl + / 快速打开：Ctrl + P 显示隐藏侧边栏：Ctrl +
-Shift + L</p>
+<h2 id="typora常用命令"><a class="markdownIt-Anchor" href="#typora常用命令"></a> typora常用命令</h2>
+<p>进入源码模式：Ctrl + /<br>
+快速打开：Ctrl + P<br>
+显示隐藏侧边栏：Ctrl + Shift + L</p>
+<h2 id="渲染器和数学公式"><a class="markdownIt-Anchor" href="#渲染器和数学公式"></a> 渲染器和数学公式</h2>
+<h3 id="渲染器"><a class="markdownIt-Anchor" href="#渲染器"></a> 渲染器</h3>
+<ul>
+<li>hexo-renderer-marked：hexo默认的渲染器不支持复杂的数学公式</li>
+<li>hexo-renderer-kramed：支持复杂的数学公式，mathjax的渲染方式</li>
+<li>hexo-renderer-markdown-it：取代第一个的渲染器，渲染更快，更符合CommonMark规则。</li>
+<li>hexo-renderer-markdown-it-katex：跟上一个差不多，但是不用设置就支持katex</li>
+<li>hexo-renderer-markdown-it-plus：好用，可以自己决定是否要渲染katex公式。此外能渲染的东西多，但是已经不维护了。</li>
+<li>@upupming/hexo-renderer-markdown-it-plus ：上一个的升级版。好用。支持的功能多。<br>
+参考：<br>
+<a href="https://bugwz.com/2019/09/17/hexo-markdown-renderer/#2-5%E3%80%81hexo-renderer-markdown-it-plus" target="_blank" rel="noopener">https://bugwz.com/2019/09/17/hexo-markdown-renderer/#2-5、hexo-renderer-markdown-it-plus</a></li>
+</ul>
+<h3 id="方法1-pandoc-问题太多已经放弃"><a class="markdownIt-Anchor" href="#方法1-pandoc-问题太多已经放弃"></a> 方法1 pandoc 【问题太多已经放弃】</h3>
+<ol>
+<li>安装pandoc</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-pandoc --save</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>window安装pandoc<br>
+下载https://pandoc.org/installing.html</li>
+<li>themes\yilia主题下的_config.yml文件</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mathjax: true</span><br><span class="line">或者</span><br><span class="line">mathjax:</span><br><span class="line">  enable: true</span><br><span class="line">  # tags: ams 公式排序，但好像没用这个</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>重开git</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>一堆问题</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\label&#123;&#125; </span><br><span class="line">\eqref&#123;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="方法2-markdown-it-plus"><a class="markdownIt-Anchor" href="#方法2-markdown-it-plus"></a> 方法2 markdown-it-plus</h3>
+<ol>
+<li>安装</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm i hexo-renderer-markdown-it-plus --save #老版本不要</span><br><span class="line">npm i @upupming/hexo-renderer-markdown-it-plus --save</span><br><span class="line">npm i markdown-it-checkbox</span><br><span class="line">npm i markdown-it-imsize</span><br><span class="line">npm i markdown-it-expandable</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>hexo的_config.yml文件【修改后不需要关闭git，但需要hexo clean, hexo g, hexo s才能启动】</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">markdown_it_plus:</span><br><span class="line">  preset: &quot;default&quot; #</span><br><span class="line">  render:</span><br><span class="line">    html: true</span><br><span class="line">    xhtmlOut: false</span><br><span class="line">    langPrefix: &quot;language-&quot; #</span><br><span class="line">    breaks: true</span><br><span class="line">    linkify: true</span><br><span class="line">    typographer: true</span><br><span class="line">    quotes: &quot;“”‘’&quot;</span><br><span class="line">  enable_rules: #</span><br><span class="line">  disable_rules: #</span><br><span class="line">  plugins:</span><br><span class="line">    - markdown-it-mark #高亮</span><br><span class="line">    - markdown-it-ins #下划线</span><br><span class="line">    - markdown-it-sup #上标</span><br><span class="line">    - markdown-it-sub #下标</span><br><span class="line">    - markdown-it-emoji #表情</span><br><span class="line">    - markdown-it-footnote #脚注</span><br><span class="line">    - markdown-it-checkbox #复选框</span><br><span class="line">    - plugin: </span><br><span class="line">        name: markdown-it-katex</span><br><span class="line">        enable: false</span><br><span class="line">    - markdown-it-cjk-breaks #？</span><br><span class="line">    - markdown-it-imsize #?</span><br><span class="line">    - markdown-it-toc-and-anchor #?目录</span><br><span class="line">    - markdown-it-abbr #?  #&lt;abbr&gt;标签？</span><br><span class="line">    - markdown-it-deflist #?自定义列表</span><br><span class="line">    - markdown-it-expandable #?</span><br><span class="line">    - name: markdown-it-container #?</span><br><span class="line">      options: success</span><br><span class="line">    - name: markdown-it-container</span><br><span class="line">      options: tips</span><br><span class="line">    - name: markdown-it-container</span><br><span class="line">      options: warning</span><br><span class="line">    - name: markdown-it-container</span><br><span class="line">      options: danger</span><br><span class="line">  anchors:</span><br><span class="line">    level: 2</span><br><span class="line">    collisionSuffix: &quot;&quot;</span><br><span class="line">    permalink: false #</span><br><span class="line">    permalinkClass: &quot;header-anchor&quot;</span><br><span class="line">    permalinkSide: &quot;left&quot;</span><br><span class="line">    permalinkSymbol: &quot;¶&quot;</span><br><span class="line">    case: 0 #</span><br><span class="line">    separator: &quot;-&quot; #</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>themes\yilia主题下的_config.yml文件</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mathjax: false</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>在themes\yilia\layout_partial\head.ejs添加</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link href=&quot;https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/KaTeX/0.10.2/katex.min.css&quot; rel=&quot;stylesheet&quot;&gt;</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>
+<p>参考<br>
+<a href="https://nn.ci/posts/hexo-katex.html" target="_blank" rel="noopener">https://nn.ci/posts/hexo-katex.html</a><br>
+<a href="https://blog.csdn.net/qq_42951560/article/details/123596899" target="_blank" rel="noopener">https://blog.csdn.net/qq_42951560/article/details/123596899</a><br>
+<a href="http://www.4k8k.xyz/article/qq_36667170/105846999" target="_blank" rel="noopener">http://www.4k8k.xyz/article/qq_36667170/105846999</a><br>
+<a href="https://www.monsteryu.top/web/hexo/hexo_optimization_formula_display/" target="_blank" rel="noopener">https://www.monsteryu.top/web/hexo/hexo_optimization_formula_display/</a><br>
+<a href="https://kaopubear.top/blog/2017-09-19-UseMathJaxinHexo/" target="_blank" rel="noopener">https://kaopubear.top/blog/2017-09-19-UseMathJaxinHexo/</a></p>
+</li>
+<li>
+<p>测试<br>
+<mark>dsda</mark><br>
+<ins>sdads</ins><br>
+H<sub>2</sub>0<br>
+X<sup>2</sup><br>
+😃<br>
+ddasd<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup><br>
+ddasd<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup><br>
+ddasd<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p>
+</li>
+</ol>
+<ul>
+<li>[ ] a</li>
+<li>[x] b</li>
+<li>[ ] c</li>
+<li>[x] ds</li>
+</ul>
+<p>+++ <strong>fjhf</strong><br>
+fhf fgjg<br>
++++<br>
+::: tips<br>
+<strong>jgjg</strong><br>
+hfhf<br>
+:::</p>
+<h3 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h3>
+<p><a href="https://over-shine.github.io/2020/08/22/hexo%E6%90%AD%E9%85%8Dmathjax%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" target="_blank" rel="noopener">https://over-shine.github.io/2020/08/22/hexo搭配mathjax注意事项/</a><br>
+<a href="https://zhuanlan.zhihu.com/p/35988761" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/35988761</a><br>
+<a href="http://yixin-oss.gitee.io/daytoy/2021/06/29/Hexo%E4%BD%BF%E7%94%A8%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/" target="_blank" rel="noopener">http://yixin-oss.gitee.io/daytoy/2021/06/29/Hexo使用数学公式/</a><br>
+<a href="https://zhuanlan.zhihu.com/p/381508379" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/381508379</a><br>
+<a href="https://blog.csdn.net/weixin_29256771/article/details/112235576" target="_blank" rel="noopener">https://blog.csdn.net/weixin_29256771/article/details/112235576</a></p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>大苏打盛大十大 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>dsadasdas <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>大苏打盛大 <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 
       
 
@@ -457,7 +605,7 @@ Shift + L</p>
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装livere评论系统"><span class="toc-number">1.</span> <span class="toc-text">安装livere评论系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置加密博文"><span class="toc-number">2.</span> <span class="toc-text">设置加密博文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上传pdf"><span class="toc-number">3.</span> <span class="toc-text">上传pdf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#资源压缩好像需要版本升级不做了"><span class="toc-number">4.</span> <span class="toc-text">资源压缩【好像需要版本升级，不做了】</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hexotypora图像插入"><span class="toc-number">5.</span> <span class="toc-text">hexo+typora图像插入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#typora常用命令"><span class="toc-number">6.</span> <span class="toc-text">typora常用命令</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装livere评论系统"><span class="toc-number">1.</span> <span class="toc-text"> 安装livere评论系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置加密博文"><span class="toc-number">2.</span> <span class="toc-text"> 设置加密博文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上传pdf"><span class="toc-number">3.</span> <span class="toc-text"> 上传pdf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#资源压缩好像需要版本升级不做了"><span class="toc-number">4.</span> <span class="toc-text"> 资源压缩【好像需要版本升级，不做了】</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hexotypora图像插入"><span class="toc-number">5.</span> <span class="toc-text"> hexo+typora图像插入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#typora常用命令"><span class="toc-number">6.</span> <span class="toc-text"> typora常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#渲染器和数学公式"><span class="toc-number">7.</span> <span class="toc-text"> 渲染器和数学公式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#渲染器"><span class="toc-number">7.1.</span> <span class="toc-text"> 渲染器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法1-pandoc-问题太多已经放弃"><span class="toc-number">7.2.</span> <span class="toc-text"> 方法1 pandoc 【问题太多已经放弃】</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法2-markdown-it-plus"><span class="toc-number">7.3.</span> <span class="toc-text"> 方法2 markdown-it-plus</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">7.4.</span> <span class="toc-text"> 参考</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -684,11 +832,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -704,7 +852,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -713,10 +861,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">clip</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -741,6 +885,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">clip</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -836,10 +984,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">procreate</a>
               </li>
              
@@ -869,6 +1013,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">视觉小说</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -912,19 +1060,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">虚拟主播</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vup</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电脑</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">虚拟主播</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vup</a>
               </li>
              
               <li class="article-tag-list-item">
