@@ -229,6 +229,9 @@
 <li>
 <p>代理任务训练方式无需人工标注，降低标注成本</p>
 </li>
+<li>
+<p>大量证据表明这些预训练的表示可以很好地推广到各种下游任务</p>
+</li>
 </ul>
 </li>
 <li>
@@ -261,9 +264,11 @@
 <li>roberta</li>
 </ul>
 </li>
-<li>LM</li>
+<li>Language Model(LM)</li>
 <li>Mask Image Modeling (MIM)
 <ul>
+<li>context encoders 擦除中间一大块，也探讨了不同擦除方式</li>
+<li>BEiT[2021] 掩码部分预测离散视觉标记 SOTA</li>
 <li>MAE[2021]
 <ul>
 <li>simMM</li>
@@ -273,21 +278,23 @@
 </li>
 </ul>
 </li>
-<li>MFM</li>
+<li>Mask Frame Modeling(MFM)</li>
 </ul>
 </li>
 <li>数据变换预测
 <ul>
-<li>rotation</li>
-<li>colorization</li>
+<li>Rotation 识别角度</li>
+<li>Colorization 预测颜色</li>
+<li>Replace Token Detection(RTD)</li>
 </ul>
 </li>
-<li>RTD
+<li>其他
 <ul>
-<li>其它</li>
+<li>relative location 预测两个patch相对位置</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathcolor="green"><mi>N</mi><mi>e</mi><mi>x</mi><mi>t</mi><mi>s</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>n</mi><mi>c</mi><mi>e</mi><mi>p</mi><mi>r</mi><mi>e</mi><mi>d</mi><mi>i</mi><mi>c</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo stretchy="false">(</mo><mi>N</mi><mi>S</mi><mi>P</mi><mo stretchy="false">)</mo></mstyle></mrow><annotation encoding="application/x-tex">\textcolor{green}{Next sentence prediction(NSP)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;color:green;">N</span><span class="mord mathdefault" style="color:green;">e</span><span class="mord mathdefault" style="color:green;">x</span><span class="mord mathdefault" style="color:green;">t</span><span class="mord mathdefault" style="color:green;">s</span><span class="mord mathdefault" style="color:green;">e</span><span class="mord mathdefault" style="color:green;">n</span><span class="mord mathdefault" style="color:green;">t</span><span class="mord mathdefault" style="color:green;">e</span><span class="mord mathdefault" style="color:green;">n</span><span class="mord mathdefault" style="color:green;">c</span><span class="mord mathdefault" style="color:green;">e</span><span class="mord mathdefault" style="color:green;">p</span><span class="mord mathdefault" style="margin-right:0.02778em;color:green;">r</span><span class="mord mathdefault" style="color:green;">e</span><span class="mord mathdefault" style="color:green;">d</span><span class="mord mathdefault" style="color:green;">i</span><span class="mord mathdefault" style="color:green;">c</span><span class="mord mathdefault" style="color:green;">t</span><span class="mord mathdefault" style="color:green;">i</span><span class="mord mathdefault" style="color:green;">o</span><span class="mord mathdefault" style="color:green;">n</span><span class="mopen" style="color:green;">(</span><span class="mord mathdefault" style="margin-right:0.10903em;color:green;">N</span><span class="mord mathdefault" style="margin-right:0.05764em;color:green;">S</span><span class="mord mathdefault" style="margin-right:0.13889em;color:green;">P</span><span class="mclose" style="color:green;">)</span></span></span></span></li>
+<li>DAE?</li>
 </ul>
 </li>
-<li>NSP</li>
 <li>不清楚分类</li>
 <li>Jigsaw[2017]?</li>
 <li>Position[2015]?</li>
@@ -302,13 +309,22 @@
 <ul>
 <li>InfoNCE[2017]</li>
 <li>CPC[2019]</li>
-<li>SimCLR[2020]</li>
-<li>MoCo[2019]</li>
-<li>MoCov2[2020]</li>
-<li>BYOL[2020]</li>
-<li>SimSiam[2020]</li>
-<li>deepcluster</li>
-<li>simCSE</li>
+<li>MoCo v1[2019] 队列增加负样本，实现SOTA
+<ul>
+<li>MoCo v2[2020] 验证SimCLR提出的大数据和非线性层</li>
+<li>MoCo v3[2021] 结合ViT，不要队列，对称损失</li>
+</ul>
+</li>
+<li>SimCLR v1[2020] 数据增强重要，添加非线性层，大batch
+<ul>
+<li>SimCLR v2</li>
+</ul>
+</li>
+<li>BYOL[2020] 双网络，仅正样本SOTA</li>
+<li>DeepCluster</li>
+<li>SwAV[2020] 在线聚类损失、multi-crop</li>
+<li>SimSiam[2020] 总结前人，不要负样本、不要大batch，不要动量编码器，SOTA</li>
+<li>SimCSE</li>
 </ul>
 </li>
 <li>ITM
@@ -316,21 +332,119 @@
 <li>CLP</li>
 </ul>
 </li>
+<li>其他
+<ul>
+<li>DINO</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+<h2 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/470914640" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/470914640</a> 介绍了一些pretext task自监督方法</p>
+<p><a href="https://zhuanlan.zhihu.com/p/474847821" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/474847821</a> 介绍了一些对比学习方法</p>
+<h2 id="问题"><a class="markdownIt-Anchor" href="#问题"></a> 问题</h2>
+<p>预训练的方法划分到底是啥</p>
+<h1 id="clip"><a class="markdownIt-Anchor" href="#clip"></a> CLIP</h1>
+<p>应用</p>
+<p>DALL-E、StyleCLIP</p>
 <h1 id="mae"><a class="markdownIt-Anchor" href="#mae"></a> MAE</h1>
 <blockquote>
 <p>代码：<a href="https://github.com/facebookresearch/mae" target="_blank" rel="noopener">https://github.com/facebookresearch/mae</a></p>
 </blockquote>
-<p>受到BERT的MLM方式的启发，MAE采用非对称encoder-decoder的结构，随机mask输入图像的部分patch，对其进行重建。其中encoder仅对可见patch进行编码，轻量级decoder则同时对潜在表示和mask token进行解码。</p>
-<p>特点：</p>
+<p>动机：为什么NLP领域BERT的MLM掩码方式没有成功应用于CV领域</p>
+<ol>
+<li>结构上，BERT基于transformer架构难迁移到CV，但是ViT已解决。</li>
+<li>信息密度上，图像存在冗余信息，丢弃小部分容易从周围恢复。</li>
+<li>单词预测是高语义任务，所以decoder只需一层MLP，但不适合低语义的图像重建任务。</li>
+</ol>
+<p>MIM发展：</p>
+<p>BEiT：输入图像随机掩码部分patch，通过ViT基于未掩码图像patch来恢复掩码图像patch，而重建目标不是原始像素，而是通过dVAE得到的discrete visual tokens离散视觉标记。大约掩码40%。</p>
+<table>
+<tr>
+<td><img src="/assets/typora/大规模预训练/BEiT"></td>
+</tr>
+</table>
+<p>MAE简化了整体训练逻辑，采用非对称encoder-decoder的结构，随机mask输入图像的部分patch，对其进行重建，只计算mask部分的MSE损失。</p>
 <ul>
-<li>非对称encoder-decoder，减少encoder计算量，加快训练</li>
-<li>mask比例75%时，代理任务变得有意义</li>
+<li>
+<p>非对称encoder-decoder结构</p>
+<ul>
+<li>encoder仅计算非掩码patch，加速训练3倍以上。</li>
+<li>decoder由transformer blocks组成的轻量级网络，同时对潜在表示和mask token进行解码。</li>
+<li>mask token是共享的可学习向量。</li>
 </ul>
+</li>
+<li>
+<p>mask比例达到75%时，模型更关注全局信息，而不是简单插值。</p>
+</li>
+</ul>
+<p>结论：</p>
+<ol start="2">
+<li>
+<p>解码器与编码器相比，计算量 &lt;10%。虽然全部patch由轻量级解码器处理，但耗时少。</p>
+</li>
+<li>
+<p>非对称结构+高mask比例，减少计算量和内存，同时提升准确率，可以训练更大模型和更大batch加速训练。</p>
+</li>
+<li>
+<p>消融实验</p>
+<ol>
+<li>mask75%最好，且掩码比例高于其它方法。</li>
+<li>随机掩码效果最好。</li>
+<li>decoder深度对linear probe影响大(8%提升幅度)，对finetue影响小。</li>
+<li>encoder处理全部patch，效果反而差，linear probe下降14%。</li>
+<li>重建目标
+<ol>
+<li>每个mask patch的归一化像素值作为重建目标在局部增强对比度，可以提高表示质量。</li>
+<li>BEiT的dVAE得到的离散视觉标记作为重建目标效果差不多，却增加开销。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>ViT在ImageNet-1k上用MAE finetune 比从头训效果好，且少花150epochs</p>
+</li>
+<li>
+<p>ViT-Huge在ImageNet-1k达到87.8%的top1准确率。</p>
+</li>
+<li>
+<p>评估了对象检测、实例分割和语义分割的迁移学习，比有监督的预训练效果好。</p>
+</li>
+<li>
+<p>图 5 还显示线性探测和微调结果遵循不同的趋势。对于线性探测，精度随着掩蔽率稳步增加，直到达到最佳点：精度差距高达 ∼20%（54.6% 对 73.5%）。对于微调，结果对比率不太敏感，并且大范围的掩蔽比率（40-80%）效果很好。图 5 中的所有微调结果都优于从头开始训练（82.5%）</p>
+</li>
+<li>
+<p>随着训练时间的延长，准确率稳步提高。事实上，即使在 1600 个 epoch 时，我们也没有观察到线性探测精度的饱和。</p>
+</li>
+<li>
+<p>比较了不同自监督方法和模型大小，模型越大方法差距越大，表明更大模型减少过度拟合。与 BEiT相比，MAE 更准确、简单、更快。MAE 比 BEiT 快得多（每个 epoch 3.5 倍），总预训练时间仍少于所有其他方法</p>
+</li>
+<li></li>
+<li>
+<p>ViT-L，使用相同的 128 个 TPU-v3 核心，我们的 MAE 的训练时间为 31 小时，1600 个 epoch，</p>
+</li>
+<li>
+<p>显示线性探测和微调结果在很大程度上是不相关的</p>
+</li>
+<li>
+<p>微调最后几层，同时冻结其他层。该协议也用于早期工作，例如 [54, 59, 35]。图 9 显示了结果。值得注意的是，仅微调一个Transformer 块将准确度从 73.5% 显着提高到 81.0%。此外，如果我们只微调最后一个块的“一半”（即它的 MLP 子块），我们可以获得 79.1%，比线性探测要好得多。这个变体本质上是微调 MLP 头。微调几个块（例如，4 或 6 个）可以达到不错的精度，与冻结的主干相比，这仍然是一个小的微调头 MAE 表示的线性可分性较差，但它们是更强的非线性特征，并且在调整非线性头部时表现良好。这些观察表明，线性可分性并不是评估表示质量的唯一指标。还观察到（例如，[8]）线性探测与迁移学习性能的相关性不是很好，例如，对于对象检测。据我们所知，线性评估在 NLP 中并不经常用于对预训练进行基准测试。</p>
+</li>
+<li></li>
+<li>
+<p>我们评估了 COCO [32] 上的对象检测和分割以及 ADE20K [60] 上的语义分割中的迁移学习。我们使用表 3 中的预训练模型。对象检测和分割。我们在 COCO 上端到端微调 Mask R-CNN [23]。 ViT 主干适用于 FPN [31]（参见附录 A.3）。我们将此对象检测系统应用于表 4 中的所有条目。我们报告用于对象检测的框 AP 和用于实例分割的掩码 AP。与有监督的预训练相比，我们的 MAE 在所有配置下都表现得更好（表 4）。使用较小的 ViT-B，我们的 MAE 比监督预训练高 2.4 点（50.3 对 47.9，APbox）。更重要的是，使用更大的 ViT-L，我们的 MAE 预训练比监督预训练高 4.0 分（53.3 对 49.3）。基于像素的 MAE 优于或与基于令牌的 BEiT 相当，而 MAE 更简单、更快。 MAE 和 BEiT 都优于 MoCo v3，MoCo v3 与有监督的预训练相当。语义分割。我们在 ADE20K 上的实验按照 [2] 中的代码使用了 UperNet [52]。详细信息在 A.4 中。表 5 显示我们的 MAE 显着提高了 ViT-L 的迁移结果，比有监督的预训练对应物（53.6 对 49.9）好 3.7 个点。基于像素的 MAE 优于基于令牌的 BEiT。这些观察结果与 COCO.Pixels vs. tokens 中的观察结果一致。表 6 对作为 MAE 重建目标的像素与标记进行了全面比较。虽然使用 dVAE 令牌比使用非标准化像素更好，但它在统计上类似于在我们研究的所有任务和模型中使用标准化像素。它再次表明我们的 MAE 不需要标记化。</p>
+</li>
+<li></li>
+<li>
+<p>我们没有尝试删除对象，而是删除了最有可能不形成语义段的随机补丁。同样，我们的 MAE 重建不是语义实体的像素。尽管如此，我们观察到（例如，图 4）我们的 MAE 推断出复杂的整体重建，这表明它已经学习了许多视觉概念，即语义</p>
+</li>
+</ol>
+<p><img src="/assets/typora/%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/mae_2.png" alt></p>
+<p>需要看一下代码完整流程</p>
+<p>每个patch都linear projection with added positional embeddings得到token，打乱，根据掩码率删掉后面的，</p>
+<p>mask token+潜在编码，复位，位置嵌入添加</p>
 <p><img src="/assets/typora/%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/mae_1.png" alt></p>
 \tag{1}\label{nihao}
 \begin{aligned} 
@@ -349,6 +463,8 @@ e=mc^2
 
 <p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>d</mi><mi>a</mi><mo>=</mo><mi>d</mi><mi>a</mi><mi>s</mi><mi>s</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">sda=dassd
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">d</span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault">s</span><span class="mord mathdefault">d</span></span></span></span></span></p>
+<h1 id="dall-e"><a class="markdownIt-Anchor" href="#dall-e"></a> DALL-E</h1>
+<p>训练dVAE，得到32x32=1024的编码+256BPE-encoded text tokens-》自回归transformer-》排序-CLIP检索</p>
 
       
 
@@ -9766,20 +9882,66 @@ live2d cubism</p>
 <p>彩云国物语、冒险小虎队</p>
 <h1 id="电影"><a class="markdownIt-Anchor" href="#电影"></a> 电影</h1>
 <h2 id="动画-2"><a class="markdownIt-Anchor" href="#动画-2"></a> 动画</h2>
-<p>宫崎骏吉卜力系列、拜见罗宾逊一家</p>
+<p>宫崎骏吉卜力系列、拜见罗宾逊一家<br>
+驯龙高手</p>
 <h2 id="真人"><a class="markdownIt-Anchor" href="#真人"></a> 真人</h2>
 <ul>
-<li>推荐<br>
+<li>
+<p>推荐<br>
 阿米尔汗系列<br>
-肖申克的救赎、阿甘正传、当幸福来敲门、楚门的世界、海上钢琴师<br>
+肖申克的救赎、阿甘正传、当幸福来敲门<br>
+风雨哈佛路<br>
+楚门的世界、海上钢琴师<br>
 怦然心动、美丽心灵、初恋那件小事<br>
 放牛班的春天、天才枪手<br>
-美丽人生</li>
-<li>看过<br>
+美丽人生、天才少女<br>
+这个杀手不太冷<br>
+绿皮书</p>
+</li>
+<li>
+<p>看过<br>
 遇见你之前<br>
 复仇少女组<br>
-律政俏佳人</li>
+律政俏佳人</p>
+</li>
+<li>
+<p>想看<br>
+傲慢与偏见</p>
+</li>
 </ul>
+<p>死亡诗社<br>
+教授<br>
+海蒂和爷爷<br>
+闻香识女人<br>
+福尔摩斯小姐<br>
+俄罗斯方舟<br>
+穿普拉达的女王<br>
+小妇人<br>
+千年女优<br>
+玛蒂尔达<br>
+黄石<br>
+护垫侠<br>
+破产姐妹<br>
+魔女嘉莉<br>
+小小安妮<br>
+小谢尔顿<br>
+月事革命<br>
+我的生理期<br>
+我的天才女友（电视剧）<br>
+东八区的西八们<br>
+本杰明巴顿奇事<br>
+情人<br>
+心灵捕手<br>
+超脱<br>
+西西里的美丽传说<br>
+美国往事<br>
+辛德勒的名单<br>
+少年派的奇幻漂流<br>
+星际穿越<br>
+钢琴家<br>
+盗梦空间<br>
+今天的吉良同学<br>
+今天开始契约恋爱（韩剧）</p>
 <h1 id="电视剧"><a class="markdownIt-Anchor" href="#电视剧"></a> 电视剧</h1>
 <p>大长今<br>
 请回答1988、dream high</p>
@@ -10058,6 +10220,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MMD</a>
               </li>
              
@@ -10070,10 +10236,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">latex</a>
               </li>
              
@@ -10082,7 +10244,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
+                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -10098,15 +10260,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -10131,6 +10285,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -10174,34 +10336,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Premiere</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MorphVOX</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">OBS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">live2d</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">facerig</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">vocaleloid</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">voiceroid</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">动画</a>
               </li>
              
@@ -10230,6 +10364,34 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Premiere</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MorphVOX</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">OBS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">live2d</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">facerig</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">vocaleloid</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">voiceroid</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">procreate</a>
               </li>
              
@@ -10243,6 +10405,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -10262,10 +10428,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
@@ -10282,10 +10444,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">医学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">表情包</a>
               </li>
              
@@ -10298,11 +10456,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color3">医学</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+                <a href="javascript:void(0)" class="js-tag color5">虚拟主播</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vup</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -10314,11 +10476,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">虚拟主播</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vup</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
