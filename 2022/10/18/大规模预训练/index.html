@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://calmcapk.github.io/assets/typora/大规模预训练/MAE_6.png">
 <meta property="og:image" content="https://calmcapk.github.io/assets/typora/大规模预训练/MAE_7.png">
 <meta property="og:image" content="https://calmcapk.github.io/assets/typora/大规模预训练/MAE_8.png">
-<meta property="og:updated_time" content="2022-10-25T17:14:38.069Z">
+<meta property="og:updated_time" content="2022-10-26T01:21:11.084Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大规模预训练">
 <meta name="twitter:description" content="背景知识 大规模预训练就是在大规模宽泛的数据上，通过设计无监督的代理任务，训练一个foundation model(基础模型)，获得很强的backbone，通过zero-shot，few-shot，finetune等方式能适应其它下游任务。它是一种表示学习方式(表示又称表征、特征)。  表示学习以前发展：人工、PCA、矩阵分解、cluster、概率图模型、深度学习Imagenet初始化    大">
@@ -253,7 +253,7 @@
 </ul>
 </li>
 <li>
-<p>大规模预677  训练的缺点：</p>
+<p>大规模预训练的缺点：</p>
 <ul>
 <li>
 <p>数据</p>
@@ -313,12 +313,15 @@
 <li>DAE?</li>
 </ul>
 </li>
-<li>不清楚分类</li>
+<li>不清楚分类
+<ul>
 <li>Jigsaw[2017]?</li>
 <li>Position[2015]?</li>
 <li>Cutout[2015]</li>
 <li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathcolor="green"><mi>w</mi><mi>o</mi><mi>r</mi><mi>d</mi><mn>2</mn><mi>v</mi><mo stretchy="false">[</mo><mn>2013</mn><mo stretchy="false">]</mo></mstyle></mrow><annotation encoding="application/x-tex">\textcolor{green}{word2v[2013]}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;color:green;">w</span><span class="mord mathdefault" style="color:green;">o</span><span class="mord mathdefault" style="margin-right:0.02778em;color:green;">r</span><span class="mord mathdefault" style="color:green;">d</span><span class="mord" style="color:green;">2</span><span class="mord mathdefault" style="margin-right:0.03588em;color:green;">v</span><span class="mopen" style="color:green;">[</span><span class="mord" style="color:green;">2</span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">1</span><span class="mord" style="color:green;">3</span><span class="mclose" style="color:green;">]</span></span></span></span></li>
 <li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathcolor="green"><mi>R</mi><mi>N</mi><mi>N</mi><mi>L</mi><mi>M</mi><mo stretchy="false">[</mo><mn>1997</mn><mo stretchy="false">]</mo></mstyle></mrow><annotation encoding="application/x-tex">\textcolor{green}{RNNLM[1997]}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;color:green;">R</span><span class="mord mathdefault" style="margin-right:0.10903em;color:green;">N</span><span class="mord mathdefault" style="margin-right:0.10903em;color:green;">N</span><span class="mord mathdefault" style="color:green;">L</span><span class="mord mathdefault" style="margin-right:0.10903em;color:green;">M</span><span class="mopen" style="color:green;">[</span><span class="mord" style="color:green;">1</span><span class="mord" style="color:green;">9</span><span class="mord" style="color:green;">9</span><span class="mord" style="color:green;">7</span><span class="mclose" style="color:green;">]</span></span></span></span></li>
+</ul>
+</li>
 </ul>
 </li>
 <li>基于对比Contrastive 类间差异
@@ -361,27 +364,41 @@
 </li>
 </ul>
 <hr>
-<p>参考</p>
-<p><a href="https://zhuanlan.zhihu.com/p/470914640" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/470914640</a> 介绍了一些pretext task自监督方法</p>
-<p><a href="https://zhuanlan.zhihu.com/p/474847821" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/474847821</a> 介绍了一些对比学习方法</p>
+<h2 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/470914640" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/470914640</a> 介绍了一些pretext task自监督方法【粗略看完】</p>
+<p><a href="https://zhuanlan.zhihu.com/p/474847821" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/474847821</a> 介绍了一些对比学习方法【没看】</p>
+<p><a href="https://zhuanlan.zhihu.com/p/367290573" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/367290573</a> 介绍对比学习【没看】</p>
+<p><a href="https://juejin.cn/post/7044445669805228063" target="_blank" rel="noopener">https://juejin.cn/post/7044445669805228063</a> oppo预训练 【没看】</p>
+<p><a href="https://liuquncn.github.io/talks/20211013-CCAI-NLP-Forum/Thoughts-of-Pretrained-Big-Models.pdf" target="_blank" rel="noopener">https://liuquncn.github.io/talks/20211013-CCAI-NLP-Forum/Thoughts-of-Pretrained-Big-Models.pdf</a></p>
+<p><a href="https://wxb.xzdw.gov.cn/xxh/xxhgzdt/202206/t20220616_253939.html" target="_blank" rel="noopener">https://wxb.xzdw.gov.cn/xxh/xxhgzdt/202206/t20220616_253939.html</a></p>
+<p><a href="https://developer.baidu.com/article/detail.html?id=295106%E3%80%90%E6%80%BB" target="_blank" rel="noopener">https://developer.baidu.com/article/detail.html?id=295106【总</a></p>
+<p><a href="https://www.cnii.com.cn/gxxww/rmydb/202206/t20220616_388934.html%E3%80%90%E6%80%BB" target="_blank" rel="noopener">https://www.cnii.com.cn/gxxww/rmydb/202206/t20220616_388934.html【总</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/485925038%E3%80%90%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0%E3%80%91" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/485925038【迁移学习】</a></p>
+<p><a href="https://ai.baidu.com/ai-doc/BML/Xkhymkgm4%E3%80%90%E4%B8%80%E4%BA%9B%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B%E3%80%91" target="_blank" rel="noopener">https://ai.baidu.com/ai-doc/BML/Xkhymkgm4【一些预训练模型】</a></p>
+<p><a href="https://www.csdn.net/tags/OtDaYg5sMzIyMTEtYmxvZwO0O0OO0O0O.html%E3%80%90%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B%E3%80%91" target="_blank" rel="noopener">https://www.csdn.net/tags/OtDaYg5sMzIyMTEtYmxvZwO0O0OO0O0O.html【预训练模型】</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/526265431%E3%80%90%E8%A7%86%E8%A7%89%E5%85%B6%E4%BB%96%E5%A4%A7%E6%A8%A1%E5%9E%8B%E3%80%91" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/526265431【视觉其他大模型】</a></p>
 <hr>
 <p>问题</p>
 <p>预训练的方法划分到底是啥</p>
 <h1 id="clip"><a class="markdownIt-Anchor" href="#clip"></a> CLIP</h1>
+<blockquote>
 <p>CLIP<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>动机：自然语言能够表达更广泛的视觉概念，能否直接从原始文本中学习关于图像的知识？</p>
 <ul>
 <li>视觉模型往往预测一组固定类别的对象，而其它视觉概念需要额外的标注数据来训练，限制了其通用性和实用性。</li>
 <li>NLP的GPT-3证明从网络收集的文本数据可以超过人工标注的数据。</li>
 </ul>
-<hr>
-<p>从文本学习图像表示的发展：</p>
+</blockquote>
+<blockquote>
+<p>代码：<a href="https://github.com/openai/CLIP" target="_blank" rel="noopener">https://github.com/openai/CLIP</a></p>
+</blockquote>
+<h2 id="从文本学习图像表示的发展"><a class="markdownIt-Anchor" href="#从文本学习图像表示的发展"></a> 从文本学习图像表示的发展</h2>
 <ul>
 <li>
 <p>ConVIRT<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>：医学图像往往依赖ImageNet迁移权重或从文本报告中基于规则提取标签，ConVIRT通过双塔结构以对比学习方式让两路的representation尽可能一致。</p>
 <p><img src="/assets/typora/%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/ConVIRT.png" alt></p>
 </li>
 </ul>
-<hr>
+<h2 id="clip原理"><a class="markdownIt-Anchor" href="#clip原理"></a> CLIP原理</h2>
 <p>CLIP: 在4亿互联网的图像-文本对数据上，CLIP联合训练图像encoder和文本encoder，预测哪个文本和哪个图像最匹配。给定N个图像文本对，其中N个正样本对，N^2-N个负样本对，通过对称交叉熵损失最大化图像和文本正样本对的余弦相似度。</p>
 <ul>
 <li>4亿互联网文本图像对数据集WebImageText(WIT)
@@ -404,8 +421,7 @@
 <td><img src="/assets/typora/大规模预训练/CLIP_2.png"></td>
 </tr>
 </table>
-<hr>
-<p>CLIP zero-shot迁移能力</p>
+<h2 id="clip-zero-shot迁移能力"><a class="markdownIt-Anchor" href="#clip-zero-shot迁移能力"></a> CLIP zero-shot迁移能力</h2>
 <ul>
 <li>测试分类时，把标签填到如“a photo of {xxx}&quot;形成句子，称Prompt工程</li>
 <li>设计Prompt engineering可以提升效果(+5%)</li>
@@ -418,41 +434,22 @@
 <td><img src="/assets/typora/大规模预训练/CLIP_4.png"></td>
 </tr>
 </table>
-<hr>
-<p>CLIP结论：</p>
+<h2 id="clip结论"><a class="markdownIt-Anchor" href="#clip结论"></a> CLIP结论</h2>
 <ul>
-<li>
-<p>构建了图像文本之间的桥梁</p>
-</li>
-<li>
-<p>大规模大模型能学习到泛化强的模型</p>
-</li>
-<li>
-<p>zero-shot</p>
+<li>构建了图像文本之间的桥梁</li>
+<li>大规模大模型能学习到泛化强的模型，可以用于多种下游任务：图像分类、图文检索等</li>
+<li>zero-shot
 <ul>
 <li>达到ImageNet全监督训练的ResNet-50性能</li>
 <li>通用任务表现好</li>
+<li>但很多任务比不上SOTA方法</li>
+<li>细分类、OCR、预训练未见过的任务效果不好</li>
 </ul>
 </li>
-<li>
-<p>linearprobe</p>
+<li>linearprobe
 <ul>
-<li>few-shot需要一些样本才能和zero-shot持平</li>
+<li>few-shot需要一些样本才能和zero-shot持平，说明通过自然语言学到的视觉概念比少样本linearprobe学到的要好。</li>
 <li>zero-shot和全部样本训练有10%-25%的提升空间</li>
-</ul>
-</li>
-<li>
-<p>下游任务迁移</p>
-<ul>
-<li>
-<p>可以用于多种下游任务：图像分类、图文检索</p>
-</li>
-<li>
-<p>但很多任务比不上SOTA方法（是zero-shot还是linearprobe还是finetune时候？）</p>
-</li>
-<li>
-<p>细分类、OCR、预训练未见过的任务效果不好</p>
-</li>
 </ul>
 </li>
 </ul>
@@ -463,8 +460,7 @@
 <td><img src="/assets/typora/大规模预训练/CLIP_7.png"></td>
 </tr>
 </table>
-<hr>
-<p>CLIP发展和应用</p>
+## CLIP发展和应用
 <ul>
 <li>生成模型：DALL-E、StyleCLIP、CLIPDraw、CLIPasso、VQGAN-CLIP</li>
 <li>语义模型：LSeq、GroupViT</li>
@@ -474,30 +470,42 @@
 <li>3D领域：PointCLIP</li>
 <li>深度信息：DepthCLIP</li>
 </ul>
-<hr>
-<p>ITM后续发展：</p>
+<h2 id="itm后续发展"><a class="markdownIt-Anchor" href="#itm后续发展"></a> ITM后续发展</h2>
 <ul>
 <li>ALIGN(更大规模数据和EfficientNet encoder)</li>
 </ul>
+<h2 id="参考-2"><a class="markdownIt-Anchor" href="#参考-2"></a> 参考</h2>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/486857682" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/486857682</a> 介绍CLIP，不错【大概看完】</li>
+<li><a href="https://jishuin.proginn.com/p/763bfbd71c2f" target="_blank" rel="noopener">https://jishuin.proginn.com/p/763bfbd71c2f</a> 介绍CLIP和发表自己看法 【大概看完】</li>
+<li><a href="https://iii.run/archives/add2d45c7267.html" target="_blank" rel="noopener">https://iii.run/archives/add2d45c7267.html</a> 介绍CLIP数据集等特色【大概看完，可以再看】</li>
+<li><a href="https://zhuanlan.zhihu.com/p/427740816" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/427740816</a> 简略介绍CLIP 【大概看完】</li>
+<li><a href="https://aitechtogether.com/article/39432.html" target="_blank" rel="noopener">https://aitechtogether.com/article/39432.html</a> 简略介绍CLIP 【大概看完】</li>
+<li><a href="https://blog.csdn.net/u012193416/article/details/125891924" target="_blank" rel="noopener">https://blog.csdn.net/u012193416/article/details/125891924</a> 简略介绍CLIP 【大概看完】</li>
+<li><a href="https://www.zhihu.com/question/438649654" target="_blank" rel="noopener">https://www.zhihu.com/question/438649654</a> 知乎CLIP看法【没看完】</li>
+<li><a href="https://cloud.tencent.com/developer/article/1902815" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1902815</a> 介绍CLIP4clip 【没看】</li>
+<li><a href="https://www.cvmart.net/community/detail/5815" target="_blank" rel="noopener">https://www.cvmart.net/community/detail/5815</a> ActionCLIP 【没看】</li>
+</ul>
 <h1 id="mae"><a class="markdownIt-Anchor" href="#mae"></a> MAE</h1>
 <blockquote>
-<p>代码：<a href="https://github.com/facebookresearch/mae" target="_blank" rel="noopener">https://github.com/facebookresearch/mae</a></p>
-</blockquote>
 <p>MAE<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>动机：为什么NLP领域BERT的MLM掩码方式没有成功应用于CV领域</p>
 <ol>
 <li>结构上，BERT基于transformer架构难迁移到CV，但是ViT已解决。</li>
 <li>信息密度上，图像存在冗余信息，丢弃小部分容易从周围恢复。</li>
 <li>单词预测是高语义任务，所以decoder只需一层MLP，但不适合低语义的图像重建任务。</li>
 </ol>
-<hr>
-<p>MIM发展：</p>
+</blockquote>
+<blockquote>
+<p>代码：<a href="https://github.com/facebookresearch/mae" target="_blank" rel="noopener">https://github.com/facebookresearch/mae</a></p>
+</blockquote>
+<h2 id="mim发展"><a class="markdownIt-Anchor" href="#mim发展"></a> MIM发展</h2>
 <p>BEiT<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>：输入图像随机掩码部分patch，通过ViT基于未掩码图像patch来恢复掩码图像patch，重建目标不是原始像素，而是通过dVAE得到的discrete visual tokens离散视觉标记。大约掩码40%。</p>
 <table>
 <tr>
 <td><img src="/assets/typora/大规模预训练/BEiT.png"></td>
 </tr>
 </table>
----
+<h2 id="mae原理"><a class="markdownIt-Anchor" href="#mae原理"></a> MAE原理</h2>
 <p>MAE简化了整体训练逻辑，采用非对称encoder-decoder的结构，随机mask输入图像的部分patch，对其进行重建，只计算mask部分的MSE损失。</p>
 <ul>
 <li>
@@ -518,33 +526,28 @@
 <td><img src="/assets/typora/大规模预训练/MAE_2.png"></td>
 </tr>
 </table>
-<hr>
-<p>MAE结论：</p>
+<h2 id="mae结论"><a class="markdownIt-Anchor" href="#mae结论"></a> MAE结论</h2>
 <ul>
-<li>
-<p>mask</p>
+<li>mask
 <ul>
 <li>mask75%最好，且掩码比例高于其它方法</li>
 <li>随机掩码效果最好</li>
 </ul>
 </li>
-<li>
-<p>非对称encoder-decoder</p>
+<li>非对称encoder-decoder
 <ul>
 <li>encoder处理全部patch，效果反而差，linear probe下降14%</li>
 <li>解码器与编码器相比，计算量 &lt;10%。虽然全部patch由轻量级解码器处理，但耗时少</li>
 <li>decoder深度对linearprobe影响大(8%提升幅度)，对finetue影响小</li>
 </ul>
 </li>
-<li>
-<p>重建目标</p>
+<li>重建目标
 <ul>
 <li>每个mask patch的归一化像素值作为重建目标在局部增强对比度，可以提高表示质量(+0.5%)</li>
 <li>BEiT的dVAE得到的离散视觉标记作为重建目标效果比归一化像素值差，还增加开销</li>
 </ul>
 </li>
-<li>
-<p>linearprobe和finetune</p>
+<li>linearprobe和finetune
 <ul>
 <li>finetune优于从头训练，且耗时少</li>
 <li>linearprobe和finetune很大程度是不相关的</li>
@@ -552,27 +555,21 @@
 <li>MAE具有很强的非线性特征，MAE认为linearprobe与迁移学习性能的相关性不大，线性可分性并不是预训练唯一指标</li>
 </ul>
 </li>
-<li>
-<p>下游任务迁移</p>
+<li>下游任务迁移
 <ul>
 <li>ViT-Huge在ImageNet-1k达到87.8%的top1准确率</li>
 <li>对象检测、实例分割和语义分割的迁移学习，比有监督的Mask-RCNN，UperNet、自监督的BEiT效果好</li>
 </ul>
 </li>
-<li>
-<p>其它预训练方法</p>
+<li>其它预训练方法
 <ul>
 <li>比较了不同自监督方法和模型大小，模型越大不同方法差距越大，表明更大模型减少过度拟合</li>
 <li>MAE总预训练时间仍少于所有其他方法</li>
 <li>与BEiT相比，MAE 更准确、简单、更快</li>
 </ul>
 </li>
-<li>
-<p>非对称结构+高mask比例，减少计算量和内存，同时提升准确率，可以训练更大模型和更大batch加速训练</p>
-</li>
-<li>
-<p>随着训练代数增加，准确率稳步提高。1600 epoch时，仍未饱和</p>
-</li>
+<li>非对称结构+高mask比例，减少计算量和内存，同时提升准确率，可以训练更大模型和更大batch加速训练</li>
+<li>随着训练代数增加，准确率稳步提高。1600 epoch时，仍未饱和</li>
 </ul>
 <table>
 <tr>
@@ -586,49 +583,81 @@
 <td><img src="/assets/typora/大规模预训练/MAE_8.png"></td>
 </tr>
 </table>
-<hr>
-<p>MAE发展和应用</p>
+<h2 id="mae发展和应用"><a class="markdownIt-Anchor" href="#mae发展和应用"></a> MAE发展和应用</h2>
 <ul>
-<li>
-<p>MAE适应不同结构ViT</p>
+<li>MAE适应不同结构ViT
 <ul>
 <li>层次Transformer的MixMM</li>
 <li>金字塔结构ViT的Uniform Masking</li>
 </ul>
 </li>
-<li>
-<p>MAE适应不同领域</p>
+<li>MAE适应不同领域
 <ul>
-<li>
-<p>视频VideoMAE</p>
-</li>
-<li>
-<p>多模态M3MAE</p>
-</li>
-<li>
-<p>MultiMAE</p>
-</li>
-<li>
-<p>音频MAE that listen</p>
-</li>
-<li>
-<p>时间序列TSFormer</p>
-</li>
-<li>
-<p>图GraphMAE</p>
-</li>
+<li>视频VideoMAE</li>
+<li>多模态M3MAE</li>
+<li>MultiMAE</li>
+<li>音频MAE that listen</li>
+<li>时间序列TSFormer</li>
+<li>图GraphMAE</li>
 </ul>
 </li>
 </ul>
-<hr>
-<p>MIM后续发展</p>
+<h2 id="mim后续发展"><a class="markdownIt-Anchor" href="#mim后续发展"></a> MIM后续发展</h2>
 <ul>
 <li>MAE同期工作：SimMIM(BEiT去dVAE)、MaskFeat(重建目标HIOG特征)、PeCo(dVAE训练加入Perceptual loss)、IBOT(dVAE tokenizer方式改成在线训练)</li>
 <li>CAE(认为MAE的decoder也负责了部分表征学习，没用充分挖掘encoder能力)</li>
 </ul>
-<hr>
+<h2 id="参考-3"><a class="markdownIt-Anchor" href="#参考-3"></a> 参考</h2>
+<ul>
+<li><a href="https://blog.csdn.net/c9Yv2cf9I06K2A9E/article/details/125270007" target="_blank" rel="noopener">https://blog.csdn.net/c9Yv2cf9I06K2A9E/article/details/125270007</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/528720386" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/528720386</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/432984431%E3%80%90MAE%E5%AE%9E%E9%AA%8C%E3%80%91" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/432984431【MAE实验】</a></li>
+<li><a href="https://picture.iczhiku.com/weixin/message1639795018014.html%E3%80%90MAE%E3%80%91" target="_blank" rel="noopener">https://picture.iczhiku.com/weixin/message1639795018014.html【MAE】</a></li>
+<li><a href="https://aistudio.baidu.com/aistudio/projectdetail/3465622%E3%80%90mae%E4%BB%A3%E7%A0%81" target="_blank" rel="noopener">https://aistudio.baidu.com/aistudio/projectdetail/3465622【mae代码</a></li>
+<li><a href="https://www.51cto.com/article/718613.html%E3%80%90mae%E5%90%84%E4%B8%AA%E9%A2%86%E5%9F%9F" target="_blank" rel="noopener">https://www.51cto.com/article/718613.html【mae各个领域</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/445561242%E3%80%90beit%E5%92%8CMAE%E3%80%91" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/445561242【beit和MAE】</a></li>
+<li><a href="https://wanggrun.github.io/projects/fast/fast021" target="_blank" rel="noopener">https://wanggrun.github.io/projects/fast/fast021</a> BEiT</li>
+<li><a href="https://zhuanlan.zhihu.com/p/467399602%E3%80%90CAE" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/467399602【CAE</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/475952825%E3%80%90MIM%E3%80%91simmim" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/475952825【MIM】simmim</a> 同期</li>
+<li><a href="https://zhuanlan.zhihu.com/p/480196600%E3%80%90MIM%E3%80%91" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/480196600【MIM】</a></li>
+</ul>
 <h1 id="对比"><a class="markdownIt-Anchor" href="#对比"></a> 对比</h1>
-<p>sdas</p>
+<ul>
+<li>MIM方法更关注每个patch，而对比学习方法更关注图像主体语义（如图CAE和MoCov3热力图对比）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>训练数据</th>
+<th>数据构建</th>
+<th>训练时间</th>
+<th>encoder</th>
+<th>loss</th>
+<th>任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLIP</td>
+<td>4亿网络图像文本对</td>
+<td>图像文本对，prompt构建</td>
+<td>ResNet:592V00需18天 ViT:256V00需12天</td>
+<td>ResNet,ViT</td>
+<td>对称交叉熵损失</td>
+<td>多模态检索</td>
+</tr>
+<tr>
+<td>MAE</td>
+<td>ImageNet-1K</td>
+<td>图像</td>
+<td>ViT-L:128TPU-v3需31天</td>
+<td>ViT</td>
+<td>MSELoss</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <p>需要看一下代码完整流程</p>
 <p>每个patch都linear projection with added positional embeddings得到token，打乱，根据掩码率删掉后面的，</p>
 <p>mask token+潜在编码，复位，位置嵌入添加</p>
@@ -640,7 +669,7 @@ f = \sum{asd}
 
 <p>dsad sd asasd asdasd按时鉴\eqref{nihao} 定会阿萨dsad</p>
 <p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mtable width="100%"><mtr><mtd width="50%"></mtd><mtd><mrow><mi>f</mi><mo>=</mo><mo>∑</mo><mrow><mi>a</mi><mi>s</mi><mi>d</mi></mrow></mrow></mtd><mtd width="50%"></mtd><mtd><mtext>(2)</mtext></mtd></mtr></mtable><annotation encoding="application/x-tex">\tag{2}
-f = \sum{asd} 
+f = \sum{asd}
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.6000100000000002em;vertical-align:-0.55001em;"></span><span class="mop op-symbol large-op" style="position:relative;top:-0.000004999999999977245em;">∑</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault">d</span></span></span><span class="tag"><span class="strut" style="height:1.6000100000000002em;vertical-align:-0.55001em;"></span><span class="mord text"><span class="mord">(</span><span class="mord"><span class="mord">2</span></span><span class="mord">)</span></span></span></span></span></span></p>
 <p>啊实打实打算</p>
 \begin{equation} \tag{3}
@@ -651,6 +680,23 @@ e=mc^2
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">d</span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault">s</span><span class="mord mathdefault">d</span></span></span></span></span></p>
 <h1 id="dall-e"><a class="markdownIt-Anchor" href="#dall-e"></a> DALL-E</h1>
 <p>训练dVAE，得到32x32=1024的编码+256BPE-encoded text tokens-》自回归transformer-》排序-CLIP检索</p>
+<h1 id="diffusion"><a class="markdownIt-Anchor" href="#diffusion"></a> diffusion</h1>
+<p>MAKE-A-VIDEO</p>
+<p>MoCoGAN-HD</p>
+<p>CogVideo</p>
+<p>Video Diffusion Models</p>
+<p>let it Flow</p>
+<p>Transframer: Arbitrary Frame</p>
+<p>Endless Loops:</p>
+<p><a href="https://sites.google.com/view/transframer" target="_blank" rel="noopener">https://sites.google.com/view/transframer</a></p>
+<p>diffusion</p>
+<p><a href="https://zhuanlan.zhihu.com/p/546311167" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/546311167</a></p>
+<p><a href="https://www.51cto.com/article/718616.html" target="_blank" rel="noopener">https://www.51cto.com/article/718616.html</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/573407864" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/573407864</a></p>
+<h2 id="参考-4"><a class="markdownIt-Anchor" href="#参考-4"></a> 参考</h2>
+<p><a href="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/#forward-diffusion-process" target="_blank" rel="noopener">https://lilianweng.github.io/posts/2021-07-11-diffusion-models/#forward-diffusion-process</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/525106459" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/525106459</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/341524475" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/341524475</a> VAE</p>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
@@ -829,7 +875,7 @@ e=mc^2
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景知识"><span class="toc-number">1.</span> <span class="toc-text"> 背景知识</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#clip"><span class="toc-number">2.</span> <span class="toc-text"> CLIP</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mae"><span class="toc-number">3.</span> <span class="toc-text"> MAE</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#对比"><span class="toc-number">4.</span> <span class="toc-text"> 对比</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dall-e"><span class="toc-number">5.</span> <span class="toc-text"> DALL-E</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景知识"><span class="toc-number">1.</span> <span class="toc-text"> 背景知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">1.1.</span> <span class="toc-text"> 参考</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#clip"><span class="toc-number">2.</span> <span class="toc-text"> CLIP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#从文本学习图像表示的发展"><span class="toc-number">2.1.</span> <span class="toc-text"> 从文本学习图像表示的发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#clip原理"><span class="toc-number">2.2.</span> <span class="toc-text"> CLIP原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#clip-zero-shot迁移能力"><span class="toc-number">2.3.</span> <span class="toc-text"> CLIP zero-shot迁移能力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#clip结论"><span class="toc-number">2.4.</span> <span class="toc-text"> CLIP结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#itm后续发展"><span class="toc-number">2.5.</span> <span class="toc-text"> ITM后续发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考-2"><span class="toc-number">2.6.</span> <span class="toc-text"> 参考</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mae"><span class="toc-number">3.</span> <span class="toc-text"> MAE</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#mim发展"><span class="toc-number">3.1.</span> <span class="toc-text"> MIM发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mae原理"><span class="toc-number">3.2.</span> <span class="toc-text"> MAE原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mae结论"><span class="toc-number">3.3.</span> <span class="toc-text"> MAE结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mae发展和应用"><span class="toc-number">3.4.</span> <span class="toc-text"> MAE发展和应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mim后续发展"><span class="toc-number">3.5.</span> <span class="toc-text"> MIM后续发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考-3"><span class="toc-number">3.6.</span> <span class="toc-text"> 参考</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#对比"><span class="toc-number">4.</span> <span class="toc-text"> 对比</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dall-e"><span class="toc-number">5.</span> <span class="toc-text"> DALL-E</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#diffusion"><span class="toc-number">6.</span> <span class="toc-text"> diffusion</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#参考-4"><span class="toc-number">6.1.</span> <span class="toc-text"> 参考</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -1048,23 +1094,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">latex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1077,6 +1119,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">tmux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1104,7 +1158,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">clip</a>
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1116,39 +1174,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+                <a href="javascript:void(0)" class="js-tag color5">clip</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">frp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">对比学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MIM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1173,6 +1203,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">对比学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MIM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1204,6 +1242,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">frp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">procreate</a>
               </li>
              
@@ -1216,27 +1266,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">renpy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">avg</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文字冒险</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">视觉小说</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1257,6 +1287,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">renpy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">avg</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文字冒险</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">视觉小说</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1284,19 +1330,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">虚拟主播</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vup</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电脑</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">虚拟主播</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vup</a>
               </li>
              
               <li class="article-tag-list-item">
