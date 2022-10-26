@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://calmcapk.github.io/assets/typora/大规模预训练/MAE_6.png">
 <meta property="og:image" content="https://calmcapk.github.io/assets/typora/大规模预训练/MAE_7.png">
 <meta property="og:image" content="https://calmcapk.github.io/assets/typora/大规模预训练/MAE_8.png">
-<meta property="og:updated_time" content="2022-10-26T13:57:46.674Z">
+<meta property="og:updated_time" content="2022-10-26T14:03:39.391Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大规模预训练">
 <meta name="twitter:description" content="背景知识 大规模预训练就是在大规模宽泛的数据上，通过设计无监督的代理任务，训练一个foundation model(基础模型)，获得很强的backbone，通过zero-shot，few-shot，finetune等方式能适应其它下游任务。它是一种表示学习方式(表示又称表征、特征)。  表示学习以前发展：人工、PCA、矩阵分解、cluster、概率图模型、深度学习Imagenet初始化    大">
@@ -526,7 +526,7 @@
 <td><img src="/assets/typora/大规模预训练/MAE_2.png"></td>
 </tr>
 </table>
-<h2 id="mae结论"><a class="markdownIt-Anchor" href="#mae结论"></a> MAE结论</h2>
+## MAE结论
 <ul>
 <li>mask
 <ul>
@@ -875,7 +875,7 @@ e=mc^2
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景知识"><span class="toc-number">1.</span> <span class="toc-text"> 背景知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">1.1.</span> <span class="toc-text"> 参考</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#clip"><span class="toc-number">2.</span> <span class="toc-text"> CLIP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#从文本学习图像表示的发展"><span class="toc-number">2.1.</span> <span class="toc-text"> 从文本学习图像表示的发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#clip原理"><span class="toc-number">2.2.</span> <span class="toc-text"> CLIP原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#clip-zero-shot迁移能力"><span class="toc-number">2.3.</span> <span class="toc-text"> CLIP zero-shot迁移能力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#clip结论"><span class="toc-number">2.4.</span> <span class="toc-text"> CLIP结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#itm后续发展"><span class="toc-number">2.5.</span> <span class="toc-text"> ITM后续发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考-2"><span class="toc-number">2.6.</span> <span class="toc-text"> 参考</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mae"><span class="toc-number">3.</span> <span class="toc-text"> MAE</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#mim发展"><span class="toc-number">3.1.</span> <span class="toc-text"> MIM发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mae原理"><span class="toc-number">3.2.</span> <span class="toc-text"> MAE原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mae结论"><span class="toc-number">3.3.</span> <span class="toc-text"> MAE结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mae发展和应用"><span class="toc-number">3.4.</span> <span class="toc-text"> MAE发展和应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mim后续发展"><span class="toc-number">3.5.</span> <span class="toc-text"> MIM后续发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考-3"><span class="toc-number">3.6.</span> <span class="toc-text"> 参考</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#对比"><span class="toc-number">4.</span> <span class="toc-text"> 对比</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dall-e"><span class="toc-number">5.</span> <span class="toc-text"> DALL-E</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#diffusion"><span class="toc-number">6.</span> <span class="toc-text"> diffusion</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#参考-4"><span class="toc-number">6.1.</span> <span class="toc-text"> 参考</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景知识"><span class="toc-number">1.</span> <span class="toc-text"> 背景知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">1.1.</span> <span class="toc-text"> 参考</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#clip"><span class="toc-number">2.</span> <span class="toc-text"> CLIP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#从文本学习图像表示的发展"><span class="toc-number">2.1.</span> <span class="toc-text"> 从文本学习图像表示的发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#clip原理"><span class="toc-number">2.2.</span> <span class="toc-text"> CLIP原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#clip-zero-shot迁移能力"><span class="toc-number">2.3.</span> <span class="toc-text"> CLIP zero-shot迁移能力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#clip结论"><span class="toc-number">2.4.</span> <span class="toc-text"> CLIP结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#itm后续发展"><span class="toc-number">2.5.</span> <span class="toc-text"> ITM后续发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考-2"><span class="toc-number">2.6.</span> <span class="toc-text"> 参考</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mae"><span class="toc-number">3.</span> <span class="toc-text"> MAE</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#mim发展"><span class="toc-number">3.1.</span> <span class="toc-text"> MIM发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mae原理"><span class="toc-number">3.2.</span> <span class="toc-text"> MAE原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mae发展和应用"><span class="toc-number">3.3.</span> <span class="toc-text"> MAE发展和应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mim后续发展"><span class="toc-number">3.4.</span> <span class="toc-text"> MIM后续发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考-3"><span class="toc-number">3.5.</span> <span class="toc-text"> 参考</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#对比"><span class="toc-number">4.</span> <span class="toc-text"> 对比</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dall-e"><span class="toc-number">5.</span> <span class="toc-text"> DALL-E</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#diffusion"><span class="toc-number">6.</span> <span class="toc-text"> diffusion</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#参考-4"><span class="toc-number">6.1.</span> <span class="toc-text"> 参考</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -1094,19 +1094,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">latex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1122,19 +1122,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">clip</a>
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1166,6 +1154,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">clip</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
@@ -1174,11 +1174,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1187,6 +1187,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">对比学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MIM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1262,14 +1270,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">对比学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MIM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
@@ -1306,6 +1306,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">表情包</a>
               </li>
              
@@ -1315,10 +1319,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ps</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">医学</a>
               </li>
              
               <li class="article-tag-list-item">
