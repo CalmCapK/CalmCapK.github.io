@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://calmcapK.github.io">
   <title>深度学习-多标签分类 | CalmCapK&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是CalmCapK的个人博客">
+  <meta name="description" content="指标 1、汉明损失 选前两个最大概率（不softmax），设置为1，计算 pred和label不同的数目/label数 2、覆盖率 概率排序，选择包含全部标签1最大数目 3、1-错误率 最大概率的在不在label里 4、排序损失 统计label对应的pred是否有比它大值 5、平均精确率 label对应的pred在 真label和全部label的比值 6、平均准确率 所有标记都预测正确才是1 7">
 <meta name="keywords" content="多标签">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深度学习-多标签分类">
 <meta property="og:url" content="https://calmcapK.github.io/2022/10/27/深度学习-多标签分类/index.html">
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
-<meta property="og:description" content="这是CalmCapK的个人博客">
+<meta property="og:description" content="指标 1、汉明损失 选前两个最大概率（不softmax），设置为1，计算 pred和label不同的数目/label数 2、覆盖率 概率排序，选择包含全部标签1最大数目 3、1-错误率 最大概率的在不在label里 4、排序损失 统计label对应的pred是否有比它大值 5、平均精确率 label对应的pred在 真label和全部label的比值 6、平均准确率 所有标记都预测正确才是1 7">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2022-10-26T17:35:07.451Z">
+<meta property="og:updated_time" content="2022-10-26T18:05:00.706Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深度学习-多标签分类">
-<meta name="twitter:description" content="这是CalmCapK的个人博客">
+<meta name="twitter:description" content="指标 1、汉明损失 选前两个最大概率（不softmax），设置为1，计算 pred和label不同的数目/label数 2、覆盖率 概率排序，选择包含全部标签1最大数目 3、1-错误率 最大概率的在不在label里 4、排序损失 统计label对应的pred是否有比它大值 5、平均精确率 label对应的pred在 真label和全部label的比值 6、平均准确率 所有标记都预测正确才是1 7">
   
     <link rel="alternative" href="/atom.xml" title="CalmCapK&#39;s Blog" type="application/atom+xml">
   
@@ -205,7 +205,52 @@
       
         
         <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
-        
+        <h1 id="指标"><a class="markdownIt-Anchor" href="#指标"></a> 指标</h1>
+<p>1、汉明损失</p>
+<p>选前两个最大概率（不softmax），设置为1，计算 pred和label不同的数目/label数</p>
+<p>2、覆盖率</p>
+<p>概率排序，选择包含全部标签1最大数目</p>
+<p>3、1-错误率</p>
+<p>最大概率的在不在label里</p>
+<p>4、排序损失</p>
+<p>统计label对应的pred是否有比它大值</p>
+<p>5、平均精确率</p>
+<p>label对应的pred在 真label和全部label的比值</p>
+<p>6、平均准确率</p>
+<p>所有标记都预测正确才是1</p>
+<p>7、P R F1</p>
+<p>F1 Micro 不考虑标签的差异，直接统计全部P和R</p>
+<p>F1 Macro 考虑标签的差异，单独计算每个样本的P和R</p>
+<p>8、我们的是【和云识别一样】</p>
+<p>卡阈值，按类别统计P和R，F1, 再除于类别？？</p>
+<p>9、cal_score</p>
+<p>每个样本算一个TP/(TP+FP+FN），求平均</p>
+<p>卡阈值 每类平均</p>
+<p>f1=iouscore*2/（iouscore+1）此时只是单个样本满足</p>
+<p>累计求和去平均后不满足</p>
+<p>10、map</p>
+<p>每一类按照正样本数目卡阈值得到P和R，计算ap值，</p>
+<p>但是这要怎么infer呢，看一下yolo计算方式</p>
+<p>N个二分类</p>
+<h1 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h1>
+<ul>
+<li><a href="https://blog.csdn.net/TeFuirnever/article/details/100159150" target="_blank" rel="noopener">https://blog.csdn.net/TeFuirnever/article/details/100159150</a></li>
+<li><a href="https://blog.csdn.net/TeFuirnever/article/details/100180553" target="_blank" rel="noopener">https://blog.csdn.net/TeFuirnever/article/details/100180553</a></li>
+<li><a href="http://doc.codingdict.com/sklearn/13/" target="_blank" rel="noopener">http://doc.codingdict.com/sklearn/13/</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/41637556" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/41637556</a></li>
+<li><a href="https://www.zhihu.com/question/35486862/answer/462683110" target="_blank" rel="noopener">https://www.zhihu.com/question/35486862/answer/462683110</a></li>
+<li><a href="https://www.cnblogs.com/XBWer/p/13503796.html" target="_blank" rel="noopener">https://www.cnblogs.com/XBWer/p/13503796.html</a></li>
+<li><a href="https://blog.csdn.net/u011734144/article/details/79717470" target="_blank" rel="noopener">https://blog.csdn.net/u011734144/article/details/79717470</a></li>
+<li><a href="https://blog.csdn.net/Yvesx/article/details/110932595" target="_blank" rel="noopener">https://blog.csdn.net/Yvesx/article/details/110932595</a></li>
+<li><a href="https://blog.csdn.net/luanpeng825485697/article/details/79858186" target="_blank" rel="noopener">https://blog.csdn.net/luanpeng825485697/article/details/79858186</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/33372046" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/33372046</a></li>
+<li><a href="https://blog.csdn.net/qq_14845119/article/details/114121003" target="_blank" rel="noopener">https://blog.csdn.net/qq_14845119/article/details/114121003</a></li>
+<li><a href="https://blog.51cto.com/liguodong/4925397" target="_blank" rel="noopener">https://blog.51cto.com/liguodong/4925397</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzI3MzU5NjQyMQ==&amp;mid=2247485728&amp;idx=1&amp;sn=c8294d3252c0135e16a68c1824f7e374&amp;chksm=eb21a04adc56295cbac9bf44a687480171d4759a8bfab9f06fda0b05ebdfb2ac1b6ea6f76e39#rd" target="_blank" rel="noopener">https://mp.weixin.qq.com/s?__biz=MzI3MzU5NjQyMQ==&amp;mid=2247485728&amp;idx=1&amp;sn=c8294d3252c0135e16a68c1824f7e374&amp;chksm=eb21a04adc56295cbac9bf44a687480171d4759a8bfab9f06fda0b05ebdfb2ac1b6ea6f76e39#rd</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzU4NTY4Mzg1Mw==&amp;mid=2247520170&amp;idx=2&amp;sn=e65705dee0c33048ba42b68dfcd67fa4&amp;chksm=fd840948caf3805e68b1bca0f84b1a57934dd0b0fe782bbf7d7c8b55ebec997d39d5f3be609f#rd" target="_blank" rel="noopener">https://mp.weixin.qq.com/s?__biz=MzU4NTY4Mzg1Mw==&amp;mid=2247520170&amp;idx=2&amp;sn=e65705dee0c33048ba42b68dfcd67fa4&amp;chksm=fd840948caf3805e68b1bca0f84b1a57934dd0b0fe782bbf7d7c8b55ebec997d39d5f3be609f#rd</a></li>
+<li></li>
+</ul>
+
       
 
       
@@ -375,7 +420,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#指标"><span class="toc-number">1.</span> <span class="toc-text"> 指标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">2.</span> <span class="toc-text"> 参考</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -582,6 +627,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MMD</a>
               </li>
              
@@ -594,27 +655,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">latex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -627,30 +672,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">tmux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">clip</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -678,6 +699,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">clip</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
@@ -686,11 +711,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">frp</a>
+                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
+                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -746,11 +779,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
+                <a href="javascript:void(0)" class="js-tag color4">frp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">优化器</a>
+                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -770,14 +807,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多标签</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">对比学习</a>
               </li>
              
@@ -794,7 +823,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">指标</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">优化器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -814,7 +847,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -858,6 +891,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">虚拟主播</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vup</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电脑</a>
               </li>
              
@@ -866,11 +907,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">虚拟主播</a>
+                <a href="javascript:void(0)" class="js-tag color4">多标签</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vup</a>
+                <a href="javascript:void(0)" class="js-tag color3">指标</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
               </li>
              
               <li class="article-tag-list-item">
