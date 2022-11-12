@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
 <meta property="og:description" content="leetcode  二叉树  二叉树+dfs  题目98. Validate Binary Search Tree  题意：给一颗二叉树，左子树需要比当前节点小，右子树需要比当前节点大，判断是否满足条件 思路1：从下到上回溯，每个节点的条件是左子树最大值lmx&amp;lt;当前节点&amp;lt;右子树最小值rmi，但是返回时，整个子树最小值为lmi，最大值为rmx，所以需要存储每个子树最小值和最大值  时间">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2022-10-13T01:03:09.739Z">
+<meta property="og:updated_time" content="2022-11-12T16:38:03.081Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="刷题笔记">
 <meta name="twitter:description" content="leetcode  二叉树  二叉树+dfs  题目98. Validate Binary Search Tree  题意：给一颗二叉树，左子树需要比当前节点小，右子树需要比当前节点大，判断是否满足条件 思路1：从下到上回溯，每个节点的条件是左子树最大值lmx&amp;lt;当前节点&amp;lt;右子树最小值rmi，但是返回时，整个子树最小值为lmi，最大值为rmx，所以需要存储每个子树最小值和最大值  时间">
@@ -250,6 +250,50 @@
 </ul>
 </li>
 </ul>
+<h3 id="链表合并"><a class="markdownIt-Anchor" href="#链表合并"></a> 链表合并</h3>
+<ul>
+<li>题目23. Merge k Sorted Lists
+<ul>
+<li>题意：给k个升序排序的链表，求合起来升序排序的链表</li>
+<li>思路1：一个个选。用一个指标数组存每个链表位置，一个头指针和尾指针保存合起来结果，每次取k个链表最小值更新到尾指针
+<ul>
+<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">kn</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord mathdefault">n</span></span></span></span>,n是全部节点总和</li>
+<li>空间复杂度：k</li>
+</ul>
+</li>
+<li>思路2：一个个选。一个头指针和尾指针保存合起来结果，每次取k个链表最小值更新到尾指针，同时更新最小值的链表往后移，不会断链因为有head
+<ul>
+<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">kn</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord mathdefault">n</span></span></span></span>,n是全部节点总和</li>
+<li>空间复杂度：1</li>
+</ul>
+</li>
+<li>思路3：一条条合并
+<ul>
+<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">kn</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord mathdefault">n</span></span></span></span>,n是全部节点总和</li>
+<li>空间复杂度：1</li>
+</ul>
+</li>
+<li>思路4：优先队列
+<ul>
+<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">nlogk</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>,n是全部节点总和</li>
+<li>空间复杂度：k</li>
+</ul>
+</li>
+<li>思路5：归并，merge函数拆分k组，merge2lists函数合并两个链表【难想】
+<ul>
+<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">nlogk</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>,n是全部节点总和</li>
+<li>空间复杂度：1，但是需要<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>o</mi><mi>g</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">logk</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>栈空间</li>
+</ul>
+</li>
+<li>思路6【最优】：归并+非递归，merge2lists函数合并两个链表, 用循环优化拆分不需要递归【难想】
+<ul>
+<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">nlogk</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>,n是全部节点总和</li>
+<li>空间复杂度：1</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h2 id="图"><a class="markdownIt-Anchor" href="#图"></a> 图</h2>
 <h3 id="图dfs"><a class="markdownIt-Anchor" href="#图dfs"></a> 图+dfs</h3>
 <ul>
@@ -300,6 +344,127 @@ vis表示一个点是否有问题。只进入’O’点，枚举四个方向，�
 <li>dp[i]表示含i的前面区间最大乘积，dp[i] = max(dp[i-1]*num[i], num[i]), 负数不能保证最大</li>
 </ul>
 </li>
+</ul>
+</li>
+</ul>
+<h3 id="字符串匹配"><a class="markdownIt-Anchor" href="#字符串匹配"></a> 字符串匹配</h3>
+<ul>
+<li>
+<p>题目10. Regular Expression Matching【和题目44类似】</p>
+<ul>
+<li>题意：求字符串s和模式串p（.表示匹配任意字符，*表示p前面字符的可以使用0-n次），是否匹配成功</li>
+<li>思路1【最优】：dp[i][j]表示s前<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mrow><mn>0...</mn><mo stretchy="false">(</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msub></mrow><annotation encoding="application/x-tex">s_{0...(i-1)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7857599999999999em;vertical-align:-0.3551999999999999em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.34480000000000005em;"><span style="top:-2.5198em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3551999999999999em;"><span></span></span></span></span></span></span></span></span></span>字符和p前<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mrow><mn>0...</mn><mo stretchy="false">(</mo><mi>i</mi><mo>−</mo><mi>j</mi><mo stretchy="false">)</mo></mrow></msub></mrow><annotation encoding="application/x-tex">p_{0...(i-j)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7857599999999999em;vertical-align:-0.3551999999999999em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.34480000000000005em;"><span style="top:-2.5198em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight">i</span><span class="mbin mtight">−</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3551999999999999em;"><span></span></span></span></span></span></span></span></span></span>字符是否匹配
+<ul>
+<li>需要设dp[0][0] = true</li>
+<li>注意：i=0时，s是空串，但是p为a*和.*也可以匹配
+<ul>
+<li>dp[i][j] = dp[i][j-2], p[j-1] == *</li>
+</ul>
+</li>
+<li>当p[j-1]不是’*'时
+<ul>
+<li>s[i-1]和p[j-1]相等时，或者p[j-1]是.时, dp[i][j]=dp[i-1][j-1]</li>
+<li>否则为false</li>
+</ul>
+</li>
+<li>当p[j-1]是’*'时 【难想】
+<ul>
+<li>p[j-2]==s[i-1]时，或者p[j-2]是.时
+<ul>
+<li>*取0次，dp[i][j]=dp[i][j-2]</li>
+<li>*取N&gt;0次，dp[i][j]=dp[i-1][j]</li>
+</ul>
+</li>
+<li>否则，*取0次，dp[i][j]=dp[i][j-2]</li>
+</ul>
+</li>
+<li>时间复杂度：nm</li>
+<li>空间复杂度：nm</li>
+</ul>
+</li>
+<li>错误思路：
+<ul>
+<li>没用考虑s为空串情况</li>
+<li>dp[i][j]没用预留边界情况位置，导致后面讨论情况太多</li>
+<li>.情况相当于增加一种等于情况，不需要分开讨论</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>题目44. Wildcard Matching【和题目10类似】</p>
+<ul>
+<li>题意：求字符串s和模式串p（？表示匹配任意字符，*表示匹配任意字符串，含空串），是否匹配成功</li>
+<li>思路1：dp[i][j]表示s前<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mrow><mn>0...</mn><mo stretchy="false">(</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msub></mrow><annotation encoding="application/x-tex">s_{0...(i-1)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7857599999999999em;vertical-align:-0.3551999999999999em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.34480000000000005em;"><span style="top:-2.5198em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3551999999999999em;"><span></span></span></span></span></span></span></span></span></span>字符和p前<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mrow><mn>0...</mn><mo stretchy="false">(</mo><mi>i</mi><mo>−</mo><mi>j</mi><mo stretchy="false">)</mo></mrow></msub></mrow><annotation encoding="application/x-tex">p_{0...(i-j)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7857599999999999em;vertical-align:-0.3551999999999999em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.34480000000000005em;"><span style="top:-2.5198em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight">i</span><span class="mbin mtight">−</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3551999999999999em;"><span></span></span></span></span></span></span></span></span></span>字符是否匹配
+<ul>
+<li>需要设dp[0][0] = true</li>
+<li>注意：i=0时，s是空串，但是p为*可以匹配
+<ul>
+<li>dp[i][j] = dp[i][j-1], p[j-1] == *</li>
+</ul>
+</li>
+<li>当p[j-1]不是’*'时
+<ul>
+<li>s[i-1]和p[j-1]相等时，或者p[j-1]是？时, dp[i][j]=dp[i-1][j-1]</li>
+<li>否则为false</li>
+</ul>
+</li>
+<li>当p[j-1]是’*'时
+<ul>
+<li>*取空串，dp[i][j]=dp[i][j-1]</li>
+<li>*匹配，dp[i][j]=dp[i-1][j]</li>
+</ul>
+</li>
+<li>时间复杂度：nm</li>
+<li>空间复杂度：1</li>
+</ul>
+</li>
+<li>思路2【最优】：贪心，遍历s, jstar指向p连续<em>的最后一个，istar指向s需要用</em>的地方，非必要不用*，用*需回退【难想】
+<ul>
+<li>当s[i]<mark>p[j]或p[j]</mark>’?'时
+<ul>
+<li>i++,j++</li>
+</ul>
+</li>
+<li>当p[j]==’*'时，更新jstar=j，istar=i，j=jstar+1</li>
+<li>当不能匹配时
+<ul>
+<li>如果之前有’*’，则退回使用，更新istar+=1，i=istar, j=jstar+1</li>
+<li>否则return false</li>
+</ul>
+</li>
+<li>如果遍历完s，p还多余且不为*，则return false</li>
+<li>时间复杂度：nm</li>
+<li>空间复杂度：nm</li>
+</ul>
+</li>
+<li>错误思路：
+<ul>
+<li>思路1
+<ul>
+<li>没用考虑s为空串情况</li>
+<li>dp[i][j]没用预留边界情况位置，导致后面讨论情况太多</li>
+<li>？情况相当于增加一种等于情况，不需要分开讨论</li>
+<li>p[j-1]=*，直接dp[i][j]=true或者没考虑匹配空串情况</li>
+</ul>
+</li>
+<li>思路2
+<ul>
+<li>一定要遍历s，不可以使用 i &lt; sn &amp;&amp; j &lt; pn</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="贪心"><a class="markdownIt-Anchor" href="#贪心"></a> 贪心</h2>
+<h3 id="字符串匹配-2"><a class="markdownIt-Anchor" href="#字符串匹配-2"></a> 字符串匹配</h3>
+<ul>
+<li>题目44. Wildcard Matching【详解在动态规划章节】
+<ul>
+<li>思路1：动态规划</li>
+<li>思路2【最优】：贪心</li>
 </ul>
 </li>
 </ul>
@@ -585,7 +750,7 @@ vis表示一个点是否有问题。只进入’O’点，枚举四个方向，�
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#leetcode"><span class="toc-number">1.</span> <span class="toc-text"> leetcode</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树"><span class="toc-number">1.1.</span> <span class="toc-text"> 二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#二叉树dfs"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 二叉树+dfs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链表"><span class="toc-number">1.2.</span> <span class="toc-text"> 链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#双向链表"><span class="toc-number">1.2.1.</span> <span class="toc-text"> 双向链表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图"><span class="toc-number">1.3.</span> <span class="toc-text"> 图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图dfs"><span class="toc-number">1.3.1.</span> <span class="toc-text"> 图+dfs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态规划"><span class="toc-number">1.4.</span> <span class="toc-text"> 动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#最大最小dp滚动数组"><span class="toc-number">1.4.1.</span> <span class="toc-text"> 最大最小dp+滚动数组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排序"><span class="toc-number">1.5.</span> <span class="toc-text"> 排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#改造排序函数字符串比较"><span class="toc-number">1.5.1.</span> <span class="toc-text"> 改造排序函数+字符串比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#排序思维题"><span class="toc-number">1.5.2.</span> <span class="toc-text"> 排序+思维题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模拟"><span class="toc-number">1.6.</span> <span class="toc-text"> 模拟</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模拟除法"><span class="toc-number">1.6.1.</span> <span class="toc-text"> 模拟除法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思维题"><span class="toc-number">1.7.</span> <span class="toc-text"> 思维题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板"><span class="toc-number">1.8.</span> <span class="toc-text"> 模板</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#leetcode"><span class="toc-number">1.</span> <span class="toc-text"> leetcode</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树"><span class="toc-number">1.1.</span> <span class="toc-text"> 二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#二叉树dfs"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 二叉树+dfs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链表"><span class="toc-number">1.2.</span> <span class="toc-text"> 链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#双向链表"><span class="toc-number">1.2.1.</span> <span class="toc-text"> 双向链表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链表合并"><span class="toc-number">1.2.2.</span> <span class="toc-text"> 链表合并</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图"><span class="toc-number">1.3.</span> <span class="toc-text"> 图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图dfs"><span class="toc-number">1.3.1.</span> <span class="toc-text"> 图+dfs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态规划"><span class="toc-number">1.4.</span> <span class="toc-text"> 动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#最大最小dp滚动数组"><span class="toc-number">1.4.1.</span> <span class="toc-text"> 最大最小dp+滚动数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串匹配"><span class="toc-number">1.4.2.</span> <span class="toc-text"> 字符串匹配</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#贪心"><span class="toc-number">1.5.</span> <span class="toc-text"> 贪心</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串匹配-2"><span class="toc-number">1.5.1.</span> <span class="toc-text"> 字符串匹配</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排序"><span class="toc-number">1.6.</span> <span class="toc-text"> 排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#改造排序函数字符串比较"><span class="toc-number">1.6.1.</span> <span class="toc-text"> 改造排序函数+字符串比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#排序思维题"><span class="toc-number">1.6.2.</span> <span class="toc-text"> 排序+思维题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模拟"><span class="toc-number">1.7.</span> <span class="toc-text"> 模拟</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模拟除法"><span class="toc-number">1.7.1.</span> <span class="toc-text"> 模拟除法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思维题"><span class="toc-number">1.8.</span> <span class="toc-text"> 思维题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板"><span class="toc-number">1.9.</span> <span class="toc-text"> 模板</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -812,11 +977,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -832,11 +997,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">latex</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -864,27 +1045,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color5">clip</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -900,7 +1065,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">clip</a>
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">frp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -932,23 +1109,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">frp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">优化器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">旅游</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -964,7 +1125,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">优化器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -973,6 +1138,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">指标</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -992,7 +1161,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">指标</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1012,18 +1181,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">表情包</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sai</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ps</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
@@ -1040,11 +1197,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+                <a href="javascript:void(0)" class="js-tag color4">表情包</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color4">sai</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">医学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1080,14 +1245,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vocaloid</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">voiceroid</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电脑</a>
               </li>
              
@@ -1096,11 +1253,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">大规模预训练</a>
+                <a href="javascript:void(0)" class="js-tag color4">vocaloid</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">voiceroid</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">厨房</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">大规模预训练</a>
               </li>
              
               <li class="article-tag-list-item">
