@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://calmcapK.github.io">
   <title>刷题笔记 | CalmCapK&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="leetcode  二叉树  二叉树+dfs  题目98. Validate Binary Search Tree  题意：给一颗二叉树，左子树需要比当前节点小，右子树需要比当前节点大，判断是否满足条件 思路1：从下到上回溯，每个节点的条件是左子树最大值lmx&amp;lt;当前节点&amp;lt;右子树最小值rmi，但是返回时，整个子树最小值为lmi，最大值为rmx，所以需要存储每个子树最小值和最大值  时间">
+  <meta name="description" content="leetcode  二叉树  知识 X序遍历指遍历根节点顺序  二叉树+dfs   题目98. Validate Binary Search Tree  题意：给一颗二叉树，左子树需要比当前节点小，右子树需要比当前节点大，判断是否满足条件 思路1：从下到上回溯，每个节点的条件是左子树最大值lmx&amp;lt;当前节点&amp;lt;右子树最小值rmi，但是返回时，整个子树最小值为lmi，最大值为rmx，所以需">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="刷题笔记">
 <meta property="og:url" content="https://calmcapK.github.io/2022/09/11/刷题笔记/index.html">
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
-<meta property="og:description" content="leetcode  二叉树  二叉树+dfs  题目98. Validate Binary Search Tree  题意：给一颗二叉树，左子树需要比当前节点小，右子树需要比当前节点大，判断是否满足条件 思路1：从下到上回溯，每个节点的条件是左子树最大值lmx&amp;lt;当前节点&amp;lt;右子树最小值rmi，但是返回时，整个子树最小值为lmi，最大值为rmx，所以需要存储每个子树最小值和最大值  时间">
+<meta property="og:description" content="leetcode  二叉树  知识 X序遍历指遍历根节点顺序  二叉树+dfs   题目98. Validate Binary Search Tree  题意：给一颗二叉树，左子树需要比当前节点小，右子树需要比当前节点大，判断是否满足条件 思路1：从下到上回溯，每个节点的条件是左子树最大值lmx&amp;lt;当前节点&amp;lt;右子树最小值rmi，但是返回时，整个子树最小值为lmi，最大值为rmx，所以需">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2022-11-20T11:11:20.526Z">
+<meta property="og:updated_time" content="2022-11-27T10:11:36.069Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="刷题笔记">
-<meta name="twitter:description" content="leetcode  二叉树  二叉树+dfs  题目98. Validate Binary Search Tree  题意：给一颗二叉树，左子树需要比当前节点小，右子树需要比当前节点大，判断是否满足条件 思路1：从下到上回溯，每个节点的条件是左子树最大值lmx&amp;lt;当前节点&amp;lt;右子树最小值rmi，但是返回时，整个子树最小值为lmi，最大值为rmx，所以需要存储每个子树最小值和最大值  时间">
+<meta name="twitter:description" content="leetcode  二叉树  知识 X序遍历指遍历根节点顺序  二叉树+dfs   题目98. Validate Binary Search Tree  题意：给一颗二叉树，左子树需要比当前节点小，右子树需要比当前节点大，判断是否满足条件 思路1：从下到上回溯，每个节点的条件是左子树最大值lmx&amp;lt;当前节点&amp;lt;右子树最小值rmi，但是返回时，整个子树最小值为lmi，最大值为rmx，所以需">
   
     <link rel="alternative" href="/atom.xml" title="CalmCapK&#39;s Blog" type="application/atom+xml">
   
@@ -207,9 +207,12 @@
         <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
         <h1 id="leetcode"><a class="markdownIt-Anchor" href="#leetcode"></a> leetcode</h1>
 <h2 id="二叉树"><a class="markdownIt-Anchor" href="#二叉树"></a> 二叉树</h2>
+<h3 id="知识"><a class="markdownIt-Anchor" href="#知识"></a> 知识</h3>
+<p>X序遍历指遍历根节点顺序</p>
 <h3 id="二叉树dfs"><a class="markdownIt-Anchor" href="#二叉树dfs"></a> 二叉树+dfs</h3>
 <ul>
-<li>题目98. Validate Binary Search Tree
+<li>
+<p>题目98. Validate Binary Search Tree</p>
 <ul>
 <li>题意：给一颗二叉树，左子树需要比当前节点小，右子树需要比当前节点大，判断是否满足条件</li>
 <li>思路1：从下到上回溯，每个节点的条件是左子树最大值lmx&lt;当前节点&lt;右子树最小值rmi，但是返回时，整个子树最小值为lmi，最大值为rmx，所以需要存储每个子树最小值和最大值
@@ -224,6 +227,26 @@
 <ul>
 <li>只找左子树最大值和右子树最小值</li>
 <li>search里search_max找左子树，search_min找右子树</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>题目124. Binary Tree Maximum Path Sum</p>
+<ul>
+<li>题意：求树的最大的路径和
+<ul>
+<li>思路1【最优】：后序遍历。一个外置变量记录最大路径，最大路径=max(当前节点，当前节点+左子树，当前节点+右子树，当前节点+左子树+右子树)。而子树=maxx(当前节点，当前节点+左子树，当前节点+右子树),不能算“当前节点+左子树+右子树”的情况。
+<ul>
+<li>时间复杂度：n</li>
+<li>空间复杂度：n</li>
+</ul>
+</li>
+<li>错误思路：
+<ul>
+<li>计算当前节点时，算了“当前节点+左子树+右子树”的情况。</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -295,6 +318,10 @@
 </li>
 </ul>
 <h2 id="图"><a class="markdownIt-Anchor" href="#图"></a> 图</h2>
+<h3 id="知识-2"><a class="markdownIt-Anchor" href="#知识-2"></a> 知识</h3>
+<ul>
+<li>bfs时间复杂度是o(n+e)</li>
+</ul>
 <h3 id="图dfs"><a class="markdownIt-Anchor" href="#图dfs"></a> 图+dfs</h3>
 <ul>
 <li>题目130. Surrounded Regions
@@ -312,6 +339,64 @@ vis表示一个点属于哪个连通图。只进入’O’点，枚举四个方�
 <li>错误思路：<br>
 vis表示一个点是否有问题。只进入’O’点，枚举四个方向，该方向越界就返回false，如果该方向是’O’点且已知有问题就返回false，如果该方向是’O’点且没有遍历过就继续dfs，最后判断该点有问题，返回false。<br>
 这种没有遍历完连通图就剪枝做结论返回，容易前一个分支一开始可行，但后面分支发现不可行，没办法更新。</li>
+</ul>
+</li>
+</ul>
+<h3 id="图最短路"><a class="markdownIt-Anchor" href="#图最短路"></a> 图+最短路</h3>
+<ul>
+<li>题目127. Word Ladder
+<ul>
+<li>题意：给开始字符串s1、结尾字符串sk、字符串字典d，求s1-&gt;s2-&gt;sk的最短路径，si和si+1只能修改一个字符，其中s2到sk必须在字典里.n&lt;=5000，c&lt;=10。</li>
+<li>思路1【超时】：广度优先搜索+预处理图关系。用二维数组mp[n][n]记录字典中si和sj是否存在路径,同时判断s1和sk是否在字典中，sk不在return 0。用queue广度优先搜素，先放入s1（如果s1不在字典则放入s2)。用vis[n]记录是否遍历过, pair记录路径长度。每次取队首，用mp判断是否有路径，加入队尾。
+<ul>
+<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup><mi>c</mi></mrow><annotation encoding="application/x-tex">n^2c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord mathdefault">c</span></span></span></span></li>
+<li>空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">n^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></li>
+</ul>
+</li>
+<li>思路2【超时】：广度优先搜索+不预处理图关系。判断s1和sk是否在字典中，sk不在return 0。用queue广度优先搜素，先放入s1。用vis[n]记录是否遍历过, pair记录路径长度。每次取队首，遍历字典选有路径的单词，加入队尾。
+<ul>
+<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup><mi>c</mi></mrow><annotation encoding="application/x-tex">n^2c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord mathdefault">c</span></span></span></span></li>
+<li>空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span></li>
+</ul>
+</li>
+<li>思路3：广度优先搜索+不预处理图关系+枚举字符变化。判断s1和sk是否在字典中，sk不在return 0。map记录字典字符串和字典下标关系。用queue广度优先搜素，先放入s1。用vis[n]记录是否遍历过, pair记录路径长度。每次取队首的单词，按26个字母逐个替换字符，判断新单词是否在字典中，是就加入队尾。
+<ul>
+<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><mi>c</mi><mo>∗</mo><mn>26</mn></mrow><annotation encoding="application/x-tex">n*c*26</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">6</span></span></span></span></li>
+<li>空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">n*c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span></li>
+</ul>
+</li>
+<li>思路4：广度优先搜索+枚举字符变化+合并map和vis和pair。判断s1和sk是否在字典中，sk不在return 0。map记录字典字符串和s1步数， 初始为0。用queue广度优先搜素，先放入s1，map[s1]=1。每次取队首的单词，按26个字母逐个替换字符，判断新单词是否在字典中，是就加入队尾， map[sj]=map[si]+1。
+<ul>
+<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><mi>c</mi><mo>∗</mo><mn>26</mn></mrow><annotation encoding="application/x-tex">n*c*26</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">6</span></span></span></span></li>
+<li>空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">n*c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span></li>
+</ul>
+</li>
+<li>思路5：广度优先搜索+虚拟节点。map建立节点字符串和id映射。对s1和字典中的字符串，枚举每个字符，扩充虚拟节点，然后建图vector&lt;vector<int>&gt;。判断sk是否在映射中，sk不在return 0。vis记录步数， 初始为-1。用queue广度优先搜素，先放入s1，vis[s1]=1。每次遍历虚拟节点，再遍历实节点，实节点加入队尾， vis[sj]=vis[si]+1。结果是vis[si]。
+<ul>
+<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><mi>c</mi><mo>∗</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">n*c*c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span>，n*c个节点，判断是否相同需要c</li>
+<li>空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><mi>c</mi><mo>∗</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">n*c*c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span>, n*c个节点，字符串c大小</li>
+</ul>
+</int></li>
+<li>思路6【次优】：广度优先搜索+虚拟节点+queue放虚拟节点。map建立节点字符串和id映射。对s1和字典中的字符串，枚举每个字符，扩充虚拟节点，然后建图vector&lt;vector<int>&gt;。判断sk是否在映射中，sk不在return 0。vis记录步数， 初始为-1。用queue广度优先搜素，先放入s1，vis[s1]=1。每次遍历边，节点加入队尾， vis[sj]=vis[si]+1。结果是(vis[si]+1)/2。
+<ul>
+<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><mi>c</mi><mo>∗</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">n*c*c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span>，n*c个节点，判断是否相同需要c</li>
+<li>空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><mi>c</mi><mo>∗</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">n*c*c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span>, n*c个节点，字符串c大小</li>
+</ul>
+</int></li>
+<li>思路7【最优】：双向广度优先搜索+虚拟节点+queue放虚拟节点。map建立节点字符串和id映射。对s1和字典中的字符串，枚举每个字符，扩充虚拟节点，然后建图vector&lt;vector<int>&gt;。判断sk是否在映射中，sk不在return 0。
+<ul>
+<li>vis记录步数，初始为-1。用queue q从s1广度优先搜素，先放入s1，vis[s1]=1。</li>
+<li>vis_记录步数，初始为-1。用queue q_从sk广度优先搜素，先放入sk，vis_[sk]=1。</li>
+<li>每次循环，前面遍历一层，加入队尾；后面遍历一层，加入队尾；如果前后都遍历过，返回(vis[si]+vis_[si])/2</li>
+<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><mi>c</mi><mo>∗</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">n*c*c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span>，n*c个节点，判断是否相同需要c</li>
+<li>空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><mi>c</mi><mo>∗</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">n*c*c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span>, n*c个节点，字符串c大小</li>
+</ul>
+</int></li>
+<li>错误思路：
+<ul>
+<li>忽略s1不在字典情况</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -532,6 +617,39 @@ vis表示一个点是否有问题。只进入’O’点，枚举四个方向，�
 <li>错误思路：
 <ul>
 <li>统计比当前数字大的有多少数字，按稀缺排序，情况太复杂</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="单调栈"><a class="markdownIt-Anchor" href="#单调栈"></a> 单调栈</h2>
+<h3 id="单调栈求面积"><a class="markdownIt-Anchor" href="#单调栈求面积"></a> 单调栈+求面积</h3>
+<ul>
+<li>题目84. Largest Rectangle in Histogram
+<ul>
+<li>题意：求柱状图最大矩形面积</li>
+<li>思路1：左右两边分别遍历，al, ar数组分别存储当前节点j可以扩展的区间端点[al[j],ar[j]]，用单调栈维护端点。
+<ul>
+<li>从左往右遍历时，如果stack为空，则al[j]=0；如果栈顶的高度&gt;=j的高度，pop；如果栈顶比j的高度小，则al[j]=st.top()+1。</li>
+<li>从右往左遍历时，如果stack为空，则ar[j]=n-1；如果栈顶的高度&gt;=j的高度，pop；如果栈顶比j的高度小，则ar[j]=st.top()-1。</li>
+<li>最后结果为heigths[j]*(ar[j]-al[j]+1)最大值。</li>
+<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span></li>
+<li>空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span></li>
+</ul>
+</li>
+<li>思路2【最优】：遍历一遍同时更新al和ar。al, ar数组分别存储当前节点j可以扩展的区间端点[al[j],ar[j]]，用单调栈维护端点。
+<ul>
+<li>从左往右遍历时，如果stack为空，则al[j]=0；如果栈顶的高度&gt;=j的高度，更新ar[st.top()]=i-1，pop；如果栈顶比j的高度小，则al[j]=st.top()+1。</li>
+<li>如果此时st不为空，则ar[st.top()] = n-1, pop。</li>
+<li>最后结果为heigths[j]*(ar[j]-al[j]+1)最大值。</li>
+<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span></li>
+<li>空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span></li>
+</ul>
+</li>
+<li>思路3：左右两边扩
+<ul>
+<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">n^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></li>
+<li>空间复杂度：1</li>
 </ul>
 </li>
 </ul>
@@ -768,7 +886,7 @@ vis表示一个点是否有问题。只进入’O’点，枚举四个方向，�
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#leetcode"><span class="toc-number">1.</span> <span class="toc-text"> leetcode</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树"><span class="toc-number">1.1.</span> <span class="toc-text"> 二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#二叉树dfs"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 二叉树+dfs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链表"><span class="toc-number">1.2.</span> <span class="toc-text"> 链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#双向链表"><span class="toc-number">1.2.1.</span> <span class="toc-text"> 双向链表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链表合并"><span class="toc-number">1.2.2.</span> <span class="toc-text"> 链表合并</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图"><span class="toc-number">1.3.</span> <span class="toc-text"> 图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图dfs"><span class="toc-number">1.3.1.</span> <span class="toc-text"> 图+dfs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态规划"><span class="toc-number">1.4.</span> <span class="toc-text"> 动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#最大最小dp滚动数组"><span class="toc-number">1.4.1.</span> <span class="toc-text"> 最大最小dp+滚动数组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#贪心"><span class="toc-number">1.5.</span> <span class="toc-text"> 贪心</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串"><span class="toc-number">1.6.</span> <span class="toc-text"> 字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串匹配"><span class="toc-number">1.6.1.</span> <span class="toc-text"> 字符串匹配</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排序"><span class="toc-number">1.7.</span> <span class="toc-text"> 排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#改造排序函数字符串比较"><span class="toc-number">1.7.1.</span> <span class="toc-text"> 改造排序函数+字符串比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#排序思维题"><span class="toc-number">1.7.2.</span> <span class="toc-text"> 排序+思维题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模拟"><span class="toc-number">1.8.</span> <span class="toc-text"> 模拟</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模拟除法"><span class="toc-number">1.8.1.</span> <span class="toc-text"> 模拟除法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思维题"><span class="toc-number">1.9.</span> <span class="toc-text"> 思维题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板"><span class="toc-number">1.10.</span> <span class="toc-text"> 模板</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#leetcode"><span class="toc-number">1.</span> <span class="toc-text"> leetcode</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#二叉树"><span class="toc-number">1.1.</span> <span class="toc-text"> 二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#知识"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二叉树dfs"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 二叉树+dfs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链表"><span class="toc-number">1.2.</span> <span class="toc-text"> 链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#双向链表"><span class="toc-number">1.2.1.</span> <span class="toc-text"> 双向链表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链表合并"><span class="toc-number">1.2.2.</span> <span class="toc-text"> 链表合并</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图"><span class="toc-number">1.3.</span> <span class="toc-text"> 图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#知识-2"><span class="toc-number">1.3.1.</span> <span class="toc-text"> 知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图dfs"><span class="toc-number">1.3.2.</span> <span class="toc-text"> 图+dfs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图最短路"><span class="toc-number">1.3.3.</span> <span class="toc-text"> 图+最短路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态规划"><span class="toc-number">1.4.</span> <span class="toc-text"> 动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#最大最小dp滚动数组"><span class="toc-number">1.4.1.</span> <span class="toc-text"> 最大最小dp+滚动数组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#贪心"><span class="toc-number">1.5.</span> <span class="toc-text"> 贪心</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串"><span class="toc-number">1.6.</span> <span class="toc-text"> 字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串匹配"><span class="toc-number">1.6.1.</span> <span class="toc-text"> 字符串匹配</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排序"><span class="toc-number">1.7.</span> <span class="toc-text"> 排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#改造排序函数字符串比较"><span class="toc-number">1.7.1.</span> <span class="toc-text"> 改造排序函数+字符串比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#排序思维题"><span class="toc-number">1.7.2.</span> <span class="toc-text"> 排序+思维题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单调栈"><span class="toc-number">1.8.</span> <span class="toc-text"> 单调栈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#单调栈求面积"><span class="toc-number">1.8.1.</span> <span class="toc-text"> 单调栈+求面积</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模拟"><span class="toc-number">1.9.</span> <span class="toc-text"> 模拟</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模拟除法"><span class="toc-number">1.9.1.</span> <span class="toc-text"> 模拟除法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思维题"><span class="toc-number">1.10.</span> <span class="toc-text"> 思维题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模板"><span class="toc-number">1.11.</span> <span class="toc-text"> 模板</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -975,14 +1093,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">secret</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MMD</a>
               </li>
              
@@ -999,15 +1109,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">secret</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1015,11 +1121,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">tmux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1051,6 +1173,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">AE</a>
               </li>
              
@@ -1063,26 +1193,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tmux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
@@ -1091,11 +1201,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">OBS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">frp</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1123,19 +1245,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">OBS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基金</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">旅游</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
+                <a href="javascript:void(0)" class="js-tag color3">基金</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1151,35 +1265,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">优化器</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color2">transformer</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
+                <a href="javascript:void(0)" class="js-tag color4">多标签</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">指标</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">renpy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">avg</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文字冒险</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">视觉小说</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1199,6 +1301,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">对比学习</a>
               </li>
              
@@ -1215,11 +1321,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多标签</a>
+                <a href="javascript:void(0)" class="js-tag color3">医学</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+                <a href="javascript:void(0)" class="js-tag color1">renpy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">avg</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文字冒险</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">视觉小说</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1232,22 +1354,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ps</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vocaloid</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">voiceroid</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1275,11 +1381,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电脑</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vocaloid</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">voiceroid</a>
               </li>
              
               <li class="article-tag-list-item">
