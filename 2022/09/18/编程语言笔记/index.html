@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
 <meta property="og:description" content="c++  引用 12函数用&amp;amp;传回多个参数 fun(int &amp;amp;a, TreeNode* &amp;amp; note)&amp;#123;&amp;#125;函数传二维数组 vector&amp;lt;vector&amp;lt;char&amp;gt;&amp;gt;&amp;amp; board  排序 1234按照大到小排序bool cmp(string a, string b)&amp;#123;    return a &amp;gt; b;&amp;#12">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2022-11-27T10:08:57.300Z">
+<meta property="og:updated_time" content="2022-12-18T13:34:13.465Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编程语言笔记">
 <meta name="twitter:description" content="c++  引用 12函数用&amp;amp;传回多个参数 fun(int &amp;amp;a, TreeNode* &amp;amp; note)&amp;#123;&amp;#125;函数传二维数组 vector&amp;lt;vector&amp;lt;char&amp;gt;&amp;gt;&amp;amp; board  排序 1234按照大到小排序bool cmp(string a, string b)&amp;#123;    return a &amp;gt; b;&amp;#12">
@@ -214,11 +214,11 @@
 <ul>
 <li>vector</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sort(nums.begin(), nums.end());  排序 </span><br><span class="line">vector&lt;vector&lt;int&gt;&gt; edge; edge.emplace_back(); 不需要新建vector&lt;int&gt;对象</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sort(nums.begin(), nums.end());  排序 </span><br><span class="line">vector&lt;vector&lt;int&gt;&gt; edge; edge.emplace_back(); 不需要新建</span><br><span class="line">edge.push_back(&#123;1,2,3,4,&#125;) 直接加vector</span><br><span class="line">vector&lt;int&gt;对象</span><br><span class="line">初始化</span><br><span class="line">v = &#123;&#125;;</span><br><span class="line">v = &#123;&apos;a&apos;&#125;;</span><br><span class="line">push_back() emplace_back()</span><br><span class="line">v.back()</span><br></pre></td></tr></table></figure>
 <ul>
 <li>string 字符串</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reverse(s.begin(), s.end()); 翻转</span><br><span class="line">s.substr(i, n); 子串</span><br><span class="line">s[i] = &apos;a&apos; 可以赋值</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">reverse(s.begin(), s.end()); 翻转</span><br><span class="line">s.substr(i, n); 子串</span><br><span class="line">s[i] = &apos;a&apos; 可以赋值</span><br><span class="line"></span><br><span class="line">s = to_string(val) 数字转字符串</span><br><span class="line">i = stoi(s) 字符串转数字</span><br></pre></td></tr></table></figure>
 <ul>
 <li>pair</li>
 </ul>
@@ -228,25 +228,42 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">stack&lt;int&gt;st;</span><br><span class="line">while(!st.empty()) st.pop();</span><br><span class="line">st.top();</span><br><span class="line">st.push();</span><br></pre></td></tr></table></figure>
 <ul>
+<li>queue</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">q.pop()</span><br><span class="line">q.front()</span><br><span class="line">q.push()</span><br></pre></td></tr></table></figure>
+<ul>
 <li>priority_queue 优先队列</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">//自定义1</span><br><span class="line">priority_queue&lt;int, vector&lt;int&gt;, less&lt;int&gt; &gt; a == priority_queue&lt;int&gt;a;</span><br><span class="line">//自定义2</span><br><span class="line">struct Status &#123;</span><br><span class="line">    int val;</span><br><span class="line">    ListNode *ptr;</span><br><span class="line">    bool operator &lt; (const Status &amp;rhs) const &#123;</span><br><span class="line">        return val &gt; rhs.val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">priority_queue &lt;Status&gt; q;</span><br><span class="line">q.push(&#123;node-&gt;val, node&#125;)</span><br><span class="line">//自定义3</span><br><span class="line">struct tmp2 //重写仿函数</span><br><span class="line">&#123;</span><br><span class="line">    bool operator() (tmp1 a, tmp1 b) </span><br><span class="line">    &#123;</span><br><span class="line">        return a.x &lt; b.x; //大顶堆</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">priority_queue&lt;tmp1, vector&lt;tmp1&gt;, tmp2&gt; f;</span><br><span class="line"></span><br><span class="line">q.empty()</span><br><span class="line">auto f = q.top(); </span><br><span class="line">q.pop();</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">//自定义1</span><br><span class="line">priority_queue&lt;int, vector&lt;int&gt;, less&lt;int&gt; &gt; a == priority_queue&lt;int&gt;a;</span><br><span class="line">//自定义2</span><br><span class="line">struct Status &#123;</span><br><span class="line">    int val;</span><br><span class="line">    ListNode *ptr;</span><br><span class="line">    bool operator &lt; (const Status &amp;rhs) const &#123;</span><br><span class="line">        return val &gt; rhs.val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">priority_queue &lt;Status&gt; q;</span><br><span class="line">q.push(&#123;node-&gt;val, node&#125;)</span><br><span class="line">//自定义3</span><br><span class="line">struct tmp2 //重写仿函数</span><br><span class="line">&#123;</span><br><span class="line">    bool operator() (Node a, Node b) </span><br><span class="line">    &#123;</span><br><span class="line">        return a.x &lt; b.x; //大顶堆</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">priority_queue&lt;Node, vector&lt;Node&gt;, tmp2&gt; f;</span><br><span class="line"></span><br><span class="line">q.push(a) q.emplace(a)</span><br><span class="line">q.empty()</span><br><span class="line">auto f = q.top(); </span><br><span class="line">q.pop();</span><br></pre></td></tr></table></figure>
 <ul>
 <li>unordered_map</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">无序，查找问题，更加高效一些</span><br><span class="line">unordered_map&lt;int, list&lt;pair&lt;int,int&gt;&gt;::iterator&gt;mp;</span><br><span class="line">mp.find(key)!=mp.end()</span><br><span class="line">mp[key]-&gt;second;</span><br><span class="line">mp.erase(key); 删除</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">无序，查找问题，更加高效一些，o(1)时间</span><br><span class="line">查询o1,插入on</span><br><span class="line">unordered_map&lt;int, list&lt;pair&lt;int,int&gt;&gt;::iterator&gt;mp;</span><br><span class="line">mp.find(key)!=mp.end()</span><br><span class="line">mp[key]-&gt;second;</span><br><span class="line">mp.erase(key); 删除</span><br><span class="line">unordered_map&lt;int, vector&lt;string&gt;&gt; ans;</span><br><span class="line">ans.count(a)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>map</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">红黑树，有顺序要求的问题，用map会更高效一些</span><br><span class="line">for(map&lt;string, int&gt;::iterator it=mp.begin(); it != mp.end(); it++) cout &lt;&lt; (*it).first &lt;&lt; &quot; &quot; &lt;&lt; (*it).second &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">查询ologn,插入ologn</span><br><span class="line">红黑树，有顺序要求的问题，用map会更高效一些</span><br><span class="line">for(map&lt;string, int&gt;::iterator it=mp.begin(); it != mp.end(); it++) cout &lt;&lt; (*it).first &lt;&lt; &quot; &quot; &lt;&lt; (*it).second &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>list 双向链表</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">list&lt;pair&lt;int, int&gt;&gt;l;</span><br><span class="line">l.splice(l.begin(), l, mp[key]);</span><br><span class="line">l.erase(mp[key]);</span><br><span class="line">l.push_front(make_pair(key, value));</span><br><span class="line">l.begin();</span><br><span class="line">l.rbegin()-&gt;first</span><br><span class="line">l.pop_back();</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">list&lt;pair&lt;int, int&gt;&gt;l;</span><br><span class="line">l.splice(l.begin(), l, mp[key]);</span><br><span class="line">l.erase(mp[key]);</span><br><span class="line">l.push_front(make_pair(key, value));</span><br><span class="line">l.begin();</span><br><span class="line">l.rbegin()-&gt;first</span><br><span class="line">l.pop_back();</span><br><span class="line"></span><br><span class="line">l.front() 值</span><br><span class="line">l.begin() 迭代器</span><br><span class="line">l.erase(l.begin());</span><br><span class="line">l.push_back(a);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>unordered_set</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">查询o1,插入on</span><br><span class="line">unordered_set&lt;string&gt;mp;</span><br><span class="line">mp.count(a)</span><br><span class="line">vector转set</span><br><span class="line">unordered_set(v.begin(), v.end());</span><br></pre></td></tr></table></figure>
+<ul>
+<li>set</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">查询ologn,插入ologn</span><br><span class="line">set&lt;int&gt;s</span><br><span class="line">s.insert()</span><br><span class="line">s.count()</span><br></pre></td></tr></table></figure>
+<h2 id="数据结构"><a class="markdownIt-Anchor" href="#数据结构"></a> 数据结构</h2>
+<ul>
+<li>字典树</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">struct TrieNode &#123;</span><br><span class="line">    string word;</span><br><span class="line">    unordered_map&lt;char, TrieNode*&gt;child;</span><br><span class="line">    TrieNode()&#123;</span><br><span class="line">        this-&gt;word = &quot;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">void insertTrie(TrieNode * root, string word)&#123;</span><br><span class="line">    TrieNode*node = root;</span><br><span class="line">    for(int i = 0; i &lt; word.size(); i++)&#123;</span><br><span class="line">        if(!node-&gt;child.count(word[i]))&#123;</span><br><span class="line">            node-&gt;child[word[i]] = new TrieNode();</span><br><span class="line">        &#125;</span><br><span class="line">        node = node-&gt;child[word[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    node-&gt;word = word;</span><br><span class="line">&#125;</span><br><span class="line">TrieNode*root = new TrieNode();</span><br><span class="line">insertTrie(root, words[w]);</span><br><span class="line">root-&gt;child.count(ch))</span><br><span class="line">TrieNode*nxt = root-&gt;child[ch];</span><br><span class="line">nxt-&gt;word.size()</span><br><span class="line">nxt-&gt;child.empty()</span><br><span class="line">root-&gt;child.erase(ch)</span><br></pre></td></tr></table></figure>
 <h1 id="python"><a class="markdownIt-Anchor" href="#python"></a> python</h1>
 <h2 id="知识"><a class="markdownIt-Anchor" href="#知识"></a> 知识</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">python赋值只是引用, 函数从参数返回注意要把结果放在原来参数的存储位置</span><br><span class="line"></span><br><span class="line">for i in range((n-1)/2, -1, -1): 从大到小计算</span><br><span class="line">for i, num in enumerate(nums)</span><br><span class="line">for num in nums:</span><br><span class="line">    num = 不能赋值</span><br><span class="line"></span><br><span class="line">遍历</span><br><span class="line">for i in range(0, n-step, step*2)</span><br><span class="line">for i in range(n-1, -1, -1):</span><br><span class="line"></span><br><span class="line">float(&quot;-inf&quot;) 无穷</span><br></pre></td></tr></table></figure>
-<h2 id="数据结构"><a class="markdownIt-Anchor" href="#数据结构"></a> 数据结构</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">python赋值只是引用, 函数从参数返回注意要把结果放在原来参数的存储位置</span><br><span class="line"></span><br><span class="line">for i in range((n-1)/2, -1, -1): 从大到小计算</span><br><span class="line">for i, num in enumerate(nums)</span><br><span class="line">for num in nums:</span><br><span class="line">    num = 不能赋值</span><br><span class="line"></span><br><span class="line">遍历</span><br><span class="line">for i in range(0, n-step, step*2)</span><br><span class="line">for i in range(n-1, -1, -1):</span><br><span class="line"></span><br><span class="line">float(&quot;-inf&quot;) 无穷</span><br><span class="line"></span><br><span class="line">参数引用</span><br><span class="line">字典和列表是传址</span><br></pre></td></tr></table></figure>
+<h2 id="数据结构-2"><a class="markdownIt-Anchor" href="#数据结构-2"></a> 数据结构</h2>
 <ul>
 <li>string</li>
 </ul>
@@ -256,9 +273,29 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">实现堆栈</span><br><span class="line">a = []</span><br><span class="line">a.append()</span><br><span class="line">a.pop()</span><br><span class="line">a[-1]</span><br><span class="line"></span><br><span class="line">list.index(x)返回list第一个x位置</span><br><span class="line">list.reverse() 翻转</span><br><span class="line"></span><br><span class="line">构建数组</span><br><span class="line">al = [0] * n</span><br><span class="line">ar = [n-1] * n</span><br><span class="line">生成值为0的二维数组</span><br><span class="line">[[0] * m] * n 表示的是指向 [0]*m 这个列表的引用</span><br><span class="line">[[0] * m for _ in range(n)] 这才正确</span><br><span class="line">f = [[False] * (n + 1) for _ in range(m + 1)]</span><br></pre></td></tr></table></figure>
 <ul>
-<li>deque</li>
+<li>dict</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;&apos;b&apos;:1&#125;</span><br><span class="line">a.pop(&apos;b&apos;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>deque 双向队列</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">q = collections.deque([a])或者 q = collections.deque() q.append(a)    </span><br><span class="line">while q:</span><br><span class="line">id = q.popleft()</span><br><span class="line">q.append(e)</span><br><span class="line">len(q)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>PriorityQueue 基于heapq的 python3才能用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from queue import PriorityQueue</span><br><span class="line">q = PriorityQueue()</span><br><span class="line">q.put((-buildings[idx][2], buildings[idx][1]))  按照逐个元素从小到大</span><br><span class="line">q.put(Node(buildings[idx][1], buildings[idx][2]))  或者使用class</span><br><span class="line">排序</span><br><span class="line">while not q.empty():</span><br><span class="line">    a = q.get() 会直接pop</span><br><span class="line">    q.put(a)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>heapq 最小堆 python2可以用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import heapq</span><br><span class="line">q = []</span><br><span class="line">heapq.heappush(q, (-buildings[idx][2], buildings[idx][1]))</span><br><span class="line">while q:</span><br><span class="line">    a = heapq.heappop(q)</span><br><span class="line">    heapq.heappush(q, a)</span><br><span class="line">heapify([1,2,3]) 列表转堆</span><br><span class="line">heapreplace(q, new) 弹出最小元素，插入新元素</span><br><span class="line">nsmallest(3, q) 前n个最小元素</span><br><span class="line">nlargest(3, q)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>class</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Node(object):</span><br><span class="line">    def __init__(self, x, h):</span><br><span class="line">        self.x = x</span><br><span class="line">        self.h = h</span><br><span class="line">        return</span><br><span class="line"> </span><br><span class="line">    def __lt__(self, other): 排序</span><br><span class="line">        return self.h &gt; other.h</span><br></pre></td></tr></table></figure>
+<ul>
+<li>字典树</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class TrieNode(object):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.child = &#123;&#125;</span><br><span class="line">        self.word = &quot;&quot;</span><br><span class="line">def insertTrie(root, word):</span><br><span class="line">    node = root</span><br><span class="line">    for i in range(len(word)):</span><br><span class="line">        if word[i] not in node.child:</span><br><span class="line">            node.child[word[i]] = TrieNode()</span><br><span class="line">        node = node.child[word[i]]</span><br><span class="line">    node.word = word</span><br><span class="line">root = TrieNode()</span><br><span class="line">insertTrie(root, word)</span><br><span class="line">if ch not in root.child:</span><br><span class="line">nxt =  root.child[ch]</span><br><span class="line">len(nxt.word)</span><br><span class="line">len(nxt.child.keys()) == 0:</span><br><span class="line">root.child.pop(ch)</span><br></pre></td></tr></table></figure>
 <h2 id="排序-2"><a class="markdownIt-Anchor" href="#排序-2"></a> 排序</h2>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def comp(a, b):</span><br><span class="line">    an = a+b</span><br><span class="line">    bn = b+a</span><br><span class="line">    if an &gt; bn: return -1</span><br><span class="line">    elif an &lt; bn: return 1</span><br><span class="line">    else: return 0</span><br><span class="line"></span><br><span class="line">ans.sort(key=functools.cmp_to_key(comp))</span><br><span class="line">ans.sort(cmp = lambda x,y: cmp(y+x, x+y))</span><br><span class="line">ans.sort(key=functools.cmp_to_key(lambda x,y: cmp(y+x, x+y)))</span><br><span class="line"></span><br><span class="line">ans = sorted(ans) #需要赋值，只是sorted不改变存储位置</span><br></pre></td></tr></table></figure>
 <h2 id="目录结构"><a class="markdownIt-Anchor" href="#目录结构"></a> 目录结构</h2>
@@ -455,7 +492,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#c"><span class="toc-number">1.</span> <span class="toc-text"> c++</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#引用"><span class="toc-number">1.1.</span> <span class="toc-text"> 引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排序"><span class="toc-number">1.2.</span> <span class="toc-text"> 排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stl"><span class="toc-number">1.3.</span> <span class="toc-text"> STL</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#python"><span class="toc-number">2.</span> <span class="toc-text"> python</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#知识"><span class="toc-number">2.1.</span> <span class="toc-text"> 知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构"><span class="toc-number">2.2.</span> <span class="toc-text"> 数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排序-2"><span class="toc-number">2.3.</span> <span class="toc-text"> 排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目录结构"><span class="toc-number">2.4.</span> <span class="toc-text"> 目录结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件操作"><span class="toc-number">2.5.</span> <span class="toc-text"> 文件操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二维数组根据下标索引赋值"><span class="toc-number">2.6.</span> <span class="toc-text"> 二维数组根据下标索引赋值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数生成变量赋值"><span class="toc-number">2.7.</span> <span class="toc-text"> 函数生成变量赋值？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#opencv无法读取中文路径"><span class="toc-number">2.8.</span> <span class="toc-text"> opencv无法读取中文路径</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#c"><span class="toc-number">1.</span> <span class="toc-text"> c++</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#引用"><span class="toc-number">1.1.</span> <span class="toc-text"> 引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排序"><span class="toc-number">1.2.</span> <span class="toc-text"> 排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stl"><span class="toc-number">1.3.</span> <span class="toc-text"> STL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构"><span class="toc-number">1.4.</span> <span class="toc-text"> 数据结构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#python"><span class="toc-number">2.</span> <span class="toc-text"> python</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#知识"><span class="toc-number">2.1.</span> <span class="toc-text"> 知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构-2"><span class="toc-number">2.2.</span> <span class="toc-text"> 数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排序-2"><span class="toc-number">2.3.</span> <span class="toc-text"> 排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目录结构"><span class="toc-number">2.4.</span> <span class="toc-text"> 目录结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件操作"><span class="toc-number">2.5.</span> <span class="toc-text"> 文件操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二维数组根据下标索引赋值"><span class="toc-number">2.6.</span> <span class="toc-text"> 二维数组根据下标索引赋值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数生成变量赋值"><span class="toc-number">2.7.</span> <span class="toc-text"> 函数生成变量赋值？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#opencv无法读取中文路径"><span class="toc-number">2.8.</span> <span class="toc-text"> opencv无法读取中文路径</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -682,23 +719,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">latex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -714,7 +735,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">clip</a>
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -742,11 +775,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -762,31 +791,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">OBS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">frp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -814,11 +819,47 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
+                <a href="javascript:void(0)" class="js-tag color5">clip</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">OBS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">frp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">基金</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">transformer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -842,35 +883,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">transformer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多标签</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">指标</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">公众号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ios</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -890,7 +903,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -910,7 +923,39 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">指标</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">公众号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -923,6 +968,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">配置</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -947,22 +1000,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">live2d</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">配置</a>
               </li>
              
               <li class="article-tag-list-item">

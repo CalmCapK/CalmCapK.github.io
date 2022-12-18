@@ -47636,11 +47636,11 @@ pc小程序的<br>
 <ul>
 <li>vector</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sort(nums.begin(), nums.end());  排序 </span><br><span class="line">vector&lt;vector&lt;int&gt;&gt; edge; edge.emplace_back(); 不需要新建vector&lt;int&gt;对象</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sort(nums.begin(), nums.end());  排序 </span><br><span class="line">vector&lt;vector&lt;int&gt;&gt; edge; edge.emplace_back(); 不需要新建</span><br><span class="line">edge.push_back(&#123;1,2,3,4,&#125;) 直接加vector</span><br><span class="line">vector&lt;int&gt;对象</span><br><span class="line">初始化</span><br><span class="line">v = &#123;&#125;;</span><br><span class="line">v = &#123;&apos;a&apos;&#125;;</span><br><span class="line">push_back() emplace_back()</span><br><span class="line">v.back()</span><br></pre></td></tr></table></figure>
 <ul>
 <li>string 字符串</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reverse(s.begin(), s.end()); 翻转</span><br><span class="line">s.substr(i, n); 子串</span><br><span class="line">s[i] = &apos;a&apos; 可以赋值</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">reverse(s.begin(), s.end()); 翻转</span><br><span class="line">s.substr(i, n); 子串</span><br><span class="line">s[i] = &apos;a&apos; 可以赋值</span><br><span class="line"></span><br><span class="line">s = to_string(val) 数字转字符串</span><br><span class="line">i = stoi(s) 字符串转数字</span><br></pre></td></tr></table></figure>
 <ul>
 <li>pair</li>
 </ul>
@@ -47650,25 +47650,42 @@ pc小程序的<br>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">stack&lt;int&gt;st;</span><br><span class="line">while(!st.empty()) st.pop();</span><br><span class="line">st.top();</span><br><span class="line">st.push();</span><br></pre></td></tr></table></figure>
 <ul>
+<li>queue</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">q.pop()</span><br><span class="line">q.front()</span><br><span class="line">q.push()</span><br></pre></td></tr></table></figure>
+<ul>
 <li>priority_queue 优先队列</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">//自定义1</span><br><span class="line">priority_queue&lt;int, vector&lt;int&gt;, less&lt;int&gt; &gt; a == priority_queue&lt;int&gt;a;</span><br><span class="line">//自定义2</span><br><span class="line">struct Status &#123;</span><br><span class="line">    int val;</span><br><span class="line">    ListNode *ptr;</span><br><span class="line">    bool operator &lt; (const Status &amp;rhs) const &#123;</span><br><span class="line">        return val &gt; rhs.val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">priority_queue &lt;Status&gt; q;</span><br><span class="line">q.push(&#123;node-&gt;val, node&#125;)</span><br><span class="line">//自定义3</span><br><span class="line">struct tmp2 //重写仿函数</span><br><span class="line">&#123;</span><br><span class="line">    bool operator() (tmp1 a, tmp1 b) </span><br><span class="line">    &#123;</span><br><span class="line">        return a.x &lt; b.x; //大顶堆</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">priority_queue&lt;tmp1, vector&lt;tmp1&gt;, tmp2&gt; f;</span><br><span class="line"></span><br><span class="line">q.empty()</span><br><span class="line">auto f = q.top(); </span><br><span class="line">q.pop();</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">//自定义1</span><br><span class="line">priority_queue&lt;int, vector&lt;int&gt;, less&lt;int&gt; &gt; a == priority_queue&lt;int&gt;a;</span><br><span class="line">//自定义2</span><br><span class="line">struct Status &#123;</span><br><span class="line">    int val;</span><br><span class="line">    ListNode *ptr;</span><br><span class="line">    bool operator &lt; (const Status &amp;rhs) const &#123;</span><br><span class="line">        return val &gt; rhs.val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">priority_queue &lt;Status&gt; q;</span><br><span class="line">q.push(&#123;node-&gt;val, node&#125;)</span><br><span class="line">//自定义3</span><br><span class="line">struct tmp2 //重写仿函数</span><br><span class="line">&#123;</span><br><span class="line">    bool operator() (Node a, Node b) </span><br><span class="line">    &#123;</span><br><span class="line">        return a.x &lt; b.x; //大顶堆</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">priority_queue&lt;Node, vector&lt;Node&gt;, tmp2&gt; f;</span><br><span class="line"></span><br><span class="line">q.push(a) q.emplace(a)</span><br><span class="line">q.empty()</span><br><span class="line">auto f = q.top(); </span><br><span class="line">q.pop();</span><br></pre></td></tr></table></figure>
 <ul>
 <li>unordered_map</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">无序，查找问题，更加高效一些</span><br><span class="line">unordered_map&lt;int, list&lt;pair&lt;int,int&gt;&gt;::iterator&gt;mp;</span><br><span class="line">mp.find(key)!=mp.end()</span><br><span class="line">mp[key]-&gt;second;</span><br><span class="line">mp.erase(key); 删除</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">无序，查找问题，更加高效一些，o(1)时间</span><br><span class="line">查询o1,插入on</span><br><span class="line">unordered_map&lt;int, list&lt;pair&lt;int,int&gt;&gt;::iterator&gt;mp;</span><br><span class="line">mp.find(key)!=mp.end()</span><br><span class="line">mp[key]-&gt;second;</span><br><span class="line">mp.erase(key); 删除</span><br><span class="line">unordered_map&lt;int, vector&lt;string&gt;&gt; ans;</span><br><span class="line">ans.count(a)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>map</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">红黑树，有顺序要求的问题，用map会更高效一些</span><br><span class="line">for(map&lt;string, int&gt;::iterator it=mp.begin(); it != mp.end(); it++) cout &lt;&lt; (*it).first &lt;&lt; &quot; &quot; &lt;&lt; (*it).second &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">查询ologn,插入ologn</span><br><span class="line">红黑树，有顺序要求的问题，用map会更高效一些</span><br><span class="line">for(map&lt;string, int&gt;::iterator it=mp.begin(); it != mp.end(); it++) cout &lt;&lt; (*it).first &lt;&lt; &quot; &quot; &lt;&lt; (*it).second &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>list 双向链表</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">list&lt;pair&lt;int, int&gt;&gt;l;</span><br><span class="line">l.splice(l.begin(), l, mp[key]);</span><br><span class="line">l.erase(mp[key]);</span><br><span class="line">l.push_front(make_pair(key, value));</span><br><span class="line">l.begin();</span><br><span class="line">l.rbegin()-&gt;first</span><br><span class="line">l.pop_back();</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">list&lt;pair&lt;int, int&gt;&gt;l;</span><br><span class="line">l.splice(l.begin(), l, mp[key]);</span><br><span class="line">l.erase(mp[key]);</span><br><span class="line">l.push_front(make_pair(key, value));</span><br><span class="line">l.begin();</span><br><span class="line">l.rbegin()-&gt;first</span><br><span class="line">l.pop_back();</span><br><span class="line"></span><br><span class="line">l.front() 值</span><br><span class="line">l.begin() 迭代器</span><br><span class="line">l.erase(l.begin());</span><br><span class="line">l.push_back(a);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>unordered_set</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">查询o1,插入on</span><br><span class="line">unordered_set&lt;string&gt;mp;</span><br><span class="line">mp.count(a)</span><br><span class="line">vector转set</span><br><span class="line">unordered_set(v.begin(), v.end());</span><br></pre></td></tr></table></figure>
+<ul>
+<li>set</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">查询ologn,插入ologn</span><br><span class="line">set&lt;int&gt;s</span><br><span class="line">s.insert()</span><br><span class="line">s.count()</span><br></pre></td></tr></table></figure>
+<h2 id="数据结构"><a class="markdownIt-Anchor" href="#数据结构"></a> 数据结构</h2>
+<ul>
+<li>字典树</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">struct TrieNode &#123;</span><br><span class="line">    string word;</span><br><span class="line">    unordered_map&lt;char, TrieNode*&gt;child;</span><br><span class="line">    TrieNode()&#123;</span><br><span class="line">        this-&gt;word = &quot;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">void insertTrie(TrieNode * root, string word)&#123;</span><br><span class="line">    TrieNode*node = root;</span><br><span class="line">    for(int i = 0; i &lt; word.size(); i++)&#123;</span><br><span class="line">        if(!node-&gt;child.count(word[i]))&#123;</span><br><span class="line">            node-&gt;child[word[i]] = new TrieNode();</span><br><span class="line">        &#125;</span><br><span class="line">        node = node-&gt;child[word[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    node-&gt;word = word;</span><br><span class="line">&#125;</span><br><span class="line">TrieNode*root = new TrieNode();</span><br><span class="line">insertTrie(root, words[w]);</span><br><span class="line">root-&gt;child.count(ch))</span><br><span class="line">TrieNode*nxt = root-&gt;child[ch];</span><br><span class="line">nxt-&gt;word.size()</span><br><span class="line">nxt-&gt;child.empty()</span><br><span class="line">root-&gt;child.erase(ch)</span><br></pre></td></tr></table></figure>
 <h1 id="python"><a class="markdownIt-Anchor" href="#python"></a> python</h1>
 <h2 id="知识"><a class="markdownIt-Anchor" href="#知识"></a> 知识</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">python赋值只是引用, 函数从参数返回注意要把结果放在原来参数的存储位置</span><br><span class="line"></span><br><span class="line">for i in range((n-1)/2, -1, -1): 从大到小计算</span><br><span class="line">for i, num in enumerate(nums)</span><br><span class="line">for num in nums:</span><br><span class="line">    num = 不能赋值</span><br><span class="line"></span><br><span class="line">遍历</span><br><span class="line">for i in range(0, n-step, step*2)</span><br><span class="line">for i in range(n-1, -1, -1):</span><br><span class="line"></span><br><span class="line">float(&quot;-inf&quot;) 无穷</span><br></pre></td></tr></table></figure>
-<h2 id="数据结构"><a class="markdownIt-Anchor" href="#数据结构"></a> 数据结构</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">python赋值只是引用, 函数从参数返回注意要把结果放在原来参数的存储位置</span><br><span class="line"></span><br><span class="line">for i in range((n-1)/2, -1, -1): 从大到小计算</span><br><span class="line">for i, num in enumerate(nums)</span><br><span class="line">for num in nums:</span><br><span class="line">    num = 不能赋值</span><br><span class="line"></span><br><span class="line">遍历</span><br><span class="line">for i in range(0, n-step, step*2)</span><br><span class="line">for i in range(n-1, -1, -1):</span><br><span class="line"></span><br><span class="line">float(&quot;-inf&quot;) 无穷</span><br><span class="line"></span><br><span class="line">参数引用</span><br><span class="line">字典和列表是传址</span><br></pre></td></tr></table></figure>
+<h2 id="数据结构-2"><a class="markdownIt-Anchor" href="#数据结构-2"></a> 数据结构</h2>
 <ul>
 <li>string</li>
 </ul>
@@ -47678,9 +47695,29 @@ pc小程序的<br>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">实现堆栈</span><br><span class="line">a = []</span><br><span class="line">a.append()</span><br><span class="line">a.pop()</span><br><span class="line">a[-1]</span><br><span class="line"></span><br><span class="line">list.index(x)返回list第一个x位置</span><br><span class="line">list.reverse() 翻转</span><br><span class="line"></span><br><span class="line">构建数组</span><br><span class="line">al = [0] * n</span><br><span class="line">ar = [n-1] * n</span><br><span class="line">生成值为0的二维数组</span><br><span class="line">[[0] * m] * n 表示的是指向 [0]*m 这个列表的引用</span><br><span class="line">[[0] * m for _ in range(n)] 这才正确</span><br><span class="line">f = [[False] * (n + 1) for _ in range(m + 1)]</span><br></pre></td></tr></table></figure>
 <ul>
-<li>deque</li>
+<li>dict</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;&apos;b&apos;:1&#125;</span><br><span class="line">a.pop(&apos;b&apos;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>deque 双向队列</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">q = collections.deque([a])或者 q = collections.deque() q.append(a)    </span><br><span class="line">while q:</span><br><span class="line">id = q.popleft()</span><br><span class="line">q.append(e)</span><br><span class="line">len(q)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>PriorityQueue 基于heapq的 python3才能用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from queue import PriorityQueue</span><br><span class="line">q = PriorityQueue()</span><br><span class="line">q.put((-buildings[idx][2], buildings[idx][1]))  按照逐个元素从小到大</span><br><span class="line">q.put(Node(buildings[idx][1], buildings[idx][2]))  或者使用class</span><br><span class="line">排序</span><br><span class="line">while not q.empty():</span><br><span class="line">    a = q.get() 会直接pop</span><br><span class="line">    q.put(a)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>heapq 最小堆 python2可以用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import heapq</span><br><span class="line">q = []</span><br><span class="line">heapq.heappush(q, (-buildings[idx][2], buildings[idx][1]))</span><br><span class="line">while q:</span><br><span class="line">    a = heapq.heappop(q)</span><br><span class="line">    heapq.heappush(q, a)</span><br><span class="line">heapify([1,2,3]) 列表转堆</span><br><span class="line">heapreplace(q, new) 弹出最小元素，插入新元素</span><br><span class="line">nsmallest(3, q) 前n个最小元素</span><br><span class="line">nlargest(3, q)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>class</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Node(object):</span><br><span class="line">    def __init__(self, x, h):</span><br><span class="line">        self.x = x</span><br><span class="line">        self.h = h</span><br><span class="line">        return</span><br><span class="line"> </span><br><span class="line">    def __lt__(self, other): 排序</span><br><span class="line">        return self.h &gt; other.h</span><br></pre></td></tr></table></figure>
+<ul>
+<li>字典树</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class TrieNode(object):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.child = &#123;&#125;</span><br><span class="line">        self.word = &quot;&quot;</span><br><span class="line">def insertTrie(root, word):</span><br><span class="line">    node = root</span><br><span class="line">    for i in range(len(word)):</span><br><span class="line">        if word[i] not in node.child:</span><br><span class="line">            node.child[word[i]] = TrieNode()</span><br><span class="line">        node = node.child[word[i]]</span><br><span class="line">    node.word = word</span><br><span class="line">root = TrieNode()</span><br><span class="line">insertTrie(root, word)</span><br><span class="line">if ch not in root.child:</span><br><span class="line">nxt =  root.child[ch]</span><br><span class="line">len(nxt.word)</span><br><span class="line">len(nxt.child.keys()) == 0:</span><br><span class="line">root.child.pop(ch)</span><br></pre></td></tr></table></figure>
 <h2 id="排序-2"><a class="markdownIt-Anchor" href="#排序-2"></a> 排序</h2>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def comp(a, b):</span><br><span class="line">    an = a+b</span><br><span class="line">    bn = b+a</span><br><span class="line">    if an &gt; bn: return -1</span><br><span class="line">    elif an &lt; bn: return 1</span><br><span class="line">    else: return 0</span><br><span class="line"></span><br><span class="line">ans.sort(key=functools.cmp_to_key(comp))</span><br><span class="line">ans.sort(cmp = lambda x,y: cmp(y+x, x+y))</span><br><span class="line">ans.sort(key=functools.cmp_to_key(lambda x,y: cmp(y+x, x+y)))</span><br><span class="line"></span><br><span class="line">ans = sorted(ans) #需要赋值，只是sorted不改变存储位置</span><br></pre></td></tr></table></figure>
 <h2 id="目录结构"><a class="markdownIt-Anchor" href="#目录结构"></a> 目录结构</h2>
@@ -47855,6 +47892,26 @@ pc小程序的<br>
 </li>
 </ul>
 </li>
+<li>
+<p>题目297. Serialize and Deserialize Binary Tree</p>
+<ul>
+<li>题意：将二叉树进行序列化成字符串和反序列化</li>
+<li>思路1【最优】：先序遍历序列化+list或者queue辅助建树。通过先序遍历转成字符串，再从左到右顺序遍历字符串建树。注意子树是null时，字符串需要输出null。使用list或者queue建树，用vector会超时。
+<ul>
+<li>时间复杂度：n，其中n是树的节点数</li>
+<li>空间复杂度：n，其中n是树的节点数</li>
+</ul>
+</li>
+<li>错误思路：
+<ul>
+<li>思路1中，子树没有输出null</li>
+<li>思路1中，错误以为是idx+1,idx+2表示左右子树，这是层次遍历，先序遍历得到的字符串是从左到右</li>
+<li>思路1中，建树时按照’,'截断时，没有加入最后一个节点</li>
+<li>思路1中,使用vector导致超时</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <h2 id="链表"><a class="markdownIt-Anchor" href="#链表"></a> 链表</h2>
 <h3 id="双向链表"><a class="markdownIt-Anchor" href="#双向链表"></a> 双向链表</h3>
@@ -47928,7 +47985,8 @@ pc小程序的<br>
 </ul>
 <h3 id="图dfs"><a class="markdownIt-Anchor" href="#图dfs"></a> 图+dfs</h3>
 <ul>
-<li>题目130. Surrounded Regions
+<li>
+<p>题目130. Surrounded Regions</p>
 <ul>
 <li>题意：给定一个200x200图，如果’O’完全被’X’包围，则把’O’变成’X’</li>
 <li>思路1：<br>
@@ -47943,6 +48001,45 @@ vis表示一个点属于哪个连通图。只进入’O’点，枚举四个方�
 <li>错误思路：<br>
 vis表示一个点是否有问题。只进入’O’点，枚举四个方向，该方向越界就返回false，如果该方向是’O’点且已知有问题就返回false，如果该方向是’O’点且没有遍历过就继续dfs，最后判断该点有问题，返回false。<br>
 这种没有遍历完连通图就剪枝做结论返回，容易前一个分支一开始可行，但后面分支发现不可行，没办法更新。</li>
+</ul>
+</li>
+<li>
+<p>题目212. Word Search II</p>
+<ul>
+<li>题意：给一张图和一组单词，求出在图的单词，单词间可重叠</li>
+<li>思路1【超时】：dfs。枚举单词，再枚举起始位置，每次做dfs, dfs之前vis=1, dfs之后vis=0，这样失败路径的节点可以再访问。
+<ul>
+<li>时间复杂度：不会算</li>
+<li>空间复杂度：不会算</li>
+</ul>
+</li>
+<li>思路2【可以】：dfs+剪枝路径长度+删除已匹配单词。举起起始位置，每次做dfs, dfs之前vis=1, dfs之后vis=0。dfs时路径长度不超过单词最长值。用unordered_set存储字典单词，如果路径在set里，更新结果。同时需要删除set中的单词，否则会重复。
+<ul>
+<li>时间复杂度：不会算</li>
+<li>空间复杂度：不会算</li>
+</ul>
+</li>
+<li>思路3【可以】：dfs+剪枝前缀+删除已匹配单词。枚举起始位置，每次做dfs, dfs之前vis=1, dfs之后vis=0。【也可以不用vis,直接原来地图设置成#】一个unordered_map a记录单词列表的全部前缀，如果遍历不在前缀里return，一个unordered_map b记录是否找到单词，找到则删掉单词在a的前缀。
+<ul>
+<li>时间复杂度：不会算</li>
+<li>空间复杂度：不会算</li>
+</ul>
+</li>
+<li>思路4【最优】：dfs+剪枝前缀+字典树+删除已匹配单词。枚举起始位置，每次做dfs, dfs之前vis=1, dfs之后vis=0。【也可以不用vis,直接原来地图设置成#】。字典树记录单词列表，如果遍历不在则return，同时字典树记录要找的单词，找到且后面没有child，则在字典树删掉该字母。
+<ul>
+<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mo>×</mo><mi>n</mi><mo>×</mo><msup><mn>3</mn><mrow><mi>l</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">m \times n \times 3^{l-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8491079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">3</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span>，需要遍历<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">m \times n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>个单元格，每个单元格在最坏情况下仍需要遍历<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>4</mn><mo>×</mo><msup><mn>3</mn><mrow><mi>l</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">4 \times 3^{l-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8491079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">3</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span>条路径</li>
+<li>空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>×</mo><mi>l</mi></mrow><annotation encoding="application/x-tex">k \times l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span></span></span></span>，其中 k是单词个数，l是最长单词的长度。最坏情况下，需要<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>×</mo><mi>l</mi></mrow><annotation encoding="application/x-tex">k \times l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span></span></span></span> 存储前缀树</li>
+</ul>
+</li>
+<li>错误思路：
+<ul>
+<li>枚举单词，再枚举起始位置，每次做bfs, vis存储访问状态，这样会导致失败路径的节点无法再访问</li>
+<li>思路2，用set存储dfs时遍历到的前缀，这样预处理结果，set插入会超时。没有删掉set中单词，导致重复。</li>
+<li>思路3，没有使用unordered_map，find时间复杂度是n，导致超时。</li>
+<li>思路3，剪枝前缀，但没有删掉已经找到单词的前缀，超时。</li>
+<li>思路4，删掉已找到单词时，要判断是否有child再删</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -48037,6 +48134,29 @@ vis表示一个点是否有问题。只进入’O’点，枚举四个方向，�
 </li>
 </ul>
 <h2 id="贪心"><a class="markdownIt-Anchor" href="#贪心"></a> 贪心</h2>
+<h3 id="区间问题"><a class="markdownIt-Anchor" href="#区间问题"></a> 区间问题</h3>
+<ul>
+<li>题目218. The Skyline Problem
+<ul>
+<li>题意：给出多个矩形建筑左端点、右端点和高（已经按照左端点从小到大排序），求天际线</li>
+<li>思路1【最优，不是我想的】：扫描线+优先队列。建筑的左右端点排序，依次遍历。
+<ul>
+<li>用优先队列，存储含当前位置建筑的最高的右端点。</li>
+<li>对于当前位置，右端点比它小或等于就出队列。等于是说明是建筑右边，不符合天际线定义。</li>
+<li>取队列的顶，如果高度和上一个天际线高度一致，说明冗余需要舍弃。否则加入结果。</li>
+<li>如果队列没有内容，说明是一堆建筑的右边，此时高度为0，也要判断和上一个天际线高度是否一致，一致说明冗余需要舍弃。否则加入结果。</li>
+<li>时间复杂度：nlogn，每个建筑最多需要出入队列一次，单次logn</li>
+<li>空间复杂度：n</li>
+</ul>
+</li>
+<li>错误思路：
+<ul>
+<li>思路1，高度为0的时候没有判断是否冗余。建筑佑边缘没有pop。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h2 id="字符串"><a class="markdownIt-Anchor" href="#字符串"></a> 字符串</h2>
 <h3 id="字符串匹配"><a class="markdownIt-Anchor" href="#字符串匹配"></a> 字符串匹配</h3>
 <ul>
@@ -48110,7 +48230,7 @@ vis表示一个点是否有问题。只进入’O’点，枚举四个方向，�
 <li>空间复杂度：1</li>
 </ul>
 </li>
-<li>思路2【最优】：贪心，遍历s, jstar指向p连续<em>的最后一个，istar指向s需要用</em>的地方，非必要不用*，用*需回退【难想】
+<li>思路2【最优】：贪心。遍历s, jstar指向p连续<em>的最后一个，istar指向s需要用</em>的地方，非必要不用*，用*需回退【难想】
 <ul>
 <li>当s[i]<mark>p[j]或p[j]</mark>’?'时
 <ul>
@@ -48170,6 +48290,34 @@ vis表示一个点是否有问题。只进入’O’点，枚举四个方向，�
 <li>错误思路：
 <ul>
 <li>思路1中只用一个map处理</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="字符串拆分"><a class="markdownIt-Anchor" href="#字符串拆分"></a> 字符串拆分</h3>
+<ul>
+<li>题目140. Word Break II
+<ul>
+<li>题意：给一个字符串S和一组单词，求s拆成单词的所有情况</li>
+<li>思路1：dfs。用map存储单词。从位置st开始枚举当前拆分位置，如果可以拆分，则继续dfs后面的字符串。当前位置为n时，得到一种拆分情况。
+<ul>
+<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">n^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span></span>,n是字符串长度</li>
+<li>空间复杂度：</li>
+</ul>
+</li>
+<li>思路2【最优】：记忆化dfs。用set存储单词，map[i]存储<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mrow><mi>i</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">S_{i...n-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.891661em;vertical-align:-0.208331em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mord mathdefault mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span></span></span></span>的拆分情况。从位置st开始枚举当前拆分位置i，如果可以拆分，则继续dfs后面的字符串<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mrow><mi>i</mi><mo>+</mo><mn>1...</mn><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">S_{i+1...n-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.891661em;vertical-align:-0.208331em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">1</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mord mathdefault mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span></span></span></span>。
+<ul>
+<li>如果map[i+1]已经搜索过，则直接返回。</li>
+<li>如果当前位置为n时，map[n]={&quot;&quot;}。</li>
+<li>如果map[i+1]有解，则map[st]的情况 += <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mrow><mi>s</mi><mi>t</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">S_{st...i}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">s</span><span class="mord mathdefault mtight">t</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> + map[i+1]的情况</li>
+<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">n*2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span></span>,写入<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">n*2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span></span>的空间至少也需要<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">n*2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span></span>的时间。</li>
+<li>空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">n*2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span></span>,n是字符串长度,S的分隔方法由<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span></span>种，每种需要n存储空间。</li>
+</ul>
+</li>
+<li>错误思路：
+<ul>
+<li>思路2的时候，忘记生成一种空情况，map[st]={}。</li>
 </ul>
 </li>
 </ul>
@@ -48668,15 +48816,25 @@ live2d cubism</p>
 <h1 id="动画"><a class="markdownIt-Anchor" href="#动画"></a> 动画</h1>
 <h2 id="国外"><a class="markdownIt-Anchor" href="#国外"></a> 国外</h2>
 <ul>
-<li>推荐<br>
+<li>
+<p>推荐<br>
 棒球大联盟<br>
 重启咲良田、奇巧出租车、思维覆写<br>
 樱花庄的宠物女孩、擅长捉弄的高木同学<br>
 明日的娜嘉<br>
 琴之森、NEW GAME<br>
-夏目友人帐</li>
-<li>看过<br>
-贤惠幼妻仙狐小姐</li>
+夏目友人帐</p>
+</li>
+<li>
+<p>看过<br>
+贤惠幼妻仙狐小姐</p>
+</li>
+<li>
+<p>在看<br>
+孤独摇滚<br>
+埃罗芒阿老师<br>
+间谍过家家</p>
+</li>
 </ul>
 <h2 id="国产"><a class="markdownIt-Anchor" href="#国产"></a> 国产</h2>
 <p>围棋少年、虹猫蓝兔七侠传</p>
@@ -48694,7 +48852,11 @@ live2d cubism</p>
 <h2 id="日本动画"><a class="markdownIt-Anchor" href="#日本动画"></a> 日本动画</h2>
 <p>宫崎骏吉卜力系列<br>
 想哭的我戴上了猫的面具<br>
-千年女优</p>
+千年女优<br>
+柯南系列</p>
+<ul>
+<li>万圣节的新娘</li>
+</ul>
 <h2 id="动画-2"><a class="markdownIt-Anchor" href="#动画-2"></a> 动画</h2>
 <p>拜见罗宾逊一家<br>
 驯龙高手</p>
@@ -48709,7 +48871,10 @@ live2d cubism</p>
 怦然心动、美丽心灵、初恋那件小事、傲慢与偏见<br>
 天才少女、死亡诗社、放牛班的春天、天才枪手、风雨哈佛路<br>
 这个杀手不太冷<br>
-绿皮书、美丽人生</p>
+绿皮书、美丽人生<br>
+裁女佳人<br>
+盗梦空间<br>
+福尔摩斯小姐1和2</p>
 </li>
 <li>
 <p>看过<br>
@@ -48720,10 +48885,12 @@ live2d cubism</p>
 </li>
 <li>
 <p>想看<br>
-盗梦空间</p>
+八美图<br>
+阳光下的罪恶<br>
+公主日记</p>
 </li>
 </ul>
-<p>福尔摩斯小姐</p>
+<p>小黄人前传</p>
 <p>教授<br>
 海蒂和爷爷<br>
 闻香识女人<br>
@@ -49044,8 +49211,8 @@ live2d cubism</p>
 </tr>
 <tr>
 <td><img src="/assets/img/cook/tiaowei/2.jpg">玉米淀粉200g 3.89</td>
-<td><img src="/assets/img/cook/tiaowei/1.jpg">生姜300g4.39 78g1.09</td>
-<td><img src="/assets/img/cook/tiaowei/8.jpg">蒜250g 3.99</td>
+<td><img src="/assets/img/cook/tiaowei/1.jpg">生姜100g 1.40-1.62</td>
+<td><img src="/assets/img/cook/tiaowei/8.jpg">蒜100g 1.00-1.60</td>
 </tr>
 </table>
 <h1 id="材料价格"><a class="markdownIt-Anchor" href="#材料价格"></a> 材料价格</h1>
@@ -49062,6 +49229,7 @@ live2d cubism</p>
 <tr>
 <td><img src="/assets/img/cook/cailiao/17.jpg">金针菇150g 1.99</td>
 <td><img src="/assets/img/cook/cailiao/26.jpg">海鲜菇200g 4.19</td>
+<td><img src="/assets/img/cook/cailiao/51.jpg">香菇256g 5.02</td>
 </tr>
 <tr>
 <td><img src="/assets/img/cook/cailiao/9.jpg">虾饺100g 4.9</td>
@@ -49087,6 +49255,7 @@ live2d cubism</p>
 <td><img src="/assets/img/cook/cailiao/11.jpg">牛肉150g 18.8</td>
 <td><img src="/assets/img/cook/cailiao/29.jpg">瘦肉250g 15.8 196g 10.18</td>
 <td><img src="/assets/img/cook/cailiao/44.jpg">后腿肉252g 10.57</td>
+<td><img src="/assets/img/cook/cailiao/50.jpg">肋排206g 16.05</td>
 <td><img src="/assets/img/cook/cailiao/31.jpg">虾仁100g 9.9</td>
 </tr>
 <tr>
@@ -49099,7 +49268,6 @@ live2d cubism</p>
 <td><img src="/assets/img/cook/cailiao/35.jpg">宁夏菜心300g 3.99</td>
 <td><img src="/assets/img/cook/cailiao/36.jpg">天津白386g 1.42</td>
 <td><img src="/assets/img/cook/cailiao/41.jpg">菠菜212g 2.96</td>
-<td><img src="/assets/img/cook/cailiao/43.jpg">豆芽200g 2.5</td>
 </tr>
 <tr>
 <td><img src="/assets/img/cook/cailiao/6.jpg">冬瓜500g 2.99</td>
@@ -49108,8 +49276,13 @@ live2d cubism</p>
 <td><img src="/assets/img/cook/cailiao/28.jpg">丝瓜350g 4.59</td>
 <td><img src="/assets/img/cook/cailiao/33.jpg">白萝卜650g 3.49</td>
 <td><img src="/assets/img/cook/cailiao/40.jpg">土豆390g 1.55</td>
-<td><img src="/assets/img/cook/cailiao/45.jpg">胡萝卜628g 4.26</td>
+<td><img src="/assets/img/cook/cailiao/45.jpg">胡萝卜628g4.26 420g2.51</td>
 <td><img src="/assets/img/cook/cailiao/46.jpg">南瓜648g 3.48</td>
+</tr>
+<tr>
+<td><img src="/assets/img/cook/cailiao/43.jpg">豆芽200g 2.5</td>
+<td><img src="/assets/img/cook/cailiao/49.jpg">甜玉米1个 1.00</td>
+<td><img src="/assets/img/cook/cailiao/52.jpg">荷兰豆120g 3.31</td>
 </tr>
 <tr>
 <td><img src="/assets/img/cook/cailiao/5.jpg">豆腐380g 3.59</td>
@@ -51977,6 +52150,35 @@ live2d cubism</p>
 <td><img src="/assets/img/cook/process/w15/10.jpg"></td>
 </tr>
 </table>
+<h3 id="变种1-胡萝卜火腿鸡蛋饼不错"><a class="markdownIt-Anchor" href="#变种1-胡萝卜火腿鸡蛋饼不错"></a> 变种1. 胡萝卜火腿鸡蛋饼【不错】</h3>
+<ul>
+<li>材料<br>
+油、盐、黑胡椒<br>
+胡萝卜、火腿、鸡蛋</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/45.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/48.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/27.jpg"></td>
+</tr>
+</table>
+<ul>
+<li>步骤<br>
+胡萝卜、火腿切碎<br>
+倒入蛋液，加盐、黑胡椒搅拌<br>
+炒锅放油煎</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w18/23.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/24.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/30.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/31.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/32.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/38.jpg"></td>
+</tr>
+</table>
 <h2 id="80-胡萝卜炒肉不错"><a class="markdownIt-Anchor" href="#80-胡萝卜炒肉不错"></a> 80. 胡萝卜炒肉【不错】</h2>
 <ul>
 <li>材料<br>
@@ -52074,6 +52276,35 @@ live2d cubism</p>
 <td><img src="/assets/img/cook/process/w17/4.jpg"></td>
 <td><img src="/assets/img/cook/process/w17/5.jpg"></td>
 <td><img src="/assets/img/cook/process/w17/6.jpg"></td>
+</tr>
+</table>
+<h3 id="变种1-火腿炒鸡蛋"><a class="markdownIt-Anchor" href="#变种1-火腿炒鸡蛋"></a> 变种1. 火腿炒鸡蛋</h3>
+<ul>
+<li>材料<br>
+油、盐<br>
+火腿、鸡蛋</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/48.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/27.jpg"></td>
+</tr>
+</table>
+<ul>
+<li>步骤<br>
+火腿切片<br>
+鸡蛋加盐打散<br>
+炒锅放油炒鸡蛋<br>
+倒入火腿炒几分钟</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w18/14.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/33.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/34.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/35.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/36.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/39.jpg"></td>
 </tr>
 </table>
 <h2 id="83-可乐鸡翅不错"><a class="markdownIt-Anchor" href="#83-可乐鸡翅不错"></a> 83. 可乐鸡翅【不错】</h2>
@@ -52291,6 +52522,404 @@ live2d cubism</p>
 <td><img src="/assets/img/cook/process/w17/29.jpg"></td>
 <td><img src="/assets/img/cook/process/w17/37.jpg"></td>
 <td><img src="/assets/img/cook/process/w17/39.jpg"></td>
+</tr>
+</table>
+<h2 id="90-玉米胡萝卜排骨汤"><a class="markdownIt-Anchor" href="#90-玉米胡萝卜排骨汤"></a> 90. 玉米胡萝卜排骨汤</h2>
+<ul>
+<li>材料<br>
+盐、料酒、姜<br>
+玉米、胡萝卜、排骨</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/49.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/45.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/50.jpg"></td>
+</tr>
+</table>
+<ul>
+<li>步骤<br>
+玉米切开、胡萝卜切片<br>
+玉米、胡萝卜、排骨洗干净泡盐水<br>
+姜切片<br>
+炒锅冷水加料酒、姜片煮排骨，水开后两分钟捞出<br>
+方法1：<br>
+炒锅冷水加料酒、姜片煮排骨，中火煮10分钟<br>
+加盐、玉米、胡萝卜，小火煮15分钟</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w18/1.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/2.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/3.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/4.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/5.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/6.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/7.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/8.jpg"></td>
+</tr>
+</table>
+<p>方法2：<br>
+炒锅冷水加料酒、姜片煮排骨、玉米、胡萝卜，中火煮10分钟<br>
+加盐、小火煮20分钟</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w18/10.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/11.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/12.jpg"></td>
+</tr>
+</table>
+<p>方法3：【不错】<br>
+炒锅冷水加料酒、姜片煮排骨、玉米，中火煮10分钟<br>
+加盐、胡萝卜，小火煮20-30分钟</p>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w18/17.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/19.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/20.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/37.jpg"></td>
+</tr>
+</table>
+<h2 id="91-玉米胡萝卜蒸蛋一般"><a class="markdownIt-Anchor" href="#91-玉米胡萝卜蒸蛋一般"></a> 91. 玉米胡萝卜蒸蛋【一般】</h2>
+<ul>
+<li>材料<br>
+酱油<br>
+玉米、胡萝卜、鸡蛋</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/49.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/45.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/27.jpg"></td>
+</tr>
+</table>
+<ul>
+<li>步骤<br>
+玉米剥粒、胡芦卜切粒<br>
+鸡蛋加水打散搅拌<br>
+汤锅蒸25min，加酱油调味</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w18/0.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/9.jpg"></td>
+</tr>
+</table>
+<h2 id="92-玉米烙散了"><a class="markdownIt-Anchor" href="#92-玉米烙散了"></a> 92. 玉米烙【散了】</h2>
+<ul>
+<li>材料<br>
+糖、淀粉<br>
+玉米</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/49.jpg"></td>
+</tr>
+</table>
+<ul>
+<li>步骤<br>
+玉米剥粒，汤锅蒸25min<br>
+加淀粉、糖搅拌，每一粒都沾上淀粉<br>
+炒锅放油，煎玉米</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w18/13.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/15.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/16.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/18.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/21.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/25.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/26.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/28.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/42.jpg"></td>
+</tr>
+</table>
+<h3 id="变种1-鸡蛋玉米烙不错"><a class="markdownIt-Anchor" href="#变种1-鸡蛋玉米烙不错"></a> 变种1. 鸡蛋玉米烙【不错】</h3>
+<ul>
+<li>材料<br>
+糖、淀粉<br>
+玉米、鸡蛋</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/49.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/27.jpg"></td>
+</tr>
+</table>
+<ul>
+<li>步骤<br>
+鸡蛋打散<br>
+玉米剥粒，汤锅蒸25min<br>
+加蛋液、淀粉、糖搅拌，每一粒都沾上淀粉<br>
+炒锅放油，煎玉米</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w18/13.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/15.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/16.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/18.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/22.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/25.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/26.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/27.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/29.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/40.jpg"></td>
+<td><img src="/assets/img/cook/process/w18/41.jpg"></td>
+</tr>
+</table>
+<h2 id="93-香菇汤没啥味道"><a class="markdownIt-Anchor" href="#93-香菇汤没啥味道"></a> 93. 香菇汤【没啥味道】</h2>
+<ul>
+<li>材料<br>
+盐、（油）<br>
+香菇</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/51.jpg"></td>
+</tr>
+</table>
+<ul>
+<li>步骤<br>
+香菇清洗：去根部，放盐水淀粉，根部朝下搅拌，泡15分钟，冲洗几次<br>
+香菇切片<br>
+（炒锅放油小火炒香菇）<br>
+炒锅放水小火炖10分钟<br>
+加盐调味</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w19/0.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/2.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/8.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/9.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/10.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/11.jpg"></td>
+</tr>
+</table>
+<h2 id="94-香菇鸡蛋汤不错"><a class="markdownIt-Anchor" href="#94-香菇鸡蛋汤不错"></a> 94. 香菇鸡蛋汤【不错】</h2>
+<ul>
+<li>材料<br>
+盐、油、酱油、（耗油）、淀粉、蒜、姜<br>
+香菇、鸡蛋</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/51.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/27.jpg"></td>
+</tr>
+</table>
+<ul>
+<li>步骤<br>
+香菇清洗：去根部，放盐水淀粉，根部朝下搅拌，泡15分钟，冲洗几次<br>
+香菇切丁、鸡蛋打散、蒜切碎、姜切碎<br>
+炒锅放油炒蒜、姜<br>
+炒香菇<br>
+倒水，煮几分钟加酱油、（耗油）、盐调味<br>
+倒入蛋液，加淀粉水(忘记加了)</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w19/27.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/28.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/34.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/29.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/30.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/31.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/32.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/33.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/35.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/36.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/38.jpg"></td>
+</tr>
+</table>
+<h2 id="95-耗油香菇不错"><a class="markdownIt-Anchor" href="#95-耗油香菇不错"></a> 95. 耗油香菇【不错】</h2>
+<ul>
+<li>材料<br>
+盐、油、糖、耗油、酱油、淀粉、蒜、姜<br>
+香菇</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/51.jpg"></td>
+</tr>
+</table>
+<ul>
+<li>步骤<br>
+香菇清洗：去根部，放盐水淀粉，根部朝下搅拌，泡15分钟，冲洗几次<br>
+（香菇切片)、蒜切碎、姜切碎<br>
+准备调料：（盐、糖）、耗油、酱油、淀粉、水，搅拌<br>
+（炒锅放水、盐、油，水开加香菇，焯水半分钟）<br>
+炒锅放油炒蒜、姜<br>
+加香菇<br>
+变软，加调料<br>
+一会收汁</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w19/39.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/40.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/45.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/46.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/47.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/48.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/49.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/50.jpg"></td>
+</tr>
+</table>
+<h2 id="96-香菇炒鸡蛋"><a class="markdownIt-Anchor" href="#96-香菇炒鸡蛋"></a> 96. 香菇炒鸡蛋</h2>
+<ul>
+<li>材料<br>
+盐、油、糖、酱油<br>
+香菇、鸡蛋</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/51.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/27.jpg"></td>
+</tr>
+</table>
+<ul>
+<li>步骤<br>
+香菇清洗：去根部，放盐水淀粉，根部朝下搅拌，泡15分钟，冲洗几次<br>
+香菇切片、鸡蛋打散<br>
+（炒锅放水、盐、油，水开加香菇，焯水半分钟）<br>
+炒锅放油炒鸡蛋，捞出<br>
+加香菇，变软加盐、糖、酱油调味<br>
+加鸡蛋炒一会</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w19/13.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/14.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/15.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/16.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/17.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/23.jpg"></td>
+</tr>
+</table>
+<h2 id="97-荷兰豆炒香菇"><a class="markdownIt-Anchor" href="#97-荷兰豆炒香菇"></a> 97. 荷兰豆炒香菇</h2>
+<ul>
+<li>材料<br>
+盐、油、酱油、（耗油）、蒜<br>
+荷兰豆、香菇</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/52.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/51.jpg"></td>
+</tr>
+</table>
+<ul>
+<li>步骤<br>
+香菇清洗：去根部，放盐水淀粉，根部朝下搅拌，泡15分钟，冲洗几次<br>
+荷兰豆清洗：去筋，放盐水泡，冲洗几次<br>
+香菇切片、蒜切碎<br>
+（炒锅放水、盐、油，水开加荷兰豆，焯水半分钟）<br>
+炒锅放油炒蒜<br>
+加香菇，半熟加荷兰豆<br>
+变色加盐、酱油、（耗油）调味</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w19/18.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/19.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/20.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/21.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/22.jpg"></td>
+</tr>
+</table>
+<h2 id="98-荷兰豆炒香肠"><a class="markdownIt-Anchor" href="#98-荷兰豆炒香肠"></a> 98. 荷兰豆炒香肠</h2>
+<ul>
+<li>材料<br>
+盐、油、糖、耗油、蒜、姜<br>
+荷兰豆、香肠</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/52.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/48.jpg"></td>
+</tr>
+</table>
+<ul>
+<li>步骤<br>
+荷兰豆清洗：去筋，放盐水泡，冲洗几次<br>
+香肠切片、蒜切碎、姜切碎<br>
+（炒锅放水、盐、油，水开加荷兰豆，焯水半分钟）<br>
+炒锅放油炒蒜、姜<br>
+加香肠炒，两面金黄<br>
+加荷兰豆，变色加盐、糖、耗油调味<br>
+炒2分钟</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w19/0.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/1.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/2.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/3.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/4.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/5.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/6.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/7.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/12.jpg"></td>
+</tr>
+</table>
+<h2 id="99-荷兰豆炒鸡蛋荷兰豆有点脆"><a class="markdownIt-Anchor" href="#99-荷兰豆炒鸡蛋荷兰豆有点脆"></a> 99. 荷兰豆炒鸡蛋【荷兰豆有点脆】</h2>
+<ul>
+<li>材料<br>
+盐、油<br>
+荷兰豆、鸡蛋</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/52.jpg"></td>
+<td><img src="/assets/img/cook/cailiao/27.jpg"></td>
+</tr>
+</table>
+<ul>
+<li>步骤<br>
+荷兰豆清洗：去筋，放盐水泡，冲洗几次<br>
+鸡蛋打散<br>
+（炒锅放水、盐、油，水开加荷兰豆，焯水半分钟）<br>
+炒锅放油炒鸡蛋<br>
+加荷兰豆，变色加盐调味</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w19/41.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/42.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/43.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/44.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/51.jpg"></td>
+</tr>
+</table>
+<h2 id="100-蒜炒荷兰豆"><a class="markdownIt-Anchor" href="#100-蒜炒荷兰豆"></a> 100. 蒜炒荷兰豆</h2>
+<ul>
+<li>材料<br>
+盐、油、蒜<br>
+荷兰豆</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/cailiao/52.jpg"></td>
+</tr>
+</table>
+<ul>
+<li>步骤<br>
+荷兰豆清洗：去筋，放盐水泡，冲洗几次<br>
+蒜切碎<br>
+（炒锅放水、盐、油，水开加荷兰豆，焯水半分钟）<br>
+炒锅放油炒蒜<br>
+加荷兰豆，变色放盐调味<br>
+再炒2分钟</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/img/cook/process/w19/24.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/25.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/26.jpg"></td>
+<td><img src="/assets/img/cook/process/w19/37.jpg"></td>
 </tr>
 </table>
 
@@ -52560,23 +53189,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">latex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -52592,7 +53205,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">clip</a>
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -52620,11 +53245,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -52640,31 +53261,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">OBS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">frp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -52692,11 +53289,47 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
+                <a href="javascript:void(0)" class="js-tag color5">clip</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">OBS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">frp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">基金</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">transformer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -52720,35 +53353,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">transformer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多标签</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">指标</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">公众号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ios</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -52768,7 +53373,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -52788,7 +53393,39 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">指标</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">公众号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -52801,6 +53438,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">配置</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -52825,22 +53470,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">live2d</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">配置</a>
               </li>
              
               <li class="article-tag-list-item">

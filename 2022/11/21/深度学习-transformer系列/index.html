@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="https://calmcapK.github.io">
   <title>深度学习-transformer系列 | CalmCapK&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="背景知识  LayerNorm   attention  additive attention 可以处理维度不同的情况 dot-product attention 维度一样   transformer  卷积难建模长序列-》attention可以看到全部像素 卷积可以多个通道-》multi-head 自注意力机制 自回归 编码器  6层一样的  multi-head self-attention">
+  <meta name="description" content="背景知识  LayerNorm   attention  additive attention 可以处理维度不同的情况 dot-product attention 维度一样   transformer  流程  embedding 把单词转为512维向量，可以随机初始化或者word2vector   结构  卷积难建模长序列-》attention可以看到全部像素 卷积可以多个通道-》multi-">
 <meta name="keywords" content="transformer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深度学习-transformer系列">
 <meta property="og:url" content="https://calmcapK.github.io/2022/11/21/深度学习-transformer系列/index.html">
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
-<meta property="og:description" content="背景知识  LayerNorm   attention  additive attention 可以处理维度不同的情况 dot-product attention 维度一样   transformer  卷积难建模长序列-》attention可以看到全部像素 卷积可以多个通道-》multi-head 自注意力机制 自回归 编码器  6层一样的  multi-head self-attention">
+<meta property="og:description" content="背景知识  LayerNorm   attention  additive attention 可以处理维度不同的情况 dot-product attention 维度一样   transformer  流程  embedding 把单词转为512维向量，可以随机初始化或者word2vector   结构  卷积难建模长序列-》attention可以看到全部像素 卷积可以多个通道-》multi-">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://calmcapk.github.io/assets/typora/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-transformer%E7%B3%BB%E5%88%97/norm.png">
-<meta property="og:updated_time" content="2022-11-21T01:15:27.445Z">
+<meta property="og:updated_time" content="2022-12-05T15:53:22.204Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深度学习-transformer系列">
-<meta name="twitter:description" content="背景知识  LayerNorm   attention  additive attention 可以处理维度不同的情况 dot-product attention 维度一样   transformer  卷积难建模长序列-》attention可以看到全部像素 卷积可以多个通道-》multi-head 自注意力机制 自回归 编码器  6层一样的  multi-head self-attention">
+<meta name="twitter:description" content="背景知识  LayerNorm   attention  additive attention 可以处理维度不同的情况 dot-product attention 维度一样   transformer  流程  embedding 把单词转为512维向量，可以随机初始化或者word2vector   结构  卷积难建模长序列-》attention可以看到全部像素 卷积可以多个通道-》multi-">
 <meta name="twitter:image" content="https://calmcapk.github.io/assets/typora/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-transformer%E7%B3%BB%E5%88%97/norm.png">
   
     <link rel="alternative" href="/atom.xml" title="CalmCapK&#39;s Blog" type="application/atom+xml">
@@ -216,6 +216,11 @@
 <li>dot-product attention 维度一样</li>
 </ul>
 <h1 id="transformer"><a class="markdownIt-Anchor" href="#transformer"></a> transformer</h1>
+<h2 id="流程"><a class="markdownIt-Anchor" href="#流程"></a> 流程</h2>
+<ul>
+<li>embedding 把单词转为512维向量，可以随机初始化或者word2vector</li>
+</ul>
+<h2 id="结构"><a class="markdownIt-Anchor" href="#结构"></a> 结构</h2>
 <ul>
 <li>卷积难建模长序列-》attention可以看到全部像素</li>
 <li>卷积可以多个通道-》multi-head</li>
@@ -415,7 +420,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景知识"><span class="toc-number">1.</span> <span class="toc-text"> 背景知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#layernorm"><span class="toc-number">1.1.</span> <span class="toc-text"> LayerNorm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#attention"><span class="toc-number">1.2.</span> <span class="toc-text"> attention</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#transformer"><span class="toc-number">2.</span> <span class="toc-text"> transformer</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景知识"><span class="toc-number">1.</span> <span class="toc-text"> 背景知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#layernorm"><span class="toc-number">1.1.</span> <span class="toc-text"> LayerNorm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#attention"><span class="toc-number">1.2.</span> <span class="toc-text"> attention</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#transformer"><span class="toc-number">2.</span> <span class="toc-text"> transformer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#流程"><span class="toc-number">2.1.</span> <span class="toc-text"> 流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结构"><span class="toc-number">2.2.</span> <span class="toc-text"> 结构</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -642,23 +647,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">latex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -674,7 +663,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">clip</a>
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -702,11 +703,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -722,31 +719,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">OBS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">frp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -774,11 +747,47 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
+                <a href="javascript:void(0)" class="js-tag color5">clip</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">OBS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">frp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">基金</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">transformer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -802,35 +811,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">transformer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多标签</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">指标</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">公众号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ios</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -850,7 +831,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -870,7 +851,39 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">指标</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">公众号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -883,6 +896,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">配置</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -907,22 +928,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">live2d</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">配置</a>
               </li>
              
               <li class="article-tag-list-item">
