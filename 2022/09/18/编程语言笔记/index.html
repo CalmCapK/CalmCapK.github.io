@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
 <meta property="og:description" content="c++  引用 12函数用&amp;amp;传回多个参数 fun(int &amp;amp;a, TreeNode* &amp;amp; note)&amp;#123;&amp;#125;函数传二维数组 vector&amp;lt;vector&amp;lt;char&amp;gt;&amp;gt;&amp;amp; board  排序 1234按照大到小排序bool cmp(string a, string b)&amp;#123;    return a &amp;gt; b;&amp;#12">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2022-12-18T13:34:13.465Z">
+<meta property="og:updated_time" content="2022-12-18T16:12:07.440Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编程语言笔记">
 <meta name="twitter:description" content="c++  引用 12函数用&amp;amp;传回多个参数 fun(int &amp;amp;a, TreeNode* &amp;amp; note)&amp;#123;&amp;#125;函数传二维数组 vector&amp;lt;vector&amp;lt;char&amp;gt;&amp;gt;&amp;amp; board  排序 1234按照大到小排序bool cmp(string a, string b)&amp;#123;    return a &amp;gt; b;&amp;#12">
@@ -298,9 +298,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class TrieNode(object):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.child = &#123;&#125;</span><br><span class="line">        self.word = &quot;&quot;</span><br><span class="line">def insertTrie(root, word):</span><br><span class="line">    node = root</span><br><span class="line">    for i in range(len(word)):</span><br><span class="line">        if word[i] not in node.child:</span><br><span class="line">            node.child[word[i]] = TrieNode()</span><br><span class="line">        node = node.child[word[i]]</span><br><span class="line">    node.word = word</span><br><span class="line">root = TrieNode()</span><br><span class="line">insertTrie(root, word)</span><br><span class="line">if ch not in root.child:</span><br><span class="line">nxt =  root.child[ch]</span><br><span class="line">len(nxt.word)</span><br><span class="line">len(nxt.child.keys()) == 0:</span><br><span class="line">root.child.pop(ch)</span><br></pre></td></tr></table></figure>
 <h2 id="排序-2"><a class="markdownIt-Anchor" href="#排序-2"></a> 排序</h2>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def comp(a, b):</span><br><span class="line">    an = a+b</span><br><span class="line">    bn = b+a</span><br><span class="line">    if an &gt; bn: return -1</span><br><span class="line">    elif an &lt; bn: return 1</span><br><span class="line">    else: return 0</span><br><span class="line"></span><br><span class="line">ans.sort(key=functools.cmp_to_key(comp))</span><br><span class="line">ans.sort(cmp = lambda x,y: cmp(y+x, x+y))</span><br><span class="line">ans.sort(key=functools.cmp_to_key(lambda x,y: cmp(y+x, x+y)))</span><br><span class="line"></span><br><span class="line">ans = sorted(ans) #需要赋值，只是sorted不改变存储位置</span><br></pre></td></tr></table></figure>
-<h2 id="目录结构"><a class="markdownIt-Anchor" href="#目录结构"></a> 目录结构</h2>
+<h2 id="目录结构需要重新梳理"><a class="markdownIt-Anchor" href="#目录结构需要重新梳理"></a> 目录结构【需要重新梳理】</h2>
 <p>下次一层调用上一层</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">方法一</span><br><span class="line">sys.path.append(os.path.join(os.path.abspath(os.path.dirname(__file__)), &apos;..&apos;))</span><br><span class="line">方法二</span><br><span class="line">export PYTHONPATH=&quot;$PYTHONPATH:$PWD&quot; 好像没用 会话没了就没了</span><br><span class="line">echo $PYTHONPATH</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">方法一</span><br><span class="line">sys.path.append(os.path.join(os.path.abspath(os.path.dirname(__file__)), &quot;../..&quot;))</span><br><span class="line"></span><br><span class="line">方法二</span><br><span class="line">export PYTHONPATH=&quot;$PYTHONPATH:$PWD&quot; 好像没用 会话没了就没了</span><br><span class="line">echo $PYTHONPATH</span><br><span class="line"></span><br><span class="line">参见https://github.com/CalmCapK/toolkit/test_directory_structure</span><br></pre></td></tr></table></figure>
 <h2 id="文件操作"><a class="markdownIt-Anchor" href="#文件操作"></a> 文件操作</h2>
 <ul>
 <li>xml<br>
@@ -309,9 +309,21 @@
 <li>csv</li>
 <li>xlsx</li>
 <li>yml</li>
-<li>json</li>
-<li>py</li>
+<li>json
+<ul>
+<li>json.loads()加载json格式的字符串</li>
+<li>json.load()加载json格式文件</li>
 </ul>
+</li>
+<li>py<br>
+参见https://github.com/CalmCapK/toolkit/file_op.py</li>
+</ul>
+<h3 id="大文件一行行读取"><a class="markdownIt-Anchor" href="#大文件一行行读取"></a> 大文件一行行读取</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">with open(path, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:</span><br><span class="line">    for line in tqdm(f):</span><br></pre></td></tr></table></figure>
+<h2 id="多线程"><a class="markdownIt-Anchor" href="#多线程"></a> 多线程</h2>
+<p>参见https://github.com/CalmCapK/toolkit/python_example.py</p>
+<h2 id="随机抽取"><a class="markdownIt-Anchor" href="#随机抽取"></a> 随机抽取</h2>
+<p>参见https://github.com/CalmCapK/toolkit/python_example.py</p>
 <h2 id="二维数组根据下标索引赋值"><a class="markdownIt-Anchor" href="#二维数组根据下标索引赋值"></a> 二维数组根据下标索引赋值</h2>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">res = res.softmax(dim=-1) </span><br><span class="line">val, ind = res.topk(k) //ind: batch_size x topk</span><br><span class="line">output = np.zeros((batch_size, label_num) , dtype = float)) </span><br><span class="line">for i in range(batch_size):</span><br><span class="line">    //gpu tensor -&gt; cpu numpy</span><br><span class="line">    output[i][ind[i].cpu().detach().numpy().astype(int)] = 1</span><br></pre></td></tr></table></figure>
 <h2 id="函数生成变量赋值"><a class="markdownIt-Anchor" href="#函数生成变量赋值"></a> 函数生成变量赋值？</h2>
@@ -492,7 +504,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#c"><span class="toc-number">1.</span> <span class="toc-text"> c++</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#引用"><span class="toc-number">1.1.</span> <span class="toc-text"> 引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排序"><span class="toc-number">1.2.</span> <span class="toc-text"> 排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stl"><span class="toc-number">1.3.</span> <span class="toc-text"> STL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构"><span class="toc-number">1.4.</span> <span class="toc-text"> 数据结构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#python"><span class="toc-number">2.</span> <span class="toc-text"> python</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#知识"><span class="toc-number">2.1.</span> <span class="toc-text"> 知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构-2"><span class="toc-number">2.2.</span> <span class="toc-text"> 数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排序-2"><span class="toc-number">2.3.</span> <span class="toc-text"> 排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目录结构"><span class="toc-number">2.4.</span> <span class="toc-text"> 目录结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件操作"><span class="toc-number">2.5.</span> <span class="toc-text"> 文件操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二维数组根据下标索引赋值"><span class="toc-number">2.6.</span> <span class="toc-text"> 二维数组根据下标索引赋值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数生成变量赋值"><span class="toc-number">2.7.</span> <span class="toc-text"> 函数生成变量赋值？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#opencv无法读取中文路径"><span class="toc-number">2.8.</span> <span class="toc-text"> opencv无法读取中文路径</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#c"><span class="toc-number">1.</span> <span class="toc-text"> c++</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#引用"><span class="toc-number">1.1.</span> <span class="toc-text"> 引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排序"><span class="toc-number">1.2.</span> <span class="toc-text"> 排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stl"><span class="toc-number">1.3.</span> <span class="toc-text"> STL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构"><span class="toc-number">1.4.</span> <span class="toc-text"> 数据结构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#python"><span class="toc-number">2.</span> <span class="toc-text"> python</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#知识"><span class="toc-number">2.1.</span> <span class="toc-text"> 知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据结构-2"><span class="toc-number">2.2.</span> <span class="toc-text"> 数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排序-2"><span class="toc-number">2.3.</span> <span class="toc-text"> 排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目录结构需要重新梳理"><span class="toc-number">2.4.</span> <span class="toc-text"> 目录结构【需要重新梳理】</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件操作"><span class="toc-number">2.5.</span> <span class="toc-text"> 文件操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#大文件一行行读取"><span class="toc-number">2.5.1.</span> <span class="toc-text"> 大文件一行行读取</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多线程"><span class="toc-number">2.6.</span> <span class="toc-text"> 多线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#随机抽取"><span class="toc-number">2.7.</span> <span class="toc-text"> 随机抽取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二维数组根据下标索引赋值"><span class="toc-number">2.8.</span> <span class="toc-text"> 二维数组根据下标索引赋值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数生成变量赋值"><span class="toc-number">2.9.</span> <span class="toc-text"> 函数生成变量赋值？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#opencv无法读取中文路径"><span class="toc-number">2.10.</span> <span class="toc-text"> opencv无法读取中文路径</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -719,7 +731,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -735,19 +775,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">latex</a>
+                <a href="javascript:void(0)" class="js-tag color5">clip</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
+                <a href="javascript:void(0)" class="js-tag color3">AE</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
+                <a href="javascript:void(0)" class="js-tag color3">PS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+                <a href="javascript:void(0)" class="js-tag color3">Pr</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -775,23 +815,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AE</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">PS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Pr</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -819,27 +851,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">clip</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">OBS</a>
+                <a href="javascript:void(0)" class="js-tag color3">基金</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -851,15 +863,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基金</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">transformer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
+                <a href="javascript:void(0)" class="js-tag color4">OBS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -875,7 +879,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">transformer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多标签</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">backbone</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">冻结训练</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -883,7 +907,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多标签</a>
+                <a href="javascript:void(0)" class="js-tag color3">指标</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -903,10 +927,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">renpy</a>
               </li>
              
@@ -923,15 +943,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">指标</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">医学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -951,14 +971,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">表情包</a>
               </li>
              
@@ -968,14 +980,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ps</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">配置</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1000,6 +1004,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">live2d</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
