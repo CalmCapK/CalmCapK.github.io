@@ -178,6 +178,590 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-深度学习-大规模预训练" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/18/深度学习-大规模预训练/">深度学习-大规模预训练</a>
+    </h1>
+  
+
+        
+        <a href="/2022/10/18/深度学习-大规模预训练/" class="archive-article-date">
+  	<time datetime="2022-10-18T13:58:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-18</time>
+</a>
+
+	<a href="javascript:;" class="archive-article-date">
+		<i class="icon-smile icon"></i> 阅读数:<span id="/2022/10/18/深度学习-大规模预训练/" class="pageViews">0</span>次
+	</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
+        <h1 id="背景知识"><a class="markdownIt-Anchor" href="#背景知识"></a> 背景知识</h1>
+<p>大规模预训练就是在大规模宽泛的数据上，通过设计无监督的代理任务，训练一个foundation model(基础模型)，获得很强的backbone，通过zero-shot，few-shot，finetune等方式能适应其它下游任务。它是一种表示学习方式(表示又称表征、特征)。</p>
+<blockquote>
+<p>表示学习以前发展：人工、PCA、矩阵分解、cluster、概率图模型、深度学习Imagenet初始化</p>
+</blockquote>
+<ul>
+<li>
+<p>大规模预训练的优点：</p>
+<ul>
+<li>
+<p>通用性、泛化性</p>
+</li>
+<li>
+<p>模型越大效果越好</p>
+</li>
+<li>
+<p>减少微调阶段所需数据和训练时间，如零样本和少样本迁移</p>
+</li>
+<li>
+<p>突破传统AI模型难以泛化到其他任务上的局限性</p>
+</li>
+<li>
+<p>代理任务训练方式无需人工标注，降低标注成本</p>
+</li>
+<li>
+<p>大量证据表明这些预训练的表示可以很好地推广到各种下游任务</p>
+</li>
+</ul>
+</li>
+<li>
+<p>大规模预训练的缺点：</p>
+<ul>
+<li>
+<p>数据</p>
+</li>
+<li>
+<p>试错成本</p>
+</li>
+<li>
+<p>算力资源</p>
+</li>
+<li>
+<p>技术支持</p>
+</li>
+</ul>
+</li>
+<li>
+<p>根据代理任务可以分成：（绿色是NLP）</p>
+<ul>
+<li>基于预测Prediction
+<ul>
+<li>掩码
+<ul>
+<li>Mask Language Modeling (MLM)
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathcolor="green"><mi>B</mi><mi>E</mi><mi>R</mi><mi>T</mi><mo stretchy="false">[</mo><mn>2018</mn><mo stretchy="false">]</mo></mstyle></mrow><annotation encoding="application/x-tex">\textcolor{green}{BERT[2018]}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;color:green;">B</span><span class="mord mathdefault" style="margin-right:0.05764em;color:green;">E</span><span class="mord mathdefault" style="margin-right:0.00773em;color:green;">R</span><span class="mord mathdefault" style="margin-right:0.13889em;color:green;">T</span><span class="mopen" style="color:green;">[</span><span class="mord" style="color:green;">2</span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">1</span><span class="mord" style="color:green;">8</span><span class="mclose" style="color:green;">]</span></span></span></span></li>
+<li>roberta</li>
+</ul>
+</li>
+<li>Language Model(LM)</li>
+<li>Mask Image Modeling (MIM)
+<ul>
+<li>context encoders 擦除中间一大块，也探讨了不同擦除方式</li>
+<li>BEiT[2021] 掩码部分预测离散视觉标记 SOTA</li>
+<li>MAE[2021]
+<ul>
+<li>simMM</li>
+<li>MAE+层次Transformer</li>
+<li>MAE+多模态</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Mask Frame Modeling(MFM)</li>
+</ul>
+</li>
+<li>数据变换预测
+<ul>
+<li>Rotation 识别角度</li>
+<li>Colorization 预测颜色</li>
+<li>Replace Token Detection(RTD)</li>
+</ul>
+</li>
+<li>其他
+<ul>
+<li>relative location 预测两个patch相对位置</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathcolor="green"><mi>N</mi><mi>e</mi><mi>x</mi><mi>t</mi><mi>s</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>n</mi><mi>c</mi><mi>e</mi><mi>p</mi><mi>r</mi><mi>e</mi><mi>d</mi><mi>i</mi><mi>c</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo stretchy="false">(</mo><mi>N</mi><mi>S</mi><mi>P</mi><mo stretchy="false">)</mo></mstyle></mrow><annotation encoding="application/x-tex">\textcolor{green}{Next sentence prediction(NSP)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;color:green;">N</span><span class="mord mathdefault" style="color:green;">e</span><span class="mord mathdefault" style="color:green;">x</span><span class="mord mathdefault" style="color:green;">t</span><span class="mord mathdefault" style="color:green;">s</span><span class="mord mathdefault" style="color:green;">e</span><span class="mord mathdefault" style="color:green;">n</span><span class="mord mathdefault" style="color:green;">t</span><span class="mord mathdefault" style="color:green;">e</span><span class="mord mathdefault" style="color:green;">n</span><span class="mord mathdefault" style="color:green;">c</span><span class="mord mathdefault" style="color:green;">e</span><span class="mord mathdefault" style="color:green;">p</span><span class="mord mathdefault" style="margin-right:0.02778em;color:green;">r</span><span class="mord mathdefault" style="color:green;">e</span><span class="mord mathdefault" style="color:green;">d</span><span class="mord mathdefault" style="color:green;">i</span><span class="mord mathdefault" style="color:green;">c</span><span class="mord mathdefault" style="color:green;">t</span><span class="mord mathdefault" style="color:green;">i</span><span class="mord mathdefault" style="color:green;">o</span><span class="mord mathdefault" style="color:green;">n</span><span class="mopen" style="color:green;">(</span><span class="mord mathdefault" style="margin-right:0.10903em;color:green;">N</span><span class="mord mathdefault" style="margin-right:0.05764em;color:green;">S</span><span class="mord mathdefault" style="margin-right:0.13889em;color:green;">P</span><span class="mclose" style="color:green;">)</span></span></span></span></li>
+<li>DAE?</li>
+</ul>
+</li>
+<li>不清楚分类
+<ul>
+<li>Jigsaw[2017]?</li>
+<li>Position[2015]?</li>
+<li>Cutout[2015]</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathcolor="green"><mi>w</mi><mi>o</mi><mi>r</mi><mi>d</mi><mn>2</mn><mi>v</mi><mo stretchy="false">[</mo><mn>2013</mn><mo stretchy="false">]</mo></mstyle></mrow><annotation encoding="application/x-tex">\textcolor{green}{word2v[2013]}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02691em;color:green;">w</span><span class="mord mathdefault" style="color:green;">o</span><span class="mord mathdefault" style="margin-right:0.02778em;color:green;">r</span><span class="mord mathdefault" style="color:green;">d</span><span class="mord" style="color:green;">2</span><span class="mord mathdefault" style="margin-right:0.03588em;color:green;">v</span><span class="mopen" style="color:green;">[</span><span class="mord" style="color:green;">2</span><span class="mord" style="color:green;">0</span><span class="mord" style="color:green;">1</span><span class="mord" style="color:green;">3</span><span class="mclose" style="color:green;">]</span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathcolor="green"><mi>R</mi><mi>N</mi><mi>N</mi><mi>L</mi><mi>M</mi><mo stretchy="false">[</mo><mn>1997</mn><mo stretchy="false">]</mo></mstyle></mrow><annotation encoding="application/x-tex">\textcolor{green}{RNNLM[1997]}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;color:green;">R</span><span class="mord mathdefault" style="margin-right:0.10903em;color:green;">N</span><span class="mord mathdefault" style="margin-right:0.10903em;color:green;">N</span><span class="mord mathdefault" style="color:green;">L</span><span class="mord mathdefault" style="margin-right:0.10903em;color:green;">M</span><span class="mopen" style="color:green;">[</span><span class="mord" style="color:green;">1</span><span class="mord" style="color:green;">9</span><span class="mord" style="color:green;">9</span><span class="mord" style="color:green;">7</span><span class="mclose" style="color:green;">]</span></span></span></span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>基于对比Contrastive 类间差异
+<ul>
+<li>CL
+<ul>
+<li>InfoNCE[2017]</li>
+<li>CPC[2019]</li>
+<li>MoCo v1[2019] 队列增加负样本，实现SOTA
+<ul>
+<li>MoCo v2[2020] 验证SimCLR提出的大数据和非线性层</li>
+<li>MoCo v3[2021] 结合ViT，不要队列，对称损失</li>
+</ul>
+</li>
+<li>SimCLR v1[2020] 数据增强重要，添加非线性层，大batch
+<ul>
+<li>SimCLR v2</li>
+</ul>
+</li>
+<li>BYOL[2020] 双网络，仅正样本SOTA</li>
+<li>DeepCluster</li>
+<li>SwAV[2020] 在线聚类损失、multi-crop</li>
+<li>SimSiam[2020] 总结前人，不要负样本、不要大batch，不要动量编码器，SOTA</li>
+<li>SimCSE</li>
+</ul>
+</li>
+<li>ITM
+<ul>
+<li>CLP</li>
+</ul>
+</li>
+<li>其他
+<ul>
+<li>DINO</li>
+<li>SimSias</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/470914640" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/470914640</a> 介绍了一些pretext task自监督方法【粗略看完】</p>
+<p><a href="https://zhuanlan.zhihu.com/p/474847821" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/474847821</a> 介绍了一些对比学习方法【没看】</p>
+<p><a href="https://zhuanlan.zhihu.com/p/367290573" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/367290573</a> 介绍对比学习【没看】</p>
+<p><a href="https://juejin.cn/post/7044445669805228063" target="_blank" rel="noopener">https://juejin.cn/post/7044445669805228063</a> oppo预训练 【没看】</p>
+<p><a href="https://liuquncn.github.io/talks/20211013-CCAI-NLP-Forum/Thoughts-of-Pretrained-Big-Models.pdf" target="_blank" rel="noopener">https://liuquncn.github.io/talks/20211013-CCAI-NLP-Forum/Thoughts-of-Pretrained-Big-Models.pdf</a></p>
+<p><a href="https://wxb.xzdw.gov.cn/xxh/xxhgzdt/202206/t20220616_253939.html" target="_blank" rel="noopener">https://wxb.xzdw.gov.cn/xxh/xxhgzdt/202206/t20220616_253939.html</a></p>
+<p><a href="https://developer.baidu.com/article/detail.html?id=295106%E3%80%90%E6%80%BB" target="_blank" rel="noopener">https://developer.baidu.com/article/detail.html?id=295106【总</a></p>
+<p><a href="https://www.cnii.com.cn/gxxww/rmydb/202206/t20220616_388934.html%E3%80%90%E6%80%BB" target="_blank" rel="noopener">https://www.cnii.com.cn/gxxww/rmydb/202206/t20220616_388934.html【总</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/485925038%E3%80%90%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0%E3%80%91" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/485925038【迁移学习】</a></p>
+<p><a href="https://ai.baidu.com/ai-doc/BML/Xkhymkgm4%E3%80%90%E4%B8%80%E4%BA%9B%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B%E3%80%91" target="_blank" rel="noopener">https://ai.baidu.com/ai-doc/BML/Xkhymkgm4【一些预训练模型】</a></p>
+<p><a href="https://www.csdn.net/tags/OtDaYg5sMzIyMTEtYmxvZwO0O0OO0O0O.html%E3%80%90%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B%E3%80%91" target="_blank" rel="noopener">https://www.csdn.net/tags/OtDaYg5sMzIyMTEtYmxvZwO0O0OO0O0O.html【预训练模型】</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/526265431%E3%80%90%E8%A7%86%E8%A7%89%E5%85%B6%E4%BB%96%E5%A4%A7%E6%A8%A1%E5%9E%8B%E3%80%91" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/526265431【视觉其他大模型】</a></p>
+<p><a href="https://www.microsoft.com/en-us/research/blog/efficiently-and-effectively-scaling-up-language-model-pretraining-for-best-language-representation-model-on-glue-and-superglue/" target="_blank" rel="noopener">https://www.microsoft.com/en-us/research/blog/efficiently-and-effectively-scaling-up-language-model-pretraining-for-best-language-representation-model-on-glue-and-superglue/</a> 【微软blog，没看】</p>
+<p><a href="https://github.com/sxontheway/Keep-Learning/blob/master/Research/pictures/contrastive_learning_summary.pdf" target="_blank" rel="noopener">https://github.com/sxontheway/Keep-Learning/blob/master/Research/pictures/contrastive_learning_summary.pdf</a> 【介绍Moco等对比学习，没看】</p>
+<hr>
+<h2 id="问题"><a class="markdownIt-Anchor" href="#问题"></a> 问题</h2>
+<p>预训练的方法划分到底是啥</p>
+<h1 id="clip"><a class="markdownIt-Anchor" href="#clip"></a> CLIP</h1>
+<blockquote>
+<p>CLIP<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>动机：自然语言能够表达更广泛的视觉概念，能否直接从原始文本中学习关于图像的知识？</p>
+<ul>
+<li>视觉模型往往预测一组固定类别的对象，而其它视觉概念需要额外的标注数据来训练，限制了其通用性和实用性。</li>
+<li>NLP的GPT-3证明从网络收集的文本数据可以超过人工标注的数据。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>代码：<a href="https://github.com/openai/CLIP" target="_blank" rel="noopener">https://github.com/openai/CLIP</a></p>
+<p><a href="https://github.com/Zasder3/train-CLIP" target="_blank" rel="noopener">https://github.com/Zasder3/train-CLIP</a></p>
+<p><a href="https://github.com/mlfoundations/open_clip" target="_blank" rel="noopener">https://github.com/mlfoundations/open_clip</a></p>
+</blockquote>
+<h2 id="从文本学习图像表示的发展"><a class="markdownIt-Anchor" href="#从文本学习图像表示的发展"></a> 从文本学习图像表示的发展</h2>
+<ul>
+<li>
+<p>ConVIRT<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>：医学图像往往依赖ImageNet迁移权重或从文本报告中基于规则提取标签，ConVIRT通过双塔结构以对比学习方式让两路的representation尽可能一致。</p>
+<p><img src="/assets/typora/%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/ConVIRT.png" alt></p>
+</li>
+</ul>
+<h2 id="clip原理"><a class="markdownIt-Anchor" href="#clip原理"></a> CLIP原理</h2>
+<p>CLIP: 在4亿互联网的图像-文本对数据上，CLIP联合训练图像encoder和文本encoder，预测哪个文本和哪个图像最匹配。给定N个图像文本对，其中N个正样本对，N^2-N个负样本对，通过对称交叉熵损失最大化图像和文本正样本对的余弦相似度。</p>
+<ul>
+<li>4亿互联网文本图像对数据集WebImageText(WIT)
+<ul>
+<li>500000个query</li>
+</ul>
+</li>
+<li>改进的ConVIRT
+<ul>
+<li>随机初始化、改成线性projection、去掉文本采样、只做Resize和Crop</li>
+<li>温度系数，控制softmax中logits范围，可学习，不作为超参数</li>
+<li>Text encoder: GPT-2 Transformer</li>
+<li>Image encoder: ResNet, ViT</li>
+</ul>
+</li>
+<li>任务难度：Transformer Language Model（Image Caption） &gt; Bag of Words Prediction &gt; Bag of Words Contrastive (CLIP)，CLIP 选用了难度最低的任务反而训练效率更高，这是因为训练数据所包含的 text-image pair 从互联网收集来的，它们存在一噪音，也就是说并不完全匹配。这个时候适当的降低训练目标，反而能取得更好的收敛</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/typora/大规模预训练/CLIP_1.png"></td>
+<td><img src="/assets/typora/大规模预训练/CLIP_2.png"></td>
+</tr>
+</table>
+## CLIP流程
+<p>clip</p>
+<p>image -&gt;卷积-》class_embedding+position_embedding-&gt;proj</p>
+<p>text-&gt;token_embedding-&gt;postional_embeding-&gt;proj</p>
+<p>norm</p>
+<h2 id="clip-zero-shot迁移能力"><a class="markdownIt-Anchor" href="#clip-zero-shot迁移能力"></a> CLIP zero-shot迁移能力</h2>
+<ul>
+<li>测试分类时，把标签填到如“a photo of {xxx}&quot;形成句子，称Prompt工程</li>
+<li>设计Prompt engineering可以提升效果(+5%)</li>
+<li>CLIP把分类转换成跨模态检索任务，类别不在固定，可扩展</li>
+<li>图文检索</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/typora/大规模预训练/CLIP_3.png"></td>
+<td><img src="/assets/typora/大规模预训练/CLIP_4.png"></td>
+</tr>
+</table>
+<h2 id="clip结论"><a class="markdownIt-Anchor" href="#clip结论"></a> CLIP结论</h2>
+<ul>
+<li>构建了图像文本之间的桥梁</li>
+<li>大规模大模型能学习到泛化强的模型，可以用于多种下游任务：图像分类、图文检索等</li>
+<li>zero-shot
+<ul>
+<li>达到ImageNet全监督训练的ResNet-50性能</li>
+<li>通用任务表现好</li>
+<li>但很多任务比不上SOTA方法</li>
+<li>细分类、OCR、预训练未见过的任务效果不好</li>
+</ul>
+</li>
+<li>linearprobe
+<ul>
+<li>few-shot需要一些样本才能和zero-shot持平，说明通过自然语言学到的视觉概念比少样本linearprobe学到的要好。</li>
+<li>zero-shot和全部样本训练有10%-25%的提升空间</li>
+</ul>
+</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/typora/大规模预训练/CLIP_5.png"></td>
+<td><img src="/assets/typora/大规模预训练/CLIP_6.png"></td>
+<td><img src="/assets/typora/大规模预训练/CLIP_7.png"></td>
+</tr>
+</table>
+## CLIP发展和应用
+<ul>
+<li>生成模型：DALL-E、StyleCLIP、CLIPDraw、CLIPasso、VQGAN-CLIP、CLIP-GEN</li>
+<li>语义模型：LSeq、GroupViT</li>
+<li>目标检测：ViLD、GLIP</li>
+<li>动作识别：ActionCLIP</li>
+<li>视频段落匹配：CLIP4clip</li>
+<li>3D领域：PointCLIP</li>
+<li>深度信息：DepthCLIP</li>
+</ul>
+<h2 id="itm后续发展"><a class="markdownIt-Anchor" href="#itm后续发展"></a> ITM后续发展</h2>
+<ul>
+<li>ALIGN(更大规模数据和EfficientNet encoder)</li>
+</ul>
+<h2 id="参考-2"><a class="markdownIt-Anchor" href="#参考-2"></a> 参考</h2>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/486857682" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/486857682</a> 介绍CLIP，不错【大概看完】</li>
+<li><a href="https://jishuin.proginn.com/p/763bfbd71c2f" target="_blank" rel="noopener">https://jishuin.proginn.com/p/763bfbd71c2f</a> 介绍CLIP和发表自己看法 【大概看完】</li>
+<li><a href="https://iii.run/archives/add2d45c7267.html" target="_blank" rel="noopener">https://iii.run/archives/add2d45c7267.html</a> 介绍CLIP数据集等特色【大概看完，可以再看】</li>
+<li><a href="https://zhuanlan.zhihu.com/p/427740816" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/427740816</a> 简略介绍CLIP 【大概看完】</li>
+<li><a href="https://aitechtogether.com/article/39432.html" target="_blank" rel="noopener">https://aitechtogether.com/article/39432.html</a> 简略介绍CLIP 【大概看完】</li>
+<li><a href="https://blog.csdn.net/u012193416/article/details/125891924" target="_blank" rel="noopener">https://blog.csdn.net/u012193416/article/details/125891924</a> 简略介绍CLIP 【大概看完】</li>
+<li><a href="https://www.zhihu.com/question/438649654" target="_blank" rel="noopener">https://www.zhihu.com/question/438649654</a> 知乎CLIP看法【没看完】</li>
+<li><a href="https://cloud.tencent.com/developer/article/1902815" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1902815</a> 介绍CLIP4clip 【没看】</li>
+<li><a href="https://www.cvmart.net/community/detail/5815" target="_blank" rel="noopener">https://www.cvmart.net/community/detail/5815</a> ActionCLIP 【没看】</li>
+</ul>
+<h1 id="mae"><a class="markdownIt-Anchor" href="#mae"></a> MAE</h1>
+<blockquote>
+<p>MAE<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>动机：为什么NLP领域BERT的MLM掩码方式没有成功应用于CV领域</p>
+<ol>
+<li>结构上，BERT基于transformer架构难迁移到CV，但是ViT已解决。</li>
+<li>信息密度上，图像存在冗余信息，丢弃小部分容易从周围恢复。</li>
+<li>单词预测是高语义任务，所以decoder只需一层MLP，但不适合低语义的图像重建任务。</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>代码：<a href="https://github.com/facebookresearch/mae" target="_blank" rel="noopener">https://github.com/facebookresearch/mae</a></p>
+</blockquote>
+<h2 id="mim发展"><a class="markdownIt-Anchor" href="#mim发展"></a> MIM发展</h2>
+<p>BEiT<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>：输入图像随机掩码部分patch，通过ViT基于未掩码图像patch来恢复掩码图像patch，重建目标不是原始像素，而是通过dVAE得到的discrete visual tokens离散视觉标记。大约掩码40%。</p>
+<table>
+<tr>
+<td><img src="/assets/typora/大规模预训练/BEiT.png"></td>
+</tr>
+</table>
+<h2 id="mae原理"><a class="markdownIt-Anchor" href="#mae原理"></a> MAE原理</h2>
+<p>MAE简化了整体训练逻辑，采用非对称encoder-decoder的结构，随机mask输入图像的部分patch，对其进行重建，只计算mask部分的MSE损失。</p>
+<ul>
+<li>
+<p>非对称encoder-decoder结构</p>
+<ul>
+<li>encoder仅计算非掩码patch，加速训练3倍以上。</li>
+<li>decoder由transformer blocks组成的轻量级网络，同时对潜在表示和mask token进行解码。</li>
+<li>mask token是共享的可学习向量。</li>
+</ul>
+</li>
+<li>
+<p>mask比例达到75%时，模型更关注全局信息，而不是简单插值。</p>
+</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/typora/大规模预训练/MAE_1.png"></td>
+<td><img src="/assets/typora/大规模预训练/MAE_2.png"></td>
+</tr>
+</table>
+<h2 id="mae流程"><a class="markdownIt-Anchor" href="#mae流程"></a> MAE流程</h2>
+<p>MAE</p>
+<p>finetune</p>
+<p>image -&gt;patch_embedding-》class_token+position_embedding</p>
+<p>train</p>
+<p>image -&gt;patch_embedding-》position_embedding-》mask-&gt;class_token+pos_emb</p>
+<p>mask_token+pos_emb</p>
+<h2 id="mae结论"><a class="markdownIt-Anchor" href="#mae结论"></a> MAE结论</h2>
+<ul>
+<li>mask
+<ul>
+<li>mask75%最好，且掩码比例高于其它方法</li>
+<li>随机掩码效果最好</li>
+</ul>
+</li>
+<li>非对称encoder-decoder
+<ul>
+<li>encoder处理全部patch，效果反而差，linear probe下降14%</li>
+<li>解码器与编码器相比，计算量 &lt;10%。虽然全部patch由轻量级解码器处理，但耗时少</li>
+<li>decoder深度对linearprobe影响大(8%提升幅度)，对finetue影响小</li>
+</ul>
+</li>
+<li>重建目标
+<ul>
+<li>每个mask patch的归一化像素值作为重建目标在局部增强对比度，可以提高表示质量(+0.5%)</li>
+<li>BEiT的dVAE得到的离散视觉标记作为重建目标效果比归一化像素值差，还增加开销</li>
+</ul>
+</li>
+<li>linearprobe和finetune
+<ul>
+<li>finetune优于从头训练，且耗时少</li>
+<li>linearprobe和finetune很大程度是不相关的</li>
+<li>finetune最后几层：一个MLP(79.1%)，一个Transformer(81.0%)，比linearprobe(73.5%)要好</li>
+<li>MAE具有很强的非线性特征，MAE认为linearprobe与迁移学习性能的相关性不大，线性可分性并不是预训练唯一指标</li>
+</ul>
+</li>
+<li>下游任务迁移
+<ul>
+<li>ViT-Huge在ImageNet-1k达到87.8%的top1准确率</li>
+<li>对象检测、实例分割和语义分割的迁移学习，比有监督的Mask-RCNN，UperNet、自监督的BEiT效果好</li>
+</ul>
+</li>
+<li>其它预训练方法
+<ul>
+<li>比较了不同自监督方法和模型大小，模型越大不同方法差距越大，表明更大模型减少过度拟合</li>
+<li>MAE总预训练时间仍少于所有其他方法</li>
+<li>与BEiT相比，MAE 更准确、简单、更快</li>
+</ul>
+</li>
+<li>非对称结构+高mask比例，减少计算量和内存，同时提升准确率，可以训练更大模型和更大batch加速训练</li>
+<li>随着训练代数增加，准确率稳步提高。1600 epoch时，仍未饱和</li>
+</ul>
+<table>
+<tr>
+<td><img src="/assets/typora/大规模预训练/MAE_3.png"></td>
+<td><img src="/assets/typora/大规模预训练/MAE_4.png"></td>
+<td><img src="/assets/typora/大规模预训练/MAE_5.png"></td>
+</tr>
+<tr>
+<td><img src="/assets/typora/大规模预训练/MAE_6.png"></td>
+<td><img src="/assets/typora/大规模预训练/MAE_7.png"></td>
+<td><img src="/assets/typora/大规模预训练/MAE_8.png"></td>
+</tr>
+</table>
+<h2 id="mae发展和应用"><a class="markdownIt-Anchor" href="#mae发展和应用"></a> MAE发展和应用</h2>
+<ul>
+<li>MAE适应不同结构ViT
+<ul>
+<li>层次Transformer的MixMM</li>
+<li>金字塔结构ViT的Uniform Masking</li>
+</ul>
+</li>
+<li>MAE适应不同领域
+<ul>
+<li>视频VideoMAE</li>
+<li>多模态M3MAE</li>
+<li>MultiMAE</li>
+<li>音频MAE that listen</li>
+<li>时间序列TSFormer</li>
+<li>图GraphMAE</li>
+</ul>
+</li>
+</ul>
+<h2 id="mim后续发展"><a class="markdownIt-Anchor" href="#mim后续发展"></a> MIM后续发展</h2>
+<ul>
+<li>MAE同期工作：SimMIM(BEiT去dVAE)、MaskFeat(重建目标HIOG特征)、PeCo(dVAE训练加入Perceptual loss)、IBOT(dVAE tokenizer方式改成在线训练)</li>
+<li>CAE(认为MAE的decoder也负责了部分表征学习，没用充分挖掘encoder能力)</li>
+</ul>
+<h2 id="参考-3"><a class="markdownIt-Anchor" href="#参考-3"></a> 参考</h2>
+<ul>
+<li><a href="https://blog.csdn.net/c9Yv2cf9I06K2A9E/article/details/125270007" target="_blank" rel="noopener">https://blog.csdn.net/c9Yv2cf9I06K2A9E/article/details/125270007</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/528720386" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/528720386</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/432984431%E3%80%90MAE%E5%AE%9E%E9%AA%8C%E3%80%91" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/432984431【MAE实验】</a></li>
+<li><a href="https://picture.iczhiku.com/weixin/message1639795018014.html%E3%80%90MAE%E3%80%91" target="_blank" rel="noopener">https://picture.iczhiku.com/weixin/message1639795018014.html【MAE】</a></li>
+<li><a href="https://aistudio.baidu.com/aistudio/projectdetail/3465622%E3%80%90mae%E4%BB%A3%E7%A0%81" target="_blank" rel="noopener">https://aistudio.baidu.com/aistudio/projectdetail/3465622【mae代码</a></li>
+<li><a href="https://www.51cto.com/article/718613.html%E3%80%90mae%E5%90%84%E4%B8%AA%E9%A2%86%E5%9F%9F" target="_blank" rel="noopener">https://www.51cto.com/article/718613.html【mae各个领域</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/445561242%E3%80%90beit%E5%92%8CMAE%E3%80%91" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/445561242【beit和MAE】</a></li>
+<li><a href="https://wanggrun.github.io/projects/fast/fast021" target="_blank" rel="noopener">https://wanggrun.github.io/projects/fast/fast021</a> BEiT</li>
+<li><a href="https://zhuanlan.zhihu.com/p/467399602%E3%80%90CAE%E3%80%91" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/467399602【CAE】</a></li>
+<li><a href="https://www.qbitai.com/2022/02/32835.html" target="_blank" rel="noopener">https://www.qbitai.com/2022/02/32835.html</a> 【CAE】</li>
+<li><a href="https://zhuanlan.zhihu.com/p/475952825%E3%80%90MIM%E3%80%91simmim" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/475952825【MIM】simmim</a> 同期</li>
+<li><a href="https://zhuanlan.zhihu.com/p/480196600%E3%80%90MIM%E3%80%91" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/480196600【MIM】</a></li>
+<li><a href="https://jishuin.proginn.com/p/763bfbd78a55" target="_blank" rel="noopener">https://jishuin.proginn.com/p/763bfbd78a55</a> 【ConvMAE】</li>
+</ul>
+<h1 id="对比"><a class="markdownIt-Anchor" href="#对比"></a> 对比</h1>
+<ul>
+<li>MIM方法更关注每个patch，而对比学习方法更关注图像主体语义（如图CAE和MoCov3热力图对比）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>训练数据</th>
+<th>数据构建</th>
+<th>训练时间</th>
+<th>encoder</th>
+<th>loss</th>
+<th>任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLIP</td>
+<td>4亿网络图像文本对</td>
+<td>图像文本对，prompt构建</td>
+<td>ResNet:592V00需18天 ViT:256V00需12天</td>
+<td>ResNet,ViT</td>
+<td>对称交叉熵损失</td>
+<td>多模态检索</td>
+</tr>
+<tr>
+<td>MAE</td>
+<td>ImageNet-1K</td>
+<td>图像</td>
+<td>ViT-L:128TPU-v3需31天</td>
+<td>ViT</td>
+<td>MSELoss</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><img src="/assets/typora/%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/CAE.png" alt></p>
+<h1 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h1>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Radford, Alec, et al. “Learning transferable visual models from natural language supervision.” <em>International Conference on Machine Learning</em>. PMLR, 2021. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>Zhang, Yuhao, et al. “Contrastive learning of medical visual representations from paired images and text.” <em>arXiv preprint arXiv:2010.00747</em> (2020). <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>He, Kaiming, et al. “Masked autoencoders are scalable vision learners.” <em>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition</em>. 2022. <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>Bao, Hangbo, Li Dong, and Furu Wei. “Beit: Bert pre-training of image transformers.” <em>arXiv preprint arXiv:2106.08254</em> (2021). <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <!--
+ * @Author: CalmCapK
+ * @Date: 2022-08-12 08:39:11
+ * @LastEditors: CalmCapK
+ * @LastEditTime: 2022-09-20 02:39:05
+-->
+
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">对比学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">MIM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CLIP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">MAE</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      <!--
+ * @Author: CalmCapK
+ * @Date: 2022-08-12 08:39:11
+ * @LastEditors: CalmCapK
+ * @LastEditTime: 2022-09-20 02:39:09
+-->
+
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/深度学习//" class="article-tag-list-link color5">深度学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/10/18/深度学习-大规模预训练/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
     <article id="post-生活笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -48710,14 +49294,22 @@ vis表示一个点是否有问题。只进入’O’点，枚举四个方向，�
         <h1 id="软件安装"><a class="markdownIt-Anchor" href="#软件安装"></a> 软件安装</h1>
 <h2 id="日常必备"><a class="markdownIt-Anchor" href="#日常必备"></a> 日常必备</h2>
 <p>qq<br>
-微信<br>
-chrome<br>
+微信</p>
+<ul>
+<li>chrome
+<ul>
+<li>插件
+<ul>
+<li>Fatkun批量下载图片<br>
 百度云盘<br>
 电脑管家<br>
 winrar<br>
 bandizip<br>
-formatfactory</p>
-<ul>
+formatfactory</li>
+</ul>
+</li>
+</ul>
+</li>
 <li>obs studio<br>
 官网直接下载即可</li>
 <li>potplayer<br>
@@ -48950,136 +49542,229 @@ live2d cubism</p>
         
         <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
         <p>注意：纯个人喜好推荐</p>
-<h1 id="动画"><a class="markdownIt-Anchor" href="#动画"></a> 动画</h1>
+<h1 id="动漫"><a class="markdownIt-Anchor" href="#动漫"></a> 动漫</h1>
 <h2 id="国外"><a class="markdownIt-Anchor" href="#国外"></a> 国外</h2>
 <ul>
-<li>
-<p>推荐<br>
-棒球大联盟<br>
-重启咲良田、奇巧出租车、思维覆写<br>
-樱花庄的宠物女孩、擅长捉弄的高木同学<br>
-明日的娜嘉<br>
-琴之森、NEW GAME<br>
-夏目友人帐</p>
-</li>
-<li>
-<p>看过<br>
-贤惠幼妻仙狐小姐</p>
-</li>
-<li>
-<p>在看<br>
-孤独摇滚<br>
-埃罗芒阿老师<br>
-间谍过家家</p>
-</li>
+<li>推荐</li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">爱丽丝学院【看过漫画】  </span><br><span class="line">彩云国物语【看过小说】  </span><br><span class="line">棒球大联盟【看过漫画】  </span><br><span class="line">重启咲良田</span><br><span class="line">樱花庄的宠物女孩  </span><br><span class="line">魔法使的新娘</span><br><span class="line">夏目友人帐【在看漫画】  </span><br><span class="line">邻座的怪同学【看过漫画】 </span><br><span class="line"></span><br><span class="line">海贼王【在看漫画1067】</span><br><span class="line">来自深渊【在看漫画63】</span><br><span class="line">约定的梦幻岛【看过漫画】</span><br><span class="line">鬼灭之刃【看过漫画】</span><br><span class="line">全职猎人</span><br><span class="line">轻音少女</span><br><span class="line">孤独摇滚【想看漫画】</span><br><span class="line">NEW GAME【在看漫画】</span><br><span class="line">花牌情缘【看过漫画】</span><br><span class="line">擅长捉弄的高木同学</span><br><span class="line">四月是你的谎言</span><br><span class="line">3月的狮子【在看漫画】</span><br><span class="line">文学少女【看过小说】</span><br><span class="line">青春笨蛋少年不做兔女郎学姐的梦</span><br><span class="line">命运石之门</span><br><span class="line">游戏人生</span><br><span class="line">思维覆写</span><br><span class="line">异度侵入</span><br><span class="line">奇巧出租车</span><br><span class="line">白箱</span><br><span class="line"></span><br><span class="line">琴之森【看过漫画】</span><br><span class="line">玩偶游戏【看过漫画】</span><br><span class="line">明日的娜嘉</span><br><span class="line">悲惨世界少女柯塞特</span><br><span class="line">魔法少女樱</span><br><span class="line">小魔女DoReMi</span><br><span class="line">地狱少女</span><br></pre></td></tr></table></figure>
+<ul>
+<li>看过</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">推理之绊</span><br><span class="line">虚构推理</span><br><span class="line">目隐都市的演绎者</span><br><span class="line">奇蛋物语</span><br><span class="line">绯弹的亚里亚</span><br><span class="line">莉可莉丝</span><br><span class="line">厨神小当家</span><br><span class="line">佐贺偶像是传奇</span><br><span class="line">少女歌剧</span><br><span class="line">东之伊甸</span><br><span class="line">境界的彼方</span><br><span class="line">吸血鬼骑士</span><br><span class="line">小女神花铃【看过漫画】</span><br><span class="line">魔界女王候补生</span><br><span class="line">国王排名【在看漫画201】</span><br><span class="line">魔法禁书目录</span><br><span class="line">蔷薇少女</span><br><span class="line">传颂之物【还有续集】</span><br><span class="line">妖精的旋律</span><br><span class="line">闪电十一人</span><br><span class="line">妖怪手表【看了一部分】</span><br><span class="line">童话枪手小红帽</span><br><span class="line"></span><br><span class="line">干物妹</span><br><span class="line">玉子市场</span><br><span class="line">紫罗兰永恒花园</span><br><span class="line">平家物语</span><br><span class="line">在下坂本有何贵干</span><br><span class="line">黑社会的超能力女儿</span><br><span class="line">女高中生的无所事事</span><br><span class="line">卫宫家今日的饭</span><br><span class="line">草莓棉花糖</span><br><span class="line">元气囝仔</span><br><span class="line">热带雨林的爆笑生活</span><br><span class="line">阳光中的青时雨</span><br><span class="line">小林家的龙女仆</span><br><span class="line">她和她的猫</span><br><span class="line">四叠半神话大系</span><br><span class="line">旋风管家【看过一点】</span><br><span class="line">凉宫春日【看过一点】</span><br><span class="line">幸运星</span><br><span class="line">滑子菇～世界的朋友～</span><br><span class="line">蓝兰岛漂流记</span><br><span class="line"></span><br><span class="line">交响情人梦</span><br><span class="line">冰菓</span><br><span class="line">狼与香辛料</span><br><span class="line">我们仍未知道那天所看见的花的名字</span><br><span class="line">他和她的故事【看过漫画】</span><br><span class="line">青春之旅【看过漫画】</span><br><span class="line">月刊少女野崎君</span><br><span class="line">多田君不恋爱</span><br><span class="line">月色真美</span><br><span class="line">敦君与女朋友</span><br><span class="line">路人女主的养成方法</span><br><span class="line">龙与虎</span><br><span class="line">S.A特优生</span><br><span class="line">会长是女仆大人</span><br><span class="line">你是主人我是仆</span><br><span class="line">俺物语</span><br><span class="line">不可思议星球的双胞胎公主</span><br><span class="line">橘色奇迹</span><br><span class="line">告白实行委员会</span><br><span class="line">宅男腐女恋爱真难</span><br><span class="line">樱兰高校男公关部【看过漫画】</span><br><span class="line">稻荷恋之歌</span><br><span class="line">关于完全听不懂老公在说什么的事</span><br><span class="line">辉夜大小姐想让我表白【在看漫画】</span><br><span class="line">人形电脑天使心</span><br><span class="line">荻荻公主</span><br><span class="line">埃罗芒阿老师</span><br><span class="line">贤惠幼妻仙狐小姐</span><br><span class="line">昨日之歌</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在看</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">间谍过家家【在看漫画62】</span><br><span class="line">Re：从零开始的异世界生活</span><br></pre></td></tr></table></figure>
 <h2 id="国产"><a class="markdownIt-Anchor" href="#国产"></a> 国产</h2>
-<p>围棋少年、虹猫蓝兔七侠传</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">围棋少年</span><br><span class="line">虹猫蓝兔七侠传</span><br></pre></td></tr></table></figure>
 <h1 id="漫画"><a class="markdownIt-Anchor" href="#漫画"></a> 漫画</h1>
 <h2 id="国外-2"><a class="markdownIt-Anchor" href="#国外-2"></a> 国外</h2>
-<p>爱丽丝学院<br>
-邻座的怪同学、玩偶游戏<br>
-花牌情缘<br>
-来自深渊、约定的梦幻岛、鬼灭之刃</p>
+<ul>
+<li>推荐</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">欺诈游戏</span><br><span class="line">我好在意猫田</span><br><span class="line">Last Game</span><br><span class="line">修那之旅</span><br><span class="line">天上之弦</span><br><span class="line">蜂蜜与四叶草</span><br></pre></td></tr></table></figure>
+<ul>
+<li>看过</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Another</span><br><span class="line">投票游戏 投予你这黑暗的一票</span><br><span class="line"></span><br><span class="line">阿滋漫画大王</span><br><span class="line"></span><br><span class="line">一周的朋友</span><br><span class="line">假装女友</span><br><span class="line">亲吻前、结婚后</span><br><span class="line">梦舞飞扬</span><br><span class="line">青春梦飞扬</span><br><span class="line"></span><br><span class="line">人渣的本愿</span><br><span class="line">萝莉的时间</span><br><span class="line">恋爱得分</span><br><span class="line">纯情房东俏房客</span><br></pre></td></tr></table></figure>
 <h2 id="国产-2"><a class="markdownIt-Anchor" href="#国产-2"></a> 国产</h2>
-<p>minor未成年、长歌行</p>
+<ul>
+<li>推荐</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">minor未成年</span><br><span class="line">长歌行</span><br><span class="line">子不语</span><br></pre></td></tr></table></figure>
+<ul>
+<li>看过</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">蓝翅【在看153失明3】</span><br></pre></td></tr></table></figure>
 <h1 id="小说"><a class="markdownIt-Anchor" href="#小说"></a> 小说</h1>
-<p>彩云国物语、冒险小虎队</p>
+<ul>
+<li>推荐</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">彩云国物语</span><br><span class="line">文学少女</span><br><span class="line">冒险小虎队</span><br></pre></td></tr></table></figure>
 <h1 id="电影"><a class="markdownIt-Anchor" href="#电影"></a> 电影</h1>
-<h2 id="日本动画"><a class="markdownIt-Anchor" href="#日本动画"></a> 日本动画</h2>
-<p>宫崎骏吉卜力系列<br>
-想哭的我戴上了猫的面具<br>
-千年女优<br>
-柯南系列</p>
+<h2 id="日本"><a class="markdownIt-Anchor" href="#日本"></a> 日本</h2>
+<ul>
+<li>宫崎骏吉卜力系列
+<ul>
+<li>宫崎骏
+<ul>
+<li>千与千寻</li>
+<li>风之谷</li>
+<li>哈尔的移动城堡</li>
+<li>幽灵公主</li>
+<li>天空之城</li>
+<li>起风了</li>
+<li>魔女宅急便</li>
+<li>龙猫</li>
+<li>鲁邦三世：卡里奥斯特罗城</li>
+<li>红猪</li>
+<li>崖上的波妞</li>
+</ul>
+</li>
+<li>高畑勋
+<ul>
+<li>岁月的童话</li>
+<li>萤火虫之墓</li>
+<li>平成狸合战</li>
+<li>我的邻居山田君</li>
+<li>（辉夜姬物语）</li>
+</ul>
+</li>
+<li>宫崎吾郎
+<ul>
+<li>来自虞美人之坡</li>
+<li>地海传说</li>
+</ul>
+</li>
+<li>米林宏昌
+<ul>
+<li>借东西的小人阿丽埃蒂</li>
+<li>玛丽与魔女之花</li>
+<li>回忆中的玛妮</li>
+</ul>
+</li>
+<li>其它
+<ul>
+<li>听到涛声</li>
+<li>猫的报恩</li>
+<li>侧耳倾听</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>细田守
+<ul>
+<li>狼的孩子雨和雪</li>
+<li>夏日大作战</li>
+<li>未来的未来</li>
+<li>穿越时空的少女</li>
+</ul>
+</li>
+<li>新海诚
+<ul>
+<li>你的名字</li>
+<li>天气之子</li>
+<li>言叶之庭</li>
+<li>秒速5厘米</li>
+<li>追逐繁星的孩子</li>
+<li>（云之彼端，约定的地方）</li>
+<li>（星之声）</li>
+</ul>
+</li>
+<li>汤浅政明
+<ul>
+<li>春宵苦短，少女前进吧！</li>
+</ul>
+</li>
+<li>柯南系列
 <ul>
 <li>万圣节的新娘</li>
 </ul>
-<h2 id="动画-2"><a class="markdownIt-Anchor" href="#动画-2"></a> 动画</h2>
-<p>拜见罗宾逊一家<br>
-驯龙高手</p>
+</li>
+<li>哈利波特系列</li>
+<li>宠物小精灵系列</li>
+<li>其它</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">想哭的我戴上了猫的面具</span><br><span class="line">我们仍未知道那天所看见的花的名字</span><br><span class="line">萤火之森</span><br><span class="line">千年女优</span><br><span class="line">声之形</span><br><span class="line">我想吃掉你的胰脏</span><br><span class="line">朝花夕誓——于离别之朝束起约定之花</span><br><span class="line">烟花</span><br><span class="line">蓝色恐惧</span><br></pre></td></tr></table></figure>
+<h2 id="其它动画"><a class="markdownIt-Anchor" href="#其它动画"></a> 其它动画</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">拜见罗宾逊一家</span><br><span class="line">驯龙高手系列</span><br><span class="line">疯狂动物城</span><br></pre></td></tr></table></figure>
 <h2 id="真人"><a class="markdownIt-Anchor" href="#真人"></a> 真人</h2>
 <ul>
-<li>
-<p>推荐<br>
-阿米尔汗系列<br>
-肖申克的救赎、阿甘正传、当幸福来敲门<br>
-楚门的世界、海上钢琴师<br>
-小妇人<br>
-怦然心动、美丽心灵、初恋那件小事、傲慢与偏见<br>
-天才少女、死亡诗社、放牛班的春天、天才枪手、风雨哈佛路<br>
-这个杀手不太冷<br>
-绿皮书、美丽人生<br>
-裁女佳人<br>
-盗梦空间<br>
-福尔摩斯小姐1和2</p>
+<li>推荐</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">阿米尔汗系列</span><br><span class="line">肖申克的救赎、阿甘正传、当幸福来敲门</span><br><span class="line">楚门的世界、海上钢琴师</span><br><span class="line">小妇人</span><br><span class="line">怦然心动、美丽心灵、初恋那件小事、傲慢与偏见</span><br><span class="line">天才少女、死亡诗社、放牛班的春天、天才枪手、风雨哈佛路</span><br><span class="line">这个杀手不太冷</span><br><span class="line">绿皮书、美丽人生</span><br><span class="line">裁女佳人</span><br><span class="line">盗梦空间</span><br><span class="line">福尔摩斯小姐1和2</span><br></pre></td></tr></table></figure>
+<ul>
+<li>看过</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">遇见你之前</span><br><span class="line">复仇少女组</span><br><span class="line">律政俏佳人</span><br><span class="line">玛蒂尔达</span><br></pre></td></tr></table></figure>
+<ul>
+<li>想看</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">白箱电影</span><br><span class="line">二之国</span><br><span class="line">夏目友人帐 和猫老师的第一次跑腿 </span><br><span class="line">高木同学剧场版</span><br><span class="line">辉夜姬物语</span><br><span class="line">海贼王</span><br><span class="line"></span><br><span class="line">云之彼端，约定的地方</span><br><span class="line">星之声</span><br><span class="line">小黄人前传</span><br><span class="line">想见你</span><br><span class="line">流浪地球2</span><br><span class="line">阿凡达2</span><br><span class="line"></span><br><span class="line">八美图</span><br><span class="line">阳光下的罪恶</span><br><span class="line">公主日记</span><br><span class="line"></span><br><span class="line">教授</span><br><span class="line">海蒂和爷爷</span><br><span class="line">闻香识女人</span><br><span class="line">俄罗斯方舟</span><br><span class="line">穿普拉达的女王</span><br><span class="line">黄石（电视剧）</span><br><span class="line">护垫侠</span><br><span class="line">破产姐妹</span><br><span class="line">魔女嘉莉</span><br><span class="line">小小安妮</span><br><span class="line">小谢尔顿</span><br><span class="line">月事革命</span><br><span class="line">我的生理期</span><br><span class="line">我的天才女友（电视剧）</span><br><span class="line">东八区的西八们</span><br><span class="line">本杰明巴顿奇事</span><br><span class="line">情人</span><br><span class="line">心灵捕手</span><br><span class="line">超脱</span><br><span class="line">西西里的美丽传说</span><br><span class="line">美国往事</span><br><span class="line">辛德勒的名单</span><br><span class="line">少年派的奇幻漂流</span><br><span class="line">星际穿越</span><br><span class="line">钢琴家</span><br><span class="line">今天的吉良同学</span><br><span class="line">今天开始契约恋爱（韩剧）</span><br><span class="line">红辣椒</span><br></pre></td></tr></table></figure>
+<h1 id="电视剧"><a class="markdownIt-Anchor" href="#电视剧"></a> 电视剧</h1>
+<ul>
+<li>韩国
+<ul>
+<li>大长今</li>
+<li>请回答1988</li>
+<li>dream high</li>
+<li>w的两个世界</li>
+</ul>
 </li>
-<li>
-<p>看过<br>
-遇见你之前<br>
-复仇少女组<br>
-律政俏佳人<br>
-玛蒂尔达</p>
+<li>日本
+<ul>
+<li>欺诈游戏</li>
+<li>逃避虽可耻但有用</li>
+<li>legal high 胜者即是正义</li>
+</ul>
 </li>
-<li>
-<p>想看<br>
-八美图<br>
-阳光下的罪恶<br>
-公主日记</p>
+<li>其它
+<ul>
+<li>越狱</li>
+</ul>
 </li>
 </ul>
-<p>小黄人前传</p>
-<p>教授<br>
-海蒂和爷爷<br>
-闻香识女人<br>
-俄罗斯方舟<br>
-穿普拉达的女王<br>
-黄石（电视剧）<br>
-护垫侠<br>
-破产姐妹<br>
-魔女嘉莉<br>
-小小安妮<br>
-小谢尔顿<br>
-月事革命<br>
-我的生理期<br>
-我的天才女友（电视剧）<br>
-东八区的西八们<br>
-本杰明巴顿奇事<br>
-情人<br>
-心灵捕手<br>
-超脱<br>
-西西里的美丽传说<br>
-美国往事<br>
-辛德勒的名单<br>
-少年派的奇幻漂流<br>
-星际穿越<br>
-钢琴家<br>
-今天的吉良同学<br>
-今天开始契约恋爱（韩剧）<br>
-红辣椒</p>
-<h1 id="电视剧"><a class="markdownIt-Anchor" href="#电视剧"></a> 电视剧</h1>
-<p>大长今<br>
-请回答1988、dream high</p>
 <h1 id="游戏"><a class="markdownIt-Anchor" href="#游戏"></a> 游戏</h1>
 <ul>
-<li>
-<p>推荐<br>
-雷顿教授系列<br>
-宠物小精灵系列<br>
-牧场物语系列<br>
-原神、明日方舟</p>
+<li>掌机
+<ul>
+<li>雷顿教授系列</li>
+<li>宠物小精灵系列</li>
+<li>牧场物语系列</li>
+<li>二之国</li>
+<li>太鼓达人</li>
+<li>闪电十一人</li>
+<li>妖怪手表</li>
+<li>触摸侦探：小沢里奈</li>
+<li>菇菇栽培</li>
+</ul>
 </li>
-<li>
-<p>漫画网站<br>
-<a href="https://www.pupudy.com/" target="_blank" rel="noopener">https://www.pupudy.com/</a></p>
+<li>pc
+<ul>
+<li>原神</li>
+<li>小小梦魇1</li>
+</ul>
 </li>
-<li>
-<p>动漫网站<br>
-<a href="https://myself-bbs.com/" target="_blank" rel="noopener">https://myself-bbs.com/</a></p>
+<li>steam
+<ul>
+<li>Terraria</li>
+<li>中国式家长</li>
+<li>胡闹厨房1和2</li>
+<li>双人成行</li>
+<li>人类一败涂地</li>
+<li>密室逃脱</li>
+<li>Among Us</li>
+<li>ibb &amp; obb</li>
+<li>主播女孩重度依赖</li>
+<li>Tick Tock: A Tale for Two</li>
+<li>We Were Here</li>
+<li>Satisfactory</li>
+</ul>
 </li>
-<li>
-<p>电影网站<br>
-<a href="https://www.4kvm.com/" target="_blank" rel="noopener">https://www.4kvm.com/</a></p>
+<li>手游
+<ul>
+<li>古树旋律</li>
+<li>阴阳师</li>
+<li>lovelive</li>
+<li>恋与制作人</li>
+<li>少女前线</li>
+<li>明日方舟</li>
+<li>小森生活</li>
+<li>哈利波特魔法觉醒</li>
+<li>摩尔庄园</li>
+</ul>
 </li>
+</ul>
+<h1 id="网站"><a class="markdownIt-Anchor" href="#网站"></a> 网站</h1>
+<ul>
+<li>漫画网站<br>
+<a href="https://www.pupudy.com/" target="_blank" rel="noopener">https://www.pupudy.com/</a></li>
+<li>动漫网站<br>
+<a href="https://myself-bbs.com/" target="_blank" rel="noopener">https://myself-bbs.com/</a><br>
+<a href="http://www.ntyou.cc/play/100-1-4.html" target="_blank" rel="noopener">http://www.ntyou.cc/play/100-1-4.html</a></li>
+<li>电影网站<br>
+<a href="https://www.4kvm.com/" target="_blank" rel="noopener">https://www.4kvm.com/</a></li>
 </ul>
 
       
@@ -49176,131 +49861,6 @@ live2d cubism</p>
 
 
   
-    <article id="post-虚拟主播笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/09/04/虚拟主播笔记/">虚拟主播笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2022/09/04/虚拟主播笔记/" class="archive-article-date">
-  	<time datetime="2022-09-03T19:30:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-04</time>
-</a>
-
-	<a href="javascript:;" class="archive-article-date">
-		<i class="icon-smile icon"></i> 阅读数:<span id="/2022/09/04/虚拟主播笔记/" class="pageViews">0</span>次
-	</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        个人秘密笔记资料
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <!--
- * @Author: CalmCapK
- * @Date: 2022-08-12 08:39:11
- * @LastEditors: CalmCapK
- * @LastEditTime: 2022-09-20 02:39:05
--->
-
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">secret</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">虚拟主播</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vup</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Prprlive</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">b站直播姬</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">元气变声</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">live2d</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      <!--
- * @Author: CalmCapK
- * @Date: 2022-08-12 08:39:11
- * @LastEditors: CalmCapK
- * @LastEditTime: 2022-09-20 02:39:09
--->
-
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/爱好//" class="article-tag-list-link color3">爱好</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/09/04/虚拟主播笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -49315,7 +49875,7 @@ live2d cubism</p>
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 CalmCapK
+    		&copy; 2023 CalmCapK
     	</div>
       <div class="footer-right">
       	<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -49493,6 +50053,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
@@ -49505,26 +50073,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">latex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
@@ -49534,22 +50082,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">tmux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">clip</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">PS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Pr</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -49574,6 +50106,38 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">clip</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">吉他</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">PS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Pr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -49613,7 +50177,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基金</a>
+                <a href="javascript:void(0)" class="js-tag color4">OBS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -49625,7 +50189,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">OBS</a>
+                <a href="javascript:void(0)" class="js-tag color3">基金</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -49641,7 +50205,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">transformer</a>
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -49649,11 +50213,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
+                <a href="javascript:void(0)" class="js-tag color4">优化器</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多标签</a>
+                <a href="javascript:void(0)" class="js-tag color2">transformer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">指标</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -49665,27 +50237,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">优化器</a>
+                <a href="javascript:void(0)" class="js-tag color4">多标签</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">指标</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">对比学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MIM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">CLIP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MAE</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -49705,18 +50261,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">医学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
@@ -49730,6 +50274,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">对比学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MIM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">CLIP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MAE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">医学</a>
               </li>
              
               <li class="article-tag-list-item">
