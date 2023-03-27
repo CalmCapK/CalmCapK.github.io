@@ -49122,7 +49122,7 @@ pc小程序的<br>
 <ul>
 <li>vector</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sort(nums.begin(), nums.end());  排序 </span><br><span class="line">vector&lt;vector&lt;int&gt;&gt; edge; edge.emplace_back(); 不需要新建</span><br><span class="line">edge.push_back(&#123;1,2,3,4,&#125;) 直接加vector</span><br><span class="line">vector&lt;int&gt;对象</span><br><span class="line">初始化</span><br><span class="line">v = &#123;&#125;;</span><br><span class="line">v = &#123;&apos;a&apos;&#125;;</span><br><span class="line">push_back() emplace_back()</span><br><span class="line">v.back()</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sort(nums.begin(), nums.end());  排序 </span><br><span class="line">vector&lt;vector&lt;int&gt;&gt; edge; edge.emplace_back(); 不需要新建</span><br><span class="line">edge.push_back(&#123;1,2,3,4,&#125;) 直接加vector</span><br><span class="line">vector&lt;int&gt;对象</span><br><span class="line">初始化</span><br><span class="line">v = &#123;&#125;;</span><br><span class="line">v = &#123;&apos;a&apos;&#125;;</span><br><span class="line">push_back() emplace_back()</span><br><span class="line">pop_back()</span><br><span class="line">v.back()</span><br></pre></td></tr></table></figure>
 <ul>
 <li>string 字符串</li>
 </ul>
@@ -49170,7 +49170,9 @@ pc小程序的<br>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">struct TrieNode &#123;</span><br><span class="line">    string word;</span><br><span class="line">    unordered_map&lt;char, TrieNode*&gt;child;</span><br><span class="line">    TrieNode()&#123;</span><br><span class="line">        this-&gt;word = &quot;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">void insertTrie(TrieNode * root, string word)&#123;</span><br><span class="line">    TrieNode*node = root;</span><br><span class="line">    for(int i = 0; i &lt; word.size(); i++)&#123;</span><br><span class="line">        if(!node-&gt;child.count(word[i]))&#123;</span><br><span class="line">            node-&gt;child[word[i]] = new TrieNode();</span><br><span class="line">        &#125;</span><br><span class="line">        node = node-&gt;child[word[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    node-&gt;word = word;</span><br><span class="line">&#125;</span><br><span class="line">TrieNode*root = new TrieNode();</span><br><span class="line">insertTrie(root, words[w]);</span><br><span class="line">root-&gt;child.count(ch))</span><br><span class="line">TrieNode*nxt = root-&gt;child[ch];</span><br><span class="line">nxt-&gt;word.size()</span><br><span class="line">nxt-&gt;child.empty()</span><br><span class="line">root-&gt;child.erase(ch)</span><br></pre></td></tr></table></figure>
 <h1 id="python"><a class="markdownIt-Anchor" href="#python"></a> python</h1>
 <h2 id="知识"><a class="markdownIt-Anchor" href="#知识"></a> 知识</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">python赋值只是引用, 函数从参数返回注意要把结果放在原来参数的存储位置</span><br><span class="line"></span><br><span class="line">for i in range((n-1)/2, -1, -1): 从大到小计算</span><br><span class="line">for i, num in enumerate(nums)</span><br><span class="line">for num in nums:</span><br><span class="line">    num = 不能赋值</span><br><span class="line"></span><br><span class="line">遍历</span><br><span class="line">for i in range(0, n-step, step*2)</span><br><span class="line">for i in range(n-1, -1, -1):</span><br><span class="line"></span><br><span class="line">float(&quot;-inf&quot;) 无穷</span><br><span class="line"></span><br><span class="line">参数引用</span><br><span class="line">字典和列表是传址</span><br><span class="line"></span><br><span class="line">交换位置</span><br><span class="line">nums[i], nums[mx-1] = nums[mx-1], nums[i]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">python赋值只是引用, 函数从参数返回注意要把结果放在原来参数的存储位置</span><br><span class="line"></span><br><span class="line">for i in range((n-1)/2, -1, -1): 从大到小计算</span><br><span class="line">for i, num in enumerate(nums)</span><br><span class="line">for num in nums:</span><br><span class="line">    num = 不能赋值</span><br><span class="line"></span><br><span class="line">遍历</span><br><span class="line">for i in range(0, n-step, step*2)</span><br><span class="line">for i in range(n-1, -1, -1):</span><br><span class="line"></span><br><span class="line">float(&quot;-inf&quot;) 无穷</span><br><span class="line"></span><br><span class="line">参数引用</span><br><span class="line">字典和列表是传址</span><br><span class="line"></span><br><span class="line">交换位置</span><br><span class="line">nums[i], nums[mx-1] = nums[mx-1], nums[i]</span><br><span class="line"></span><br><span class="line">函数里修改list，函数外也会有影响</span><br></pre></td></tr></table></figure>
+<h2 id="复制"><a class="markdownIt-Anchor" href="#复制"></a> 复制</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import copy </span><br><span class="line">a = [[10], 20]</span><br><span class="line">b = a[:] # 方法1  [[10, 11], 20, 21]</span><br><span class="line">c = list(a) # 方法2 [[10, 11], 20]</span><br><span class="line">d = a * 1 # 方法3 [[10, 11], 20]</span><br><span class="line">e = copy.copy(a) # 方法4 [[10, 11], 20]</span><br><span class="line">f = copy.deepcopy(a) # 方法5 [[10], 20] 【推荐】</span><br><span class="line">a.append(21)</span><br><span class="line">a[0].append(11)</span><br></pre></td></tr></table></figure>
 <h2 id="数据结构-2"><a class="markdownIt-Anchor" href="#数据结构-2"></a> 数据结构</h2>
 <ul>
 <li>string</li>
@@ -49938,6 +49940,25 @@ vis表示一个点是否有问题。只进入’O’点，枚举四个方向，�
 </ul>
 </li>
 </ul>
+<h2 id="搜索"><a class="markdownIt-Anchor" href="#搜索"></a> 搜索</h2>
+<ul>
+<li>题目39. Combination Sum
+<ul>
+<li>题意：给一组因子，求用这些因子组合成target情况，可重复</li>
+<li>思路1：dfs，dfs(int target, int tmp, vector<int>&amp; candidates, int idx, vector<int>combine, vector&lt;vector<int> &gt; &amp;ans)，idx表示枚举到这个位置
+<ul>
+<li>时间复杂度：O(S)，其中S为所有可行解的长度之和</li>
+<li>空间复杂度：O(target)，除答案数组外，空间复杂度取决于递归的栈深度，在最差情况下需要递归target层。【不能理解】</li>
+</ul>
+</int></int></int></li>
+<li>错误思路：
+<ul>
+<li>python版本没有使用copy.deepcopy，导致pop的时候结果清空</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h2 id="单调栈"><a class="markdownIt-Anchor" href="#单调栈"></a> 单调栈</h2>
 <h3 id="单调栈求面积"><a class="markdownIt-Anchor" href="#单调栈求面积"></a> 单调栈+求面积</h3>
 <ul>
@@ -50551,14 +50572,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">latex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
               </li>
              
@@ -50583,6 +50596,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
@@ -50596,6 +50613,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">tmux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -50623,15 +50656,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
+                <a href="javascript:void(0)" class="js-tag color5">clip</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color3">吉他</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -50647,7 +50676,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">吉他</a>
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -50659,23 +50692,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">clip</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">frp</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内网穿透</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">OBS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -50687,7 +50712,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">OBS</a>
+                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -50703,19 +50728,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">transformer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多标签</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -50727,7 +50744,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">指标</a>
+                <a href="javascript:void(0)" class="js-tag color4">多标签</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -50747,6 +50764,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">指标</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">backbone</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">冻结训练</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">renpy</a>
               </li>
              
@@ -50763,22 +50796,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">backbone</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">冻结训练</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">医学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
@@ -50792,6 +50809,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">表情包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sai</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ps</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -50827,15 +50860,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">表情包</a>
+                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sai</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ps</a>
+                <a href="javascript:void(0)" class="js-tag color3">配置</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -50844,14 +50873,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">voiceroid</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">配置</a>
               </li>
              
               <li class="article-tag-list-item">
