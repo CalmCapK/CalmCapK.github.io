@@ -178,6 +178,274 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-深度学习-多标签分类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/27/深度学习-多标签分类/">深度学习-多标签分类</a>
+    </h1>
+  
+
+        
+        <a href="/2022/10/27/深度学习-多标签分类/" class="archive-article-date">
+  	<time datetime="2022-10-26T17:31:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-27</time>
+</a>
+
+	<a href="javascript:;" class="archive-article-date">
+		<i class="icon-smile icon"></i> 阅读数:<span id="/2022/10/27/深度学习-多标签分类/" class="pageViews">0</span>次
+	</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
+        <h1 id="指标"><a class="markdownIt-Anchor" href="#指标"></a> 指标</h1>
+<p>1、汉明损失</p>
+<p>选前两个最大概率（不softmax），设置为1，计算 pred和label不同的数目/label数</p>
+<p>2、覆盖率</p>
+<p>概率排序，选择包含全部标签1最大数目</p>
+<p>3、1-错误率</p>
+<p>最大概率的在不在label里</p>
+<p>4、排序损失</p>
+<p>统计label对应的pred是否有比它大值</p>
+<p>5、平均精确率</p>
+<p>label对应的pred在 真label和全部label的比值</p>
+<p>6、平均准确率</p>
+<p>所有标记都预测正确才是1</p>
+<p>7、P R F1</p>
+<p>F1 Micro 不考虑标签的差异，直接统计全部P和R</p>
+<p>F1 Macro 考虑标签的差异，单独计算每个样本的P和R</p>
+<p>8、我们的是【和云识别一样】</p>
+<p>卡阈值，按类别统计P和R，F1, 再除于类别？？</p>
+<p>9、cal_score</p>
+<p>每个样本算一个TP/(TP+FP+FN），求平均</p>
+<p>卡阈值 每类平均</p>
+<p>f1=iouscore*2/（iouscore+1）此时只是单个样本满足</p>
+<p>累计求和去平均后不满足</p>
+<p>10、map</p>
+<p>每一类按照正样本数目卡阈值得到P和R，计算ap值，</p>
+<p>但是这要怎么infer呢，看一下yolo计算方式</p>
+<p>N个二分类</p>
+<h1 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h1>
+<ul>
+<li><a href="https://blog.csdn.net/TeFuirnever/article/details/100159150" target="_blank" rel="noopener">https://blog.csdn.net/TeFuirnever/article/details/100159150</a></li>
+<li><a href="https://blog.csdn.net/TeFuirnever/article/details/100180553" target="_blank" rel="noopener">https://blog.csdn.net/TeFuirnever/article/details/100180553</a></li>
+<li><a href="http://doc.codingdict.com/sklearn/13/" target="_blank" rel="noopener">http://doc.codingdict.com/sklearn/13/</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/41637556" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/41637556</a></li>
+<li><a href="https://www.zhihu.com/question/35486862/answer/462683110" target="_blank" rel="noopener">https://www.zhihu.com/question/35486862/answer/462683110</a></li>
+<li><a href="https://www.cnblogs.com/XBWer/p/13503796.html" target="_blank" rel="noopener">https://www.cnblogs.com/XBWer/p/13503796.html</a></li>
+<li><a href="https://blog.csdn.net/u011734144/article/details/79717470" target="_blank" rel="noopener">https://blog.csdn.net/u011734144/article/details/79717470</a></li>
+<li><a href="https://blog.csdn.net/Yvesx/article/details/110932595" target="_blank" rel="noopener">https://blog.csdn.net/Yvesx/article/details/110932595</a></li>
+<li><a href="https://blog.csdn.net/luanpeng825485697/article/details/79858186" target="_blank" rel="noopener">https://blog.csdn.net/luanpeng825485697/article/details/79858186</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/33372046" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/33372046</a></li>
+<li><a href="https://blog.csdn.net/qq_14845119/article/details/114121003" target="_blank" rel="noopener">https://blog.csdn.net/qq_14845119/article/details/114121003</a></li>
+<li><a href="https://blog.51cto.com/liguodong/4925397" target="_blank" rel="noopener">https://blog.51cto.com/liguodong/4925397</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzI3MzU5NjQyMQ==&amp;mid=2247485728&amp;idx=1&amp;sn=c8294d3252c0135e16a68c1824f7e374&amp;chksm=eb21a04adc56295cbac9bf44a687480171d4759a8bfab9f06fda0b05ebdfb2ac1b6ea6f76e39#rd" target="_blank" rel="noopener">https://mp.weixin.qq.com/s?__biz=MzI3MzU5NjQyMQ==&amp;mid=2247485728&amp;idx=1&amp;sn=c8294d3252c0135e16a68c1824f7e374&amp;chksm=eb21a04adc56295cbac9bf44a687480171d4759a8bfab9f06fda0b05ebdfb2ac1b6ea6f76e39#rd</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzU4NTY4Mzg1Mw==&amp;mid=2247520170&amp;idx=2&amp;sn=e65705dee0c33048ba42b68dfcd67fa4&amp;chksm=fd840948caf3805e68b1bca0f84b1a57934dd0b0fe782bbf7d7c8b55ebec997d39d5f3be609f#rd" target="_blank" rel="noopener">https://mp.weixin.qq.com/s?__biz=MzU4NTY4Mzg1Mw==&amp;mid=2247520170&amp;idx=2&amp;sn=e65705dee0c33048ba42b68dfcd67fa4&amp;chksm=fd840948caf3805e68b1bca0f84b1a57934dd0b0fe782bbf7d7c8b55ebec997d39d5f3be609f#rd</a></li>
+<li></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <!--
+ * @Author: CalmCapK
+ * @Date: 2022-08-12 08:39:11
+ * @LastEditors: CalmCapK
+ * @LastEditTime: 2022-09-20 02:39:05
+-->
+
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多标签</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      <!--
+ * @Author: CalmCapK
+ * @Date: 2022-08-12 08:39:11
+ * @LastEditors: CalmCapK
+ * @LastEditTime: 2022-09-20 02:39:09
+-->
+
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/深度学习//" class="article-tag-list-link color5">深度学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/10/27/深度学习-多标签分类/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-深度学习-优化器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/27/深度学习-优化器/">深度学习-优化器</a>
+    </h1>
+  
+
+        
+        <a href="/2022/10/27/深度学习-优化器/" class="archive-article-date">
+  	<time datetime="2022-10-26T17:30:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-27</time>
+</a>
+
+	<a href="javascript:;" class="archive-article-date">
+		<i class="icon-smile icon"></i> 阅读数:<span id="/2022/10/27/深度学习-优化器/" class="pageViews">0</span>次
+	</a>
+
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
+        <h1 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h1>
+<ul>
+<li><a href="https://www.zhihu.com/question/36301367" target="_blank" rel="noopener">https://www.zhihu.com/question/36301367</a></li>
+<li><a href="https://www.zhihu.com/question/29151564" target="_blank" rel="noopener">https://www.zhihu.com/question/29151564</a></li>
+<li><a href="https://blog.csdn.net/real_ilin/article/details/108438089" target="_blank" rel="noopener">https://blog.csdn.net/real_ilin/article/details/108438089</a></li>
+<li><a href="https://www.cvmart.net/community/detail/5247" target="_blank" rel="noopener">https://www.cvmart.net/community/detail/5247</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/261695487" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/261695487</a></li>
+<li><a href="https://pytorch.zhangxiann.com/4-mo-xing-xun-lian/4.3-you-hua-qi" target="_blank" rel="noopener">https://pytorch.zhangxiann.com/4-mo-xing-xun-lian/4.3-you-hua-qi</a></li>
+<li><a href="https://www.jianshu.com/p/39dac1e24709" target="_blank" rel="noopener">https://www.jianshu.com/p/39dac1e24709</a></li>
+<li><a href="https://blog.csdn.net/wangwei19871103/article/details/90814987" target="_blank" rel="noopener">https://blog.csdn.net/wangwei19871103/article/details/90814987</a></li>
+<li><a href="https://www.cnblogs.com/bonelee/p/8392370.html" target="_blank" rel="noopener">https://www.cnblogs.com/bonelee/p/8392370.html</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/38945390" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/38945390</a></li>
+<li><a href="https://blog.csdn.net/Decennie/article/details/119222319" target="_blank" rel="noopener">https://blog.csdn.net/Decennie/article/details/119222319</a></li>
+<li><a href="https://www.cnblogs.com/tfknight/p/13425532.html" target="_blank" rel="noopener">https://www.cnblogs.com/tfknight/p/13425532.html</a></li>
+<li><a href="https://blog.csdn.net/weixin_45743001/article/details/120472616" target="_blank" rel="noopener">https://blog.csdn.net/weixin_45743001/article/details/120472616</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/39543160" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/39543160</a></li>
+<li><a href="https://www.jianshu.com/p/e17622b7ffee" target="_blank" rel="noopener">https://www.jianshu.com/p/e17622b7ffee</a></li>
+<li><a href="https://www.jiqizhixin.com/articles/2018-07-03-14" target="_blank" rel="noopener">https://www.jiqizhixin.com/articles/2018-07-03-14</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <!--
+ * @Author: CalmCapK
+ * @Date: 2022-08-12 08:39:11
+ * @LastEditors: CalmCapK
+ * @LastEditTime: 2022-09-20 02:39:05
+-->
+
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">优化器</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      <!--
+ * @Author: CalmCapK
+ * @Date: 2022-08-12 08:39:11
+ * @LastEditors: CalmCapK
+ * @LastEditTime: 2022-09-20 02:39:09
+-->
+
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/深度学习//" class="article-tag-list-link color5">深度学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/10/27/深度学习-优化器/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
     <article id="post-剪辑笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -48840,1302 +49108,6 @@ pc小程序的<br>
 
 
   
-    <article id="post-编程语言笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/09/18/编程语言笔记/">编程语言笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2022/09/18/编程语言笔记/" class="archive-article-date">
-  	<time datetime="2022-09-17T19:34:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-18</time>
-</a>
-
-	<a href="javascript:;" class="archive-article-date">
-		<i class="icon-smile icon"></i> 阅读数:<span id="/2022/09/18/编程语言笔记/" class="pageViews">0</span>次
-	</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-        <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
-        <h1 id="c"><a class="markdownIt-Anchor" href="#c"></a> c++</h1>
-<h2 id="搜索"><a class="markdownIt-Anchor" href="#搜索"></a> 搜索</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">找第一个比target大的位置</span><br><span class="line">auto row = upper_bound(matrix.begin(), matrix.end(), target, [](const int b, const vector&lt;int&gt;&amp;a)&#123;</span><br><span class="line">    return b &lt; a[0];</span><br><span class="line">&#125;);</span><br><span class="line">if (row == matrix.begin()) &#123;</span><br><span class="line">    return false;</span><br><span class="line">&#125;</span><br><span class="line">--row;</span><br><span class="line"></span><br><span class="line">二分查找</span><br><span class="line">binary_search(row-&gt;begin(), row-&gt;end(), target);</span><br><span class="line">``` </span><br><span class="line">## 引用</span><br></pre></td></tr></table></figure>
-<p>函数用&amp;传回多个参数 fun(int &amp;a, TreeNode* &amp; note){}<br>
-函数传二维数组 vector&lt;vector<char>&gt;&amp; board</char></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## 排序</span><br></pre></td></tr></table></figure>
-<p>按照大到小排序<br>
-bool cmp(string a, string b){<br>
-return a &gt; b;<br>
-}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">## STL</span><br><span class="line">* vector</span><br></pre></td></tr></table></figure>
-<p>sort(nums.begin(), nums.end());  排序<br>
-vector&lt;vector<int>&gt; edge; edge.emplace_back(); 不需要新建<br>
-edge.push_back({1,2,3,4,}) 直接加vector<br>
-vector<int>对象<br>
-初始化<br>
-v = {};<br>
-v = {‘a’};<br>
-push_back() emplace_back()<br>
-pop_back()<br>
-v.back()<br>
-二维数组<br>
-auto dp = vector&lt;vector<int>&gt;(n, vector<int>(m));<br>
-vector&lt;vector<int>&gt; dp = vector&lt;vector<int>&gt;(n, vector<int>(m));</int></int></int></int></int></int></int></p>
-<p><a href="http://v.at" target="_blank" rel="noopener">v.at</a>(i - 1) = v[i-1]</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* string 字符串</span><br></pre></td></tr></table></figure>
-<p>reverse(s.begin(), s.end()); 翻转<br>
-s.substr(i, n); 子串<br>
-s[i] = ‘a’ 可以赋值</p>
-<p>s = to_string(val) 数字转字符串<br>
-i = stoi(s) 字符串转数字</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* pair</span><br></pre></td></tr></table></figure>
-<p>pair&lt;int, int&gt;<br>
-c = make_pair(a, b)<br>
-c.first<br>
-c.second</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* stack 栈</span><br></pre></td></tr></table></figure>
-<p>stack<int>st;<br>
-while(!st.empty()) st.pop();<br>
-st.top();<br>
-st.push();</int></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* queue</span><br></pre></td></tr></table></figure>
-<p>q.pop()<br>
-q.front()<br>
-q.push()</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* priority_queue 优先队列</span><br></pre></td></tr></table></figure>
-<p>//自定义1<br>
-priority_queue&lt;int, vector<int>, less<int> &gt; a == priority_queue<int>a;<br>
-//自定义2<br>
-struct Status {<br>
-int val;<br>
-ListNode *ptr;<br>
-bool operator &lt; (const Status &amp;rhs) const {<br>
-return val &gt; rhs.val;<br>
-}<br>
-};<br>
-priority_queue <status> q;<br>
-q.push({node-&gt;val, node})<br>
-//自定义3<br>
-struct tmp2 //重写仿函数<br>
-{<br>
-bool operator() (Node a, Node b)<br>
-{<br>
-return a.x &lt; b.x; //大顶堆<br>
-}<br>
-};<br>
-priority_queue&lt;Node, vector<node>, tmp2&gt; f;</node></status></int></int></int></p>
-<p>q.push(a) q.emplace(a)<br>
-q.empty()<br>
-auto f = q.top();<br>
-q.pop();</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* unordered_map</span><br></pre></td></tr></table></figure>
-<p>无序，查找问题，更加高效一些，o(1)时间<br>
-查询o1,插入on<br>
-unordered_map&lt;int, list&lt;pair&lt;int,int&gt;&gt;::iterator&gt;mp;<br>
-mp.find(key)!=mp.end()<br>
-mp[key]-&gt;second;<br>
-mp.erase(key); 删除<br>
-unordered_map&lt;int, vector<string>&gt; ans;<br>
-ans.count(a)</string></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* map</span><br></pre></td></tr></table></figure>
-<p>查询ologn,插入ologn<br>
-红黑树，有顺序要求的问题，用map会更高效一些<br>
-for(map&lt;string, int&gt;::iterator it=mp.begin(); it != mp.end(); it++) cout &lt;&lt; (*it).first &lt;&lt; &quot; &quot; &lt;&lt; (*it).second &lt;&lt; endl;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* list 双向链表</span><br></pre></td></tr></table></figure>
-<p>list&lt;pair&lt;int, int&gt;&gt;l;<br>
-l.splice(l.begin(), l, mp[key]);<br>
-l.erase(mp[key]);<br>
-l.push_front(make_pair(key, value));<br>
-l.begin();<br>
-l.rbegin()-&gt;first<br>
-l.pop_back();</p>
-<p>l.front() 值<br>
-l.begin() 迭代器<br>
-l.erase(l.begin());<br>
-l.push_back(a);</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* unordered_set</span><br></pre></td></tr></table></figure>
-<p>查询o1,插入on<br>
-unordered_set<string>mp;<br>
-mp.count(a)<br>
-vector转set<br>
-unordered_set(v.begin(), v.end());</string></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* set</span><br></pre></td></tr></table></figure>
-<p>查询ologn,插入ologn<br>
-set<int>s<br>
-s.insert()<br>
-s.count()</int></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 数据结构</span><br><span class="line">* 字典树</span><br></pre></td></tr></table></figure>
-<p>struct TrieNode {<br>
-string word;<br>
-unordered_map&lt;char, TrieNode*&gt;child;<br>
-TrieNode(){<br>
-this-&gt;word = “”;<br>
-}<br>
-};<br>
-void insertTrie(TrieNode * root, string word){<br>
-TrieNode<em>node = root;<br>
-for(int i = 0; i &lt; word.size(); i++){<br>
-if(!node-&gt;child.count(word[i])){<br>
-node-&gt;child[word[i]] = new TrieNode();<br>
-}<br>
-node = node-&gt;child[word[i]];<br>
-}<br>
-node-&gt;word = word;<br>
-}<br>
-TrieNode</em>root = new TrieNode();<br>
-insertTrie(root, words[w]);<br>
-root-&gt;child.count(ch))<br>
-TrieNode*nxt = root-&gt;child[ch];<br>
-nxt-&gt;word.size()<br>
-nxt-&gt;child.empty()<br>
-root-&gt;child.erase(ch)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># python</span><br><span class="line">## 知识</span><br></pre></td></tr></table></figure>
-<p>python赋值只是引用, 函数从参数返回注意要把结果放在原来参数的存储位置</p>
-<p>for i in range((n-1)/2, -1, -1): 从大到小计算<br>
-for i, num in enumerate(nums)<br>
-for num in nums:<br>
-num = 不能赋值</p>
-<p>遍历<br>
-for i in range(0, n-step, step*2)<br>
-for i in range(n-1, -1, -1):</p>
-<p>float(&quot;-inf&quot;) 无穷</p>
-<p>参数引用<br>
-字典和列表是传址</p>
-<p>交换位置<br>
-nums[i], nums[mx-1] = nums[mx-1], nums[i]</p>
-<p>函数里修改list，函数外也会有影响</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## 复制</span><br></pre></td></tr></table></figure>
-<p>import copy<br>
-a = [[10], 20]<br>
-b = a[:] # 方法1  [[10, 11], 20, 21]<br>
-c = list(a) # 方法2 [[10, 11], 20]<br>
-d = a * 1 # 方法3 [[10, 11], 20]<br>
-e = copy.copy(a) # 方法4 [[10, 11], 20]<br>
-f = copy.deepcopy(a) # 方法5 [[10], 20] 【推荐】<br>
-a.append(21)<br>
-a[0].append(11)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">## 数据结构</span><br><span class="line">* string</span><br></pre></td></tr></table></figure>
-<p>修改string, 要先转字符list，再合并<br>
-w = list(s)<br>
-w[i] = ‘*’<br>
-ns = “”.join(w)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* list</span><br></pre></td></tr></table></figure>
-<p>实现堆栈<br>
-a = []<br>
-a.append()<br>
-a.pop()<br>
-a[-1]</p>
-<p>list.index(x)返回list第一个x位置<br>
-list.reverse() 翻转</p>
-<p>构建数组<br>
-al = [0] * n<br>
-ar = [n-1] * n<br>
-生成值为0的二维数组<br>
-[[0] * m] * n 表示的是指向 [0]*m 这个列表的引用<br>
-[[0] * m for _ in range(n)] 这才正确<br>
-f = [[False] * (n + 1) for _ in range(m + 1)]</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* dict</span><br></pre></td></tr></table></figure>
-<p>a = {‘b’:1}<br>
-a.pop(‘b’)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* deque 双向队列</span><br></pre></td></tr></table></figure>
-<p>q = collections.deque([a])或者 q = collections.deque() q.append(a)<br>
-while q:<br>
-id = q.popleft()<br>
-q.append(e)<br>
-len(q)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* PriorityQueue 基于heapq的 python3才能用</span><br></pre></td></tr></table></figure>
-<p>from queue import PriorityQueue<br>
-q = PriorityQueue()<br>
-q.put((-buildings[idx][2], buildings[idx][1]))  按照逐个元素从小到大<br>
-q.put(Node(buildings[idx][1], buildings[idx][2]))  或者使用class<br>
-排序<br>
-while not q.empty():<br>
-a = q.get() 会直接pop<br>
-q.put(a)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* heapq 最小堆 python2可以用</span><br></pre></td></tr></table></figure>
-<p>import heapq<br>
-q = []<br>
-heapq.heappush(q, (-buildings[idx][2], buildings[idx][1]))<br>
-while q:<br>
-a = heapq.heappop(q)<br>
-heapq.heappush(q, a)<br>
-heapify([1,2,3]) 列表转堆<br>
-heapreplace(q, new) 弹出最小元素，插入新元素<br>
-nsmallest(3, q) 前n个最小元素<br>
-nlargest(3, q)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* class</span><br></pre></td></tr></table></figure>
-<p>class Node(object):<br>
-def <strong>init</strong>(self, x, h):<br>
-self.x = x<br>
-self.h = h<br>
-return</p>
-<pre><code>def __lt__(self, other): 排序
-    return self.h &gt; other.h
-</code></pre>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* 字典树</span><br></pre></td></tr></table></figure>
-<p>class TrieNode(object):<br>
-def <strong>init</strong>(self):<br>
-self.child = {}<br>
-self.word = “”<br>
-def insertTrie(root, word):<br>
-node = root<br>
-for i in range(len(word)):<br>
-if word[i] not in node.child:<br>
-node.child[word[i]] = TrieNode()<br>
-node = node.child[word[i]]<br>
-node.word = word<br>
-root = TrieNode()<br>
-insertTrie(root, word)<br>
-if ch not in root.child:<br>
-nxt =  root.child[ch]<br>
-len(nxt.word)<br>
-len(nxt.child.keys()) == 0:<br>
-root.child.pop(ch)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## 排序</span><br></pre></td></tr></table></figure>
-<p>def comp(a, b):<br>
-an = a+b<br>
-bn = b+a<br>
-if an &gt; bn: return -1<br>
-elif an &lt; bn: return 1<br>
-else: return 0</p>
-<p>ans.sort(key=functools.cmp_to_key(comp))<br>
-ans.sort(cmp = lambda x,y: cmp(y+x, x+y))<br>
-ans.sort(key=functools.cmp_to_key(lambda x,y: cmp(y+x, x+y)))</p>
-<p>ans = sorted(ans) #需要赋值，只是sorted不改变存储位置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">## 目录结构【需要重新梳理】</span><br><span class="line">下次一层调用上一层</span><br></pre></td></tr></table></figure>
-<p>方法一<br>
-sys.path.append(os.path.join(os.path.abspath(os.path.dirname(<strong>file</strong>)), “…/…”))</p>
-<p>方法二<br>
-export PYTHONPATH=“<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mi>Y</mi><mi>T</mi><mi>H</mi><mi>O</mi><mi>N</mi><mi>P</mi><mi>A</mi><mi>T</mi><mi>H</mi><mo>:</mo></mrow><annotation encoding="application/x-tex">PYTHONPATH:</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span></span></span>PWD” 好像没用 会话没了就没了<br>
-echo $PYTHONPATH</p>
-<p>参见https://github.com/CalmCapK/toolkit/test_directory_structure</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">## 文件操作</span><br><span class="line">* xml</span><br><span class="line">https://blog.csdn.net/wsp_1138886114/article/details/86576900</span><br><span class="line">* txt</span><br><span class="line">* csv</span><br><span class="line">* xlsx</span><br><span class="line">* yml</span><br><span class="line">* json</span><br><span class="line">    * json.loads()加载json格式的字符串</span><br><span class="line">    * json.load()加载json格式文件</span><br><span class="line">* py</span><br><span class="line">参见https://github.com/CalmCapK/toolkit/file_op.py</span><br><span class="line">### 大文件一行行读取</span><br></pre></td></tr></table></figure>
-<p>with open(path, “r”, encoding=“utf-8”) as f:<br>
-    for line in tqdm(f):</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">## 多线程</span><br><span class="line">参见https://github.com/CalmCapK/toolkit/python_example.py</span><br><span class="line"></span><br><span class="line">## 随机抽取</span><br><span class="line">参见https://github.com/CalmCapK/toolkit/python_example.py</span><br><span class="line"></span><br><span class="line">## 二维数组根据下标索引赋值</span><br></pre></td></tr></table></figure>
-<p>res = res.softmax(dim=-1)<br>
-val, ind = res.topk(k) //ind: batch_size x topk<br>
-output = np.zeros((batch_size, label_num) , dtype = float))<br>
-for i in range(batch_size):<br>
-//gpu tensor -&gt; cpu numpy<br>
-output[i][ind[i].cpu().detach().numpy().astype(int)] = 1</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 函数生成变量赋值？</span><br></pre></td></tr></table></figure>
-<p>def fun():<br>
-dic = {}<br>
-return dic</p>
-<p>data = fun()</p>
-<pre class="highlight"><code class>## opencv无法读取中文路径
-https://www.zhihu.com/question/67157462</code></pre>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <!--
- * @Author: CalmCapK
- * @Date: 2022-08-12 08:39:11
- * @LastEditors: CalmCapK
- * @LastEditTime: 2022-09-20 02:39:05
--->
-
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      <!--
- * @Author: CalmCapK
- * @Date: 2022-08-12 08:39:11
- * @LastEditors: CalmCapK
- * @LastEditTime: 2022-09-20 02:39:09
--->
-
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/09/18/编程语言笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-刷题笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/09/11/刷题笔记/">刷题笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2022/09/11/刷题笔记/" class="archive-article-date">
-  	<time datetime="2022-09-11T10:23:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-11</time>
-</a>
-
-	<a href="javascript:;" class="archive-article-date">
-		<i class="icon-smile icon"></i> 阅读数:<span id="/2022/09/11/刷题笔记/" class="pageViews">0</span>次
-	</a>
-
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-        <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
-        <h1 id="leetcode"><a class="markdownIt-Anchor" href="#leetcode"></a> leetcode</h1>
-<h2 id="二分"><a class="markdownIt-Anchor" href="#二分"></a> 二分</h2>
-<h3 id="找满足条件下标"><a class="markdownIt-Anchor" href="#找满足条件下标"></a> 找满足条件下标</h3>
-<ul>
-<li>题目35. Search Insert Position
-<ul>
-<li>题意：在一个不重复的数组里，如果有数字a，返回下标，没有返回插入位置</li>
-<li>思路1：二分查找，左闭右开区间
-<ul>
-<li>时间复杂度：logn</li>
-<li>空间复杂度：1</li>
-</ul>
-</li>
-<li>错误思路：
-<ul>
-<li>思路1，左闭右开时，判断条件不要写等于。没有时，返回的是left端点。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="矩阵搜索"><a class="markdownIt-Anchor" href="#矩阵搜索"></a> 矩阵搜索</h3>
-<ul>
-<li>题目74. Search a 2D Matrix
-<ul>
-<li>题意：矩阵每行从左到右升序，并且每行首位比商议后末位要大，求target是否在矩阵里。</li>
-<li>思路1：遍历行再遍历列。找到比target小的最大行，然后依次遍历该行。
-<ul>
-<li>时间复杂度：n+m</li>
-<li>空间复杂度：1</li>
-</ul>
-</li>
-<li>思路2【最优】：二分查找。先按行找大于target的行号，行号-1就是所求行，此时注意判断是否为-1，即没有满足的行。然后按列找大于target的列号。两次都是闭区间查找[0,n-1], 判断条件是i&lt;=j，每次i=mid+1, j=mid-1，最后i需要-1。
-<ul>
-<li>可以先用upper_bound，再用binary_search</li>
-<li>时间复杂度：logn+logm=log(nm)</li>
-<li>空间复杂度：1</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="二叉树"><a class="markdownIt-Anchor" href="#二叉树"></a> 二叉树</h2>
-<h3 id="知识"><a class="markdownIt-Anchor" href="#知识"></a> 知识</h3>
-<p>X序遍历指遍历根节点顺序</p>
-<h3 id="二叉树dfs"><a class="markdownIt-Anchor" href="#二叉树dfs"></a> 二叉树+dfs</h3>
-<ul>
-<li>
-<p>题目98. Validate Binary Search Tree</p>
-<ul>
-<li>题意：给一颗二叉树，左子树需要比当前节点小，右子树需要比当前节点大，判断是否满足条件</li>
-<li>思路1：从下到上回溯，每个节点的条件是左子树最大值lmx&lt;当前节点&lt;右子树最小值rmi，但是返回时，整个子树最小值为lmi，最大值为rmx，所以需要存储每个子树最小值和最大值
-<ul>
-<li>时间复杂度：n</li>
-<li>空间复杂度：n</li>
-</ul>
-</li>
-<li>思路2：从下到上回溯，用指针存最大最小值，这样可以为nullptr，讨论方便点</li>
-<li>思路3：从上到下，得到每个区间最小最大值，每个区间满足当前节点大于最小值，小于最大值</li>
-<li>错误思路：
-<ul>
-<li>只找左子树最大值和右子树最小值</li>
-<li>search里search_max找左子树，search_min找右子树</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>题目124. Binary Tree Maximum Path Sum</p>
-<ul>
-<li>题意：求树的最大的路径和
-<ul>
-<li>思路1【最优】：后序遍历。一个外置变量记录最大路径，最大路径=max(当前节点，当前节点+左子树，当前节点+右子树，当前节点+左子树+右子树)。而子树=maxx(当前节点，当前节点+左子树，当前节点+右子树),不能算“当前节点+左子树+右子树”的情况。
-<ul>
-<li>时间复杂度：n</li>
-<li>空间复杂度：n</li>
-</ul>
-</li>
-<li>错误思路：
-<ul>
-<li>计算当前节点时，算了“当前节点+左子树+右子树”的情况。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>题目297. Serialize and Deserialize Binary Tree</p>
-<ul>
-<li>题意：将二叉树进行序列化成字符串和反序列化</li>
-<li>思路1【最优】：先序遍历序列化+list或者queue辅助建树。通过先序遍历转成字符串，再从左到右顺序遍历字符串建树。注意子树是null时，字符串需要输出null。使用list或者queue建树，用vector会超时。
-<ul>
-<li>时间复杂度：n，其中n是树的节点数</li>
-<li>空间复杂度：n，其中n是树的节点数</li>
-</ul>
-</li>
-<li>错误思路：
-<ul>
-<li>思路1中，子树没有输出null</li>
-<li>思路1中，错误以为是idx+1,idx+2表示左右子树，这是层次遍历，先序遍历得到的字符串是从左到右</li>
-<li>思路1中，建树时按照’,'截断时，没有加入最后一个节点</li>
-<li>思路1中,使用vector导致超时</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>题目226. Invert Binary Tree【水题】</p>
-<ul>
-<li>题意：翻转二叉树</li>
-<li>思路1：dfs，每个节点交换左右子树
-<ul>
-<li>时间复杂度：n</li>
-<li>空间复杂度：n</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>题目543. Diameter of Binary Tree【水题】</p>
-<ul>
-<li>题意：求二叉树的直径</li>
-<li>思路1：dfs，返回左右子树最大高度max(l, r) + 1;，用一个数字维护直径max(ans, l+r)
-<ul>
-<li>时间复杂度：n</li>
-<li>空间复杂度：n</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>题目114. Flatten Binary Tree to Linked List</p>
-<ul>
-<li>题意：将二叉树按照先序遍历展开为单链表</li>
-<li>思路1：一边dfs一边展开。dfs遍历完左子树和右子树时，得到leftb, lefte, rightb, right分别指向左子树起点、展开好的左子树链表末尾、右子树起点、展开好的左子树链表末尾。如果leftb不为空，则该节点的左子树设为空，右子树为leftb，lefte-&gt;right=rightb。此时，如果右子树不为空，则返回righte, 否则如果左子树不为空，则返回lefte，否则返回root。
-<ul>
-<li>时间复杂度：n</li>
-<li>空间复杂度：n</li>
-</ul>
-</li>
-<li>思路2：先先序遍历存储节点，再连起来。
-<ul>
-<li>时间复杂度：n</li>
-<li>空间复杂度：n</li>
-</ul>
-</li>
-<li>思路3：迭代版，先先序遍历存储节点，再连起来。用stack存储节点，每次左孩子入栈，左边为空时，栈顶出栈it, 然后遍历右孩子，继续循环。
-<ul>
-<li>时间复杂度：n</li>
-<li>空间复杂度：n</li>
-</ul>
-</li>
-<li>错误思路：</li>
-</ul>
-</li>
-</ul>
-<h2 id="链表"><a class="markdownIt-Anchor" href="#链表"></a> 链表</h2>
-<h3 id="双向链表"><a class="markdownIt-Anchor" href="#双向链表"></a> 双向链表</h3>
-<ul>
-<li>题目146. LRU Cache
-<ul>
-<li>题意：一个缓存器，n大小，有get(key)和put(key, val)操作，缓存器缓存最新的key和对应value, get和put也会影响时间，需要在o1时间完成get和put操作</li>
-<li>思路1：双向链表可以在o1时间移动已缓存key，表尾表示最新操作，用map记录每个key的指针，需要讨论的情况
-<ul>
-<li>get：目标key前后都有节点，目标key在表头，需要移动到表尾; 目标key在表尾无影响; 只有一个节点无影响</li>
-<li>put: 新key, 第一个节点; 新key, 当前链表长度小于n, 直接放在表尾; 新key, 当前链表长度大于等于n, 弹出表头，新节点直接放在表尾，同时去掉map，注意长度为1的情况; 旧key, 直接调用get, 更新val就好</li>
-<li>注意的坑：指针移动顺序，前后节点对应关系，前后指针是否为空，不要断链，首尾指针位置, 单节点，空节点</li>
-<li>时间复杂度：1 【还是会超时】</li>
-<li>空间复杂度：n</li>
-</ul>
-</li>
-<li>思路2：用list实现双向链表</li>
-<li>错误思路：<br>
-用queue维护，无法再o1时间移动已在队列的key</li>
-</ul>
-</li>
-</ul>
-<h3 id="链表合并"><a class="markdownIt-Anchor" href="#链表合并"></a> 链表合并</h3>
-<ul>
-<li>题目23. Merge k Sorted Lists
-<ul>
-<li>题意：给k个升序排序的链表，求合起来升序排序的链表</li>
-<li>思路1：一个个选。用一个指标数组存每个链表位置，一个头指针和尾指针保存合起来结果，每次取k个链表最小值更新到尾指针
-<ul>
-<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">kn</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord mathdefault">n</span></span></span></span>,n是全部节点总和</li>
-<li>空间复杂度：k</li>
-</ul>
-</li>
-<li>思路2：一个个选。一个头指针和尾指针保存合起来结果，每次取k个链表最小值更新到尾指针，同时更新最小值的链表往后移，不会断链因为有head
-<ul>
-<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">kn</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord mathdefault">n</span></span></span></span>,n是全部节点总和</li>
-<li>空间复杂度：1</li>
-</ul>
-</li>
-<li>思路3：一条条合并
-<ul>
-<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">kn</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord mathdefault">n</span></span></span></span>,n是全部节点总和</li>
-<li>空间复杂度：1</li>
-</ul>
-</li>
-<li>思路4：优先队列
-<ul>
-<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">nlogk</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>,n是全部节点总和</li>
-<li>空间复杂度：k</li>
-</ul>
-</li>
-<li>思路5：归并，merge函数拆分k组，merge2lists函数合并两个链表【难想】
-<ul>
-<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">nlogk</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>,n是全部节点总和</li>
-<li>空间复杂度：1，但是需要<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>o</mi><mi>g</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">logk</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>栈空间</li>
-</ul>
-</li>
-<li>思路6【最优】：归并+非递归，merge2lists函数合并两个链表, 用循环优化拆分不需要递归【难想】
-<ul>
-<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">nlogk</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>,n是全部节点总和</li>
-<li>空间复杂度：1</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="链表交换位置"><a class="markdownIt-Anchor" href="#链表交换位置"></a> 链表交换位置</h3>
-<ul>
-<li>题目24. Swap Nodes in Pairs
-<ul>
-<li>题意：交换链表每两个相邻的节点</li>
-<li>思路1：指针。一个指针A指向当前节点，一个指针B指向下一个节点，交换位置后，指针A移动2个节点位置，指针B需要连接此时指针A的下一个位置
-<ul>
-<li>注意节点大于2返回的是head-&gt;next</li>
-<li>上一个交换位置需要和下一个交换位置建立连接，否则断链</li>
-<li>时间复杂度：n</li>
-<li>空间复杂度：1</li>
-</ul>
-</li>
-<li>错误思路：
-<ul>
-<li>没有交换节点，只换数值</li>
-<li>思路1中，两个交换位置没有连接，造成断链</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="图"><a class="markdownIt-Anchor" href="#图"></a> 图</h2>
-<h3 id="知识-2"><a class="markdownIt-Anchor" href="#知识-2"></a> 知识</h3>
-<ul>
-<li>bfs时间复杂度是o(n+e)</li>
-</ul>
-<h3 id="图dfs"><a class="markdownIt-Anchor" href="#图dfs"></a> 图+dfs</h3>
-<ul>
-<li>
-<p>题目130. Surrounded Regions</p>
-<ul>
-<li>题意：给定一个200x200图，如果’O’完全被’X’包围，则把’O’变成’X’</li>
-<li>思路1：<br>
-vis表示一个点属于哪个连通图。只进入’O’点，枚举四个方向，该方向越界就标记false，如果该方向是’O’点且没有遍历过就继续dfs，最后判断该点有问题，返回false。跑完一个连通图后，如果当前连通图为true，则把’O’变成’X’
-<ul>
-<li>时间复杂度：nxm</li>
-<li>空间复杂度：nxm</li>
-</ul>
-</li>
-<li>思路2：<br>
-从边界找到’O’的连通图，这些连通图不需要修改</li>
-<li>错误思路：<br>
-vis表示一个点是否有问题。只进入’O’点，枚举四个方向，该方向越界就返回false，如果该方向是’O’点且已知有问题就返回false，如果该方向是’O’点且没有遍历过就继续dfs，最后判断该点有问题，返回false。<br>
-这种没有遍历完连通图就剪枝做结论返回，容易前一个分支一开始可行，但后面分支发现不可行，没办法更新。</li>
-</ul>
-</li>
-<li>
-<p>题目212. Word Search II</p>
-<ul>
-<li>题意：给一张图和一组单词，求出在图的单词，单词间可重叠</li>
-<li>思路1【超时】：dfs。枚举单词，再枚举起始位置，每次做dfs, dfs之前vis=1, dfs之后vis=0，这样失败路径的节点可以再访问。
-<ul>
-<li>时间复杂度：不会算</li>
-<li>空间复杂度：不会算</li>
-</ul>
-</li>
-<li>思路2【可以】：dfs+剪枝路径长度+删除已匹配单词。举起起始位置，每次做dfs, dfs之前vis=1, dfs之后vis=0。dfs时路径长度不超过单词最长值。用unordered_set存储字典单词，如果路径在set里，更新结果。同时需要删除set中的单词，否则会重复。
-<ul>
-<li>时间复杂度：不会算</li>
-<li>空间复杂度：不会算</li>
-</ul>
-</li>
-<li>思路3【可以】：dfs+剪枝前缀+删除已匹配单词。枚举起始位置，每次做dfs, dfs之前vis=1, dfs之后vis=0。【也可以不用vis,直接原来地图设置成#】一个unordered_map a记录单词列表的全部前缀，如果遍历不在前缀里return，一个unordered_map b记录是否找到单词，找到则删掉单词在a的前缀。
-<ul>
-<li>时间复杂度：不会算</li>
-<li>空间复杂度：不会算</li>
-</ul>
-</li>
-<li>思路4【最优】：dfs+剪枝前缀+字典树+删除已匹配单词。枚举起始位置，每次做dfs, dfs之前vis=1, dfs之后vis=0。【也可以不用vis,直接原来地图设置成#】。字典树记录单词列表，如果遍历不在则return，同时字典树记录要找的单词，找到且后面没有child，则在字典树删掉该字母。
-<ul>
-<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mo>×</mo><mi>n</mi><mo>×</mo><msup><mn>3</mn><mrow><mi>l</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">m \times n \times 3^{l-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8491079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">3</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span>，需要遍历<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mo>×</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">m \times n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>个单元格，每个单元格在最坏情况下仍需要遍历<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>4</mn><mo>×</mo><msup><mn>3</mn><mrow><mi>l</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">4 \times 3^{l-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8491079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">3</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.01968em;">l</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span>条路径</li>
-<li>空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>×</mo><mi>l</mi></mrow><annotation encoding="application/x-tex">k \times l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span></span></span></span>，其中 k是单词个数，l是最长单词的长度。最坏情况下，需要<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>×</mo><mi>l</mi></mrow><annotation encoding="application/x-tex">k \times l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span></span></span></span> 存储前缀树</li>
-</ul>
-</li>
-<li>错误思路：
-<ul>
-<li>枚举单词，再枚举起始位置，每次做bfs, vis存储访问状态，这样会导致失败路径的节点无法再访问</li>
-<li>思路2，用set存储dfs时遍历到的前缀，这样预处理结果，set插入会超时。没有删掉set中单词，导致重复。</li>
-<li>思路3，没有使用unordered_map，find时间复杂度是n，导致超时。</li>
-<li>思路3，剪枝前缀，但没有删掉已经找到单词的前缀，超时。</li>
-<li>思路4，删掉已找到单词时，要判断是否有child再删</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="图最短路"><a class="markdownIt-Anchor" href="#图最短路"></a> 图+最短路</h3>
-<ul>
-<li>题目127. Word Ladder
-<ul>
-<li>题意：给开始字符串s1、结尾字符串sk、字符串字典d，求s1-&gt;s2-&gt;sk的最短路径，si和si+1只能修改一个字符，其中s2到sk必须在字典里.n&lt;=5000，c&lt;=10。</li>
-<li>思路1【超时】：广度优先搜索+预处理图关系。用二维数组mp[n][n]记录字典中si和sj是否存在路径,同时判断s1和sk是否在字典中，sk不在return 0。用queue广度优先搜素，先放入s1（如果s1不在字典则放入s2)。用vis[n]记录是否遍历过, pair记录路径长度。每次取队首，用mp判断是否有路径，加入队尾。
-<ul>
-<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup><mi>c</mi></mrow><annotation encoding="application/x-tex">n^2c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord mathdefault">c</span></span></span></span></li>
-<li>空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">n^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></li>
-</ul>
-</li>
-<li>思路2【超时】：广度优先搜索+不预处理图关系。判断s1和sk是否在字典中，sk不在return 0。用queue广度优先搜素，先放入s1。用vis[n]记录是否遍历过, pair记录路径长度。每次取队首，遍历字典选有路径的单词，加入队尾。
-<ul>
-<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup><mi>c</mi></mrow><annotation encoding="application/x-tex">n^2c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord mathdefault">c</span></span></span></span></li>
-<li>空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span></li>
-</ul>
-</li>
-<li>思路3：广度优先搜索+不预处理图关系+枚举字符变化。判断s1和sk是否在字典中，sk不在return 0。map记录字典字符串和字典下标关系。用queue广度优先搜素，先放入s1。用vis[n]记录是否遍历过, pair记录路径长度。每次取队首的单词，按26个字母逐个替换字符，判断新单词是否在字典中，是就加入队尾。
-<ul>
-<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><mi>c</mi><mo>∗</mo><mn>26</mn></mrow><annotation encoding="application/x-tex">n*c*26</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">6</span></span></span></span></li>
-<li>空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">n*c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span></li>
-</ul>
-</li>
-<li>思路4：广度优先搜索+枚举字符变化+合并map和vis和pair。判断s1和sk是否在字典中，sk不在return 0。map记录字典字符串和s1步数， 初始为0。用queue广度优先搜素，先放入s1，map[s1]=1。每次取队首的单词，按26个字母逐个替换字符，判断新单词是否在字典中，是就加入队尾， map[sj]=map[si]+1。
-<ul>
-<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><mi>c</mi><mo>∗</mo><mn>26</mn></mrow><annotation encoding="application/x-tex">n*c*26</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">6</span></span></span></span></li>
-<li>空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">n*c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span></li>
-</ul>
-</li>
-<li>思路5：广度优先搜索+虚拟节点。map建立节点字符串和id映射。对s1和字典中的字符串，枚举每个字符，扩充虚拟节点，然后建图vector&lt;vector<int>&gt;。判断sk是否在映射中，sk不在return 0。vis记录步数， 初始为-1。用queue广度优先搜素，先放入s1，vis[s1]=1。每次遍历虚拟节点，再遍历实节点，实节点加入队尾， vis[sj]=vis[si]+1。结果是vis[si]。
-<ul>
-<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><mi>c</mi><mo>∗</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">n*c*c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span>，n*c个节点，判断是否相同需要c</li>
-<li>空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><mi>c</mi><mo>∗</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">n*c*c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span>, n*c个节点，字符串c大小</li>
-</ul>
-</int></li>
-<li>思路6【次优】：广度优先搜索+虚拟节点+queue放虚拟节点。map建立节点字符串和id映射。对s1和字典中的字符串，枚举每个字符，扩充虚拟节点，然后建图vector&lt;vector<int>&gt;。判断sk是否在映射中，sk不在return 0。vis记录步数， 初始为-1。用queue广度优先搜素，先放入s1，vis[s1]=1。每次遍历边，节点加入队尾， vis[sj]=vis[si]+1。结果是(vis[si]+1)/2。
-<ul>
-<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><mi>c</mi><mo>∗</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">n*c*c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span>，n*c个节点，判断是否相同需要c</li>
-<li>空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><mi>c</mi><mo>∗</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">n*c*c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span>, n*c个节点，字符串c大小</li>
-</ul>
-</int></li>
-<li>思路7【最优】：双向广度优先搜索+虚拟节点+queue放虚拟节点。map建立节点字符串和id映射。对s1和字典中的字符串，枚举每个字符，扩充虚拟节点，然后建图vector&lt;vector<int>&gt;。判断sk是否在映射中，sk不在return 0。
-<ul>
-<li>vis记录步数，初始为-1。用queue q从s1广度优先搜素，先放入s1，vis[s1]=1。</li>
-<li>vis_记录步数，初始为-1。用queue q_从sk广度优先搜素，先放入sk，vis_[sk]=1。</li>
-<li>每次循环，前面遍历一层，加入队尾；后面遍历一层，加入队尾；如果前后都遍历过，返回(vis[si]+vis_[si])/2</li>
-<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><mi>c</mi><mo>∗</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">n*c*c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span>，n*c个节点，判断是否相同需要c</li>
-<li>空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><mi>c</mi><mo>∗</mo><mi>c</mi></mrow><annotation encoding="application/x-tex">n*c*c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">c</span></span></span></span>, n*c个节点，字符串c大小</li>
-</ul>
-</int></li>
-<li>错误思路：
-<ul>
-<li>忽略s1不在字典情况</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="动态规划"><a class="markdownIt-Anchor" href="#动态规划"></a> 动态规划</h2>
-<h3 id="最大最小dp滚动数组"><a class="markdownIt-Anchor" href="#最大最小dp滚动数组"></a> 最大最小dp+滚动数组</h3>
-<ul>
-<li>
-<p>题目152. Maximum Product Subarray</p>
-<ul>
-<li>题意：求一个数组的最大乘积区间，含负数和0</li>
-<li>思路1：遍历数组，用滚动数组方式pn, fn记录前一个位置最大正数和最大负数，用p,f,z表示上一个位置是否有正数、负数、0结果。
-<ul>
-<li>当前值为正数时，前一个有正数结果pn = pn * arr[i]; 前一个无正数结果pn = arr[i]; 前一个有负数结果，fn = fn * arr[i]。更新p,f值</li>
-<li>当前值为负数时，前一个有正数结果fn = pn * arr[i]; 前一个无正数结果fn = arr[i]; 前一个有负数结果，pn = fn * arr[i]。注意负数情况，需要分开存前一个和当前情况，避免覆盖。更新p,f值</li>
-<li>当前值为0时，p,f为false,z为true。</li>
-<li>最后取三者最大值。</li>
-<li>时间复杂度：n</li>
-<li>空间复杂度：常数</li>
-</ul>
-</li>
-<li>思路2：本质上用滚动数组方式保存正负数可以直接保存最大和最小值
-<ul>
-<li>更新最大值：mx = max(mx<em>arr[i], max(mi</em>arr[i], arr[i]))</li>
-<li>更新最小值：mi = min(mx<em>arr[i], min(mi</em>arr[i], arr[i]))</li>
-<li>时间复杂度：n</li>
-<li>空间复杂度：常数</li>
-</ul>
-</li>
-<li>错误思路：
-<ul>
-<li>dp[i]表示含i的前面区间最大乘积，dp[i] = max(dp[i-1]*num[i], num[i]), 负数不能保证最大</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>题目64. Minimum Path Sum【水题】</p>
-<ul>
-<li>题意：求矩阵起点到终点最短路径和</li>
-<li>思路1：动态规划，dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + grid[i][j]。注意边界00，i0，0j情况。注意矩阵为空情况。
-<ul>
-<li>时间复杂度：n*m</li>
-<li>空间复杂度：n*m</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="贪心"><a class="markdownIt-Anchor" href="#贪心"></a> 贪心</h2>
-<h3 id="区间问题"><a class="markdownIt-Anchor" href="#区间问题"></a> 区间问题</h3>
-<ul>
-<li>题目218. The Skyline Problem
-<ul>
-<li>题意：给出多个矩形建筑左端点、右端点和高（已经按照左端点从小到大排序），求天际线</li>
-<li>思路1【最优，不是我想的】：扫描线+优先队列。建筑的左右端点排序，依次遍历。
-<ul>
-<li>用优先队列，存储含当前位置建筑的最高的右端点。</li>
-<li>对于当前位置，右端点比它小或等于就出队列。等于是说明是建筑右边，不符合天际线定义。</li>
-<li>取队列的顶，如果高度和上一个天际线高度一致，说明冗余需要舍弃。否则加入结果。</li>
-<li>如果队列没有内容，说明是一堆建筑的右边，此时高度为0，也要判断和上一个天际线高度是否一致，一致说明冗余需要舍弃。否则加入结果。</li>
-<li>时间复杂度：nlogn，每个建筑最多需要出入队列一次，单次logn</li>
-<li>空间复杂度：n</li>
-</ul>
-</li>
-<li>错误思路：
-<ul>
-<li>思路1，高度为0的时候没有判断是否冗余。建筑佑边缘没有pop。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="最少步数"><a class="markdownIt-Anchor" href="#最少步数"></a> 最少步数</h3>
-<ul>
-<li>题目45. Jump Game II
-<ul>
-<li>题意：从当前位置i可以向前至多跳num[i]，求到位置n-1的最少步数</li>
-<li>思路1：从后往前找可以到达终点的最远起点，相当于从前往后找可以到达终点的最近起点。然后更新终点，继续找起点
-<ul>
-<li>时间复杂度：n*n</li>
-<li>空间复杂度：1</li>
-</ul>
-</li>
-<li>思路2【最优】：从前往后枚举0到n-2位置，求当前步数最远距离。维护可以达到最远的位置maxPos，end维护上一步最远距离。当i==end，即超过当前步数，更新end=maxPos。
-<ul>
-<li>时间复杂度：n</li>
-<li>空间复杂度：1</li>
-</ul>
-</li>
-<li>错误思路：
-<ul>
-<li>dp做法，dp[i+j] = min(dp[i+j], dp[i]+1);
-<ul>
-<li>时间复杂度：n*m</li>
-<li>空间复杂度：n</li>
-</ul>
-</li>
-<li>思路2，从前往后枚举时，不应该算n-1位置。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="字符串"><a class="markdownIt-Anchor" href="#字符串"></a> 字符串</h2>
-<h3 id="字符串匹配"><a class="markdownIt-Anchor" href="#字符串匹配"></a> 字符串匹配</h3>
-<ul>
-<li>
-<p>题目10. Regular Expression Matching【和题目44类似】</p>
-<ul>
-<li>题意：求字符串s和模式串p（.表示匹配任意字符，*表示p前面字符的可以使用0-n次），是否匹配成功</li>
-<li>思路1【最优】：动态规划。dp[i][j]表示s前<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mrow><mn>0...</mn><mo stretchy="false">(</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msub></mrow><annotation encoding="application/x-tex">s_{0...(i-1)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7857599999999999em;vertical-align:-0.3551999999999999em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.34480000000000005em;"><span style="top:-2.5198em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3551999999999999em;"><span></span></span></span></span></span></span></span></span></span>字符和p前<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mrow><mn>0...</mn><mo stretchy="false">(</mo><mi>i</mi><mo>−</mo><mi>j</mi><mo stretchy="false">)</mo></mrow></msub></mrow><annotation encoding="application/x-tex">p_{0...(i-j)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7857599999999999em;vertical-align:-0.3551999999999999em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.34480000000000005em;"><span style="top:-2.5198em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight">i</span><span class="mbin mtight">−</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3551999999999999em;"><span></span></span></span></span></span></span></span></span></span>字符是否匹配
-<ul>
-<li>需要设dp[0][0] = true</li>
-<li>注意：i=0时，s是空串，但是p为a*和.*也可以匹配
-<ul>
-<li>dp[i][j] = dp[i][j-2], p[j-1] == *</li>
-</ul>
-</li>
-<li>当p[j-1]不是’*'时
-<ul>
-<li>s[i-1]和p[j-1]相等时，或者p[j-1]是.时, dp[i][j]=dp[i-1][j-1]</li>
-<li>否则为false</li>
-</ul>
-</li>
-<li>当p[j-1]是’*'时 【难想】
-<ul>
-<li>p[j-2]==s[i-1]时，或者p[j-2]是.时
-<ul>
-<li>*取0次，dp[i][j]=dp[i][j-2]</li>
-<li>*取N&gt;0次，dp[i][j]=dp[i-1][j]</li>
-</ul>
-</li>
-<li>否则，*取0次，dp[i][j]=dp[i][j-2]</li>
-</ul>
-</li>
-<li>时间复杂度：nm</li>
-<li>空间复杂度：nm</li>
-</ul>
-</li>
-<li>错误思路：
-<ul>
-<li>没用考虑s为空串情况</li>
-<li>dp[i][j]没用预留边界情况位置，导致后面讨论情况太多</li>
-<li>.情况相当于增加一种等于情况，不需要分开讨论</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>题目44. Wildcard Matching【和题目10类似】</p>
-<ul>
-<li>题意：求字符串s和模式串p（？表示匹配任意字符，*表示匹配任意字符串，含空串），是否匹配成功</li>
-<li>思路1：动态规划。dp[i][j]表示s前<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mrow><mn>0...</mn><mo stretchy="false">(</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msub></mrow><annotation encoding="application/x-tex">s_{0...(i-1)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7857599999999999em;vertical-align:-0.3551999999999999em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.34480000000000005em;"><span style="top:-2.5198em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3551999999999999em;"><span></span></span></span></span></span></span></span></span></span>字符和p前<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mrow><mn>0...</mn><mo stretchy="false">(</mo><mi>i</mi><mo>−</mo><mi>j</mi><mo stretchy="false">)</mo></mrow></msub></mrow><annotation encoding="application/x-tex">p_{0...(i-j)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7857599999999999em;vertical-align:-0.3551999999999999em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.34480000000000005em;"><span style="top:-2.5198em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight">i</span><span class="mbin mtight">−</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3551999999999999em;"><span></span></span></span></span></span></span></span></span></span>字符是否匹配
-<ul>
-<li>需要设dp[0][0] = true</li>
-<li>注意：i=0时，s是空串，但是p为*可以匹配
-<ul>
-<li>dp[i][j] = dp[i][j-1], p[j-1] == *</li>
-</ul>
-</li>
-<li>当p[j-1]不是’*'时
-<ul>
-<li>s[i-1]和p[j-1]相等时，或者p[j-1]是？时, dp[i][j]=dp[i-1][j-1]</li>
-<li>否则为false</li>
-</ul>
-</li>
-<li>当p[j-1]是’*'时
-<ul>
-<li>*取空串，dp[i][j]=dp[i][j-1]</li>
-<li>*匹配，dp[i][j]=dp[i-1][j]</li>
-</ul>
-</li>
-<li>时间复杂度：nm</li>
-<li>空间复杂度：1</li>
-</ul>
-</li>
-<li>思路2【最优】：贪心。遍历s, jstar指向p连续<em>的最后一个，istar指向s需要用</em>的地方，非必要不用*，用*需回退【难想】
-<ul>
-<li>当s[i]<mark>p[j]或p[j]</mark>’?'时
-<ul>
-<li>i++,j++</li>
-</ul>
-</li>
-<li>当p[j]==’*'时，更新jstar=j，istar=i，j=jstar+1</li>
-<li>当不能匹配时
-<ul>
-<li>如果之前有’*’，则退回使用，更新istar+=1，i=istar, j=jstar+1</li>
-<li>否则return false</li>
-</ul>
-</li>
-<li>如果遍历完s，p还多余且不为*，则return false</li>
-<li>时间复杂度：nm</li>
-<li>空间复杂度：nm</li>
-</ul>
-</li>
-<li>错误思路：
-<ul>
-<li>思路1
-<ul>
-<li>没用考虑s为空串情况</li>
-<li>dp[i][j]没用预留边界情况位置，导致后面讨论情况太多</li>
-<li>？情况相当于增加一种等于情况，不需要分开讨论</li>
-<li>p[j-1]=*，直接dp[i][j]=true或者没考虑匹配空串情况</li>
-</ul>
-</li>
-<li>思路2
-<ul>
-<li>一定要遍历s，不可以使用 i &lt; sn &amp;&amp; j &lt; pn</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>题目76. Minimum Window Substring</p>
-<ul>
-<li>题意：求字符串s包含字符串t字母的最小字串，如果没有返回空串</li>
-<li>思路1：map+滑动窗口。使用字典mp记录字符串s和t出现字母次数，用字典cnt记录当前窗口字母次数，用total表示满足cnt&gt;=mp字母个数。i指向窗口开始，j指向窗口末尾。i和j先指向s中第一个t字母出现位置。移动j:
-<ul>
-<li>如果不是t字母跳过</li>
-<li>是t字母,cnt+=1
-<ul>
-<li>如果该字母cnt==mp则total+=1</li>
-<li>如果cnt&gt;mp且i和j指向字母相同，i右移，此时不是t字母和cnt&gt;mp多出来的都可以不要</li>
-</ul>
-</li>
-<li>如果total达到t非重复字母个数，说明该窗口满足，更新结果</li>
-<li>时间复杂度：2s，s为字符串s长度</li>
-<li>空间复杂度：n,n为字符集合</li>
-</ul>
-</li>
-<li>思路2【最优】：在思路1基础上，处理s中非t元素</li>
-<li>错误思路：
-<ul>
-<li>思路1中只用一个map处理</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="字符串拆分"><a class="markdownIt-Anchor" href="#字符串拆分"></a> 字符串拆分</h3>
-<ul>
-<li>题目140. Word Break II
-<ul>
-<li>题意：给一个字符串S和一组单词，求s拆成单词的所有情况</li>
-<li>思路1：dfs。用map存储单词。从位置st开始枚举当前拆分位置，如果可以拆分，则继续dfs后面的字符串。当前位置为n时，得到一种拆分情况。
-<ul>
-<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">n^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span></span>,n是字符串长度</li>
-<li>空间复杂度：</li>
-</ul>
-</li>
-<li>思路2【最优】：记忆化dfs。用set存储单词，map[i]存储<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mrow><mi>i</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">S_{i...n-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.891661em;vertical-align:-0.208331em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mord mathdefault mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span></span></span></span>的拆分情况。从位置st开始枚举当前拆分位置i，如果可以拆分，则继续dfs后面的字符串<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mrow><mi>i</mi><mo>+</mo><mn>1...</mn><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">S_{i+1...n-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.891661em;vertical-align:-0.208331em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">1</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mord mathdefault mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span></span></span></span>。
-<ul>
-<li>如果map[i+1]已经搜索过，则直接返回。</li>
-<li>如果当前位置为n时，map[n]={&quot;&quot;}。</li>
-<li>如果map[i+1]有解，则map[st]的情况 += <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mrow><mi>s</mi><mi>t</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">S_{st...i}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">s</span><span class="mord mathdefault mtight">t</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mord mtight">.</span><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> + map[i+1]的情况</li>
-<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">n*2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span></span>,写入<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">n*2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span></span>的空间至少也需要<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">n*2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span></span>的时间。</li>
-<li>空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>∗</mo><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">n*2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.46528em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span></span>,n是字符串长度,S的分隔方法由<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span></span>种，每种需要n存储空间。</li>
-</ul>
-</li>
-<li>错误思路：
-<ul>
-<li>思路2的时候，忘记生成一种空情况，map[st]={}。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="排序"><a class="markdownIt-Anchor" href="#排序"></a> 排序</h2>
-<h3 id="改造排序函数字符串比较"><a class="markdownIt-Anchor" href="#改造排序函数字符串比较"></a> 改造排序函数+字符串比较</h3>
-<ul>
-<li>题目179. Largest Number
-<ul>
-<li>题意：给一串数字，求拼起来最大值</li>
-<li>思路1：数字首字符不同时越大越早拼装，相同时需要考虑拼接后情况：3 &gt; 31, 32 &gt; 3, 35 &gt; 3 &gt; 304 ，因为两两拼接比较具有传递性，只需要两两拼接对比即可。
-<ul>
-<li>时间复杂度：nlognlogm</li>
-<li>空间复杂度：logn</li>
-</ul>
-</li>
-<li>错误思路：
-<ul>
-<li>容易忽略数字为0，拼起来为00的情况</li>
-<li>不需要按照1-9划分</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="排序思维题"><a class="markdownIt-Anchor" href="#排序思维题"></a> 排序+思维题</h3>
-<ul>
-<li>题目324. Wiggle Sort II
-<ul>
-<li>题意：给一组数字，要求排列成a0 &lt; a1 &gt; a2 &lt; a3 …形式</li>
-<li>思路1：当数组相同元素个数不超过floor((n+1)/2)时存在满足的排列。先按照从小到大排序，分奇偶从左往右计算
-<ul>
-<li>偶数必然：a0+x &gt; a0 &lt; a1+x &gt; a1 &lt; ai+x &gt; ai，只要倒转即可</li>
-<li>奇数必然：a0 &lt; a1+x &gt; a1 &lt; a2+x &gt; a2 &lt; ai+x &gt; ai</li>
-<li>其中，ai=(n-1)/2，ai+x=n-1</li>
-<li>时间复杂度：nlogn</li>
-<li>空间复杂度：n</li>
-</ul>
-</li>
-<li>思路2：在思路1基础上，可以统一奇数和偶数，从右往左计算
-<ul>
-<li>偶数和偶数必然：（a0+x &gt;） a0 &lt; a1+x &gt; a1 &lt;  a2+x &gt; a2 &lt; ai+x &gt; ai</li>
-<li>其中，ai=(n-1)/2，ai+x=n-1</li>
-<li>时间复杂度：nlogn</li>
-<li>空间复杂度：n</li>
-</ul>
-</li>
-<li>错误思路：
-<ul>
-<li>统计比当前数字大的有多少数字，按稀缺排序，情况太复杂</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="搜索"><a class="markdownIt-Anchor" href="#搜索"></a> 搜索</h2>
-<ul>
-<li>题目39. Combination Sum
-<ul>
-<li>题意：给一组因子，求用这些因子组合成target情况，可重复</li>
-<li>思路1：dfs，dfs(int target, int tmp, vector<int>&amp; candidates, int idx, vector<int>combine, vector&lt;vector<int> &gt; &amp;ans)，idx表示枚举到这个位置
-<ul>
-<li>时间复杂度：O(S)，其中S为所有可行解的长度之和</li>
-<li>空间复杂度：O(target)，除答案数组外，空间复杂度取决于递归的栈深度，在最差情况下需要递归target层。【不能理解】</li>
-</ul>
-</int></int></int></li>
-<li>错误思路：
-<ul>
-<li>python版本没有使用copy.deepcopy，导致pop的时候结果清空</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="单调栈"><a class="markdownIt-Anchor" href="#单调栈"></a> 单调栈</h2>
-<h3 id="单调栈求面积"><a class="markdownIt-Anchor" href="#单调栈求面积"></a> 单调栈+求面积</h3>
-<ul>
-<li>题目84. Largest Rectangle in Histogram
-<ul>
-<li>题意：求柱状图最大矩形面积</li>
-<li>思路1：左右两边分别遍历，al, ar数组分别存储当前节点j可以扩展的区间端点[al[j],ar[j]]，用单调栈维护端点。
-<ul>
-<li>从左往右遍历时，如果stack为空，则al[j]=0；如果栈顶的高度&gt;=j的高度，pop；如果栈顶比j的高度小，则al[j]=st.top()+1。</li>
-<li>从右往左遍历时，如果stack为空，则ar[j]=n-1；如果栈顶的高度&gt;=j的高度，pop；如果栈顶比j的高度小，则ar[j]=st.top()-1。</li>
-<li>最后结果为heigths[j]*(ar[j]-al[j]+1)最大值。</li>
-<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span></li>
-<li>空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span></li>
-</ul>
-</li>
-<li>思路2【最优】：遍历一遍同时更新al和ar。al, ar数组分别存储当前节点j可以扩展的区间端点[al[j],ar[j]]，用单调栈维护端点。
-<ul>
-<li>从左往右遍历时，如果stack为空，则al[j]=0；如果栈顶的高度&gt;=j的高度，更新ar[st.top()]=i-1，pop；如果栈顶比j的高度小，则al[j]=st.top()+1。</li>
-<li>如果此时st不为空，则ar[st.top()] = n-1, pop。</li>
-<li>最后结果为heigths[j]*(ar[j]-al[j]+1)最大值。</li>
-<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span></li>
-<li>空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span></li>
-</ul>
-</li>
-<li>思路3：左右两边扩
-<ul>
-<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">n^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></li>
-<li>空间复杂度：1</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="模拟"><a class="markdownIt-Anchor" href="#模拟"></a> 模拟</h2>
-<h3 id="模拟除法"><a class="markdownIt-Anchor" href="#模拟除法"></a> 模拟除法</h3>
-<ul>
-<li>题目166. Fraction to Recurring Decimal
-<ul>
-<li>题意：给两个数做除法，输出结果，循环节用括号括起来</li>
-<li>思路1：长除法。
-<ul>
-<li>先判断负号</li>
-<li>判断是否有整除, 结果是否为0</li>
-<li>用map判断余数是否相同，来判断是否循环</li>
-<li>时间复杂度：n</li>
-<li>空间复杂度：n</li>
-</ul>
-</li>
-<li>错误思路：
-<ul>
-<li>忘记0，0.2情况</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="思维题"><a class="markdownIt-Anchor" href="#思维题"></a> 思维题</h2>
-<ul>
-<li>
-<p>题目41. First Missing Positive</p>
-<ul>
-<li>题意：求一个数组里缺少的第一个正数，要求on时间，o1空间</li>
-<li>思路1：先把数组里的负数和0设置为N+1,然后把arr[i]=1-N时的arr[arr[i]-1]设为负数，注意绝对值，结果就是第一个不是负数的i+1
-<ul>
-<li>时间复杂度：n</li>
-<li>空间复杂度：1</li>
-</ul>
-</li>
-<li>错误思路：
-<ul>
-<li>map+扫一遍需要n空间</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>题目31. Next Permutation</p>
-<ul>
-<li>题意：求当前排列的下一个排列，下一个排列是指其整数的下一个字典序更大的排列</li>
-<li>思路1：两遍扫描。后面都是递减，从后往前找第一个num[idx-1]小于等于num[idx]的位置
-<ul>
-<li>如果这个位置是0，说明下一个排列是初始位置，前后往中间交换位置</li>
-<li>如果这个位置不是0，则在idx以及后面找比num[idx-1]大的最小值，并和num[idx-1]交换，再将idx以及后面的数从小到大排序。因为是降序，前后往中间交换位置即可。</li>
-<li>时间复杂度：n</li>
-<li>空间复杂度：1</li>
-</ul>
-</li>
-<li>错误思路：
-<ul>
-<li>思路1，在idx以及后面找比num[idx-1]大的最小值时，错误地从前往后找。其实idx以及后面都是从大到小排序，直接从后往前找第一个大于num[idx-1]的值即可，不能等于。</li>
-<li>思路1，将idx以及后面的数从小到大排序时，使用排序，忽略了本身是降序。</li>
-<li>思路1，num[idx-1]小于等于num[idx], 少了等于</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="模板"><a class="markdownIt-Anchor" href="#模板"></a> 模板</h2>
-<ul>
-<li>题目
-<ul>
-<li>题意：</li>
-<li>思路1：xx
-<ul>
-<li>时间复杂度：</li>
-<li>空间复杂度：</li>
-</ul>
-</li>
-<li>错误思路：
-<ul>
-<li>xx</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <!--
- * @Author: CalmCapK
- * @Date: 2022-08-12 08:39:11
- * @LastEditors: CalmCapK
- * @LastEditTime: 2022-09-20 02:39:05
--->
-
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      <!--
- * @Author: CalmCapK
- * @Date: 2022-08-12 08:39:11
- * @LastEditors: CalmCapK
- * @LastEditTime: 2022-09-20 02:39:09
--->
-
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/笔记//" class="article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/09/11/刷题笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -50328,15 +49300,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -50345,14 +49313,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">latex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -50392,11 +49352,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">clip</a>
+                <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">clip</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -50460,19 +49432,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基金</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">驾校</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">OBS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基金</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -50488,7 +49456,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">transformer</a>
+                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -50496,15 +49464,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">transformer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">优化器</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
+                <a href="javascript:void(0)" class="js-tag color4">多标签</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多标签</a>
+                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -50536,10 +49508,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">renpy</a>
               </li>
              
@@ -50553,6 +49521,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">视觉小说</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">天池</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -50596,6 +49572,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">虚拟主播</a>
               </li>
              
@@ -50620,23 +49604,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">天池</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">配置</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vocaloid</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">voiceroid</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -50649,10 +49625,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">文档伪造</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">厨房</a>
               </li>
              
               <li class="article-tag-list-item">
