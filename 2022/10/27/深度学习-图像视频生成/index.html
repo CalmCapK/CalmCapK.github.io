@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://calmcapK.github.io">
   <title>深度学习-图像视频生成 | CalmCapK&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="背景知识  diffusion model扩散模型分为去噪扩散概率模型 (DDPM) 和基于分数的生成模型 (SGMs)，两者融合为score-based diffusion models SGMs   Generative Modeling by Estimating Gradients of the Data Distribution，2019   Learning Energy-Based">
-<meta name="keywords" content="diffusion">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深度学习-图像视频生成">
-<meta property="og:url" content="https://calmcapK.github.io/2022/10/27/深度学习-图像视频生成/index.html">
+<meta property="og:url" content="https://calmcapk.github.io/2022/10/27/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/index.html">
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
 <meta property="og:description" content="背景知识  diffusion model扩散模型分为去噪扩散概率模型 (DDPM) 和基于分数的生成模型 (SGMs)，两者融合为score-based diffusion models SGMs   Generative Modeling by Estimating Gradients of the Data Distribution，2019   Learning Energy-Based">
-<meta property="og:locale" content="default">
+<meta property="og:locale">
 <meta property="og:image" content="https://calmcapk.github.io/assets/typora/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/clip-gen.png">
 <meta property="og:image" content="https://calmcapk.github.io/assets/typora/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/dalle.png">
 <meta property="og:image" content="https://calmcapk.github.io/assets/typora/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/transformer_img_gen.png">
@@ -25,10 +24,11 @@
 <meta property="og:image" content="https://calmcapk.github.io/assets/typora/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/ddpm_loss.png">
 <meta property="og:image" content="https://calmcapk.github.io/assets/typora/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/ddpm3.png">
 <meta property="og:image" content="https://calmcapk.github.io/assets/typora/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/stable_diffusion.png">
-<meta property="og:updated_time" content="2022-11-03T01:13:21.558Z">
+<meta property="article:published_time" content="2022-10-26T17:11:58.000Z">
+<meta property="article:modified_time" content="2022-11-03T01:13:21.558Z">
+<meta property="article:author" content="CalmCapK">
+<meta property="article:tag" content="diffusion">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深度学习-图像视频生成">
-<meta name="twitter:description" content="背景知识  diffusion model扩散模型分为去噪扩散概率模型 (DDPM) 和基于分数的生成模型 (SGMs)，两者融合为score-based diffusion models SGMs   Generative Modeling by Estimating Gradients of the Data Distribution，2019   Learning Energy-Based">
 <meta name="twitter:image" content="https://calmcapk.github.io/assets/typora/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/clip-gen.png">
   
     <link rel="alternative" href="/atom.xml" title="CalmCapK&#39;s Blog" type="application/atom+xml">
@@ -37,6 +37,7 @@
     <link rel="icon" href="/assets/img/head.jpg">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
+<link rel="stylesheet" type="text/css" href="/./search.css">
   <style type="text/css">
   
     #container.show {
@@ -48,8 +49,8 @@
   
 
   <link href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/KaTeX/0.10.2/katex.min.css" rel="stylesheet">
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>  
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -62,7 +63,7 @@
 			<img src="/assets/img/head.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">CalmCapK</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
 		
 		
@@ -84,6 +85,8 @@
 				<li><a href="/tags">tags</a></li>
 	        
 				<li><a href="/archives">archives</a></li>
+	        
+				<li><a href="/find">find</a></li>
 	        
 			</ul>
 		</nav>
@@ -136,10 +139,12 @@
 				<img src="/assets/img/head.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">CalmCapK</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
 			
 			
+			
+				
 			
 				
 			
@@ -167,13 +172,15 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/">home</a></li>
+					<li style="width: 20%"><a href="/">home</a></li>
 		        
-					<li style="width: 25%"><a href="/categories">categories</a></li>
+					<li style="width: 20%"><a href="/categories">categories</a></li>
 		        
-					<li style="width: 25%"><a href="/tags">tags</a></li>
+					<li style="width: 20%"><a href="/tags">tags</a></li>
 		        
-					<li style="width: 25%"><a href="/archives">archives</a></li>
+					<li style="width: 20%"><a href="/archives">archives</a></li>
+		        
+					<li style="width: 20%"><a href="/find">find</a></li>
 		        
 				</ul>
 			</nav>
@@ -183,6 +190,24 @@
 </nav>
 
       <div id="wrapper" class="body-wrap">
+        <!--search begin-->
+        <!-- <div class="page-header" style="">
+            <script type="text/javascript" src="/js/search.js"></script>
+            <span id="local-search" class="local-search local-search-plugin" style="">
+              <input type="search" placeholder="站内搜索" id="local-search-input" class="local-search-input-cls" style="">
+              <i id="local-search-icon-search" class="icon" aria-hidden="true" title="站内搜索">🔍</i>
+              <div id="local-search-result" class="local-search-result-cls"></div>
+            </span>
+            <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+            <script>
+                if ($('.local-search').size()) {
+                  $.getScript('/js/search.js', function() {
+                    searchFunc("/search.xml", 'local-search-input', 'local-search-result');
+                  });
+                }
+            </script>
+        </div> -->
+        <!--search end-->
         <div class="menu-l">
           <div class="canvas-wrap">
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
@@ -200,12 +225,12 @@
   
 
         
-        <a href="/2022/10/27/深度学习-图像视频生成/" class="archive-article-date">
+        <a href="/2022/10/27/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/" class="archive-article-date">
   	<time datetime="2022-10-26T17:11:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-27</time>
 </a>
 
 	<a href="javascript:;" class="archive-article-date">
-		<i class="icon-smile icon"></i> 阅读数:<span id="/2022/10/27/深度学习-图像视频生成/" class="pageViews">0</span>次
+		<i class="icon-smile icon"></i> 阅读数:<span id="/2022/10/27/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/" class="pageViews">0</span>次
 	</a>
 
         
@@ -264,11 +289,11 @@
 <ul>
 <li>DALL-E[^DALL-E]【2021，OpenAI，基于VQ-VAE】
 <ul>
-<li>非官方实现 <a href="https://github.com/lucidrains/DALLE-pytorch" target="_blank" rel="noopener">https://github.com/lucidrains/DALLE-pytorch</a> <strong>12B 参数</strong></li>
-<li>DALLE-mini <a href="https://github.com/borisdayma/dalle-mini" target="_blank" rel="noopener">https://github.com/borisdayma/dalle-mini</a>
+<li>非官方实现 <a href="https://github.com/lucidrains/DALLE-pytorch">https://github.com/lucidrains/DALLE-pytorch</a> <strong>12B 参数</strong></li>
+<li>DALLE-mini <a href="https://github.com/borisdayma/dalle-mini">https://github.com/borisdayma/dalle-mini</a>
 <ul>
 <li>DALLE mini 使用预训练好的模型（VQGAN、BART，CLIP)，而 DALLE 从头开始训练；训练数据对数 15M vs. 0.25B</li>
-<li><strong>0.4B 参数</strong>，媒体：<a href="https://www.leiphone.com/category/academic/lrCG1TvFt2SuHAuv.html" target="_blank" rel="noopener">https://www.leiphone.com/category/academic/lrCG1TvFt2SuHAuv.html</a></li>
+<li><strong>0.4B 参数</strong>，媒体：<a href="https://www.leiphone.com/category/academic/lrCG1TvFt2SuHAuv.html">https://www.leiphone.com/category/academic/lrCG1TvFt2SuHAuv.html</a></li>
 </ul>
 </li>
 </ul>
@@ -277,7 +302,7 @@
 <li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathcolor="green"><mi>D</mi><mi>i</mi><mi>s</mi><mi>c</mi><mi>o</mi><mi>D</mi><mi>i</mi><mi>f</mi><mi>f</mi><mi>u</mi><mi>s</mi><mi>i</mi><mi>o</mi><mi>n</mi></mstyle></mrow><annotation encoding="application/x-tex">\textcolor{green}{Disco Diffusion}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;color:green;">D</span><span class="mord mathdefault" style="color:green;">i</span><span class="mord mathdefault" style="color:green;">s</span><span class="mord mathdefault" style="color:green;">c</span><span class="mord mathdefault" style="color:green;">o</span><span class="mord mathdefault" style="margin-right:0.02778em;color:green;">D</span><span class="mord mathdefault" style="color:green;">i</span><span class="mord mathdefault" style="margin-right:0.10764em;color:green;">f</span><span class="mord mathdefault" style="margin-right:0.10764em;color:green;">f</span><span class="mord mathdefault" style="color:green;">u</span><span class="mord mathdefault" style="color:green;">s</span><span class="mord mathdefault" style="color:green;">i</span><span class="mord mathdefault" style="color:green;">o</span><span class="mord mathdefault" style="color:green;">n</span></span></span></span>
 <ul>
 <li>CLIP+Guided Diffusion</li>
-<li><a href="https://github.com/alembics/disco-diffusion" target="_blank" rel="noopener">https://github.com/alembics/disco-diffusion</a></li>
+<li><a href="https://github.com/alembics/disco-diffusion">https://github.com/alembics/disco-diffusion</a></li>
 </ul>
 </li>
 <li>VQGAN 【2021, Stable Diffusion作者】</li>
@@ -301,7 +326,7 @@
 <li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathcolor="green"><mi>G</mi><mi>L</mi><mi>I</mi><mi>D</mi><mi>E</mi></mstyle></mrow><annotation encoding="application/x-tex">\textcolor{green}{GLIDE}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="color:green;">G</span><span class="mord mathdefault" style="color:green;">L</span><span class="mord mathdefault" style="margin-right:0.07847em;color:green;">I</span><span class="mord mathdefault" style="margin-right:0.02778em;color:green;">D</span><span class="mord mathdefault" style="margin-right:0.05764em;color:green;">E</span></span></span></span><sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> 【OpenAI，基于diffusion】
 <ul>
 <li>将类别条件的变为以 CLIP 输出的语言条件</li>
-<li><a href="https://github.com/openai/glide-text2im" target="_blank" rel="noopener">https://github.com/openai/glide-text2im</a></li>
+<li><a href="https://github.com/openai/glide-text2im">https://github.com/openai/glide-text2im</a></li>
 <li><strong>3.5B 参数</strong></li>
 </ul>
 </li>
@@ -320,18 +345,18 @@
 </ul>
 </li>
 <li>Cogview2【基于VQ-VAE，6B参数】</li>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathcolor="green"><mi>S</mi><mi>t</mi><mi>a</mi><mi>b</mi><mi>l</mi><mi>e</mi><mi>D</mi><mi>i</mi><mi>f</mi><mi>f</mi><mi>u</mi><mi>s</mi><mi>i</mi><mi>o</mi><mi>n</mi></mstyle></mrow><annotation encoding="application/x-tex">\textcolor{green}{Stable Diffusion}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;color:green;">S</span><span class="mord mathdefault" style="color:green;">t</span><span class="mord mathdefault" style="color:green;">a</span><span class="mord mathdefault" style="color:green;">b</span><span class="mord mathdefault" style="margin-right:0.01968em;color:green;">l</span><span class="mord mathdefault" style="color:green;">e</span><span class="mord mathdefault" style="margin-right:0.02778em;color:green;">D</span><span class="mord mathdefault" style="color:green;">i</span><span class="mord mathdefault" style="margin-right:0.10764em;color:green;">f</span><span class="mord mathdefault" style="margin-right:0.10764em;color:green;">f</span><span class="mord mathdefault" style="color:green;">u</span><span class="mord mathdefault" style="color:green;">s</span><span class="mord mathdefault" style="color:green;">i</span><span class="mord mathdefault" style="color:green;">o</span><span class="mord mathdefault" style="color:green;">n</span></span></span></span>[^Stable Diffusion] 【<a href="http://stability.AI" target="_blank" rel="noopener">stability.AI</a>，基于diffusion】
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathcolor="green"><mi>S</mi><mi>t</mi><mi>a</mi><mi>b</mi><mi>l</mi><mi>e</mi><mi>D</mi><mi>i</mi><mi>f</mi><mi>f</mi><mi>u</mi><mi>s</mi><mi>i</mi><mi>o</mi><mi>n</mi></mstyle></mrow><annotation encoding="application/x-tex">\textcolor{green}{Stable Diffusion}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;color:green;">S</span><span class="mord mathdefault" style="color:green;">t</span><span class="mord mathdefault" style="color:green;">a</span><span class="mord mathdefault" style="color:green;">b</span><span class="mord mathdefault" style="margin-right:0.01968em;color:green;">l</span><span class="mord mathdefault" style="color:green;">e</span><span class="mord mathdefault" style="margin-right:0.02778em;color:green;">D</span><span class="mord mathdefault" style="color:green;">i</span><span class="mord mathdefault" style="margin-right:0.10764em;color:green;">f</span><span class="mord mathdefault" style="margin-right:0.10764em;color:green;">f</span><span class="mord mathdefault" style="color:green;">u</span><span class="mord mathdefault" style="color:green;">s</span><span class="mord mathdefault" style="color:green;">i</span><span class="mord mathdefault" style="color:green;">o</span><span class="mord mathdefault" style="color:green;">n</span></span></span></span>[^Stable Diffusion] 【<a href="http://stability.AI">stability.AI</a>，基于diffusion】
 <ul>
-<li><a href="https://github.com/CompVis/latent-diffusion" target="_blank" rel="noopener">https://github.com/CompVis/latent-diffusion</a></li>
+<li><a href="https://github.com/CompVis/latent-diffusion">https://github.com/CompVis/latent-diffusion</a></li>
 <li><strong>1.45B 参数</strong>，媒体：<br>
-<a href="https://mp.weixin.qq.com/s/QLAwtrVeCx5vLOELr6cXUQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/QLAwtrVeCx5vLOELr6cXUQ</a><br>
-<a href="https://mp.weixin.qq.com/s/Q4ZYjUxt22Jsx2W2179C8Q" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/Q4ZYjUxt22Jsx2W2179C8Q</a></li>
+<a href="https://mp.weixin.qq.com/s/QLAwtrVeCx5vLOELr6cXUQ">https://mp.weixin.qq.com/s/QLAwtrVeCx5vLOELr6cXUQ</a><br>
+<a href="https://mp.weixin.qq.com/s/Q4ZYjUxt22Jsx2W2179C8Q">https://mp.weixin.qq.com/s/Q4ZYjUxt22Jsx2W2179C8Q</a></li>
 </ul>
 </li>
 <li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathcolor="green"><mi>I</mi><mi>m</mi><mi>a</mi><mi>g</mi><mi>e</mi><mi>n</mi></mstyle></mrow><annotation encoding="application/x-tex">\textcolor{green}{Imagen}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;color:green;">I</span><span class="mord mathdefault" style="color:green;">m</span><span class="mord mathdefault" style="color:green;">a</span><span class="mord mathdefault" style="margin-right:0.03588em;color:green;">g</span><span class="mord mathdefault" style="color:green;">e</span><span class="mord mathdefault" style="color:green;">n</span></span></span></span><sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> 【Google，基于diffusion】
 <ul>
 <li>from Google Brain，比 stable diffusion 晚，但未开源</li>
-<li>用了更轻量化的 U-Net，和更强的文本编码器 T5 (<strong>11B 参数</strong>，训练中固定），对比 Stable diffusion 用的 Bert。总的来说对于文字中复杂的逻辑理解更好 <a href="https://zhuanlan.zhihu.com/p/522381808" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/522381808</a></li>
+<li>用了更轻量化的 U-Net，和更强的文本编码器 T5 (<strong>11B 参数</strong>，训练中固定），对比 Stable diffusion 用的 Bert。总的来说对于文字中复杂的逻辑理解更好 <a href="https://zhuanlan.zhihu.com/p/522381808">https://zhuanlan.zhihu.com/p/522381808</a></li>
 <li>同 DALLE2，用了 <strong>upsampling classifier-free diffusion</strong></li>
 </ul>
 </li>
@@ -362,7 +387,7 @@
 <h1 id="数学知识"><a class="markdownIt-Anchor" href="#数学知识"></a> 数学知识</h1>
 <h2 id="elbo-和变分推断"><a class="markdownIt-Anchor" href="#elbo-和变分推断"></a> ELBO 和变分推断</h2>
 <blockquote>
-<p><a href="https://zhuanlan.zhihu.com/p/91640654" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/91640654</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/91640654">https://zhuanlan.zhihu.com/p/91640654</a></p>
 </blockquote>
 <ul>
 <li>
@@ -380,12 +405,12 @@
 <li>
 <p>变分推断的过程（可以带入GMM模型方便理解）</p>
 <blockquote>
-<p>一个例子：<a href="https://www.zhihu.com/question/41765860/answer/331070683" target="_blank" rel="noopener">https://www.zhihu.com/question/41765860/answer/331070683</a></p>
+<p>一个例子：<a href="https://www.zhihu.com/question/41765860/answer/331070683">https://www.zhihu.com/question/41765860/answer/331070683</a></p>
 </blockquote>
 <ul>
 <li>先写出 <code>p(z,x)</code> 和 <code>q_θ(z)</code></li>
 <li>带入公式 <code>ELBO(q_θ) = E_q[log p(z,x)] - E_q[log q(z)]</code><br>
-实际中，求期望这一步有挺多技巧，可能还会用到指数簇分布，用累积函数 A 的导数作为期望值：<a href="https://qianyang-hfut.blog.csdn.net/article/details/87247363" target="_blank" rel="noopener">https://qianyang-hfut.blog.csdn.net/article/details/87247363</a></li>
+实际中，求期望这一步有挺多技巧，可能还会用到指数簇分布，用累积函数 A 的导数作为期望值：<a href="https://qianyang-hfut.blog.csdn.net/article/details/87247363">https://qianyang-hfut.blog.csdn.net/article/details/87247363</a></li>
 <li>将 <code>ELBO(q_θ)</code> 对 <code>θ</code> 求偏导，且使偏导等于0，最大化 ELBO</li>
 </ul>
 </li>
@@ -397,7 +422,7 @@
 <h2 id="em算法"><a class="markdownIt-Anchor" href="#em算法"></a> EM算法</h2>
 <p>（一般收敛到局部最优，不能确保全局最优）</p>
 <blockquote>
-<p><a href="https://zhuanlan.zhihu.com/p/330638095" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/330638095</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/330638095">https://zhuanlan.zhihu.com/p/330638095</a></p>
 </blockquote>
 <p>EM算法分为 E-step 和 M-step。和变分推断原理一样，不断迭代提高 ELBO，直到KL散度接近于0（KL恒大于零），也即 <code>q(z)</code> 逼近了 <code>p(z|x)</code><br>
 总结来讲 EM 算法是变分推断的一个特例，K-means是一种 EM 算法。EM 算法在 E-step 时，认为 <code>q_θ(z)</code> 是给定的（由于迭代更新）</p>
@@ -410,7 +435,7 @@
 <h1 id="vae"><a class="markdownIt-Anchor" href="#vae"></a> VAE</h1>
 <p>Variational AutoEncoder，2014</p>
 <blockquote>
-<p><a href="https://zhuanlan.zhihu.com/p/27865705" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/27865705</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/27865705">https://zhuanlan.zhihu.com/p/27865705</a></p>
 </blockquote>
 <ul>
 <li>目标<br>
@@ -428,7 +453,7 @@
 <p>解决：下载下来，不用url</p>
 <h1 id="clip-gen"><a class="markdownIt-Anchor" href="#clip-gen"></a> CLIP-GEN</h1>
 <blockquote>
-<p><a href="https://www.high-flyer.cn/blog/clip_gen/" target="_blank" rel="noopener">https://www.high-flyer.cn/blog/clip_gen/</a></p>
+<p><a href="https://www.high-flyer.cn/blog/clip_gen/">https://www.high-flyer.cn/blog/clip_gen/</a></p>
 </blockquote>
 <ul>
 <li>
@@ -439,15 +464,15 @@
 </li>
 <li>
 <p>训练 condition transformer：用预训练的 VQGAN，已经能够通过 image tokens 来生成图片了。这一步是为了把 VQGAN encoder 生成的 image token 和 CLIP 对于图像的 token align 起来。因为 CLIP 本身已经实现了文本和图像 token 的 align，所以间接地把文本的 token 和 VQGAN encoder 产生的 token align起 来了。 训练的过程中 VQGAN 和 CLIP 参数都保持不变</p>
-<p><a href="https://github.com/sxontheway/Keep-Learning/blob/master/Research/pictures/clip-gen.png" target="_blank" rel="noopener"><img src="/assets/typora/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/clip-gen.png" alt="img"></a></p>
+<p><a href="https://github.com/sxontheway/Keep-Learning/blob/master/Research/pictures/clip-gen.png"><img src="/assets/typora/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/clip-gen.png" alt="img"></a></p>
 </li>
 </ul>
 </li>
 </ul>
 <h1 id="dall-e"><a class="markdownIt-Anchor" href="#dall-e"></a> DALL-E</h1>
 <p>训练dVAE，得到32x32=1024的编码+256BPE-encoded text tokens-》自回归transformer-》排序-CLIP检索</p>
-<p><a href="https://zhuanlan.zhihu.com/p/394467135" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/394467135</a></p>
-<p><a href="https://github.com/sxontheway/Keep-Learning/blob/master/Research/pictures/dalle.png" target="_blank" rel="noopener"><img src="/assets/typora/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/dalle.png" alt="img"></a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/394467135">https://zhuanlan.zhihu.com/p/394467135</a></p>
+<p><a href="https://github.com/sxontheway/Keep-Learning/blob/master/Research/pictures/dalle.png"><img src="/assets/typora/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/dalle.png" alt="img"></a></p>
 <ul>
 <li>
 <p>VQ-VAE：隐空间是离散的 VAE</p>
@@ -460,13 +485,13 @@
 <ul>
 <li>
 <p>Stage One 先单独做 dVAE 的训练（得到encoder、visual codebook、decoder）。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">256x256</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">256x256</span><br></pre></td></tr></table></figure>
 <p>的图片先被 encoder 处理成 latent space</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">32x32xD</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">32x32xD</span><br></pre></td></tr></table></figure>
 <p>，也即分成</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">32x32</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">32x32</span><br></pre></td></tr></table></figure>
 <p>个 patch，每个 patch 都由一个 D 维的 token 表示（这里 D 就是 codebook 的尺寸，DALLE 用的 512）。每个 D 维的向量都能在词汇量为 8192 的 codebook 中找到一个最邻近的一个 token，然后变成 one-hot coding：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">32x32x8192</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">32x32x8192</span><br></pre></td></tr></table></figure>
 <p>。这 1024 个图像 token 会和 text token 汇合，汇合处理后，decoder 还原图像</p>
 <ul>
 <li>这里说 token 就是指长度为 512 的向量</li>
@@ -492,7 +517,7 @@
 </li>
 <li>
 <p>VQGAN 的 Transformer 为 GPT-2</p>
-<p><a href="https://github.com/sxontheway/Keep-Learning/blob/master/Research/pictures/transformer_img_gen.png" target="_blank" rel="noopener"><img src="/assets/typora/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/transformer_img_gen.png" alt="img"></a></p>
+<p><a href="https://github.com/sxontheway/Keep-Learning/blob/master/Research/pictures/transformer_img_gen.png"><img src="/assets/typora/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/transformer_img_gen.png" alt="img"></a></p>
 </li>
 </ul>
 </li>
@@ -507,7 +532,7 @@
 </ul>
 <h1 id="ddpmdenoising-diffusion-probabilistic-model"><a class="markdownIt-Anchor" href="#ddpmdenoising-diffusion-probabilistic-model"></a> DDPM（Denoising Diffusion Probabilistic Model）</h1>
 <blockquote>
-<p>代码：<a href="https://github.com/hojonathanho/diffusion" target="_blank" rel="noopener">https://github.com/hojonathanho/diffusion</a></p>
+<p>代码：<a href="https://github.com/hojonathanho/diffusion">https://github.com/hojonathanho/diffusion</a></p>
 </blockquote>
 <h2 id="原理"><a class="markdownIt-Anchor" href="#原理"></a> 原理</h2>
 <p><img src="/assets/typora/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/DDPM_1.png" alt></p>
@@ -734,28 +759,28 @@ s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class=
 </ul>
 <ul>
 <li>
-<p>为了求 <code>p_θ</code>，DDPM最大化其似然估计：<code>log p_θ(x_0)</code>。下图是省略版的思路（怎么从最大化似然估计到最小化平方差loss），其中会用到上面求的<code>μ_t</code>，具体推导见：<a href="https://zhuanlan.zhihu.com/p/558462214" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/558462214</a></p>
-<p><a href="https://github.com/sxontheway/Keep-Learning/blob/master/Research/pictures/ddpm4.png" target="_blank" rel="noopener"><img src="/assets/typora/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/ddpm4.png" alt="img"></a></p>
+<p>为了求 <code>p_θ</code>，DDPM最大化其似然估计：<code>log p_θ(x_0)</code>。下图是省略版的思路（怎么从最大化似然估计到最小化平方差loss），其中会用到上面求的<code>μ_t</code>，具体推导见：<a href="https://zhuanlan.zhihu.com/p/558462214">https://zhuanlan.zhihu.com/p/558462214</a></p>
+<p><a href="https://github.com/sxontheway/Keep-Learning/blob/master/Research/pictures/ddpm4.png"><img src="/assets/typora/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/ddpm4.png" alt="img"></a></p>
 </li>
 <li>
 <p>网络训练方法如下，上面公式推导的 <code>ε_θ(...)</code> 一项就代表的是 U-Net 网络，loss定义如下：</p>
-<p><a href="https://github.com/sxontheway/Keep-Learning/blob/master/Research/pictures/ddpm_loss.png" target="_blank" rel="noopener"><img src="/assets/typora/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/ddpm_loss.png" alt="img"></a></p>
+<p><a href="https://github.com/sxontheway/Keep-Learning/blob/master/Research/pictures/ddpm_loss.png"><img src="/assets/typora/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/ddpm_loss.png" alt="img"></a></p>
 <p>也即在已知 x_0 和 ε （也即 x_t）的情况，用 U-net 去拟合 ε（每一个时间 t 网络都是复用的，类比RNN）。Sampling 阶段第 4 行的由来见上面推导的公式浅蓝色部分</p>
-<p><a href="https://github.com/sxontheway/Keep-Learning/blob/master/Research/pictures/ddpm3.png" target="_blank" rel="noopener"><img src="/assets/typora/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/ddpm3.png" alt="img"></a></p>
+<p><a href="https://github.com/sxontheway/Keep-Learning/blob/master/Research/pictures/ddpm3.png"><img src="/assets/typora/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/ddpm3.png" alt="img"></a></p>
 </li>
 </ul>
 <h1 id="stable-diffusion"><a class="markdownIt-Anchor" href="#stable-diffusion"></a> Stable Diffusion</h1>
 <p>相比原始diffusion，优点是用 encoder 将 image 从原始 pixel space 映射到 latent space，减少了计算量。因为 diffusion model 偏向进行 semnatic compression（人眼易察觉的），GAN/AutoEncoder 这些偏向进行 perceptual compression（也就是人眼很难察觉到高频信息），所以可以先用 encoder 对图像类似进行一个低通滤波。Endocer 能有效地将图像边长缩小到原来的 1/4 到 1/16，在生成的样本质量上甚至还有提升。</p>
 <p>方法上，首先预训练一个 autoencoder，然后在多个diffusion model的训练，这个autoencoder 都可以复用。 开源的模型在 <code>LAION-400M（Open Dataset of CLIP-Filtered 400 Million Image-Text Pairs）</code> 数据集上训练，模型大小5.7GB，对应 1.45B 参数。<br>
 推理：在1个 V100 GPU day 大概能推理10000张，每一张大概 8s；训练在30个V100 day就差不多了，相比之前的需要150-1000个，大幅降低了。</p>
-<p><a href="https://github.com/sxontheway/Keep-Learning/blob/master/Research/pictures/stable_diffusion.png" target="_blank" rel="noopener"><img src="/assets/typora/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/stable_diffusion.png" alt="img"></a></p>
+<p><a href="https://github.com/sxontheway/Keep-Learning/blob/master/Research/pictures/stable_diffusion.png"><img src="/assets/typora/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/stable_diffusion.png" alt="img"></a></p>
 <p>下载模型</p>
 <p>issues</p>
-<p><a href="https://github.com/CompVis/stable-diffusion/issues/49%E8%B7%B3%E8%BD%AC%E5%88%B0%E4%B8%8B%E9%9D%A2228" target="_blank" rel="noopener">https://github.com/CompVis/stable-diffusion/issues/49跳转到下面228</a></p>
+<p><a href="https://github.com/CompVis/stable-diffusion/issues/49%E8%B7%B3%E8%BD%AC%E5%88%B0%E4%B8%8B%E9%9D%A2228">https://github.com/CompVis/stable-diffusion/issues/49跳转到下面228</a></p>
 <p>Github issues 和 模型脚本？</p>
-<p><a href="https://github.com/huggingface/diffusers/issues/228" target="_blank" rel="noopener">https://github.com/huggingface/diffusers/issues/228</a></p>
+<p><a href="https://github.com/huggingface/diffusers/issues/228">https://github.com/huggingface/diffusers/issues/228</a></p>
 <p>ckpt版本：</p>
-<p><a href="https://huggingface.co/CompVis/stable-diffusion-v-1-4-original" target="_blank" rel="noopener">https://huggingface.co/CompVis/stable-diffusion-v-1-4-original</a></p>
+<p><a href="https://huggingface.co/CompVis/stable-diffusion-v-1-4-original">https://huggingface.co/CompVis/stable-diffusion-v-1-4-original</a></p>
 <p>官网下载clip和taming-transformers放到src下面</p>
 <p>然后再stable_diffusion， clip,  taming-transformers下面pip install -e .</p>
 <p>安装新镜像</p>
@@ -767,10 +792,10 @@ s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class=
 <p>Cuda out of memory</p>
 <p>图像尺寸太大</p>
 <h2 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码</h2>
-<p><a href="http://img2img.py" target="_blank" rel="noopener">img2img.py</a></p>
+<p><a href="http://img2img.py">img2img.py</a></p>
 <h1 id="imagen-video"><a class="markdownIt-Anchor" href="#imagen-video"></a> Imagen Video</h1>
 <blockquote>
-<p><a href="https://imagen.research.google/video/" target="_blank" rel="noopener">https://imagen.research.google/video/</a></p>
+<p><a href="https://imagen.research.google/video/">https://imagen.research.google/video/</a></p>
 </blockquote>
 <h1 id="vdm"><a class="markdownIt-Anchor" href="#vdm"></a> VDM</h1>
 <h2 id="原理-2"><a class="markdownIt-Anchor" href="#原理-2"></a> 原理</h2>
@@ -800,7 +825,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class=
 </ul>
 </blockquote>
 <blockquote>
-<p>代码：<a href="https://github.com/voletiv/mcvd-pytorch" target="_blank" rel="noopener">https://github.com/voletiv/mcvd-pytorch</a></p>
+<p>代码：<a href="https://github.com/voletiv/mcvd-pytorch">https://github.com/voletiv/mcvd-pytorch</a></p>
 </blockquote>
 <h2 id="发展"><a class="markdownIt-Anchor" href="#发展"></a> 发展</h2>
 <ul>
@@ -840,17 +865,17 @@ s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class=
 <li>≤ 4 个 GPU  1-12 天</li>
 </ul>
 <p>下载</p>
-<p><a href="https://www.dropbox.com/s/ge9e5ujwgetktms/i3d_torchscript.pt" target="_blank" rel="noopener">https://www.dropbox.com/s/ge9e5ujwgetktms/i3d_torchscript.pt</a></p>
+<p><a href="https://www.dropbox.com/s/ge9e5ujwgetktms/i3d_torchscript.pt">https://www.dropbox.com/s/ge9e5ujwgetktms/i3d_torchscript.pt</a></p>
 <p>模型</p>
-<p><a href="https://drive.google.com/drive/folders/15pDq2ziTv3n5SlrGhGM0GVqwIZXgebyD" target="_blank" rel="noopener">https://drive.google.com/drive/folders/15pDq2ziTv3n5SlrGhGM0GVqwIZXgebyD</a></p>
+<p><a href="https://drive.google.com/drive/folders/15pDq2ziTv3n5SlrGhGM0GVqwIZXgebyD">https://drive.google.com/drive/folders/15pDq2ziTv3n5SlrGhGM0GVqwIZXgebyD</a></p>
 <p>数据</p>
 <ul>
 <li>BAIR_h5.zip<br>
-<a href="https://drive.google.com/u/0/uc?id=1-R_srAOy5ZcylGXVernqE4WLCe6N4_wq&amp;export=download" target="_blank" rel="noopener">https://drive.google.com/u/0/uc?id=1-R_srAOy5ZcylGXVernqE4WLCe6N4_wq&amp;export=download</a></li>
+<a href="https://drive.google.com/u/0/uc?id=1-R_srAOy5ZcylGXVernqE4WLCe6N4_wq&amp;export=download">https://drive.google.com/u/0/uc?id=1-R_srAOy5ZcylGXVernqE4WLCe6N4_wq&amp;export=download</a></li>
 </ul>
 <h1 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h1>
-<p><a href="https://zhuanlan.zhihu.com/p/520574254" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/520574254</a></p>
-<p><a href="https://mask-cond-video-diffusion.github.io/" target="_blank" rel="noopener">https://mask-cond-video-diffusion.github.io/</a> blog</p>
+<p><a href="https://zhuanlan.zhihu.com/p/520574254">https://zhuanlan.zhihu.com/p/520574254</a></p>
+<p><a href="https://mask-cond-video-diffusion.github.io/">https://mask-cond-video-diffusion.github.io/</a> blog</p>
 <p>MAKE-A-VIDEO</p>
 <p>MoCoGAN-HD</p>
 <p>CogVideo</p>
@@ -858,40 +883,40 @@ s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class=
 <p>let it Flow</p>
 <p>Transframer: Arbitrary Frame</p>
 <p>Endless Loops:</p>
-<p><a href="https://sites.google.com/view/transframer" target="_blank" rel="noopener">https://sites.google.com/view/transframer</a></p>
+<p><a href="https://sites.google.com/view/transframer">https://sites.google.com/view/transframer</a></p>
 <p>diffusion</p>
-<p><a href="https://zhuanlan.zhihu.com/p/546311167" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/546311167</a></p>
-<p><a href="https://www.51cto.com/article/718616.html" target="_blank" rel="noopener">https://www.51cto.com/article/718616.html</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/573407864" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/573407864</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/128809461" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/128809461</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/341524475" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/341524475</a> VAE</p>
-<p><a href="https://imagen.research.google/video/" target="_blank" rel="noopener">https://imagen.research.google/video/</a></p>
-<p><a href="https://www.cnblogs.com/MTandHJ/p/15698607.html" target="_blank" rel="noopener">https://www.cnblogs.com/MTandHJ/p/15698607.html</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/550967884" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/550967884</a></p>
-<p><a href="https://www.zhihu.com/question/530608581/answer/2608721843" target="_blank" rel="noopener">https://www.zhihu.com/question/530608581/answer/2608721843</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/549623622" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/549623622</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/532402983" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/532402983</a></p>
-<p><a href="https://www.51cto.com/article/718616.html" target="_blank" rel="noopener">https://www.51cto.com/article/718616.html</a></p>
-<p><a href="https://www.zhihu.com/question/536012286" target="_blank" rel="noopener">https://www.zhihu.com/question/536012286</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/573984443" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/573984443</a></p>
-<p><a href="https://www.youtube.com/watch?v=qpiSlo0gsp4" target="_blank" rel="noopener">https://www.youtube.com/watch?v=qpiSlo0gsp4</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/520574254" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/520574254</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/562226867" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/562226867</a></p>
-<p><a href="https://towardsdatascience.com/generative-ai-878909fb7868" target="_blank" rel="noopener">https://towardsdatascience.com/generative-ai-878909fb7868</a></p>
-<p><a href="https://www.zhihu.com/question/545764550/answer/2670611518" target="_blank" rel="noopener">https://www.zhihu.com/question/545764550/answer/2670611518</a></p>
-<p><a href="http://marvolo.top/archives/45716" target="_blank" rel="noopener">http://marvolo.top/archives/45716</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/572161541" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/572161541</a></p>
-<p><a href="https://blog.csdn.net/qq_39388410/article/details/126576756" target="_blank" rel="noopener">https://blog.csdn.net/qq_39388410/article/details/126576756</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/546311167" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/546311167</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/573407864" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/573407864</a> [imagen video</p>
-<p><a href="https://techcrunch.com/2022/10/05/google-answers-metas-video-generating-ai-with-its-own-dubbed-imagen-video/" target="_blank" rel="noopener">https://techcrunch.com/2022/10/05/google-answers-metas-video-generating-ai-with-its-own-dubbed-imagen-video/</a>] [imagen video</p>
-<p><a href="https://ai-scholar.tech/zh/articles/video-generation%2Fcogvideo" target="_blank" rel="noopener">https://ai-scholar.tech/zh/articles/video-generation%2Fcogvideo</a> [cogvideo</p>
+<p><a href="https://zhuanlan.zhihu.com/p/546311167">https://zhuanlan.zhihu.com/p/546311167</a></p>
+<p><a href="https://www.51cto.com/article/718616.html">https://www.51cto.com/article/718616.html</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/573407864">https://zhuanlan.zhihu.com/p/573407864</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/128809461">https://zhuanlan.zhihu.com/p/128809461</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/341524475">https://zhuanlan.zhihu.com/p/341524475</a> VAE</p>
+<p><a href="https://imagen.research.google/video/">https://imagen.research.google/video/</a></p>
+<p><a href="https://www.cnblogs.com/MTandHJ/p/15698607.html">https://www.cnblogs.com/MTandHJ/p/15698607.html</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/550967884">https://zhuanlan.zhihu.com/p/550967884</a></p>
+<p><a href="https://www.zhihu.com/question/530608581/answer/2608721843">https://www.zhihu.com/question/530608581/answer/2608721843</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/549623622">https://zhuanlan.zhihu.com/p/549623622</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/532402983">https://zhuanlan.zhihu.com/p/532402983</a></p>
+<p><a href="https://www.51cto.com/article/718616.html">https://www.51cto.com/article/718616.html</a></p>
+<p><a href="https://www.zhihu.com/question/536012286">https://www.zhihu.com/question/536012286</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/573984443">https://zhuanlan.zhihu.com/p/573984443</a></p>
+<p><a href="https://www.youtube.com/watch?v=qpiSlo0gsp4">https://www.youtube.com/watch?v=qpiSlo0gsp4</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/520574254">https://zhuanlan.zhihu.com/p/520574254</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/562226867">https://zhuanlan.zhihu.com/p/562226867</a></p>
+<p><a href="https://towardsdatascience.com/generative-ai-878909fb7868">https://towardsdatascience.com/generative-ai-878909fb7868</a></p>
+<p><a href="https://www.zhihu.com/question/545764550/answer/2670611518">https://www.zhihu.com/question/545764550/answer/2670611518</a></p>
+<p><a href="http://marvolo.top/archives/45716">http://marvolo.top/archives/45716</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/572161541">https://zhuanlan.zhihu.com/p/572161541</a></p>
+<p><a href="https://blog.csdn.net/qq_39388410/article/details/126576756">https://blog.csdn.net/qq_39388410/article/details/126576756</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/546311167">https://zhuanlan.zhihu.com/p/546311167</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/573407864">https://zhuanlan.zhihu.com/p/573407864</a> [imagen video</p>
+<p><a href="https://techcrunch.com/2022/10/05/google-answers-metas-video-generating-ai-with-its-own-dubbed-imagen-video/">https://techcrunch.com/2022/10/05/google-answers-metas-video-generating-ai-with-its-own-dubbed-imagen-video/</a>] [imagen video</p>
+<p><a href="https://ai-scholar.tech/zh/articles/video-generation%2Fcogvideo">https://ai-scholar.tech/zh/articles/video-generation%2Fcogvideo</a> [cogvideo</p>
 <p>]</p>
 <h1 id="参考-2"><a class="markdownIt-Anchor" href="#参考-2"></a> 参考</h1>
 <ul>
-<li><a href="https://zhuanlan.zhihu.com/p/560645985" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/560645985</a> 【介绍了各种工作的blog】</li>
-<li><a href="https://zhuanlan.zhihu.com/p/525106459" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/525106459</a> 【详细介绍DDPM公式】</li>
-<li><a href="https://zhuanlan.zhihu.com/p/449284962" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/449284962</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/560645985">https://zhuanlan.zhihu.com/p/560645985</a> 【介绍了各种工作的blog】</li>
+<li><a href="https://zhuanlan.zhihu.com/p/525106459">https://zhuanlan.zhihu.com/p/525106459</a> 【详细介绍DDPM公式】</li>
+<li><a href="https://zhuanlan.zhihu.com/p/449284962">https://zhuanlan.zhihu.com/p/449284962</a></li>
 </ul>
 <h1 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h1>
 <p>[^Guided Diffusion]:Diffusion Models Beat GANs on Image Synthesis<br>
@@ -1028,7 +1053,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class=
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://calmcapK.github.io/2022/10/27/深度学习-图像视频生成/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://calmcapk.github.io/2022/10/27/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -1042,7 +1067,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class=
   
 <nav id="article-nav">
   
-    <a href="/2022/10/27/剪辑笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/10/27/%E5%89%AA%E8%BE%91%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -1052,7 +1077,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class=
     </a>
   
   
-    <a href="/2022/10/18/深度学习-大规模预训练/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/10/18/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">深度学习-大规模预训练</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -1080,7 +1105,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class=
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景知识"><span class="toc-number">1.</span> <span class="toc-text"> 背景知识</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数学知识"><span class="toc-number">2.</span> <span class="toc-text"> 数学知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#elbo-和变分推断"><span class="toc-number">2.1.</span> <span class="toc-text"> ELBO 和变分推断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#em算法"><span class="toc-number">2.2.</span> <span class="toc-text"> EM算法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vae"><span class="toc-number">3.</span> <span class="toc-text"> VAE</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#stylegan_ada_pytorch"><span class="toc-number">4.</span> <span class="toc-text"> Stylegan_ada_pytorch</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#clip-gen"><span class="toc-number">5.</span> <span class="toc-text"> CLIP-GEN</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dall-e"><span class="toc-number">6.</span> <span class="toc-text"> DALL-E</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ddpmdenoising-diffusion-probabilistic-model"><span class="toc-number">7.</span> <span class="toc-text"> DDPM（Denoising Diffusion Probabilistic Model）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-number">7.1.</span> <span class="toc-text"> 原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#重参数reparameterization-trick"><span class="toc-number">7.1.1.</span> <span class="toc-text"> 重参数reparameterization trick</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前向过程forward-diffusion-processfdp"><span class="toc-number">7.1.2.</span> <span class="toc-text"> 前向过程Forward Diffusion Process(FDP)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逆过程reverse-diffusion-processrdp"><span class="toc-number">7.1.3.</span> <span class="toc-text"> 逆过程Reverse Diffusion Process(RDP)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#损失函数"><span class="toc-number">7.1.4.</span> <span class="toc-text"> 损失函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#stable-diffusion"><span class="toc-number">8.</span> <span class="toc-text"> Stable Diffusion</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#代码"><span class="toc-number">8.1.</span> <span class="toc-text"> 代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#imagen-video"><span class="toc-number">9.</span> <span class="toc-text"> Imagen Video</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vdm"><span class="toc-number">10.</span> <span class="toc-text"> VDM</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#原理-2"><span class="toc-number">10.1.</span> <span class="toc-text"> 原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#生成过程"><span class="toc-number">10.1.1.</span> <span class="toc-text"> 生成过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#损失函数-2"><span class="toc-number">10.1.2.</span> <span class="toc-text"> 损失函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mcvdmasked-conditional-video-diffusion"><span class="toc-number">11.</span> <span class="toc-text"> MCVD（Masked Conditional VIdeo Diffusion）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#发展"><span class="toc-number">11.1.</span> <span class="toc-text"> 发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原理-3"><span class="toc-number">11.2.</span> <span class="toc-text"> 原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结论"><span class="toc-number">11.3.</span> <span class="toc-text"> 结论</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">12.</span> <span class="toc-text"> 参考</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考-2"><span class="toc-number">13.</span> <span class="toc-text"> 参考</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献"><span class="toc-number">14.</span> <span class="toc-text"> 参考文献</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86"><span class="toc-number">1.</span> <span class="toc-text"> 背景知识</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86"><span class="toc-number">2.</span> <span class="toc-text"> 数学知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#elbo-%E5%92%8C%E5%8F%98%E5%88%86%E6%8E%A8%E6%96%AD"><span class="toc-number">2.1.</span> <span class="toc-text"> ELBO 和变分推断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#em%E7%AE%97%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text"> EM算法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vae"><span class="toc-number">3.</span> <span class="toc-text"> VAE</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#stylegan_ada_pytorch"><span class="toc-number">4.</span> <span class="toc-text"> Stylegan_ada_pytorch</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#clip-gen"><span class="toc-number">5.</span> <span class="toc-text"> CLIP-GEN</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dall-e"><span class="toc-number">6.</span> <span class="toc-text"> DALL-E</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ddpmdenoising-diffusion-probabilistic-model"><span class="toc-number">7.</span> <span class="toc-text"> DDPM（Denoising Diffusion Probabilistic Model）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">7.1.</span> <span class="toc-text"> 原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E5%8F%82%E6%95%B0reparameterization-trick"><span class="toc-number">7.1.1.</span> <span class="toc-text"> 重参数reparameterization trick</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E5%90%91%E8%BF%87%E7%A8%8Bforward-diffusion-processfdp"><span class="toc-number">7.1.2.</span> <span class="toc-text"> 前向过程Forward Diffusion Process(FDP)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%86%E8%BF%87%E7%A8%8Breverse-diffusion-processrdp"><span class="toc-number">7.1.3.</span> <span class="toc-text"> 逆过程Reverse Diffusion Process(RDP)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="toc-number">7.1.4.</span> <span class="toc-text"> 损失函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#stable-diffusion"><span class="toc-number">8.</span> <span class="toc-text"> Stable Diffusion</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">8.1.</span> <span class="toc-text"> 代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#imagen-video"><span class="toc-number">9.</span> <span class="toc-text"> Imagen Video</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vdm"><span class="toc-number">10.</span> <span class="toc-text"> VDM</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%90%86-2"><span class="toc-number">10.1.</span> <span class="toc-text"> 原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E8%BF%87%E7%A8%8B"><span class="toc-number">10.1.1.</span> <span class="toc-text"> 生成过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0-2"><span class="toc-number">10.1.2.</span> <span class="toc-text"> 损失函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mcvdmasked-conditional-video-diffusion"><span class="toc-number">11.</span> <span class="toc-text"> MCVD（Masked Conditional VIdeo Diffusion）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%91%E5%B1%95"><span class="toc-number">11.1.</span> <span class="toc-text"> 发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%90%86-3"><span class="toc-number">11.2.</span> <span class="toc-text"> 原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-number">11.3.</span> <span class="toc-text"> 结论</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">12.</span> <span class="toc-text"> 参考</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83-2"><span class="toc-number">13.</span> <span class="toc-text"> 参考</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">14.</span> <span class="toc-text"> 参考文献</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -1129,7 +1154,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class=
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2024 CalmCapK
+    		&copy; 2025 CalmCapK
     	</div>
       <div class="footer-right">
       	<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1150,7 +1175,7 @@ s-65,47,-65,47z M834 80H400000v40H845z"/></svg></span></span></span><span class=
 		toc_hide_index: false,
 		root: "/",
 		innerArchive: true,
-		showTags: true
+		showTags: false
 	}
 </script>
 
@@ -1287,14 +1312,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">latex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MMD</a>
               </li>
              
@@ -1315,6 +1332,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
@@ -1327,27 +1360,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">clip</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1375,15 +1392,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">吉他</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+                <a href="javascript:void(0)" class="js-tag color5">clip</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1396,6 +1405,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Pr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">吉他</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1419,6 +1432,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">OBS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">procreate</a>
               </li>
              
@@ -1431,51 +1456,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">OBS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">动画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">漫画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">小说</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电影</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">电视剧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
+                <a href="javascript:void(0)" class="js-tag color4">优化器</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">transformer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基金</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">优化器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1499,23 +1484,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">backbone</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">冻结训练</a>
+                <a href="javascript:void(0)" class="js-tag color3">指标</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">天池</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">指标</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1535,11 +1508,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color4">公众号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">backbone</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">冻结训练</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1552,6 +1545,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1579,34 +1584,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">公众号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ios</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">配置</a>
               </li>
              
@@ -1619,7 +1596,55 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">漫画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">小说</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">电视剧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基金</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">厨房</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">

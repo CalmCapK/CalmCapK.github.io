@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://calmcapK.github.io">
   <title>编程语言笔记 | CalmCapK&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="c++  搜索 12345678910111213找第一个比target大的位置auto row = upper_bound(matrix.begin(), matrix.end(), target, [](const int b, const vector&amp;lt;int&amp;gt;&amp;amp;a)&amp;#123;    return b &amp;lt; a[0];&amp;#125;);if (row == matr">
-<meta name="keywords" content="python,c++">
+  <meta name="description" content="c++  搜索 1234567891011找第一个比target大的位置auto row &#x3D; upper_bound(matrix.begin(), matrix.end(), target, [](const int b, const vector&lt;int&gt;&amp;a)&#123;    return b &lt; a[0];&#125;);if (row &#x3D;&#x3D; matrix.b">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编程语言笔记">
-<meta property="og:url" content="https://calmcapK.github.io/2022/09/18/编程语言笔记/index.html">
+<meta property="og:url" content="https://calmcapk.github.io/2022/09/18/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
-<meta property="og:description" content="c++  搜索 12345678910111213找第一个比target大的位置auto row = upper_bound(matrix.begin(), matrix.end(), target, [](const int b, const vector&amp;lt;int&amp;gt;&amp;amp;a)&amp;#123;    return b &amp;lt; a[0];&amp;#125;);if (row == matr">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2023-04-03T05:30:47.530Z">
+<meta property="og:description" content="c++  搜索 1234567891011找第一个比target大的位置auto row &#x3D; upper_bound(matrix.begin(), matrix.end(), target, [](const int b, const vector&lt;int&gt;&amp;a)&#123;    return b &lt; a[0];&#125;);if (row &#x3D;&#x3D; matrix.b">
+<meta property="og:locale">
+<meta property="article:published_time" content="2022-09-17T19:34:53.000Z">
+<meta property="article:modified_time" content="2023-04-03T05:30:47.530Z">
+<meta property="article:author" content="CalmCapK">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="c++">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="编程语言笔记">
-<meta name="twitter:description" content="c++  搜索 12345678910111213找第一个比target大的位置auto row = upper_bound(matrix.begin(), matrix.end(), target, [](const int b, const vector&amp;lt;int&amp;gt;&amp;amp;a)&amp;#123;    return b &amp;lt; a[0];&amp;#125;);if (row == matr">
   
     <link rel="alternative" href="/atom.xml" title="CalmCapK&#39;s Blog" type="application/atom+xml">
   
@@ -27,6 +28,7 @@
     <link rel="icon" href="/assets/img/head.jpg">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
+<link rel="stylesheet" type="text/css" href="/./search.css">
   <style type="text/css">
   
     #container.show {
@@ -38,8 +40,8 @@
   
 
   <link href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/KaTeX/0.10.2/katex.min.css" rel="stylesheet">
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>  
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -52,7 +54,7 @@
 			<img src="/assets/img/head.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">CalmCapK</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
 		
 		
@@ -74,6 +76,8 @@
 				<li><a href="/tags">tags</a></li>
 	        
 				<li><a href="/archives">archives</a></li>
+	        
+				<li><a href="/find">find</a></li>
 	        
 			</ul>
 		</nav>
@@ -126,10 +130,12 @@
 				<img src="/assets/img/head.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">CalmCapK</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
 			
 			
+			
+				
 			
 				
 			
@@ -157,13 +163,15 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/">home</a></li>
+					<li style="width: 20%"><a href="/">home</a></li>
 		        
-					<li style="width: 25%"><a href="/categories">categories</a></li>
+					<li style="width: 20%"><a href="/categories">categories</a></li>
 		        
-					<li style="width: 25%"><a href="/tags">tags</a></li>
+					<li style="width: 20%"><a href="/tags">tags</a></li>
 		        
-					<li style="width: 25%"><a href="/archives">archives</a></li>
+					<li style="width: 20%"><a href="/archives">archives</a></li>
+		        
+					<li style="width: 20%"><a href="/find">find</a></li>
 		        
 				</ul>
 			</nav>
@@ -173,6 +181,24 @@
 </nav>
 
       <div id="wrapper" class="body-wrap">
+        <!--search begin-->
+        <!-- <div class="page-header" style="">
+            <script type="text/javascript" src="/js/search.js"></script>
+            <span id="local-search" class="local-search local-search-plugin" style="">
+              <input type="search" placeholder="站内搜索" id="local-search-input" class="local-search-input-cls" style="">
+              <i id="local-search-icon-search" class="icon" aria-hidden="true" title="站内搜索">🔍</i>
+              <div id="local-search-result" class="local-search-result-cls"></div>
+            </span>
+            <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+            <script>
+                if ($('.local-search').size()) {
+                  $.getScript('/js/search.js', function() {
+                    searchFunc("/search.xml", 'local-search-input', 'local-search-result');
+                  });
+                }
+            </script>
+        </div> -->
+        <!--search end-->
         <div class="menu-l">
           <div class="canvas-wrap">
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
@@ -190,12 +216,12 @@
   
 
         
-        <a href="/2022/09/18/编程语言笔记/" class="archive-article-date">
+        <a href="/2022/09/18/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/" class="archive-article-date">
   	<time datetime="2022-09-17T19:34:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-18</time>
 </a>
 
 	<a href="javascript:;" class="archive-article-date">
-		<i class="icon-smile icon"></i> 阅读数:<span id="/2022/09/18/编程语言笔记/" class="pageViews">0</span>次
+		<i class="icon-smile icon"></i> 阅读数:<span id="/2022/09/18/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/" class="pageViews">0</span>次
 	</a>
 
         
@@ -207,273 +233,133 @@
         <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
         <h1 id="c"><a class="markdownIt-Anchor" href="#c"></a> c++</h1>
 <h2 id="搜索"><a class="markdownIt-Anchor" href="#搜索"></a> 搜索</h2>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">找第一个比target大的位置</span><br><span class="line">auto row = upper_bound(matrix.begin(), matrix.end(), target, [](const int b, const vector&lt;int&gt;&amp;a)&#123;</span><br><span class="line">    return b &lt; a[0];</span><br><span class="line">&#125;);</span><br><span class="line">if (row == matrix.begin()) &#123;</span><br><span class="line">    return false;</span><br><span class="line">&#125;</span><br><span class="line">--row;</span><br><span class="line"></span><br><span class="line">二分查找</span><br><span class="line">binary_search(row-&gt;begin(), row-&gt;end(), target);</span><br><span class="line">``` </span><br><span class="line">## 引用</span><br></pre></td></tr></table></figure>
-<p>函数用&amp;传回多个参数 fun(int &amp;a, TreeNode* &amp; note){}<br>
-函数传二维数组 vector&lt;vector<char>&gt;&amp; board</char></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## 排序</span><br></pre></td></tr></table></figure>
-<p>按照大到小排序<br>
-bool cmp(string a, string b){<br>
-return a &gt; b;<br>
-}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">## STL</span><br><span class="line">* vector</span><br></pre></td></tr></table></figure>
-<p>sort(nums.begin(), nums.end());  排序<br>
-vector&lt;vector<int>&gt; edge; edge.emplace_back(); 不需要新建<br>
-edge.push_back({1,2,3,4,}) 直接加vector<br>
-vector<int>对象<br>
-初始化<br>
-v = {};<br>
-v = {‘a’};<br>
-push_back() emplace_back()<br>
-pop_back()<br>
-v.back()<br>
-二维数组<br>
-auto dp = vector&lt;vector<int>&gt;(n, vector<int>(m));<br>
-vector&lt;vector<int>&gt; dp = vector&lt;vector<int>&gt;(n, vector<int>(m));</int></int></int></int></int></int></int></p>
-<p><a href="http://v.at" target="_blank" rel="noopener">v.at</a>(i - 1) = v[i-1]</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* string 字符串</span><br></pre></td></tr></table></figure>
-<p>reverse(s.begin(), s.end()); 翻转<br>
-s.substr(i, n); 子串<br>
-s[i] = ‘a’ 可以赋值</p>
-<p>s = to_string(val) 数字转字符串<br>
-i = stoi(s) 字符串转数字</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* pair</span><br></pre></td></tr></table></figure>
-<p>pair&lt;int, int&gt;<br>
-c = make_pair(a, b)<br>
-c.first<br>
-c.second</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* stack 栈</span><br></pre></td></tr></table></figure>
-<p>stack<int>st;<br>
-while(!st.empty()) st.pop();<br>
-st.top();<br>
-st.push();</int></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* queue</span><br></pre></td></tr></table></figure>
-<p>q.pop()<br>
-q.front()<br>
-q.push()</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* priority_queue 优先队列</span><br></pre></td></tr></table></figure>
-<p>//自定义1<br>
-priority_queue&lt;int, vector<int>, less<int> &gt; a == priority_queue<int>a;<br>
-//自定义2<br>
-struct Status {<br>
-int val;<br>
-ListNode *ptr;<br>
-bool operator &lt; (const Status &amp;rhs) const {<br>
-return val &gt; rhs.val;<br>
-}<br>
-};<br>
-priority_queue <status> q;<br>
-q.push({node-&gt;val, node})<br>
-//自定义3<br>
-struct tmp2 //重写仿函数<br>
-{<br>
-bool operator() (Node a, Node b)<br>
-{<br>
-return a.x &lt; b.x; //大顶堆<br>
-}<br>
-};<br>
-priority_queue&lt;Node, vector<node>, tmp2&gt; f;</node></status></int></int></int></p>
-<p>q.push(a) q.emplace(a)<br>
-q.empty()<br>
-auto f = q.top();<br>
-q.pop();</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* unordered_map</span><br></pre></td></tr></table></figure>
-<p>无序，查找问题，更加高效一些，o(1)时间<br>
-查询o1,插入on<br>
-unordered_map&lt;int, list&lt;pair&lt;int,int&gt;&gt;::iterator&gt;mp;<br>
-mp.find(key)!=mp.end()<br>
-mp[key]-&gt;second;<br>
-mp.erase(key); 删除<br>
-unordered_map&lt;int, vector<string>&gt; ans;<br>
-ans.count(a)</string></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* map</span><br></pre></td></tr></table></figure>
-<p>查询ologn,插入ologn<br>
-红黑树，有顺序要求的问题，用map会更高效一些<br>
-for(map&lt;string, int&gt;::iterator it=mp.begin(); it != mp.end(); it++) cout &lt;&lt; (*it).first &lt;&lt; &quot; &quot; &lt;&lt; (*it).second &lt;&lt; endl;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* list 双向链表</span><br></pre></td></tr></table></figure>
-<p>list&lt;pair&lt;int, int&gt;&gt;l;<br>
-l.splice(l.begin(), l, mp[key]);<br>
-l.erase(mp[key]);<br>
-l.push_front(make_pair(key, value));<br>
-l.begin();<br>
-l.rbegin()-&gt;first<br>
-l.pop_back();</p>
-<p>l.front() 值<br>
-l.begin() 迭代器<br>
-l.erase(l.begin());<br>
-l.push_back(a);</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* unordered_set</span><br></pre></td></tr></table></figure>
-<p>查询o1,插入on<br>
-unordered_set<string>mp;<br>
-mp.count(a)<br>
-vector转set<br>
-unordered_set(v.begin(), v.end());</string></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* set</span><br></pre></td></tr></table></figure>
-<p>查询ologn,插入ologn<br>
-set<int>s<br>
-s.insert()<br>
-s.count()</int></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 数据结构</span><br><span class="line">* 字典树</span><br></pre></td></tr></table></figure>
-<p>struct TrieNode {<br>
-string word;<br>
-unordered_map&lt;char, TrieNode*&gt;child;<br>
-TrieNode(){<br>
-this-&gt;word = “”;<br>
-}<br>
-};<br>
-void insertTrie(TrieNode * root, string word){<br>
-TrieNode<em>node = root;<br>
-for(int i = 0; i &lt; word.size(); i++){<br>
-if(!node-&gt;child.count(word[i])){<br>
-node-&gt;child[word[i]] = new TrieNode();<br>
-}<br>
-node = node-&gt;child[word[i]];<br>
-}<br>
-node-&gt;word = word;<br>
-}<br>
-TrieNode</em>root = new TrieNode();<br>
-insertTrie(root, words[w]);<br>
-root-&gt;child.count(ch))<br>
-TrieNode*nxt = root-&gt;child[ch];<br>
-nxt-&gt;word.size()<br>
-nxt-&gt;child.empty()<br>
-root-&gt;child.erase(ch)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># python</span><br><span class="line">## 知识</span><br></pre></td></tr></table></figure>
-<p>python赋值只是引用, 函数从参数返回注意要把结果放在原来参数的存储位置</p>
-<p>for i in range((n-1)/2, -1, -1): 从大到小计算<br>
-for i, num in enumerate(nums)<br>
-for num in nums:<br>
-num = 不能赋值</p>
-<p>遍历<br>
-for i in range(0, n-step, step*2)<br>
-for i in range(n-1, -1, -1):</p>
-<p>float(&quot;-inf&quot;) 无穷</p>
-<p>参数引用<br>
-字典和列表是传址</p>
-<p>交换位置<br>
-nums[i], nums[mx-1] = nums[mx-1], nums[i]</p>
-<p>函数里修改list，函数外也会有影响</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## 复制</span><br></pre></td></tr></table></figure>
-<p>import copy<br>
-a = [[10], 20]<br>
-b = a[:] # 方法1  [[10, 11], 20, 21]<br>
-c = list(a) # 方法2 [[10, 11], 20]<br>
-d = a * 1 # 方法3 [[10, 11], 20]<br>
-e = copy.copy(a) # 方法4 [[10, 11], 20]<br>
-f = copy.deepcopy(a) # 方法5 [[10], 20] 【推荐】<br>
-a.append(21)<br>
-a[0].append(11)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">## 数据结构</span><br><span class="line">* string</span><br></pre></td></tr></table></figure>
-<p>修改string, 要先转字符list，再合并<br>
-w = list(s)<br>
-w[i] = ‘*’<br>
-ns = “”.join(w)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* list</span><br></pre></td></tr></table></figure>
-<p>实现堆栈<br>
-a = []<br>
-a.append()<br>
-a.pop()<br>
-a[-1]</p>
-<p>list.index(x)返回list第一个x位置<br>
-list.reverse() 翻转</p>
-<p>构建数组<br>
-al = [0] * n<br>
-ar = [n-1] * n<br>
-生成值为0的二维数组<br>
-[[0] * m] * n 表示的是指向 [0]*m 这个列表的引用<br>
-[[0] * m for _ in range(n)] 这才正确<br>
-f = [[False] * (n + 1) for _ in range(m + 1)]</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* dict</span><br></pre></td></tr></table></figure>
-<p>a = {‘b’:1}<br>
-a.pop(‘b’)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* deque 双向队列</span><br></pre></td></tr></table></figure>
-<p>q = collections.deque([a])或者 q = collections.deque() q.append(a)<br>
-while q:<br>
-id = q.popleft()<br>
-q.append(e)<br>
-len(q)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* PriorityQueue 基于heapq的 python3才能用</span><br></pre></td></tr></table></figure>
-<p>from queue import PriorityQueue<br>
-q = PriorityQueue()<br>
-q.put((-buildings[idx][2], buildings[idx][1]))  按照逐个元素从小到大<br>
-q.put(Node(buildings[idx][1], buildings[idx][2]))  或者使用class<br>
-排序<br>
-while not q.empty():<br>
-a = q.get() 会直接pop<br>
-q.put(a)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* heapq 最小堆 python2可以用</span><br></pre></td></tr></table></figure>
-<p>import heapq<br>
-q = []<br>
-heapq.heappush(q, (-buildings[idx][2], buildings[idx][1]))<br>
-while q:<br>
-a = heapq.heappop(q)<br>
-heapq.heappush(q, a)<br>
-heapify([1,2,3]) 列表转堆<br>
-heapreplace(q, new) 弹出最小元素，插入新元素<br>
-nsmallest(3, q) 前n个最小元素<br>
-nlargest(3, q)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* class</span><br></pre></td></tr></table></figure>
-<p>class Node(object):<br>
-def <strong>init</strong>(self, x, h):<br>
-self.x = x<br>
-self.h = h<br>
-return</p>
-<pre><code>def __lt__(self, other): 排序
-    return self.h &gt; other.h
-</code></pre>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* 字典树</span><br></pre></td></tr></table></figure>
-<p>class TrieNode(object):<br>
-def <strong>init</strong>(self):<br>
-self.child = {}<br>
-self.word = “”<br>
-def insertTrie(root, word):<br>
-node = root<br>
-for i in range(len(word)):<br>
-if word[i] not in node.child:<br>
-node.child[word[i]] = TrieNode()<br>
-node = node.child[word[i]]<br>
-node.word = word<br>
-root = TrieNode()<br>
-insertTrie(root, word)<br>
-if ch not in root.child:<br>
-nxt =  root.child[ch]<br>
-len(nxt.word)<br>
-len(nxt.child.keys()) == 0:<br>
-root.child.pop(ch)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## 排序</span><br></pre></td></tr></table></figure>
-<p>def comp(a, b):<br>
-an = a+b<br>
-bn = b+a<br>
-if an &gt; bn: return -1<br>
-elif an &lt; bn: return 1<br>
-else: return 0</p>
-<p>ans.sort(key=functools.cmp_to_key(comp))<br>
-ans.sort(cmp = lambda x,y: cmp(y+x, x+y))<br>
-ans.sort(key=functools.cmp_to_key(lambda x,y: cmp(y+x, x+y)))</p>
-<p>ans = sorted(ans) #需要赋值，只是sorted不改变存储位置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">## 目录结构【需要重新梳理】</span><br><span class="line">下次一层调用上一层</span><br></pre></td></tr></table></figure>
-<p>方法一<br>
-sys.path.append(os.path.join(os.path.abspath(os.path.dirname(<strong>file</strong>)), “…/…”))</p>
-<p>方法二<br>
-export PYTHONPATH=“<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mi>Y</mi><mi>T</mi><mi>H</mi><mi>O</mi><mi>N</mi><mi>P</mi><mi>A</mi><mi>T</mi><mi>H</mi><mo>:</mo></mrow><annotation encoding="application/x-tex">PYTHONPATH:</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span></span></span>PWD” 好像没用 会话没了就没了<br>
-echo $PYTHONPATH</p>
-<p>参见https://github.com/CalmCapK/toolkit/test_directory_structure</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">## 文件操作</span><br><span class="line">* xml</span><br><span class="line">https://blog.csdn.net/wsp_1138886114/article/details/86576900</span><br><span class="line">* txt</span><br><span class="line">* csv</span><br><span class="line">* xlsx</span><br><span class="line">* yml</span><br><span class="line">* json</span><br><span class="line">    * json.loads()加载json格式的字符串</span><br><span class="line">    * json.load()加载json格式文件</span><br><span class="line">* py</span><br><span class="line">参见https://github.com/CalmCapK/toolkit/file_op.py</span><br><span class="line">### 大文件一行行读取</span><br></pre></td></tr></table></figure>
-<p>with open(path, “r”, encoding=“utf-8”) as f:<br>
-    for line in tqdm(f):</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">## 多线程</span><br><span class="line">参见https://github.com/CalmCapK/toolkit/python_example.py</span><br><span class="line"></span><br><span class="line">## 随机抽取</span><br><span class="line">参见https://github.com/CalmCapK/toolkit/python_example.py</span><br><span class="line"></span><br><span class="line">## 二维数组根据下标索引赋值</span><br></pre></td></tr></table></figure>
-<p>res = res.softmax(dim=-1)<br>
-val, ind = res.topk(k) //ind: batch_size x topk<br>
-output = np.zeros((batch_size, label_num) , dtype = float))<br>
-for i in range(batch_size):<br>
-//gpu tensor -&gt; cpu numpy<br>
-output[i][ind[i].cpu().detach().numpy().astype(int)] = 1</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 函数生成变量赋值？</span><br></pre></td></tr></table></figure>
-<p>def fun():<br>
-dic = {}<br>
-return dic</p>
-<p>data = fun()</p>
-<pre class="highlight"><code class>## opencv无法读取中文路径
-https://www.zhihu.com/question/67157462</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">找第一个比target大的位置</span><br><span class="line">auto row = upper_bound(matrix.begin(), matrix.end(), target, [](const int b, const vector&lt;int&gt;&amp;a)&#123;</span><br><span class="line">    return b &lt; a[0];</span><br><span class="line">&#125;);</span><br><span class="line">if (row == matrix.begin()) &#123;</span><br><span class="line">    return false;</span><br><span class="line">&#125;</span><br><span class="line">--row;</span><br><span class="line"></span><br><span class="line">二分查找</span><br><span class="line">binary_search(row-&gt;begin(), row-&gt;end(), target);</span><br></pre></td></tr></table></figure>
+<h2 id="引用"><a class="markdownIt-Anchor" href="#引用"></a> 引用</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">函数用&amp;传回多个参数 fun(int &amp;a, TreeNode* &amp; note)&#123;&#125;</span><br><span class="line">函数传二维数组 vector&lt;vector&lt;char&gt;&gt;&amp; board</span><br></pre></td></tr></table></figure>
+<h2 id="排序"><a class="markdownIt-Anchor" href="#排序"></a> 排序</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">按照大到小排序</span><br><span class="line">bool cmp(string a, string b)&#123;</span><br><span class="line">    return a &gt; b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="stl"><a class="markdownIt-Anchor" href="#stl"></a> STL</h2>
+<ul>
+<li>vector</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">sort(nums.begin(), nums.end());  排序 </span><br><span class="line">vector&lt;vector&lt;int&gt;&gt; edge; edge.emplace_back(); 不需要新建</span><br><span class="line">edge.push_back(&#123;1,2,3,4,&#125;) 直接加vector</span><br><span class="line">vector&lt;int&gt;对象</span><br><span class="line">初始化</span><br><span class="line">v = &#123;&#125;;</span><br><span class="line">v = &#123;&#x27;a&#x27;&#125;;</span><br><span class="line">push_back() emplace_back()</span><br><span class="line">pop_back()</span><br><span class="line">v.back()</span><br><span class="line">二维数组</span><br><span class="line">auto dp = vector&lt;vector&lt;int&gt;&gt;(n, vector&lt;int&gt;(m));</span><br><span class="line">vector&lt;vector&lt;int&gt;&gt; dp = vector&lt;vector&lt;int&gt;&gt;(n, vector&lt;int&gt;(m));</span><br><span class="line"></span><br><span class="line">v.at(i - 1) = v[i-1]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>string 字符串</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">reverse(s.begin(), s.end()); 翻转</span><br><span class="line">s.substr(i, n); 子串</span><br><span class="line">s[i] = &#x27;a&#x27; 可以赋值</span><br><span class="line"></span><br><span class="line">s = to_string(val) 数字转字符串</span><br><span class="line">i = stoi(s) 字符串转数字</span><br></pre></td></tr></table></figure>
+<ul>
+<li>pair</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pair&lt;int, int&gt;</span><br><span class="line">c = make_pair(a, b)</span><br><span class="line">c.first</span><br><span class="line">c.second</span><br></pre></td></tr></table></figure>
+<ul>
+<li>stack 栈</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">stack&lt;int&gt;st;</span><br><span class="line">while(!st.empty()) st.pop();</span><br><span class="line">st.top();</span><br><span class="line">st.push();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>queue</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">q.pop()</span><br><span class="line">q.front()</span><br><span class="line">q.push()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>priority_queue 优先队列</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">//自定义1</span><br><span class="line">priority_queue&lt;int, vector&lt;int&gt;, less&lt;int&gt; &gt; a == priority_queue&lt;int&gt;a;</span><br><span class="line">//自定义2</span><br><span class="line">struct Status &#123;</span><br><span class="line">    int val;</span><br><span class="line">    ListNode *ptr;</span><br><span class="line">    bool operator &lt; (const Status &amp;rhs) const &#123;</span><br><span class="line">        return val &gt; rhs.val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">priority_queue &lt;Status&gt; q;</span><br><span class="line">q.push(&#123;node-&gt;val, node&#125;)</span><br><span class="line">//自定义3</span><br><span class="line">struct tmp2 //重写仿函数</span><br><span class="line">&#123;</span><br><span class="line">    bool operator() (Node a, Node b) </span><br><span class="line">    &#123;</span><br><span class="line">        return a.x &lt; b.x; //大顶堆</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">priority_queue&lt;Node, vector&lt;Node&gt;, tmp2&gt; f;</span><br><span class="line"></span><br><span class="line">q.push(a) q.emplace(a)</span><br><span class="line">q.empty()</span><br><span class="line">auto f = q.top(); </span><br><span class="line">q.pop();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>unordered_map</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">无序，查找问题，更加高效一些，o(1)时间</span><br><span class="line">查询o1,插入on</span><br><span class="line">unordered_map&lt;int, list&lt;pair&lt;int,int&gt;&gt;::iterator&gt;mp;</span><br><span class="line">mp.find(key)!=mp.end()</span><br><span class="line">mp[key]-&gt;second;</span><br><span class="line">mp.erase(key); 删除</span><br><span class="line">unordered_map&lt;int, vector&lt;string&gt;&gt; ans;</span><br><span class="line">ans.count(a)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>map</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">查询ologn,插入ologn</span><br><span class="line">红黑树，有顺序要求的问题，用map会更高效一些</span><br><span class="line">for(map&lt;string, int&gt;::iterator it=mp.begin(); it != mp.end(); it++) cout &lt;&lt; (*it).first &lt;&lt; &quot; &quot; &lt;&lt; (*it).second &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>list 双向链表</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">list&lt;pair&lt;int, int&gt;&gt;l;</span><br><span class="line">l.splice(l.begin(), l, mp[key]);</span><br><span class="line">l.erase(mp[key]);</span><br><span class="line">l.push_front(make_pair(key, value));</span><br><span class="line">l.begin();</span><br><span class="line">l.rbegin()-&gt;first</span><br><span class="line">l.pop_back();</span><br><span class="line"></span><br><span class="line">l.front() 值</span><br><span class="line">l.begin() 迭代器</span><br><span class="line">l.erase(l.begin());</span><br><span class="line">l.push_back(a);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>unordered_set</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">查询o1,插入on</span><br><span class="line">unordered_set&lt;string&gt;mp;</span><br><span class="line">mp.count(a)</span><br><span class="line">vector转set</span><br><span class="line">unordered_set(v.begin(), v.end());</span><br></pre></td></tr></table></figure>
+<ul>
+<li>set</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">查询ologn,插入ologn</span><br><span class="line">set&lt;int&gt;s</span><br><span class="line">s.insert()</span><br><span class="line">s.count()</span><br></pre></td></tr></table></figure>
+<h2 id="数据结构"><a class="markdownIt-Anchor" href="#数据结构"></a> 数据结构</h2>
+<ul>
+<li>字典树</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">struct TrieNode &#123;</span><br><span class="line">    string word;</span><br><span class="line">    unordered_map&lt;char, TrieNode*&gt;child;</span><br><span class="line">    TrieNode()&#123;</span><br><span class="line">        this-&gt;word = &quot;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">void insertTrie(TrieNode * root, string word)&#123;</span><br><span class="line">    TrieNode*node = root;</span><br><span class="line">    for(int i = 0; i &lt; word.size(); i++)&#123;</span><br><span class="line">        if(!node-&gt;child.count(word[i]))&#123;</span><br><span class="line">            node-&gt;child[word[i]] = new TrieNode();</span><br><span class="line">        &#125;</span><br><span class="line">        node = node-&gt;child[word[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    node-&gt;word = word;</span><br><span class="line">&#125;</span><br><span class="line">TrieNode*root = new TrieNode();</span><br><span class="line">insertTrie(root, words[w]);</span><br><span class="line">root-&gt;child.count(ch))</span><br><span class="line">TrieNode*nxt = root-&gt;child[ch];</span><br><span class="line">nxt-&gt;word.size()</span><br><span class="line">nxt-&gt;child.empty()</span><br><span class="line">root-&gt;child.erase(ch)</span><br></pre></td></tr></table></figure>
+<h1 id="python"><a class="markdownIt-Anchor" href="#python"></a> python</h1>
+<h2 id="知识"><a class="markdownIt-Anchor" href="#知识"></a> 知识</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">python赋值只是引用, 函数从参数返回注意要把结果放在原来参数的存储位置</span><br><span class="line"></span><br><span class="line">for i in range((n-1)/2, -1, -1): 从大到小计算</span><br><span class="line">for i, num in enumerate(nums)</span><br><span class="line">for num in nums:</span><br><span class="line">    num = 不能赋值</span><br><span class="line"></span><br><span class="line">遍历</span><br><span class="line">for i in range(0, n-step, step*2)</span><br><span class="line">for i in range(n-1, -1, -1):</span><br><span class="line"></span><br><span class="line">float(&quot;-inf&quot;) 无穷</span><br><span class="line"></span><br><span class="line">参数引用</span><br><span class="line">字典和列表是传址</span><br><span class="line"></span><br><span class="line">交换位置</span><br><span class="line">nums[i], nums[mx-1] = nums[mx-1], nums[i]</span><br><span class="line"></span><br><span class="line">函数里修改list，函数外也会有影响</span><br></pre></td></tr></table></figure>
+<h2 id="复制"><a class="markdownIt-Anchor" href="#复制"></a> 复制</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import copy </span><br><span class="line">a = [[10], 20]</span><br><span class="line">b = a[:] # 方法1  [[10, 11], 20, 21]</span><br><span class="line">c = list(a) # 方法2 [[10, 11], 20]</span><br><span class="line">d = a * 1 # 方法3 [[10, 11], 20]</span><br><span class="line">e = copy.copy(a) # 方法4 [[10, 11], 20]</span><br><span class="line">f = copy.deepcopy(a) # 方法5 [[10], 20] 【推荐】</span><br><span class="line">a.append(21)</span><br><span class="line">a[0].append(11)</span><br></pre></td></tr></table></figure>
+<h2 id="数据结构-2"><a class="markdownIt-Anchor" href="#数据结构-2"></a> 数据结构</h2>
+<ul>
+<li>string</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">修改string, 要先转字符list，再合并</span><br><span class="line">w = list(s)</span><br><span class="line">w[i] = &#x27;*&#x27;</span><br><span class="line">ns = &quot;&quot;.join(w)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>list</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">实现堆栈</span><br><span class="line">a = []</span><br><span class="line">a.append()</span><br><span class="line">a.pop()</span><br><span class="line">a[-1]</span><br><span class="line"></span><br><span class="line">list.index(x)返回list第一个x位置</span><br><span class="line">list.reverse() 翻转</span><br><span class="line"></span><br><span class="line">构建数组</span><br><span class="line">al = [0] * n</span><br><span class="line">ar = [n-1] * n</span><br><span class="line">生成值为0的二维数组</span><br><span class="line">[[0] * m] * n 表示的是指向 [0]*m 这个列表的引用</span><br><span class="line">[[0] * m for _ in range(n)] 这才正确</span><br><span class="line">f = [[False] * (n + 1) for _ in range(m + 1)]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>dict</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;&#x27;b&#x27;:1&#125;</span><br><span class="line">a.pop(&#x27;b&#x27;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>deque 双向队列</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">q = collections.deque([a])或者 q = collections.deque() q.append(a)    </span><br><span class="line">while q:</span><br><span class="line">id = q.popleft()</span><br><span class="line">q.append(e)</span><br><span class="line">len(q)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>PriorityQueue 基于heapq的 python3才能用</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from queue import PriorityQueue</span><br><span class="line">q = PriorityQueue()</span><br><span class="line">q.put((-buildings[idx][2], buildings[idx][1]))  按照逐个元素从小到大</span><br><span class="line">q.put(Node(buildings[idx][1], buildings[idx][2]))  或者使用class</span><br><span class="line">排序</span><br><span class="line">while not q.empty():</span><br><span class="line">    a = q.get() 会直接pop</span><br><span class="line">    q.put(a)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>heapq 最小堆 python2可以用</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import heapq</span><br><span class="line">q = []</span><br><span class="line">heapq.heappush(q, (-buildings[idx][2], buildings[idx][1]))</span><br><span class="line">while q:</span><br><span class="line">    a = heapq.heappop(q)</span><br><span class="line">    heapq.heappush(q, a)</span><br><span class="line">heapify([1,2,3]) 列表转堆</span><br><span class="line">heapreplace(q, new) 弹出最小元素，插入新元素</span><br><span class="line">nsmallest(3, q) 前n个最小元素</span><br><span class="line">nlargest(3, q)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>class</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Node(object):</span><br><span class="line">    def __init__(self, x, h):</span><br><span class="line">        self.x = x</span><br><span class="line">        self.h = h</span><br><span class="line">        return</span><br><span class="line"> </span><br><span class="line">    def __lt__(self, other): 排序</span><br><span class="line">        return self.h &gt; other.h</span><br></pre></td></tr></table></figure>
+<ul>
+<li>字典树</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class TrieNode(object):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.child = &#123;&#125;</span><br><span class="line">        self.word = &quot;&quot;</span><br><span class="line">def insertTrie(root, word):</span><br><span class="line">    node = root</span><br><span class="line">    for i in range(len(word)):</span><br><span class="line">        if word[i] not in node.child:</span><br><span class="line">            node.child[word[i]] = TrieNode()</span><br><span class="line">        node = node.child[word[i]]</span><br><span class="line">    node.word = word</span><br><span class="line">root = TrieNode()</span><br><span class="line">insertTrie(root, word)</span><br><span class="line">if ch not in root.child:</span><br><span class="line">nxt =  root.child[ch]</span><br><span class="line">len(nxt.word)</span><br><span class="line">len(nxt.child.keys()) == 0:</span><br><span class="line">root.child.pop(ch)</span><br></pre></td></tr></table></figure>
+<h2 id="排序-2"><a class="markdownIt-Anchor" href="#排序-2"></a> 排序</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def comp(a, b):</span><br><span class="line">    an = a+b</span><br><span class="line">    bn = b+a</span><br><span class="line">    if an &gt; bn: return -1</span><br><span class="line">    elif an &lt; bn: return 1</span><br><span class="line">    else: return 0</span><br><span class="line"></span><br><span class="line">ans.sort(key=functools.cmp_to_key(comp))</span><br><span class="line">ans.sort(cmp = lambda x,y: cmp(y+x, x+y))</span><br><span class="line">ans.sort(key=functools.cmp_to_key(lambda x,y: cmp(y+x, x+y)))</span><br><span class="line"></span><br><span class="line">ans = sorted(ans) #需要赋值，只是sorted不改变存储位置</span><br></pre></td></tr></table></figure>
+<h2 id="目录结构需要重新梳理"><a class="markdownIt-Anchor" href="#目录结构需要重新梳理"></a> 目录结构【需要重新梳理】</h2>
+<p>下次一层调用上一层</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">方法一</span><br><span class="line">sys.path.append(os.path.join(os.path.abspath(os.path.dirname(__file__)), &quot;../..&quot;))</span><br><span class="line"></span><br><span class="line">方法二</span><br><span class="line">export PYTHONPATH=&quot;$PYTHONPATH:$PWD&quot; 好像没用 会话没了就没了</span><br><span class="line">echo $PYTHONPATH</span><br><span class="line"></span><br><span class="line">参见https://github.com/CalmCapK/toolkit/test_directory_structure</span><br></pre></td></tr></table></figure>
+<h2 id="文件操作"><a class="markdownIt-Anchor" href="#文件操作"></a> 文件操作</h2>
+<ul>
+<li>xml<br>
+<a href="https://blog.csdn.net/wsp_1138886114/article/details/86576900">https://blog.csdn.net/wsp_1138886114/article/details/86576900</a></li>
+<li>txt</li>
+<li>csv</li>
+<li>xlsx</li>
+<li>yml</li>
+<li>json
+<ul>
+<li>json.loads()加载json格式的字符串</li>
+<li>json.load()加载json格式文件</li>
+</ul>
+</li>
+<li>py<br>
+参见https://github.com/CalmCapK/toolkit/file_op.py</li>
+</ul>
+<h3 id="大文件一行行读取"><a class="markdownIt-Anchor" href="#大文件一行行读取"></a> 大文件一行行读取</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">with open(path, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:</span><br><span class="line">    for line in tqdm(f):</span><br></pre></td></tr></table></figure>
+<h2 id="多线程"><a class="markdownIt-Anchor" href="#多线程"></a> 多线程</h2>
+<p>参见https://github.com/CalmCapK/toolkit/python_example.py</p>
+<h2 id="随机抽取"><a class="markdownIt-Anchor" href="#随机抽取"></a> 随机抽取</h2>
+<p>参见https://github.com/CalmCapK/toolkit/python_example.py</p>
+<h2 id="二维数组根据下标索引赋值"><a class="markdownIt-Anchor" href="#二维数组根据下标索引赋值"></a> 二维数组根据下标索引赋值</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">res = res.softmax(dim=-1) </span><br><span class="line">val, ind = res.topk(k) //ind: batch_size x topk</span><br><span class="line">output = np.zeros((batch_size, label_num) , dtype = float)) </span><br><span class="line">for i in range(batch_size):</span><br><span class="line">    //gpu tensor -&gt; cpu numpy</span><br><span class="line">    output[i][ind[i].cpu().detach().numpy().astype(int)] = 1</span><br></pre></td></tr></table></figure>
+<h2 id="函数生成变量赋值"><a class="markdownIt-Anchor" href="#函数生成变量赋值"></a> 函数生成变量赋值？</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def fun():</span><br><span class="line">    dic = &#123;&#125;</span><br><span class="line">    return dic</span><br><span class="line"></span><br><span class="line">data = fun()</span><br></pre></td></tr></table></figure>
+<h2 id="opencv无法读取中文路径"><a class="markdownIt-Anchor" href="#opencv无法读取中文路径"></a> opencv无法读取中文路径</h2>
+<p><a href="https://www.zhihu.com/question/67157462">https://www.zhihu.com/question/67157462</a></p>
 
       
 
@@ -596,7 +482,7 @@ https://www.zhihu.com/question/67157462</code></pre>
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://calmcapK.github.io/2022/09/18/编程语言笔记/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://calmcapk.github.io/2022/09/18/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -610,7 +496,7 @@ https://www.zhihu.com/question/67157462</code></pre>
   
 <nav id="article-nav">
   
-    <a href="/2022/09/20/代码笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/09/20/%E4%BB%A3%E7%A0%81%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -620,7 +506,7 @@ https://www.zhihu.com/question/67157462</code></pre>
     </a>
   
   
-    <a href="/2022/09/11/刷题笔记/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/09/11/%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">刷题笔记</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -648,7 +534,7 @@ https://www.zhihu.com/question/67157462</code></pre>
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#c"><span class="toc-number">1.</span> <span class="toc-text"> c++</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#搜索"><span class="toc-number">1.1.</span> <span class="toc-text"> 搜索</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#c"><span class="toc-number">1.</span> <span class="toc-text"> c++</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2"><span class="toc-number">1.1.</span> <span class="toc-text"> 搜索</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text"> 引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F"><span class="toc-number">1.3.</span> <span class="toc-text"> 排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stl"><span class="toc-number">1.4.</span> <span class="toc-text"> STL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.5.</span> <span class="toc-text"> 数据结构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#python"><span class="toc-number">2.</span> <span class="toc-text"> python</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86"><span class="toc-number">2.1.</span> <span class="toc-text"> 知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6"><span class="toc-number">2.2.</span> <span class="toc-text"> 复制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-2"><span class="toc-number">2.3.</span> <span class="toc-text"> 数据结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F-2"><span class="toc-number">2.4.</span> <span class="toc-text"> 排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E9%9C%80%E8%A6%81%E9%87%8D%E6%96%B0%E6%A2%B3%E7%90%86"><span class="toc-number">2.5.</span> <span class="toc-text"> 目录结构【需要重新梳理】</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-number">2.6.</span> <span class="toc-text"> 文件操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%80%E8%A1%8C%E8%A1%8C%E8%AF%BB%E5%8F%96"><span class="toc-number">2.6.1.</span> <span class="toc-text"> 大文件一行行读取</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="toc-number">2.7.</span> <span class="toc-text"> 多线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%8A%BD%E5%8F%96"><span class="toc-number">2.8.</span> <span class="toc-text"> 随机抽取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E6%A0%B9%E6%8D%AE%E4%B8%8B%E6%A0%87%E7%B4%A2%E5%BC%95%E8%B5%8B%E5%80%BC"><span class="toc-number">2.9.</span> <span class="toc-text"> 二维数组根据下标索引赋值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%94%9F%E6%88%90%E5%8F%98%E9%87%8F%E8%B5%8B%E5%80%BC"><span class="toc-number">2.10.</span> <span class="toc-text"> 函数生成变量赋值？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#opencv%E6%97%A0%E6%B3%95%E8%AF%BB%E5%8F%96%E4%B8%AD%E6%96%87%E8%B7%AF%E5%BE%84"><span class="toc-number">2.11.</span> <span class="toc-text"> opencv无法读取中文路径</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -697,7 +583,7 @@ https://www.zhihu.com/question/67157462</code></pre>
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2024 CalmCapK
+    		&copy; 2025 CalmCapK
     	</div>
       <div class="footer-right">
       	<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -718,7 +604,7 @@ https://www.zhihu.com/question/67157462</code></pre>
 		toc_hide_index: false,
 		root: "/",
 		innerArchive: true,
-		showTags: true
+		showTags: false
 	}
 </script>
 
@@ -855,14 +741,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">latex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MMD</a>
               </li>
              
@@ -883,6 +761,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
@@ -895,27 +789,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">clip</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -943,15 +821,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">吉他</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+                <a href="javascript:void(0)" class="js-tag color5">clip</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -964,6 +834,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Pr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">吉他</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -987,6 +861,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">OBS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">procreate</a>
               </li>
              
@@ -999,51 +885,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">OBS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">动画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">漫画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">小说</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电影</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">电视剧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
+                <a href="javascript:void(0)" class="js-tag color4">优化器</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">transformer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基金</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">优化器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1067,23 +913,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">backbone</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">冻结训练</a>
+                <a href="javascript:void(0)" class="js-tag color3">指标</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">天池</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">指标</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1103,11 +937,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color4">公众号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">backbone</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">冻结训练</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1120,6 +974,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1147,34 +1013,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">公众号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ios</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">配置</a>
               </li>
              
@@ -1187,7 +1025,55 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">漫画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">小说</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">电视剧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基金</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">厨房</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">

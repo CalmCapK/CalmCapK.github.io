@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://calmcapK.github.io">
   <title>基于阿里云-linux-frp实现内网穿透 | CalmCapK&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安装步骤  购买阿里云 学生云服务器购买网站 https://promotion.aliyun.com/ntms/act/campus2018.html 得到公网ip,如:1.2.3.4">
-<meta name="keywords" content="frp,内网穿透">
+  <meta name="description" content="安装步骤  购买阿里云 学生云服务器购买网站 https:&#x2F;&#x2F;promotion.aliyun.com&#x2F;ntms&#x2F;act&#x2F;campus2018.html 得到公网ip,如:1.2.3.4">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于阿里云-linux-frp实现内网穿透">
-<meta property="og:url" content="https://calmcapK.github.io/2019/09/13/基于阿里云-linux-frp实现内网穿透/index.html">
+<meta property="og:url" content="https://calmcapk.github.io/2019/09/13/%E5%9F%BA%E4%BA%8E%E9%98%BF%E9%87%8C%E4%BA%91-linux-frp%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/index.html">
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
-<meta property="og:description" content="安装步骤  购买阿里云 学生云服务器购买网站 https://promotion.aliyun.com/ntms/act/campus2018.html 得到公网ip,如:1.2.3.4">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-18T03:32:40.743Z">
+<meta property="og:description" content="安装步骤  购买阿里云 学生云服务器购买网站 https:&#x2F;&#x2F;promotion.aliyun.com&#x2F;ntms&#x2F;act&#x2F;campus2018.html 得到公网ip,如:1.2.3.4">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-09-13T15:44:10.000Z">
+<meta property="article:modified_time" content="2019-11-18T03:32:40.743Z">
+<meta property="article:author" content="CalmCapK">
+<meta property="article:tag" content="frp">
+<meta property="article:tag" content="内网穿透">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基于阿里云-linux-frp实现内网穿透">
-<meta name="twitter:description" content="安装步骤  购买阿里云 学生云服务器购买网站 https://promotion.aliyun.com/ntms/act/campus2018.html 得到公网ip,如:1.2.3.4">
   
     <link rel="alternative" href="/atom.xml" title="CalmCapK&#39;s Blog" type="application/atom+xml">
   
@@ -27,6 +28,7 @@
     <link rel="icon" href="/assets/img/head.jpg">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
+<link rel="stylesheet" type="text/css" href="/./search.css">
   <style type="text/css">
   
     #container.show {
@@ -38,8 +40,8 @@
   
 
   <link href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/KaTeX/0.10.2/katex.min.css" rel="stylesheet">
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>  
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -52,7 +54,7 @@
 			<img src="/assets/img/head.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">CalmCapK</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
 		
 		
@@ -74,6 +76,8 @@
 				<li><a href="/tags">tags</a></li>
 	        
 				<li><a href="/archives">archives</a></li>
+	        
+				<li><a href="/find">find</a></li>
 	        
 			</ul>
 		</nav>
@@ -126,10 +130,12 @@
 				<img src="/assets/img/head.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">CalmCapK</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
 			
 			
+			
+				
 			
 				
 			
@@ -157,13 +163,15 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/">home</a></li>
+					<li style="width: 20%"><a href="/">home</a></li>
 		        
-					<li style="width: 25%"><a href="/categories">categories</a></li>
+					<li style="width: 20%"><a href="/categories">categories</a></li>
 		        
-					<li style="width: 25%"><a href="/tags">tags</a></li>
+					<li style="width: 20%"><a href="/tags">tags</a></li>
 		        
-					<li style="width: 25%"><a href="/archives">archives</a></li>
+					<li style="width: 20%"><a href="/archives">archives</a></li>
+		        
+					<li style="width: 20%"><a href="/find">find</a></li>
 		        
 				</ul>
 			</nav>
@@ -173,6 +181,24 @@
 </nav>
 
       <div id="wrapper" class="body-wrap">
+        <!--search begin-->
+        <!-- <div class="page-header" style="">
+            <script type="text/javascript" src="/js/search.js"></script>
+            <span id="local-search" class="local-search local-search-plugin" style="">
+              <input type="search" placeholder="站内搜索" id="local-search-input" class="local-search-input-cls" style="">
+              <i id="local-search-icon-search" class="icon" aria-hidden="true" title="站内搜索">🔍</i>
+              <div id="local-search-result" class="local-search-result-cls"></div>
+            </span>
+            <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+            <script>
+                if ($('.local-search').size()) {
+                  $.getScript('/js/search.js', function() {
+                    searchFunc("/search.xml", 'local-search-input', 'local-search-result');
+                  });
+                }
+            </script>
+        </div> -->
+        <!--search end-->
         <div class="menu-l">
           <div class="canvas-wrap">
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
@@ -190,12 +216,12 @@
   
 
         
-        <a href="/2019/09/13/基于阿里云-linux-frp实现内网穿透/" class="archive-article-date">
+        <a href="/2019/09/13/%E5%9F%BA%E4%BA%8E%E9%98%BF%E9%87%8C%E4%BA%91-linux-frp%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" class="archive-article-date">
   	<time datetime="2019-09-13T15:44:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-13</time>
 </a>
 
 	<a href="javascript:;" class="archive-article-date">
-		<i class="icon-smile icon"></i> 阅读数:<span id="/2019/09/13/基于阿里云-linux-frp实现内网穿透/" class="pageViews">0</span>次
+		<i class="icon-smile icon"></i> 阅读数:<span id="/2019/09/13/%E5%9F%BA%E4%BA%8E%E9%98%BF%E9%87%8C%E4%BA%91-linux-frp%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" class="pageViews">0</span>次
 	</a>
 
         
@@ -208,98 +234,62 @@
         <h2 id="安装步骤"><a class="markdownIt-Anchor" href="#安装步骤"></a> 安装步骤</h2>
 <ol>
 <li>购买阿里云<br>
-学生云服务器购买网站 <a href="https://promotion.aliyun.com/ntms/act/campus2018.html" target="_blank" rel="noopener">https://promotion.aliyun.com/ntms/act/campus2018.html</a><br>
+学生云服务器购买网站 <a href="https://promotion.aliyun.com/ntms/act/campus2018.html">https://promotion.aliyun.com/ntms/act/campus2018.html</a><br>
 得到公网ip,如:1.2.3.4</li>
 </ol>
-<a id="more"></a>
+<span id="more"></span>
 <ol start="2">
-<li>
-<p>下载frp<br>
-在frp服务端(阿里云)和frp客户端(打算访问的内网的机器)都要下载</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/fatedier/frp/releases/download/v0.29.1/frp_0.29.1_linux_amd64.tar.gz  </span><br><span class="line">tar -xzvf frp_0.29.1_linux_amd64.tar.gz</span><br><span class="line">mv frp_0.29.1_linux_amd64 frp</span><br></pre></td></tr></table></figure>
+<li>下载frp<br>
+在frp服务端(阿里云)和frp客户端(打算访问的内网的机器)都要下载<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/fatedier/frp/releases/download/v0.29.1/frp_0.29.1_linux_amd64.tar.gz  </span><br><span class="line">tar -xzvf frp_0.29.1_linux_amd64.tar.gz</span><br><span class="line"><span class="built_in">mv</span> frp_0.29.1_linux_amd64 frp</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>frp服务端配置<br>
-在frp服务器上配置简版的frps.ini文件(完整版是frps_full.ini)</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="attr">bind_port</span> = <span class="number">7000</span>  <span class="comment">#frp服务端端口（可以修改）</span></span><br><span class="line"><span class="attr">bind_addr</span> = <span class="number">0.0</span>.<span class="number">0.0</span></span><br><span class="line"><span class="attr">token</span> = <span class="number">12345678</span></span><br></pre></td></tr></table></figure>
-<p>启动服务器</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./frps -c frps.ini</span><br></pre></td></tr></table></figure>
-<p>或者后台启动运行服务器</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nohup ./frps -c frps.ini &amp;</span><br><span class="line"></span><br><span class="line">tail -f nohup.out(查看信息)</span><br></pre></td></tr></table></figure>
+<li>frp服务端配置<br>
+在frp服务器上配置简版的frps.ini文件(完整版是frps_full.ini)<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="attr">bind_port</span> = <span class="number">7000</span>  <span class="comment">#frp服务端端口（可以修改）</span></span><br><span class="line"><span class="attr">bind_addr</span> = <span class="number">0.0</span>.<span class="number">0.0</span></span><br><span class="line"><span class="attr">token</span> = <span class="number">12345678</span></span><br></pre></td></tr></table></figure>
+启动服务器<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./frps -c frps.ini</span><br></pre></td></tr></table></figure>
+或者后台启动运行服务器<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">nohup</span> ./frps -c frps.ini &amp;</span><br><span class="line"></span><br><span class="line"><span class="built_in">tail</span> -f nohup.out(查看信息)</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>frp客户端配置<br>
-在frp客户端上配置简版的frpc.ini文件(完整版是frpc_full.ini)</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="attr">server_addr</span> = <span class="number">4.3</span>.<span class="number">2.1</span>   <span class="comment">#frp服务端地址，必须是公网ip或者域名</span></span><br><span class="line"><span class="attr">server_port</span> = <span class="number">7000</span>      <span class="comment">#frp服务端端口，即填写服务端配置中的 bind_port</span></span><br><span class="line"><span class="attr">token</span> = <span class="number">12345678</span></span><br><span class="line"></span><br><span class="line"><span class="section">[ssh]</span></span><br><span class="line"><span class="attr">type</span> = tcp              <span class="comment">#连接类型，填tcp或udp</span></span><br><span class="line"><span class="attr">local_ip</span> = <span class="number">127.0</span>.<span class="number">0.1</span>    <span class="comment">#填127.0.0.1或内网ip都可以</span></span><br><span class="line"><span class="attr">local_port</span> = <span class="number">22</span>         <span class="comment">#需要转发到的端口，ssh端口是22</span></span><br><span class="line"><span class="attr">remote_port</span> = <span class="number">6000</span>      <span class="comment">#frp服务端的远程监听端口，即你访问服务端的remote_port就相当于访问客户端的 local_port，可以修改</span></span><br></pre></td></tr></table></figure>
-<p>启动客户端</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./frpc -c frpc.ini</span><br></pre></td></tr></table></figure>
-<p>或者后台启动运行客户端</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nohup ./frpc -c frpc.ini &amp;</span><br><span class="line"></span><br><span class="line">tail -f nohup.out(查看信息)</span><br></pre></td></tr></table></figure>
+<li>frp客户端配置<br>
+在frp客户端上配置简版的frpc.ini文件(完整版是frpc_full.ini)<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="attr">server_addr</span> = <span class="number">4.3</span>.<span class="number">2.1</span>   <span class="comment">#frp服务端地址，必须是公网ip或者域名</span></span><br><span class="line"><span class="attr">server_port</span> = <span class="number">7000</span>      <span class="comment">#frp服务端端口，即填写服务端配置中的 bind_port</span></span><br><span class="line"><span class="attr">token</span> = <span class="number">12345678</span></span><br><span class="line"></span><br><span class="line"><span class="section">[ssh]</span></span><br><span class="line"><span class="attr">type</span> = tcp              <span class="comment">#连接类型，填tcp或udp</span></span><br><span class="line"><span class="attr">local_ip</span> = <span class="number">127.0</span>.<span class="number">0.1</span>    <span class="comment">#填127.0.0.1或内网ip都可以</span></span><br><span class="line"><span class="attr">local_port</span> = <span class="number">22</span>         <span class="comment">#需要转发到的端口，ssh端口是22</span></span><br><span class="line"><span class="attr">remote_port</span> = <span class="number">6000</span>      <span class="comment">#frp服务端的远程监听端口，即你访问服务端的remote_port就相当于访问客户端的 local_port，可以修改</span></span><br></pre></td></tr></table></figure>
+启动客户端<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./frpc -c frpc.ini</span><br></pre></td></tr></table></figure>
+或者后台启动运行客户端<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">nohup</span> ./frpc -c frpc.ini &amp;</span><br><span class="line"></span><br><span class="line"><span class="built_in">tail</span> -f nohup.out(查看信息)</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>使用<br>
-xxx是frp客户端的用户名</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh  -oPort=6000 XXX@4.3.2.1</span><br></pre></td></tr></table></figure>
+<li>使用<br>
+xxx是frp客户端的用户名<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh  -oPort=6000 XXX@4.3.2.1</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>后台停止</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -aux|grep frp| grep -v grep</span><br><span class="line">kill -9 进程号</span><br></pre></td></tr></table></figure>
+<li>后台停止<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -aux|grep frp| grep -v grep</span><br><span class="line">kill -9 进程号</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>connection timed out问题<br>
-如果出现以下问题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2018/09/17 22:02:23 [W] [control.go:113] login to server failed: dial tcp xxx.xxx.xxx.xxx:7000: connect: connection timed out dial tcp xxx.xxx.xxx.xxx:7000: connect: connection timed out</span><br></pre></td></tr></table></figure>
-<p>在阿里云的云服务器的管理控制台下找到本实例安全组-&gt;配置规则-&gt;添加两条安全组规则<br>
-规则1</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">端口范围: server_port/server_port 这里是7000/7000</span><br><span class="line">授权对象: 0.0.0.0/0</span><br></pre></td></tr></table></figure>
-<p>规则2</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">端口范围: remote_port/remote_port 这里是6000/6000</span><br><span class="line">授权对象: 0.0.0.0/0</span><br></pre></td></tr></table></figure>
+<li>connection timed out问题<br>
+如果出现以下问题<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2018/09/17 22:02:23 [W] [control.go:113] login to server failed: dial tcp xxx.xxx.xxx.xxx:7000: connect: connection timed out dial tcp xxx.xxx.xxx.xxx:7000: connect: connection timed out</span><br></pre></td></tr></table></figure>
+在阿里云的云服务器的管理控制台下找到本实例安全组-&gt;配置规则-&gt;添加两条安全组规则<br>
+规则1<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">端口范围: server_port/server_port 这里是7000/7000</span><br><span class="line">授权对象: 0.0.0.0/0</span><br></pre></td></tr></table></figure>
+规则2<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">端口范围: remote_port/remote_port 这里是6000/6000</span><br><span class="line">授权对象: 0.0.0.0/0</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>参考<br>
-<a href="https://cao0507.github.io/2018/09/18/%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%9E%E7%8E%B0frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" target="_blank" rel="noopener">https://cao0507.github.io/2018/09/18/阿里云服务器实现frp内网穿透/</a><br>
-<a href="https://www.jianshu.com/p/00c79df1aaf0" target="_blank" rel="noopener">https://www.jianshu.com/p/00c79df1aaf0</a></p>
-</li>
+<li>参考<br>
+<a href="https://cao0507.github.io/2018/09/18/%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%9E%E7%8E%B0frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">https://cao0507.github.io/2018/09/18/阿里云服务器实现frp内网穿透/</a><br>
+<a href="https://www.jianshu.com/p/00c79df1aaf0">https://www.jianshu.com/p/00c79df1aaf0</a></li>
 </ol>
 <h2 id="一个云服务器端连接多个客户端"><a class="markdownIt-Anchor" href="#一个云服务器端连接多个客户端"></a> 一个云服务器端连接多个客户端</h2>
 <ol>
-<li>
-<p>服务器端配置<br>
+<li>服务器端配置<br>
 新建多个frps.ini，名字不一样如frps1.ini<br>
-配置不同端口</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="attr">bind_port</span> = <span class="number">7001</span>  <span class="comment">#frp服务端端口（可以修改）</span></span><br><span class="line"><span class="attr">bind_addr</span> = <span class="number">0.0</span>.<span class="number">0.0</span></span><br><span class="line"><span class="attr">token</span> = <span class="number">12345678</span></span><br></pre></td></tr></table></figure>
-<p>启动服务器</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./frps -c frps1.ini\</span><br><span class="line">nohup ./frps -c frps1.ini &amp;</span><br></pre></td></tr></table></figure>
+配置不同端口<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="attr">bind_port</span> = <span class="number">7001</span>  <span class="comment">#frp服务端端口（可以修改）</span></span><br><span class="line"><span class="attr">bind_addr</span> = <span class="number">0.0</span>.<span class="number">0.0</span></span><br><span class="line"><span class="attr">token</span> = <span class="number">12345678</span></span><br></pre></td></tr></table></figure>
+启动服务器<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./frps -c frps1.ini\</span><br><span class="line"><span class="built_in">nohup</span> ./frps -c frps1.ini &amp;</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>客户端配置</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="attr">server_addr</span> = <span class="number">4.3</span>.<span class="number">2.1</span>   </span><br><span class="line"><span class="attr">server_port</span> = <span class="number">7001</span>      <span class="comment">#！！！！注意修改为新开的服务器端口</span></span><br><span class="line"><span class="attr">token</span> = <span class="number">12345678</span></span><br><span class="line"></span><br><span class="line"><span class="section">[ssh]</span></span><br><span class="line"><span class="attr">type</span> = tcp              </span><br><span class="line"><span class="attr">local_ip</span> = <span class="number">127.0</span>.<span class="number">0.1</span>  </span><br><span class="line"><span class="attr">local_port</span> = <span class="number">22</span>         </span><br><span class="line"><span class="attr">remote_port</span> = <span class="number">6001</span>      <span class="comment">#！！！！注意修改</span></span><br></pre></td></tr></table></figure>
-<p>启动客户端</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./frpc -c frpc.ini</span><br><span class="line">nohup ./frpc -c frpc.ini &amp;</span><br></pre></td></tr></table></figure>
+<li>客户端配置<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="attr">server_addr</span> = <span class="number">4.3</span>.<span class="number">2.1</span>   </span><br><span class="line"><span class="attr">server_port</span> = <span class="number">7001</span>      <span class="comment">#！！！！注意修改为新开的服务器端口</span></span><br><span class="line"><span class="attr">token</span> = <span class="number">12345678</span></span><br><span class="line"></span><br><span class="line"><span class="section">[ssh]</span></span><br><span class="line"><span class="attr">type</span> = tcp              </span><br><span class="line"><span class="attr">local_ip</span> = <span class="number">127.0</span>.<span class="number">0.1</span>  </span><br><span class="line"><span class="attr">local_port</span> = <span class="number">22</span>         </span><br><span class="line"><span class="attr">remote_port</span> = <span class="number">6001</span>      <span class="comment">#！！！！注意修改</span></span><br></pre></td></tr></table></figure>
+启动客户端<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./frpc -c frpc.ini</span><br><span class="line"><span class="built_in">nohup</span> ./frpc -c frpc.ini &amp;</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>参考<br>
-<a href="https://blog.csdn.net/dqf009/article/details/85042435" target="_blank" rel="noopener">https://blog.csdn.net/dqf009/article/details/85042435</a></p>
-</li>
+<li>参考<br>
+<a href="https://blog.csdn.net/dqf009/article/details/85042435">https://blog.csdn.net/dqf009/article/details/85042435</a></li>
 </ol>
 <h2 id="无域名配置http服务"><a class="markdownIt-Anchor" href="#无域名配置http服务"></a> 无域名配置http服务</h2>
 <ol>
-<li>
-<p>服务器端配置</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="attr">bind_port</span> = <span class="number">7000</span></span><br><span class="line"><span class="attr">bind_addr</span> = <span class="number">0.0</span>.<span class="number">0.0</span></span><br><span class="line"><span class="attr">privilege_token</span> = <span class="number">12345678</span> <span class="comment">#好像其实不需要</span></span><br></pre></td></tr></table></figure>
+<li>服务器端配置<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="attr">bind_port</span> = <span class="number">7000</span></span><br><span class="line"><span class="attr">bind_addr</span> = <span class="number">0.0</span>.<span class="number">0.0</span></span><br><span class="line"><span class="attr">privilege_token</span> = <span class="number">12345678</span> <span class="comment">#好像其实不需要</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>客户端配置</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="attr">server_addr</span> = <span class="number">4.3</span>.<span class="number">2.1</span>   </span><br><span class="line"><span class="attr">server_port</span> = <span class="number">7000</span></span><br><span class="line"><span class="attr">token</span> = <span class="number">12345678</span></span><br><span class="line"></span><br><span class="line"><span class="section">[ssh]</span></span><br><span class="line"><span class="attr">type</span> = tcp              </span><br><span class="line"><span class="attr">local_ip</span> = <span class="number">127.0</span>.<span class="number">0.1</span>  </span><br><span class="line"><span class="attr">local_port</span> = <span class="number">22</span>         </span><br><span class="line"><span class="attr">remote_port</span> = <span class="number">6000</span></span><br><span class="line"></span><br><span class="line"><span class="section">[range:tcp_port]</span></span><br><span class="line"><span class="attr">local_ip</span> = <span class="number">127.0</span>.<span class="number">0.1</span></span><br><span class="line"><span class="attr">local_port</span> = <span class="number">9994</span>-<span class="number">9995</span></span><br><span class="line"><span class="attr">remote_port</span> = <span class="number">9994</span>-<span class="number">9995</span></span><br></pre></td></tr></table></figure>
+<li>客户端配置<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="attr">server_addr</span> = <span class="number">4.3</span>.<span class="number">2.1</span>   </span><br><span class="line"><span class="attr">server_port</span> = <span class="number">7000</span></span><br><span class="line"><span class="attr">token</span> = <span class="number">12345678</span></span><br><span class="line"></span><br><span class="line"><span class="section">[ssh]</span></span><br><span class="line"><span class="attr">type</span> = tcp              </span><br><span class="line"><span class="attr">local_ip</span> = <span class="number">127.0</span>.<span class="number">0.1</span>  </span><br><span class="line"><span class="attr">local_port</span> = <span class="number">22</span>         </span><br><span class="line"><span class="attr">remote_port</span> = <span class="number">6000</span></span><br><span class="line"></span><br><span class="line"><span class="section">[range:tcp_port]</span></span><br><span class="line"><span class="attr">local_ip</span> = <span class="number">127.0</span>.<span class="number">0.1</span></span><br><span class="line"><span class="attr">local_port</span> = <span class="number">9994</span>-<span class="number">9995</span></span><br><span class="line"><span class="attr">remote_port</span> = <span class="number">9994</span>-<span class="number">9995</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>测试</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python -m SimpleHTTPServer 9994</span><br><span class="line">http://4.3.2.1:9994</span><br></pre></td></tr></table></figure>
+<li>测试<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python -m SimpleHTTPServer 9994</span><br><span class="line">http://4.3.2.1:9994</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>其他方法<br>
-参考：<a href="https://www.cnblogs.com/sanduzxcvbnm/p/8509150.html" target="_blank" rel="noopener">https://www.cnblogs.com/sanduzxcvbnm/p/8509150.html</a></p>
-</li>
+<li>其他方法<br>
+参考：<a href="https://www.cnblogs.com/sanduzxcvbnm/p/8509150.html">https://www.cnblogs.com/sanduzxcvbnm/p/8509150.html</a></li>
 </ol>
 
       
@@ -423,7 +413,7 @@ xxx是frp客户端的用户名</p>
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://calmcapK.github.io/2019/09/13/基于阿里云-linux-frp实现内网穿透/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://calmcapk.github.io/2019/09/13/%E5%9F%BA%E4%BA%8E%E9%98%BF%E9%87%8C%E4%BA%91-linux-frp%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -437,7 +427,7 @@ xxx是frp客户端的用户名</p>
   
 <nav id="article-nav">
   
-    <a href="/2019/09/19/图像处理笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/09/19/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -447,7 +437,7 @@ xxx是frp客户端的用户名</p>
     </a>
   
   
-    <a href="/2019/08/04/明日方舟-procreate-ipad-板绘/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/08/04/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F-procreate-ipad-%E6%9D%BF%E7%BB%98/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">明日方舟+procreate+ipad+板绘</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -475,7 +465,7 @@ xxx是frp客户端的用户名</p>
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装步骤"><span class="toc-number">1.</span> <span class="toc-text"> 安装步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一个云服务器端连接多个客户端"><span class="toc-number">2.</span> <span class="toc-text"> 一个云服务器端连接多个客户端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无域名配置http服务"><span class="toc-number">3.</span> <span class="toc-text"> 无域名配置http服务</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.</span> <span class="toc-text"> 安装步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E8%BF%9E%E6%8E%A5%E5%A4%9A%E4%B8%AA%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">2.</span> <span class="toc-text"> 一个云服务器端连接多个客户端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AEhttp%E6%9C%8D%E5%8A%A1"><span class="toc-number">3.</span> <span class="toc-text"> 无域名配置http服务</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -524,7 +514,7 @@ xxx是frp客户端的用户名</p>
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2024 CalmCapK
+    		&copy; 2025 CalmCapK
     	</div>
       <div class="footer-right">
       	<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -545,7 +535,7 @@ xxx是frp客户端的用户名</p>
 		toc_hide_index: false,
 		root: "/",
 		innerArchive: true,
-		showTags: true
+		showTags: false
 	}
 </script>
 
@@ -682,14 +672,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">latex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MMD</a>
               </li>
              
@@ -710,6 +692,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
@@ -722,27 +720,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">clip</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -770,15 +752,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">吉他</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+                <a href="javascript:void(0)" class="js-tag color5">clip</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -791,6 +765,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Pr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">吉他</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -814,6 +792,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">OBS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">procreate</a>
               </li>
              
@@ -826,51 +816,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">OBS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">动画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">漫画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">小说</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电影</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">电视剧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
+                <a href="javascript:void(0)" class="js-tag color4">优化器</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">transformer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基金</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">优化器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -894,23 +844,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">backbone</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">冻结训练</a>
+                <a href="javascript:void(0)" class="js-tag color3">指标</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">天池</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">指标</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -930,11 +868,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color4">公众号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">backbone</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">冻结训练</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -947,6 +905,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -974,34 +944,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">公众号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ios</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">配置</a>
               </li>
              
@@ -1014,7 +956,55 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">漫画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">小说</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">电视剧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基金</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">厨房</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">

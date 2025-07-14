@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://calmcapK.github.io">
   <title>深度学习-指标 | CalmCapK&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="参考  https://www.w3cschool.cn/doc_scikit_learn/scikit_learn-auto_examples-model_selection-plot_precision_recall.html?lang=en#sphx-glr-auto-examples-model-selection-plot-precision-recall-py https://mer">
-<meta name="keywords" content="指标">
+  <meta name="description" content="参考  https:&#x2F;&#x2F;www.w3cschool.cn&#x2F;doc_scikit_learn&#x2F;scikit_learn-auto_examples-model_selection-plot_precision_recall.html?lang&#x3D;en#sphx-glr-auto-examples-model-selection-plot-precision-recall-py https:&#x2F;&#x2F;mer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深度学习-指标">
-<meta property="og:url" content="https://calmcapK.github.io/2022/10/27/深度学习-指标/index.html">
+<meta property="og:url" content="https://calmcapk.github.io/2022/10/27/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%8C%87%E6%A0%87/index.html">
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
-<meta property="og:description" content="参考  https://www.w3cschool.cn/doc_scikit_learn/scikit_learn-auto_examples-model_selection-plot_precision_recall.html?lang=en#sphx-glr-auto-examples-model-selection-plot-precision-recall-py https://mer">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2022-11-03T01:14:15.209Z">
+<meta property="og:description" content="参考  https:&#x2F;&#x2F;www.w3cschool.cn&#x2F;doc_scikit_learn&#x2F;scikit_learn-auto_examples-model_selection-plot_precision_recall.html?lang&#x3D;en#sphx-glr-auto-examples-model-selection-plot-precision-recall-py https:&#x2F;&#x2F;mer">
+<meta property="og:locale">
+<meta property="article:published_time" content="2022-10-26T17:31:21.000Z">
+<meta property="article:modified_time" content="2022-11-03T01:14:15.209Z">
+<meta property="article:author" content="CalmCapK">
+<meta property="article:tag" content="指标">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深度学习-指标">
-<meta name="twitter:description" content="参考  https://www.w3cschool.cn/doc_scikit_learn/scikit_learn-auto_examples-model_selection-plot_precision_recall.html?lang=en#sphx-glr-auto-examples-model-selection-plot-precision-recall-py https://mer">
   
     <link rel="alternative" href="/atom.xml" title="CalmCapK&#39;s Blog" type="application/atom+xml">
   
@@ -27,6 +27,7 @@
     <link rel="icon" href="/assets/img/head.jpg">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
+<link rel="stylesheet" type="text/css" href="/./search.css">
   <style type="text/css">
   
     #container.show {
@@ -38,8 +39,8 @@
   
 
   <link href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/KaTeX/0.10.2/katex.min.css" rel="stylesheet">
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>  
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -52,7 +53,7 @@
 			<img src="/assets/img/head.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">CalmCapK</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
 		
 		
@@ -74,6 +75,8 @@
 				<li><a href="/tags">tags</a></li>
 	        
 				<li><a href="/archives">archives</a></li>
+	        
+				<li><a href="/find">find</a></li>
 	        
 			</ul>
 		</nav>
@@ -126,10 +129,12 @@
 				<img src="/assets/img/head.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">CalmCapK</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
 			
 			
+			
+				
 			
 				
 			
@@ -157,13 +162,15 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/">home</a></li>
+					<li style="width: 20%"><a href="/">home</a></li>
 		        
-					<li style="width: 25%"><a href="/categories">categories</a></li>
+					<li style="width: 20%"><a href="/categories">categories</a></li>
 		        
-					<li style="width: 25%"><a href="/tags">tags</a></li>
+					<li style="width: 20%"><a href="/tags">tags</a></li>
 		        
-					<li style="width: 25%"><a href="/archives">archives</a></li>
+					<li style="width: 20%"><a href="/archives">archives</a></li>
+		        
+					<li style="width: 20%"><a href="/find">find</a></li>
 		        
 				</ul>
 			</nav>
@@ -173,6 +180,24 @@
 </nav>
 
       <div id="wrapper" class="body-wrap">
+        <!--search begin-->
+        <!-- <div class="page-header" style="">
+            <script type="text/javascript" src="/js/search.js"></script>
+            <span id="local-search" class="local-search local-search-plugin" style="">
+              <input type="search" placeholder="站内搜索" id="local-search-input" class="local-search-input-cls" style="">
+              <i id="local-search-icon-search" class="icon" aria-hidden="true" title="站内搜索">🔍</i>
+              <div id="local-search-result" class="local-search-result-cls"></div>
+            </span>
+            <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+            <script>
+                if ($('.local-search').size()) {
+                  $.getScript('/js/search.js', function() {
+                    searchFunc("/search.xml", 'local-search-input', 'local-search-result');
+                  });
+                }
+            </script>
+        </div> -->
+        <!--search end-->
         <div class="menu-l">
           <div class="canvas-wrap">
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
@@ -190,12 +215,12 @@
   
 
         
-        <a href="/2022/10/27/深度学习-指标/" class="archive-article-date">
+        <a href="/2022/10/27/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%8C%87%E6%A0%87/" class="archive-article-date">
   	<time datetime="2022-10-26T17:31:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-27</time>
 </a>
 
 	<a href="javascript:;" class="archive-article-date">
-		<i class="icon-smile icon"></i> 阅读数:<span id="/2022/10/27/深度学习-指标/" class="pageViews">0</span>次
+		<i class="icon-smile icon"></i> 阅读数:<span id="/2022/10/27/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%8C%87%E6%A0%87/" class="pageViews">0</span>次
 	</a>
 
         
@@ -207,28 +232,28 @@
         <!--span id="busuanzi_container_page_pv" style="font-size:16px;color:rgb(153,153,153);line-height:1.8em;">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span-->
         <h1 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h1>
 <ul>
-<li><a href="https://www.w3cschool.cn/doc_scikit_learn/scikit_learn-auto_examples-model_selection-plot_precision_recall.html?lang=en#sphx-glr-auto-examples-model-selection-plot-precision-recall-py" target="_blank" rel="noopener">https://www.w3cschool.cn/doc_scikit_learn/scikit_learn-auto_examples-model_selection-plot_precision_recall.html?lang=en#sphx-glr-auto-examples-model-selection-plot-precision-recall-py</a></li>
-<li><a href="https://mercurixito.github.io/2021/05/22/metric-map/" target="_blank" rel="noopener">https://mercurixito.github.io/2021/05/22/metric-map/</a></li>
-<li><a href="https://blog.csdn.net/mr_muli/article/details/101616406" target="_blank" rel="noopener">https://blog.csdn.net/mr_muli/article/details/101616406</a></li>
+<li><a href="https://www.w3cschool.cn/doc_scikit_learn/scikit_learn-auto_examples-model_selection-plot_precision_recall.html?lang=en#sphx-glr-auto-examples-model-selection-plot-precision-recall-py">https://www.w3cschool.cn/doc_scikit_learn/scikit_learn-auto_examples-model_selection-plot_precision_recall.html?lang=en#sphx-glr-auto-examples-model-selection-plot-precision-recall-py</a></li>
+<li><a href="https://mercurixito.github.io/2021/05/22/metric-map/">https://mercurixito.github.io/2021/05/22/metric-map/</a></li>
+<li><a href="https://blog.csdn.net/mr_muli/article/details/101616406">https://blog.csdn.net/mr_muli/article/details/101616406</a></li>
 <li>skearn包的阈值是卡阈值，所以相同阈值取后面，</li>
-<li><a href="https://zhuanlan.zhihu.com/p/33372046" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/33372046</a></li>
-<li><a href="https://www.cnblogs.com/ywheunji/p/13376090.html" target="_blank" rel="noopener">https://www.cnblogs.com/ywheunji/p/13376090.html</a></li>
-<li><a href="https://scikit-learn.org.cn/view/496.html" target="_blank" rel="noopener">https://scikit-learn.org.cn/view/496.html</a></li>
-<li><a href="https://blog.51cto.com/liguodong/4925397" target="_blank" rel="noopener">https://blog.51cto.com/liguodong/4925397</a><br>
+<li><a href="https://zhuanlan.zhihu.com/p/33372046">https://zhuanlan.zhihu.com/p/33372046</a></li>
+<li><a href="https://www.cnblogs.com/ywheunji/p/13376090.html">https://www.cnblogs.com/ywheunji/p/13376090.html</a></li>
+<li><a href="https://scikit-learn.org.cn/view/496.html">https://scikit-learn.org.cn/view/496.html</a></li>
+<li><a href="https://blog.51cto.com/liguodong/4925397">https://blog.51cto.com/liguodong/4925397</a><br>
 3d图像绘制</li>
-<li><a href="https://www.geogebra.org/3d?lang=zh_CN" target="_blank" rel="noopener">https://www.geogebra.org/3d?lang=zh_CN</a><br>
+<li><a href="https://www.geogebra.org/3d?lang=zh_CN">https://www.geogebra.org/3d?lang=zh_CN</a><br>
 map计算</li>
-<li><a href="https://zhuanlan.zhihu.com/p/33372046" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/33372046</a><br>
+<li><a href="https://zhuanlan.zhihu.com/p/33372046">https://zhuanlan.zhihu.com/p/33372046</a><br>
 map</li>
-<li><a href="https://mercurixito.github.io/2021/05/22/metric-map/" target="_blank" rel="noopener">https://mercurixito.github.io/2021/05/22/metric-map/</a><br>
+<li><a href="https://mercurixito.github.io/2021/05/22/metric-map/">https://mercurixito.github.io/2021/05/22/metric-map/</a><br>
 有点意思</li>
-<li><a href="https://zdkswd.github.io/categories/" target="_blank" rel="noopener">https://zdkswd.github.io/categories/</a><br>
+<li><a href="https://zdkswd.github.io/categories/">https://zdkswd.github.io/categories/</a><br>
 roc曲线是<br>
 TPR召回 和 FPR</li>
-<li><a href="https://zdkswd.github.io/2018/11/20/%E7%B2%BE%E7%A1%AE%E7%8E%87%E3%80%81%E5%8F%AC%E5%9B%9E%E7%8E%87%E3%80%81%E7%9C%9F%E6%AD%A3%E7%B1%BB%E7%8E%87%EF%BC%88TPR%EF%BC%89%E3%80%81%E5%81%87%E6%AD%A3%E7%B1%BB%E7%8E%87%EF%BC%88FPR%EF%BC%89ROC%E6%9B%B2%E7%BA%BF/" target="_blank" rel="noopener">https://zdkswd.github.io/2018/11/20/精确率、召回率、真正类率（TPR）、假正类率（FPR）ROC曲线/</a><br>
+<li><a href="https://zdkswd.github.io/2018/11/20/%E7%B2%BE%E7%A1%AE%E7%8E%87%E3%80%81%E5%8F%AC%E5%9B%9E%E7%8E%87%E3%80%81%E7%9C%9F%E6%AD%A3%E7%B1%BB%E7%8E%87%EF%BC%88TPR%EF%BC%89%E3%80%81%E5%81%87%E6%AD%A3%E7%B1%BB%E7%8E%87%EF%BC%88FPR%EF%BC%89ROC%E6%9B%B2%E7%BA%BF/">https://zdkswd.github.io/2018/11/20/精确率、召回率、真正类率（TPR）、假正类率（FPR）ROC曲线/</a><br>
 绘制roc</li>
-<li><a href="https://blog.csdn.net/hesongzefairy/article/details/104302499" target="_blank" rel="noopener">https://blog.csdn.net/hesongzefairy/article/details/104302499</a></li>
-<li><a href="https://blog.csdn.net/pearl8899/article/details/110410827" target="_blank" rel="noopener">https://blog.csdn.net/pearl8899/article/details/110410827</a></li>
+<li><a href="https://blog.csdn.net/hesongzefairy/article/details/104302499">https://blog.csdn.net/hesongzefairy/article/details/104302499</a></li>
+<li><a href="https://blog.csdn.net/pearl8899/article/details/110410827">https://blog.csdn.net/pearl8899/article/details/110410827</a></li>
 </ul>
 
       
@@ -348,7 +373,7 @@ TPR召回 和 FPR</li>
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://calmcapK.github.io/2022/10/27/深度学习-指标/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://calmcapk.github.io/2022/10/27/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%8C%87%E6%A0%87/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -362,7 +387,7 @@ TPR召回 和 FPR</li>
   
 <nav id="article-nav">
   
-    <a href="/2022/10/30/音频笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/10/30/%E9%9F%B3%E9%A2%91%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -372,7 +397,7 @@ TPR召回 和 FPR</li>
     </a>
   
   
-    <a href="/2022/10/27/深度学习-多标签分类/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/10/27/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%A4%9A%E6%A0%87%E7%AD%BE%E5%88%86%E7%B1%BB/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">深度学习-多标签分类</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -400,7 +425,7 @@ TPR召回 和 FPR</li>
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">1.</span> <span class="toc-text"> 参考</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">1.</span> <span class="toc-text"> 参考</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -449,7 +474,7 @@ TPR召回 和 FPR</li>
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2024 CalmCapK
+    		&copy; 2025 CalmCapK
     	</div>
       <div class="footer-right">
       	<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -470,7 +495,7 @@ TPR召回 和 FPR</li>
 		toc_hide_index: false,
 		root: "/",
 		innerArchive: true,
-		showTags: true
+		showTags: false
 	}
 </script>
 
@@ -607,14 +632,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">latex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MMD</a>
               </li>
              
@@ -635,6 +652,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
@@ -647,27 +680,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">clip</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -695,15 +712,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">吉他</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+                <a href="javascript:void(0)" class="js-tag color5">clip</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -716,6 +725,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Pr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">吉他</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -739,6 +752,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">OBS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">procreate</a>
               </li>
              
@@ -751,51 +776,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">OBS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">动画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">漫画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">小说</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电影</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">电视剧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
+                <a href="javascript:void(0)" class="js-tag color4">优化器</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">transformer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基金</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">优化器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -819,23 +804,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">backbone</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">冻结训练</a>
+                <a href="javascript:void(0)" class="js-tag color3">指标</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">天池</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">指标</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -855,11 +828,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color4">公众号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">backbone</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">冻结训练</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -872,6 +865,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -899,34 +904,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">公众号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ios</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">配置</a>
               </li>
              
@@ -939,7 +916,55 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">漫画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">小说</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">电视剧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基金</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">厨房</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">

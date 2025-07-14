@@ -1,43 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://calmcapK.github.io">
   <title>深度学习-大规模预训练 | CalmCapK&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="背景知识 大规模预训练就是在大规模宽泛的数据上，通过设计无监督的代理任务，训练一个foundation model(基础模型)，获得很强的backbone，通过zero-shot，few-shot，finetune等方式能适应其它下游任务。它是一种表示学习方式(表示又称表征、特征)。  表示学习以前发展：人工、PCA、矩阵分解、cluster、概率图模型、深度学习Imagenet初始化    大">
-<meta name="keywords" content="对比学习,MIM,CLIP,MAE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深度学习-大规模预训练">
-<meta property="og:url" content="https://calmcapK.github.io/2022/10/18/深度学习-大规模预训练/index.html">
+<meta property="og:url" content="https://calmcapk.github.io/2022/10/18/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/index.html">
 <meta property="og:site_name" content="CalmCapK&#39;s Blog">
 <meta property="og:description" content="背景知识 大规模预训练就是在大规模宽泛的数据上，通过设计无监督的代理任务，训练一个foundation model(基础模型)，获得很强的backbone，通过zero-shot，few-shot，finetune等方式能适应其它下游任务。它是一种表示学习方式(表示又称表征、特征)。  表示学习以前发展：人工、PCA、矩阵分解、cluster、概率图模型、深度学习Imagenet初始化    大">
-<meta property="og:locale" content="default">
+<meta property="og:locale">
 <meta property="og:image" content="https://calmcapk.github.io/assets/typora/%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/ConVIRT.png">
-<meta property="og:image" content="https://calmcapk.github.io/assets/typora/大规模预训练/CLIP_1.png">
-<meta property="og:image" content="https://calmcapk.github.io/assets/typora/大规模预训练/CLIP_2.png">
-<meta property="og:image" content="https://calmcapk.github.io/assets/typora/大规模预训练/CLIP_3.png">
-<meta property="og:image" content="https://calmcapk.github.io/assets/typora/大规模预训练/CLIP_4.png">
-<meta property="og:image" content="https://calmcapk.github.io/assets/typora/大规模预训练/CLIP_5.png">
-<meta property="og:image" content="https://calmcapk.github.io/assets/typora/大规模预训练/CLIP_6.png">
-<meta property="og:image" content="https://calmcapk.github.io/assets/typora/大规模预训练/CLIP_7.png">
-<meta property="og:image" content="https://calmcapk.github.io/assets/typora/大规模预训练/BEiT.png">
-<meta property="og:image" content="https://calmcapk.github.io/assets/typora/大规模预训练/MAE_1.png">
-<meta property="og:image" content="https://calmcapk.github.io/assets/typora/大规模预训练/MAE_2.png">
-<meta property="og:image" content="https://calmcapk.github.io/assets/typora/大规模预训练/MAE_3.png">
-<meta property="og:image" content="https://calmcapk.github.io/assets/typora/大规模预训练/MAE_4.png">
-<meta property="og:image" content="https://calmcapk.github.io/assets/typora/大规模预训练/MAE_5.png">
-<meta property="og:image" content="https://calmcapk.github.io/assets/typora/大规模预训练/MAE_6.png">
-<meta property="og:image" content="https://calmcapk.github.io/assets/typora/大规模预训练/MAE_7.png">
-<meta property="og:image" content="https://calmcapk.github.io/assets/typora/大规模预训练/MAE_8.png">
+<meta property="og:image" content="https://calmcapk.github.io/assets/typora/%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/CLIP_1.png">
+<meta property="og:image" content="https://calmcapk.github.io/assets/typora/%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/CLIP_2.png">
+<meta property="og:image" content="https://calmcapk.github.io/assets/typora/%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/CLIP_3.png">
+<meta property="og:image" content="https://calmcapk.github.io/assets/typora/%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/CLIP_4.png">
+<meta property="og:image" content="https://calmcapk.github.io/assets/typora/%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/CLIP_5.png">
+<meta property="og:image" content="https://calmcapk.github.io/assets/typora/%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/CLIP_6.png">
+<meta property="og:image" content="https://calmcapk.github.io/assets/typora/%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/CLIP_7.png">
+<meta property="og:image" content="https://calmcapk.github.io/assets/typora/%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/BEiT.png">
+<meta property="og:image" content="https://calmcapk.github.io/assets/typora/%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/MAE_1.png">
+<meta property="og:image" content="https://calmcapk.github.io/assets/typora/%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/MAE_2.png">
+<meta property="og:image" content="https://calmcapk.github.io/assets/typora/%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/MAE_3.png">
+<meta property="og:image" content="https://calmcapk.github.io/assets/typora/%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/MAE_4.png">
+<meta property="og:image" content="https://calmcapk.github.io/assets/typora/%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/MAE_5.png">
+<meta property="og:image" content="https://calmcapk.github.io/assets/typora/%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/MAE_6.png">
+<meta property="og:image" content="https://calmcapk.github.io/assets/typora/%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/MAE_7.png">
+<meta property="og:image" content="https://calmcapk.github.io/assets/typora/%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/MAE_8.png">
 <meta property="og:image" content="https://calmcapk.github.io/assets/typora/%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/CAE.png">
-<meta property="og:updated_time" content="2022-10-27T16:48:44.016Z">
+<meta property="article:published_time" content="2022-10-18T13:58:30.000Z">
+<meta property="article:modified_time" content="2022-10-27T16:48:44.016Z">
+<meta property="article:author" content="CalmCapK">
+<meta property="article:tag" content="对比学习">
+<meta property="article:tag" content="MIM">
+<meta property="article:tag" content="CLIP">
+<meta property="article:tag" content="MAE">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深度学习-大规模预训练">
-<meta name="twitter:description" content="背景知识 大规模预训练就是在大规模宽泛的数据上，通过设计无监督的代理任务，训练一个foundation model(基础模型)，获得很强的backbone，通过zero-shot，few-shot，finetune等方式能适应其它下游任务。它是一种表示学习方式(表示又称表征、特征)。  表示学习以前发展：人工、PCA、矩阵分解、cluster、概率图模型、深度学习Imagenet初始化    大">
 <meta name="twitter:image" content="https://calmcapk.github.io/assets/typora/%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/ConVIRT.png">
   
     <link rel="alternative" href="/atom.xml" title="CalmCapK&#39;s Blog" type="application/atom+xml">
@@ -46,6 +49,7 @@
     <link rel="icon" href="/assets/img/head.jpg">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
+<link rel="stylesheet" type="text/css" href="/./search.css">
   <style type="text/css">
   
     #container.show {
@@ -57,8 +61,8 @@
   
 
   <link href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/KaTeX/0.10.2/katex.min.css" rel="stylesheet">
-</head>
-</html>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
 <body>  
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -71,7 +75,7 @@
 			<img src="/assets/img/head.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">CalmCapK</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
 		
 		
@@ -93,6 +97,8 @@
 				<li><a href="/tags">tags</a></li>
 	        
 				<li><a href="/archives">archives</a></li>
+	        
+				<li><a href="/find">find</a></li>
 	        
 			</ul>
 		</nav>
@@ -145,10 +151,12 @@
 				<img src="/assets/img/head.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">CalmCapK</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
 			
 			
+			
+				
 			
 				
 			
@@ -176,13 +184,15 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/">home</a></li>
+					<li style="width: 20%"><a href="/">home</a></li>
 		        
-					<li style="width: 25%"><a href="/categories">categories</a></li>
+					<li style="width: 20%"><a href="/categories">categories</a></li>
 		        
-					<li style="width: 25%"><a href="/tags">tags</a></li>
+					<li style="width: 20%"><a href="/tags">tags</a></li>
 		        
-					<li style="width: 25%"><a href="/archives">archives</a></li>
+					<li style="width: 20%"><a href="/archives">archives</a></li>
+		        
+					<li style="width: 20%"><a href="/find">find</a></li>
 		        
 				</ul>
 			</nav>
@@ -192,6 +202,24 @@
 </nav>
 
       <div id="wrapper" class="body-wrap">
+        <!--search begin-->
+        <!-- <div class="page-header" style="">
+            <script type="text/javascript" src="/js/search.js"></script>
+            <span id="local-search" class="local-search local-search-plugin" style="">
+              <input type="search" placeholder="站内搜索" id="local-search-input" class="local-search-input-cls" style="">
+              <i id="local-search-icon-search" class="icon" aria-hidden="true" title="站内搜索">🔍</i>
+              <div id="local-search-result" class="local-search-result-cls"></div>
+            </span>
+            <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+            <script>
+                if ($('.local-search').size()) {
+                  $.getScript('/js/search.js', function() {
+                    searchFunc("/search.xml", 'local-search-input', 'local-search-result');
+                  });
+                }
+            </script>
+        </div> -->
+        <!--search end-->
         <div class="menu-l">
           <div class="canvas-wrap">
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
@@ -209,12 +237,12 @@
   
 
         
-        <a href="/2022/10/18/深度学习-大规模预训练/" class="archive-article-date">
+        <a href="/2022/10/18/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/" class="archive-article-date">
   	<time datetime="2022-10-18T13:58:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-18</time>
 </a>
 
 	<a href="javascript:;" class="archive-article-date">
-		<i class="icon-smile icon"></i> 阅读数:<span id="/2022/10/18/深度学习-大规模预训练/" class="pageViews">0</span>次
+		<i class="icon-smile icon"></i> 阅读数:<span id="/2022/10/18/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/" class="pageViews">0</span>次
 	</a>
 
         
@@ -367,20 +395,20 @@
 </ul>
 <hr>
 <h2 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/470914640" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/470914640</a> 介绍了一些pretext task自监督方法【粗略看完】</p>
-<p><a href="https://zhuanlan.zhihu.com/p/474847821" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/474847821</a> 介绍了一些对比学习方法【没看】</p>
-<p><a href="https://zhuanlan.zhihu.com/p/367290573" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/367290573</a> 介绍对比学习【没看】</p>
-<p><a href="https://juejin.cn/post/7044445669805228063" target="_blank" rel="noopener">https://juejin.cn/post/7044445669805228063</a> oppo预训练 【没看】</p>
-<p><a href="https://liuquncn.github.io/talks/20211013-CCAI-NLP-Forum/Thoughts-of-Pretrained-Big-Models.pdf" target="_blank" rel="noopener">https://liuquncn.github.io/talks/20211013-CCAI-NLP-Forum/Thoughts-of-Pretrained-Big-Models.pdf</a></p>
-<p><a href="https://wxb.xzdw.gov.cn/xxh/xxhgzdt/202206/t20220616_253939.html" target="_blank" rel="noopener">https://wxb.xzdw.gov.cn/xxh/xxhgzdt/202206/t20220616_253939.html</a></p>
-<p><a href="https://developer.baidu.com/article/detail.html?id=295106%E3%80%90%E6%80%BB" target="_blank" rel="noopener">https://developer.baidu.com/article/detail.html?id=295106【总</a></p>
-<p><a href="https://www.cnii.com.cn/gxxww/rmydb/202206/t20220616_388934.html%E3%80%90%E6%80%BB" target="_blank" rel="noopener">https://www.cnii.com.cn/gxxww/rmydb/202206/t20220616_388934.html【总</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/485925038%E3%80%90%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0%E3%80%91" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/485925038【迁移学习】</a></p>
-<p><a href="https://ai.baidu.com/ai-doc/BML/Xkhymkgm4%E3%80%90%E4%B8%80%E4%BA%9B%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B%E3%80%91" target="_blank" rel="noopener">https://ai.baidu.com/ai-doc/BML/Xkhymkgm4【一些预训练模型】</a></p>
-<p><a href="https://www.csdn.net/tags/OtDaYg5sMzIyMTEtYmxvZwO0O0OO0O0O.html%E3%80%90%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B%E3%80%91" target="_blank" rel="noopener">https://www.csdn.net/tags/OtDaYg5sMzIyMTEtYmxvZwO0O0OO0O0O.html【预训练模型】</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/526265431%E3%80%90%E8%A7%86%E8%A7%89%E5%85%B6%E4%BB%96%E5%A4%A7%E6%A8%A1%E5%9E%8B%E3%80%91" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/526265431【视觉其他大模型】</a></p>
-<p><a href="https://www.microsoft.com/en-us/research/blog/efficiently-and-effectively-scaling-up-language-model-pretraining-for-best-language-representation-model-on-glue-and-superglue/" target="_blank" rel="noopener">https://www.microsoft.com/en-us/research/blog/efficiently-and-effectively-scaling-up-language-model-pretraining-for-best-language-representation-model-on-glue-and-superglue/</a> 【微软blog，没看】</p>
-<p><a href="https://github.com/sxontheway/Keep-Learning/blob/master/Research/pictures/contrastive_learning_summary.pdf" target="_blank" rel="noopener">https://github.com/sxontheway/Keep-Learning/blob/master/Research/pictures/contrastive_learning_summary.pdf</a> 【介绍Moco等对比学习，没看】</p>
+<p><a href="https://zhuanlan.zhihu.com/p/470914640">https://zhuanlan.zhihu.com/p/470914640</a> 介绍了一些pretext task自监督方法【粗略看完】</p>
+<p><a href="https://zhuanlan.zhihu.com/p/474847821">https://zhuanlan.zhihu.com/p/474847821</a> 介绍了一些对比学习方法【没看】</p>
+<p><a href="https://zhuanlan.zhihu.com/p/367290573">https://zhuanlan.zhihu.com/p/367290573</a> 介绍对比学习【没看】</p>
+<p><a href="https://juejin.cn/post/7044445669805228063">https://juejin.cn/post/7044445669805228063</a> oppo预训练 【没看】</p>
+<p><a href="https://liuquncn.github.io/talks/20211013-CCAI-NLP-Forum/Thoughts-of-Pretrained-Big-Models.pdf">https://liuquncn.github.io/talks/20211013-CCAI-NLP-Forum/Thoughts-of-Pretrained-Big-Models.pdf</a></p>
+<p><a href="https://wxb.xzdw.gov.cn/xxh/xxhgzdt/202206/t20220616_253939.html">https://wxb.xzdw.gov.cn/xxh/xxhgzdt/202206/t20220616_253939.html</a></p>
+<p><a href="https://developer.baidu.com/article/detail.html?id=295106%E3%80%90%E6%80%BB">https://developer.baidu.com/article/detail.html?id=295106【总</a></p>
+<p><a href="https://www.cnii.com.cn/gxxww/rmydb/202206/t20220616_388934.html%E3%80%90%E6%80%BB">https://www.cnii.com.cn/gxxww/rmydb/202206/t20220616_388934.html【总</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/485925038%E3%80%90%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0%E3%80%91">https://zhuanlan.zhihu.com/p/485925038【迁移学习】</a></p>
+<p><a href="https://ai.baidu.com/ai-doc/BML/Xkhymkgm4%E3%80%90%E4%B8%80%E4%BA%9B%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B%E3%80%91">https://ai.baidu.com/ai-doc/BML/Xkhymkgm4【一些预训练模型】</a></p>
+<p><a href="https://www.csdn.net/tags/OtDaYg5sMzIyMTEtYmxvZwO0O0OO0O0O.html%E3%80%90%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B%E3%80%91">https://www.csdn.net/tags/OtDaYg5sMzIyMTEtYmxvZwO0O0OO0O0O.html【预训练模型】</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/526265431%E3%80%90%E8%A7%86%E8%A7%89%E5%85%B6%E4%BB%96%E5%A4%A7%E6%A8%A1%E5%9E%8B%E3%80%91">https://zhuanlan.zhihu.com/p/526265431【视觉其他大模型】</a></p>
+<p><a href="https://www.microsoft.com/en-us/research/blog/efficiently-and-effectively-scaling-up-language-model-pretraining-for-best-language-representation-model-on-glue-and-superglue/">https://www.microsoft.com/en-us/research/blog/efficiently-and-effectively-scaling-up-language-model-pretraining-for-best-language-representation-model-on-glue-and-superglue/</a> 【微软blog，没看】</p>
+<p><a href="https://github.com/sxontheway/Keep-Learning/blob/master/Research/pictures/contrastive_learning_summary.pdf">https://github.com/sxontheway/Keep-Learning/blob/master/Research/pictures/contrastive_learning_summary.pdf</a> 【介绍Moco等对比学习，没看】</p>
 <hr>
 <h2 id="问题"><a class="markdownIt-Anchor" href="#问题"></a> 问题</h2>
 <p>预训练的方法划分到底是啥</p>
@@ -393,9 +421,9 @@
 </ul>
 </blockquote>
 <blockquote>
-<p>代码：<a href="https://github.com/openai/CLIP" target="_blank" rel="noopener">https://github.com/openai/CLIP</a></p>
-<p><a href="https://github.com/Zasder3/train-CLIP" target="_blank" rel="noopener">https://github.com/Zasder3/train-CLIP</a></p>
-<p><a href="https://github.com/mlfoundations/open_clip" target="_blank" rel="noopener">https://github.com/mlfoundations/open_clip</a></p>
+<p>代码：<a href="https://github.com/openai/CLIP">https://github.com/openai/CLIP</a></p>
+<p><a href="https://github.com/Zasder3/train-CLIP">https://github.com/Zasder3/train-CLIP</a></p>
+<p><a href="https://github.com/mlfoundations/open_clip">https://github.com/mlfoundations/open_clip</a></p>
 </blockquote>
 <h2 id="从文本学习图像表示的发展"><a class="markdownIt-Anchor" href="#从文本学习图像表示的发展"></a> 从文本学习图像表示的发展</h2>
 <ul>
@@ -488,15 +516,15 @@
 </ul>
 <h2 id="参考-2"><a class="markdownIt-Anchor" href="#参考-2"></a> 参考</h2>
 <ul>
-<li><a href="https://zhuanlan.zhihu.com/p/486857682" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/486857682</a> 介绍CLIP，不错【大概看完】</li>
-<li><a href="https://jishuin.proginn.com/p/763bfbd71c2f" target="_blank" rel="noopener">https://jishuin.proginn.com/p/763bfbd71c2f</a> 介绍CLIP和发表自己看法 【大概看完】</li>
-<li><a href="https://iii.run/archives/add2d45c7267.html" target="_blank" rel="noopener">https://iii.run/archives/add2d45c7267.html</a> 介绍CLIP数据集等特色【大概看完，可以再看】</li>
-<li><a href="https://zhuanlan.zhihu.com/p/427740816" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/427740816</a> 简略介绍CLIP 【大概看完】</li>
-<li><a href="https://aitechtogether.com/article/39432.html" target="_blank" rel="noopener">https://aitechtogether.com/article/39432.html</a> 简略介绍CLIP 【大概看完】</li>
-<li><a href="https://blog.csdn.net/u012193416/article/details/125891924" target="_blank" rel="noopener">https://blog.csdn.net/u012193416/article/details/125891924</a> 简略介绍CLIP 【大概看完】</li>
-<li><a href="https://www.zhihu.com/question/438649654" target="_blank" rel="noopener">https://www.zhihu.com/question/438649654</a> 知乎CLIP看法【没看完】</li>
-<li><a href="https://cloud.tencent.com/developer/article/1902815" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1902815</a> 介绍CLIP4clip 【没看】</li>
-<li><a href="https://www.cvmart.net/community/detail/5815" target="_blank" rel="noopener">https://www.cvmart.net/community/detail/5815</a> ActionCLIP 【没看】</li>
+<li><a href="https://zhuanlan.zhihu.com/p/486857682">https://zhuanlan.zhihu.com/p/486857682</a> 介绍CLIP，不错【大概看完】</li>
+<li><a href="https://jishuin.proginn.com/p/763bfbd71c2f">https://jishuin.proginn.com/p/763bfbd71c2f</a> 介绍CLIP和发表自己看法 【大概看完】</li>
+<li><a href="https://iii.run/archives/add2d45c7267.html">https://iii.run/archives/add2d45c7267.html</a> 介绍CLIP数据集等特色【大概看完，可以再看】</li>
+<li><a href="https://zhuanlan.zhihu.com/p/427740816">https://zhuanlan.zhihu.com/p/427740816</a> 简略介绍CLIP 【大概看完】</li>
+<li><a href="https://aitechtogether.com/article/39432.html">https://aitechtogether.com/article/39432.html</a> 简略介绍CLIP 【大概看完】</li>
+<li><a href="https://blog.csdn.net/u012193416/article/details/125891924">https://blog.csdn.net/u012193416/article/details/125891924</a> 简略介绍CLIP 【大概看完】</li>
+<li><a href="https://www.zhihu.com/question/438649654">https://www.zhihu.com/question/438649654</a> 知乎CLIP看法【没看完】</li>
+<li><a href="https://cloud.tencent.com/developer/article/1902815">https://cloud.tencent.com/developer/article/1902815</a> 介绍CLIP4clip 【没看】</li>
+<li><a href="https://www.cvmart.net/community/detail/5815">https://www.cvmart.net/community/detail/5815</a> ActionCLIP 【没看】</li>
 </ul>
 <h1 id="mae"><a class="markdownIt-Anchor" href="#mae"></a> MAE</h1>
 <blockquote>
@@ -508,7 +536,7 @@
 </ol>
 </blockquote>
 <blockquote>
-<p>代码：<a href="https://github.com/facebookresearch/mae" target="_blank" rel="noopener">https://github.com/facebookresearch/mae</a></p>
+<p>代码：<a href="https://github.com/facebookresearch/mae">https://github.com/facebookresearch/mae</a></p>
 </blockquote>
 <h2 id="mim发展"><a class="markdownIt-Anchor" href="#mim发展"></a> MIM发展</h2>
 <p>BEiT<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>：输入图像随机掩码部分patch，通过ViT基于未掩码图像patch来恢复掩码图像patch，重建目标不是原始像素，而是通过dVAE得到的discrete visual tokens离散视觉标记。大约掩码40%。</p>
@@ -628,19 +656,19 @@
 </ul>
 <h2 id="参考-3"><a class="markdownIt-Anchor" href="#参考-3"></a> 参考</h2>
 <ul>
-<li><a href="https://blog.csdn.net/c9Yv2cf9I06K2A9E/article/details/125270007" target="_blank" rel="noopener">https://blog.csdn.net/c9Yv2cf9I06K2A9E/article/details/125270007</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/528720386" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/528720386</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/432984431%E3%80%90MAE%E5%AE%9E%E9%AA%8C%E3%80%91" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/432984431【MAE实验】</a></li>
-<li><a href="https://picture.iczhiku.com/weixin/message1639795018014.html%E3%80%90MAE%E3%80%91" target="_blank" rel="noopener">https://picture.iczhiku.com/weixin/message1639795018014.html【MAE】</a></li>
-<li><a href="https://aistudio.baidu.com/aistudio/projectdetail/3465622%E3%80%90mae%E4%BB%A3%E7%A0%81" target="_blank" rel="noopener">https://aistudio.baidu.com/aistudio/projectdetail/3465622【mae代码</a></li>
-<li><a href="https://www.51cto.com/article/718613.html%E3%80%90mae%E5%90%84%E4%B8%AA%E9%A2%86%E5%9F%9F" target="_blank" rel="noopener">https://www.51cto.com/article/718613.html【mae各个领域</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/445561242%E3%80%90beit%E5%92%8CMAE%E3%80%91" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/445561242【beit和MAE】</a></li>
-<li><a href="https://wanggrun.github.io/projects/fast/fast021" target="_blank" rel="noopener">https://wanggrun.github.io/projects/fast/fast021</a> BEiT</li>
-<li><a href="https://zhuanlan.zhihu.com/p/467399602%E3%80%90CAE%E3%80%91" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/467399602【CAE】</a></li>
-<li><a href="https://www.qbitai.com/2022/02/32835.html" target="_blank" rel="noopener">https://www.qbitai.com/2022/02/32835.html</a> 【CAE】</li>
-<li><a href="https://zhuanlan.zhihu.com/p/475952825%E3%80%90MIM%E3%80%91simmim" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/475952825【MIM】simmim</a> 同期</li>
-<li><a href="https://zhuanlan.zhihu.com/p/480196600%E3%80%90MIM%E3%80%91" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/480196600【MIM】</a></li>
-<li><a href="https://jishuin.proginn.com/p/763bfbd78a55" target="_blank" rel="noopener">https://jishuin.proginn.com/p/763bfbd78a55</a> 【ConvMAE】</li>
+<li><a href="https://blog.csdn.net/c9Yv2cf9I06K2A9E/article/details/125270007">https://blog.csdn.net/c9Yv2cf9I06K2A9E/article/details/125270007</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/528720386">https://zhuanlan.zhihu.com/p/528720386</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/432984431%E3%80%90MAE%E5%AE%9E%E9%AA%8C%E3%80%91">https://zhuanlan.zhihu.com/p/432984431【MAE实验】</a></li>
+<li><a href="https://picture.iczhiku.com/weixin/message1639795018014.html%E3%80%90MAE%E3%80%91">https://picture.iczhiku.com/weixin/message1639795018014.html【MAE】</a></li>
+<li><a href="https://aistudio.baidu.com/aistudio/projectdetail/3465622%E3%80%90mae%E4%BB%A3%E7%A0%81">https://aistudio.baidu.com/aistudio/projectdetail/3465622【mae代码</a></li>
+<li><a href="https://www.51cto.com/article/718613.html%E3%80%90mae%E5%90%84%E4%B8%AA%E9%A2%86%E5%9F%9F">https://www.51cto.com/article/718613.html【mae各个领域</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/445561242%E3%80%90beit%E5%92%8CMAE%E3%80%91">https://zhuanlan.zhihu.com/p/445561242【beit和MAE】</a></li>
+<li><a href="https://wanggrun.github.io/projects/fast/fast021">https://wanggrun.github.io/projects/fast/fast021</a> BEiT</li>
+<li><a href="https://zhuanlan.zhihu.com/p/467399602%E3%80%90CAE%E3%80%91">https://zhuanlan.zhihu.com/p/467399602【CAE】</a></li>
+<li><a href="https://www.qbitai.com/2022/02/32835.html">https://www.qbitai.com/2022/02/32835.html</a> 【CAE】</li>
+<li><a href="https://zhuanlan.zhihu.com/p/475952825%E3%80%90MIM%E3%80%91simmim">https://zhuanlan.zhihu.com/p/475952825【MIM】simmim</a> 同期</li>
+<li><a href="https://zhuanlan.zhihu.com/p/480196600%E3%80%90MIM%E3%80%91">https://zhuanlan.zhihu.com/p/480196600【MIM】</a></li>
+<li><a href="https://jishuin.proginn.com/p/763bfbd78a55">https://jishuin.proginn.com/p/763bfbd78a55</a> 【ConvMAE】</li>
 </ul>
 <h1 id="对比"><a class="markdownIt-Anchor" href="#对比"></a> 对比</h1>
 <ul>
@@ -824,7 +852,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://calmcapK.github.io/2022/10/18/深度学习-大规模预训练/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://calmcapk.github.io/2022/10/18/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -838,7 +866,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/10/27/深度学习-图像视频生成/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/10/27/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -848,7 +876,7 @@
     </a>
   
   
-    <a href="/2022/10/12/生活笔记/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/10/12/%E7%94%9F%E6%B4%BB%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">生活笔记</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -876,7 +904,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景知识"><span class="toc-number">1.</span> <span class="toc-text"> 背景知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">1.1.</span> <span class="toc-text"> 参考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题"><span class="toc-number">1.2.</span> <span class="toc-text"> 问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#clip"><span class="toc-number">2.</span> <span class="toc-text"> CLIP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#从文本学习图像表示的发展"><span class="toc-number">2.1.</span> <span class="toc-text"> 从文本学习图像表示的发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#clip原理"><span class="toc-number">2.2.</span> <span class="toc-text"> CLIP原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#clip-zero-shot迁移能力"><span class="toc-number">2.3.</span> <span class="toc-text"> CLIP zero-shot迁移能力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#clip结论"><span class="toc-number">2.4.</span> <span class="toc-text"> CLIP结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#itm后续发展"><span class="toc-number">2.5.</span> <span class="toc-text"> ITM后续发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考-2"><span class="toc-number">2.6.</span> <span class="toc-text"> 参考</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mae"><span class="toc-number">3.</span> <span class="toc-text"> MAE</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#mim发展"><span class="toc-number">3.1.</span> <span class="toc-text"> MIM发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mae原理"><span class="toc-number">3.2.</span> <span class="toc-text"> MAE原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mae流程"><span class="toc-number">3.3.</span> <span class="toc-text"> MAE流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mae结论"><span class="toc-number">3.4.</span> <span class="toc-text"> MAE结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mae发展和应用"><span class="toc-number">3.5.</span> <span class="toc-text"> MAE发展和应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mim后续发展"><span class="toc-number">3.6.</span> <span class="toc-text"> MIM后续发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考-3"><span class="toc-number">3.7.</span> <span class="toc-text"> 参考</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#对比"><span class="toc-number">4.</span> <span class="toc-text"> 对比</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">5.</span> <span class="toc-text"> 参考资料</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86"><span class="toc-number">1.</span> <span class="toc-text"> 背景知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">1.1.</span> <span class="toc-text"> 参考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-number">1.2.</span> <span class="toc-text"> 问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#clip"><span class="toc-number">2.</span> <span class="toc-text"> CLIP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E6%96%87%E6%9C%AC%E5%AD%A6%E4%B9%A0%E5%9B%BE%E5%83%8F%E8%A1%A8%E7%A4%BA%E7%9A%84%E5%8F%91%E5%B1%95"><span class="toc-number">2.1.</span> <span class="toc-text"> 从文本学习图像表示的发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#clip%E5%8E%9F%E7%90%86"><span class="toc-number">2.2.</span> <span class="toc-text"> CLIP原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#clip-zero-shot%E8%BF%81%E7%A7%BB%E8%83%BD%E5%8A%9B"><span class="toc-number">2.3.</span> <span class="toc-text"> CLIP zero-shot迁移能力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#clip%E7%BB%93%E8%AE%BA"><span class="toc-number">2.4.</span> <span class="toc-text"> CLIP结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#itm%E5%90%8E%E7%BB%AD%E5%8F%91%E5%B1%95"><span class="toc-number">2.5.</span> <span class="toc-text"> ITM后续发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83-2"><span class="toc-number">2.6.</span> <span class="toc-text"> 参考</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mae"><span class="toc-number">3.</span> <span class="toc-text"> MAE</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#mim%E5%8F%91%E5%B1%95"><span class="toc-number">3.1.</span> <span class="toc-text"> MIM发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mae%E5%8E%9F%E7%90%86"><span class="toc-number">3.2.</span> <span class="toc-text"> MAE原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mae%E6%B5%81%E7%A8%8B"><span class="toc-number">3.3.</span> <span class="toc-text"> MAE流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mae%E7%BB%93%E8%AE%BA"><span class="toc-number">3.4.</span> <span class="toc-text"> MAE结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mae%E5%8F%91%E5%B1%95%E5%92%8C%E5%BA%94%E7%94%A8"><span class="toc-number">3.5.</span> <span class="toc-text"> MAE发展和应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mim%E5%90%8E%E7%BB%AD%E5%8F%91%E5%B1%95"><span class="toc-number">3.6.</span> <span class="toc-text"> MIM后续发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83-3"><span class="toc-number">3.7.</span> <span class="toc-text"> 参考</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%B9%E6%AF%94"><span class="toc-number">4.</span> <span class="toc-text"> 对比</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">5.</span> <span class="toc-text"> 参考资料</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -925,7 +953,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2024 CalmCapK
+    		&copy; 2025 CalmCapK
     	</div>
       <div class="footer-right">
       	<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -946,7 +974,7 @@
 		toc_hide_index: false,
 		root: "/",
 		innerArchive: true,
-		showTags: true
+		showTags: false
 	}
 </script>
 
@@ -1083,14 +1111,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">latex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MMD</a>
               </li>
              
@@ -1111,6 +1131,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
@@ -1123,27 +1159,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">vitualenv</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">clip</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1171,15 +1191,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">吉他</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+                <a href="javascript:void(0)" class="js-tag color5">clip</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1192,6 +1204,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Pr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">吉他</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1215,6 +1231,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">OBS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">procreate</a>
               </li>
              
@@ -1227,51 +1255,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">OBS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">动画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">漫画</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">小说</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电影</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">电视剧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">旅游</a>
+                <a href="javascript:void(0)" class="js-tag color4">优化器</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">transformer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基金</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">优化器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1295,23 +1283,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">backbone</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">冻结训练</a>
+                <a href="javascript:void(0)" class="js-tag color3">指标</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">天池</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">指标</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1331,11 +1307,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color4">公众号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">backbone</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">冻结训练</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1348,6 +1344,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1375,34 +1383,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">公众号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ios</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">电脑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">配置</a>
               </li>
              
@@ -1415,7 +1395,55 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">动画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">漫画</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">小说</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">电影</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">电视剧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基金</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">厨房</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">deecamp2021</a>
               </li>
              
               <li class="article-tag-list-item">
