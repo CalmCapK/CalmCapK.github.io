@@ -5421,145 +5421,127 @@ find: /find<br>
 <li>github打开项目-&gt;setting-&gt;page-&gt;修改branch-&gt;出现Custom domain-&gt;访问失败-&gt;出现https://AAA.github.io/BBB/</li>
 </ul>
 <h3 id="使用matery主题"><a class="markdownIt-Anchor" href="#使用matery主题"></a> 使用matery主题</h3>
+<h4 id="修改1-参考说明修改"><a class="markdownIt-Anchor" href="#修改1-参考说明修改"></a> 修改1、参考说明修改</h4>
+<p><a href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md">https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md</a></p>
 <ul>
-<li>
-<p>参考说明修改<br>
-<a href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md">https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md</a></p>
+<li>配置页面：categories、tags、about、contact、friends、404页面</li>
+<li>配置friends内容：
+<ul>
+<li>博客的source/_data/friends.json</li>
+</ul>
 </li>
-<li>
-<p>修改themes/matery/_config.yaml</p>
+<li>代码高亮【未研究】</li>
+<li>搜索【ok】
+<ul>
+<li>安装npm install hexo-generator-search --save</li>
+<li>博客的_config.yml修改</li>
+</ul>
 </li>
-<li>
-<p>图片位置：<br>
-打赏：/medias/reward/weixin_pay.png<br>
-头像：/medias/avatar.jpg<br>
-个人相册：/medias/featureimages/2.jpg<br>
-封面视频：<a href="https://txmov2.a.yximgs.com/upic/2021/04/09/22/BMjAyMTA0MDkyMjMwMDhfMTg1ODk2MDg4N180NzUyOTMyMjA4Nl8xXzM=_b_B8e080d7ede19e6674d48a9f12545007b.mp4?pkey=AAVAfNhi5_f-HGkIPXrY5w6nyf4JibwOY-WwdHgSJ2aSoi-2WQLpiYDunLbRZQuESz875eMdsepRlVFtXg9nuQY58uRc-7AsF0kEMNR6QYBj56g9JFFMSGdsoKK2-SV27u8&amp;tag=1-1617978682-xpcwebprofile-0-lcvipceuti-9e40072f87531f1a&amp;clientCacheKey=3xbbtbrfxqpccp4_b.mp4">https://txmov2.a.yximgs.com/upic/2021/04/09/22/BMjAyMTA0MDkyMjMwMDhfMTg1ODk2MDg4N180NzUyOTMyMjA4Nl8xXzM=_b_B8e080d7ede19e6674d48a9f12545007b.mp4?pkey=AAVAfNhi5_f-HGkIPXrY5w6nyf4JibwOY-WwdHgSJ2aSoi-2WQLpiYDunLbRZQuESz875eMdsepRlVFtXg9nuQY58uRc-7AsF0kEMNR6QYBj56g9JFFMSGdsoKK2-SV27u8&amp;tag=1-1617978682-xpcwebprofile-0-lcvipceuti-9e40072f87531f1a&amp;clientCacheKey=3xbbtbrfxqpccp4_b.mp4</a><br>
-文章封面图片：- /medias/featureimages/0.jpg</p>
+<li>中文链接转拼音【未研究】</li>
+<li>添加emoji表情支持【未研究】</li>
+<li>添加 RSS 订阅支持【未研究】</li>
+<li>在线聊天功能【未研究】</li>
+<li>修改网站页脚【未研究】
+<ul>
+<li>主题的/layout/_partial/footer.ejs</li>
+</ul>
 </li>
-<li>
-<p>文章字数统计，要安装npm i --save hexo-wordcount</p>
+<li>添加中文繁简转换【未研究】</li>
+<li>修改社交链接，修改主题的_config.yml的socialLink内容
+<ul>
+<li>主题的/layout/_partial/social-link.ejs</li>
+</ul>
 </li>
-<li>
-<p>二级菜单【ok】</p>
+<li>添加note【未研究】</li>
+<li>文章Front-matter介绍【部分研究】
+<ul>
+<li>summary: 卡片</li>
+<li>top: true首页推荐区域放置文章</li>
+<li>hide: true首页不出现文章</li>
+<li>toc: false关闭目录</li>
+<li>password: 该值必须是用 SHA256 加密后的密码【没成功】</li>
+<li>cover: true表示该文章加入到首页轮播封面</li>
+<li>coverImg: 表示该文章在首页轮播封面需要显示的图片路径，如果没有，则默认使用文章的特色图片</li>
+</ul>
 </li>
-<li>
-<p>站点运行时间【ok】</p>
+<li>主题颜色
+<ul>
+<li>主题的/source/css/matery.css 搜索 .bg-color 来修改背景颜色<br>
+/* 整体背景颜色，包括导航、移动端的导航、页尾、标签页等的背景颜色. */<br>
+.bg-color {<br>
+background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);<br>
+}<br>
+#4cbf30 -&gt; #df933c<br>
+#0f9d58 -&gt; #d39013<br>
+#42b983 -&gt; #b97b42<br>
+#5cb85c -&gt; #b8935c</li>
+</ul>
 </li>
-<li>
-<p>首页封面轮播图的相关配置【ok】</p>
+<li>修改banner图：
+<ul>
+<li>主题的/source/medias/banner，每天一张7张即可</li>
+</ul>
 </li>
-<li>
-<p>配置首页显示&quot;梦想&quot;的语句【ok】</p>
+</ul>
+<h4 id="修改2-修改themesmatery_configyaml"><a class="markdownIt-Anchor" href="#修改2-修改themesmatery_configyaml"></a> 修改2、修改themes/matery/_config.yaml</h4>
+<ul>
+<li>图片位置：【ok】
+<ul>
+<li>打赏：主题的source/medias/reward/weixin_pay.png</li>
+<li>头像：主题的source/medias/avatar.jpg</li>
+<li>个人相册myGallery: 主题的source/medias/featureimages 前3张？</li>
+<li>封面视频：</li>
+<li>文章封面图片：
+<ul>
+<li>featureImages【ok】修改文章特色图，用于轮播和封面</li>
+<li>主题的/source/medias/featureimages，24张，选哟在_config.yml做同步修改featureImages</li>
+</ul>
 </li>
-<li>
-<p>音乐 【ok】</p>
+</ul>
 </li>
-<li>
-<p>video 【未启用】</p>
+<li>二级菜单【ok】</li>
+<li>站点运行时间【ok】</li>
+<li>首页封面轮播图的相关配置【ok】</li>
+<li>配置首页显示&quot;梦想&quot;的语句【ok】</li>
+<li>音乐播放器 【ok】</li>
+<li>video 【未启用】</li>
+<li>recommend 【未启用】</li>
+<li>第二个按钮的配置 【ok】</li>
+<li>首页banner的配置 【ok】</li>
+<li>代码块相关 【未启用】</li>
+<li>reward 【ok】</li>
+<li>copyright 【未启用】</li>
+<li>mathjax 【未启用】</li>
+<li>文章信息 【ok】
+<ul>
+<li>文章字数统计，要安装npm i --save hexo-wordcount</li>
+</ul>
 </li>
-<li>
-<p>recommend 【未启用】</p>
+<li>点击效果 【ok】</li>
+<li>个人页面【ok】</li>
+<li>个人项目【未启用】</li>
+<li>个人技能【ok】</li>
+<li>个人相册【ok】</li>
+<li>归档-日历显示【ok】</li>
+<li>评论【未启用】</li>
+<li>右上角连接githubLink【ok】</li>
+<li>文章加密verifyPassword【未激活】:
+<ul>
+<li>和文章front信息,password有关</li>
+</ul>
 </li>
-<li>
-<p>第二个按钮的配置 【ok】</p>
-</li>
-<li>
-<p>首页banner的配置 【ok】</p>
-</li>
-<li>
-<p>代码块相关 【未启用】</p>
-</li>
-<li>
-<p>reward 【ok】</p>
-</li>
-<li>
-<p>copyright 【未启用】</p>
-</li>
-<li>
-<p>mathjax 【未启用】</p>
-</li>
-<li>
-<p>文章信息 【ok】</p>
-</li>
-<li>
-<p>点击效果 【ok】</p>
-</li>
-<li>
-<p>个人页面【ok】</p>
-</li>
-<li>
-<p>个人项目【未启用】</p>
-</li>
-<li>
-<p>个人技能【ok】</p>
-</li>
-<li>
-<p>个人相册【ok】</p>
-</li>
-<li>
-<p>归档-日历显示【ok】</p>
-</li>
-<li>
-<p>评论【未启用】</p>
-</li>
-<li>
-<p>文章加密【未激活，要激活】</p>
-</li>
-<li>
-<p>人数统计【？】</p>
-</li>
-<li>
-<p>谷歌、百度搜索【未启用】</p>
-</li>
-<li>
-<p>百度搜索资源平台提交链接【ok】</p>
-</li>
-<li>
-<p>文章封面图片【ok】</p>
-</li>
-<li>
-<p>转载规则【未启用】</p>
-</li>
-<li>
-<p>文章分享模块【ok】</p>
-</li>
-<li>
-<p>副标题【ok】</p>
-</li>
-<li>
-<p>手机二级菜单【未启用】</p>
-</li>
-<li>
-<p>网页预加载【ok】</p>
-</li>
-<li>
-<p>banner每日切换【ok】</p>
-</li>
-<li>
-<p>中文繁简转换开关【未启用】</p>
-</li>
-<li>
-<p>网站背景图【未启用】</p>
-</li>
-<li>
-<p>代码高亮</p>
-</li>
-<li>
-<p>搜索【ok】</p>
-</li>
-<li>
-<p>中文链接转拼音（建议安装）</p>
-</li>
-<li>
-<p>添加emoji表情支持（可选的）</p>
-</li>
-<li>
-<p>添加 RSS 订阅支持（可选的）</p>
-</li>
-<li>
-<p>在线聊天功能</p>
-</li>
+<li>人数统计【？】</li>
+<li>谷歌、百度搜索【未启用】</li>
+<li>百度搜索资源平台提交链接【ok】</li>
+<li>文章封面图片【ok】</li>
+<li>转载规则【未启用】</li>
+<li>文章分享模块【ok】</li>
+<li>副标题【ok】</li>
+<li>手机二级菜单【未启用】</li>
+<li>网页预加载【ok】</li>
+<li>banner每日切换【ok】</li>
+<li>中文繁简转换开关【未启用】</li>
+<li>网站背景图【未启用】</li>
 </ul>
 
       
@@ -17962,6 +17944,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">secret</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">latex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MMD</a>
               </li>
              
@@ -17975,26 +17977,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Blender</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">secret</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">deepfake</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">latex</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -18015,22 +17997,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">virtualenvwrapper</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">clip</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">PS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Pr</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -18055,6 +18021,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssr</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">clip</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">PS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Pr</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -18102,11 +18084,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">优化器</a>
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
+                <a href="javascript:void(0)" class="js-tag color2">transformer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">优化器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -18134,7 +18120,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">transformer</a>
+                <a href="javascript:void(0)" class="js-tag color4">backbone</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">冻结训练</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -18158,14 +18148,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">backbone</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">冻结训练</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
@@ -18182,11 +18164,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电脑</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">医学</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -18199,18 +18189,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ps</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">配置</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -18235,6 +18213,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">live2d</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">配置</a>
               </li>
              
               <li class="article-tag-list-item">
