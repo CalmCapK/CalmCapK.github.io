@@ -5763,6 +5763,7 @@ background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);<br>
 #0f9d58 -&gt; #d39013<br>
 #42b983 -&gt; #b97b42<br>
 #5cb85c -&gt; #b8935c</li>
+<li>主题的/source/css/poss.css 修改目录颜色</li>
 </ul>
 </li>
 <li>修改banner图：
@@ -5861,7 +5862,11 @@ template: ./search.xml</p>
   <content>
   <categories>
   <tags>
-</tags></categories></content></url></title></li>
+  添加：
+      <summary>
+      <date>
+      <img>
+</date></summary></tags></categories></content></url></title></li>
 <li>
 <p>对比themes\hexo-theme-matery\layout\category.ejs</p>
 <ul>
@@ -5869,12 +5874,18 @@ template: ./search.xml</p>
 <ul>
 <li>正常逻辑：找img标签，找不到就从轮播图找</li>
 <li>搜索逻辑：search.xml的文章第一个img，找不到就从轮播图找</li>
+<li>最终搜索逻辑：找img标签，找不到就从轮播图找</li>
 </ul>
 </li>
 <li>summary
 <ul>
-<li>正常逻辑：找summary标签，没有就前120字</li>
+<li>正常逻辑：找summary标签，没有就前120字（0字）
+<ul>
+<li>改了不显示：&lt;%- strip_html(post.content).substring(0, 0) %&gt;</li>
+</ul>
+</li>
 <li>搜索逻辑：search.xml的文章前几行</li>
+<li>最终搜索逻辑：找summary标签</li>
 </ul>
 </li>
 <li>tag、category、title、url
@@ -5884,11 +5895,13 @@ template: ./search.xml</p>
 <ul>
 <li>正常逻辑：如果没有，则显示author</li>
 <li>搜索逻辑：只显示category， category少了链接，搜索使用span，正常使用a</li>
+<li>最终搜索逻辑：补充点击跳转</li>
 </ul>
 </li>
 <li>tag
 <ul>
 <li>搜索逻辑：tag少了链接，搜索使用span，正常使用a</li>
+<li>最终搜索逻辑：补充点击跳转</li>
 </ul>
 </li>
 </ul>
@@ -5896,6 +5909,48 @@ template: ./search.xml</p>
 <li>updated
 <ul>
 <li>和其它一样，提取内容, search.xml没有</li>
+<li>最终搜索逻辑：改成date</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>修改</p>
+<ul>
+<li>1、修改模板 cookbook\node_modules\hexo-generator-search\templates\search.xml</li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if post.summary and post.summary.length&gt;0 %&#125;</span><br><span class="line">    &lt;summary&gt;</span><br><span class="line">        &#123;&#123; post.summary &#125;&#125;</span><br><span class="line">    &lt;/summary&gt;</span><br><span class="line">  &#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">  &#123;% if post.date %&#125;</span><br><span class="line">    &lt;date&gt;</span><br><span class="line">        &#123;&#123; post.date &#125;&#125;</span><br><span class="line">    &lt;/date&gt;</span><br><span class="line">  &#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">  &#123;% if post.img %&#125;</span><br><span class="line">    &lt;img&gt;</span><br><span class="line">        &#123;&#123; url + post.img &#125;&#125;</span><br><span class="line">    &lt;/img&gt;</span><br><span class="line">  &#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>2、hexo clean &amp; hexo g</li>
+<li>3、查看生成文件 cookbook\public\search.xml</li>
+<li>4、修改实现 cookbook\themes\hexo-theme-matery\layout\find.ejs
+<ul>
+<li>对比：cookbook\themes\hexo-theme-matery\layout\category.ejs</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>待完善</p>
+<ul>
+<li>搜索
+<ul>
+<li>新建搜索页面 【ok】</li>
+<li>搜索实现 【ok】</li>
+<li>博文属性配置 【ok】</li>
+<li>搜索翻页【不会】</li>
+<li>长度不一致【不会】</li>
+</ul>
+</li>
+<li>目录
+<ul>
+<li>目录颜色 post.css修改【ok】</li>
+<li>手机目录【ok】cookbook\themes\hexo-theme-matery\layout_partial\post-detail-toc.ejs  把属性hide-on-med-and-down去掉</li>
+</ul>
+</li>
+<li>其它
+<ul>
+<li>去到底部 【不会】</li>
 </ul>
 </li>
 </ul>
@@ -18351,23 +18406,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tmux</a>
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -18383,7 +18426,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">clip</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">tmux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">PS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Pr</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -18411,15 +18474,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">PS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Pr</a>
+                <a href="javascript:void(0)" class="js-tag color5">clip</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -18455,43 +18510,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">procreate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ipad</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">transformer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">优化器</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多标签</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">指标</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">backbone</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">冻结训练</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -18511,7 +18534,39 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">指标</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">backbone</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">冻结训练</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">天池</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">transformer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">procreate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ipad</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">明日方舟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">飞桨</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -18547,10 +18602,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">医学</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">电脑</a>
               </li>
              
@@ -18564,6 +18615,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">医学</a>
               </li>
              
               <li class="article-tag-list-item">
